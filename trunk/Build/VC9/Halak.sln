@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual C++ Express 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Halak", "Halak.vcproj", "{65596820-CF8C-4E14-B587-6170CCE4F948}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Halak.Reflection", "Halak.Reflection.vcproj", "{381F33C3-DD66-4DCC-8548-2C5F4E037551}"
+	ProjectSection(ProjectDependencies) = postProject
+		{65596820-CF8C-4E14-B587-6170CCE4F948} = {65596820-CF8C-4E14-B587-6170CCE4F948}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Halak.Samples", "Halak.Samples.vcproj", "{0352D1BC-9ECA-4D1F-8C56-02A724A2CEFC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{65596820-CF8C-4E14-B587-6170CCE4F948} = {65596820-CF8C-4E14-B587-6170CCE4F948}
+		{381F33C3-DD66-4DCC-8548-2C5F4E037551} = {381F33C3-DD66-4DCC-8548-2C5F4E037551}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Halak.Toolkit", "Halak.Toolkit.vcproj", "{7CF13308-B55D-46DB-B5B5-368F2FE86186}"
+	ProjectSection(ProjectDependencies) = postProject
+		{65596820-CF8C-4E14-B587-6170CCE4F948} = {65596820-CF8C-4E14-B587-6170CCE4F948}
+		{381F33C3-DD66-4DCC-8548-2C5F4E037551} = {381F33C3-DD66-4DCC-8548-2C5F4E037551}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Halak.Tools", "Halak.Tools.vcproj", "{12600466-F83B-423F-A3EA-A0B4C8570747}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7CF13308-B55D-46DB-B5B5-368F2FE86186} = {7CF13308-B55D-46DB-B5B5-368F2FE86186}
+		{65596820-CF8C-4E14-B587-6170CCE4F948} = {65596820-CF8C-4E14-B587-6170CCE4F948}
+		{381F33C3-DD66-4DCC-8548-2C5F4E037551} = {381F33C3-DD66-4DCC-8548-2C5F4E037551}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{65596820-CF8C-4E14-B587-6170CCE4F948}.Debug|Win32.ActiveCfg = Debug|Win32
+		{65596820-CF8C-4E14-B587-6170CCE4F948}.Debug|Win32.Build.0 = Debug|Win32
+		{65596820-CF8C-4E14-B587-6170CCE4F948}.Release|Win32.ActiveCfg = Release|Win32
+		{65596820-CF8C-4E14-B587-6170CCE4F948}.Release|Win32.Build.0 = Release|Win32
+		{381F33C3-DD66-4DCC-8548-2C5F4E037551}.Debug|Win32.ActiveCfg = Debug|Win32
+		{381F33C3-DD66-4DCC-8548-2C5F4E037551}.Debug|Win32.Build.0 = Debug|Win32
+		{381F33C3-DD66-4DCC-8548-2C5F4E037551}.Release|Win32.ActiveCfg = Release|Win32
+		{381F33C3-DD66-4DCC-8548-2C5F4E037551}.Release|Win32.Build.0 = Release|Win32
+		{0352D1BC-9ECA-4D1F-8C56-02A724A2CEFC}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0352D1BC-9ECA-4D1F-8C56-02A724A2CEFC}.Debug|Win32.Build.0 = Debug|Win32
+		{0352D1BC-9ECA-4D1F-8C56-02A724A2CEFC}.Release|Win32.ActiveCfg = Release|Win32
+		{0352D1BC-9ECA-4D1F-8C56-02A724A2CEFC}.Release|Win32.Build.0 = Release|Win32
+		{7CF13308-B55D-46DB-B5B5-368F2FE86186}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7CF13308-B55D-46DB-B5B5-368F2FE86186}.Debug|Win32.Build.0 = Debug|Win32
+		{7CF13308-B55D-46DB-B5B5-368F2FE86186}.Release|Win32.ActiveCfg = Release|Win32
+		{7CF13308-B55D-46DB-B5B5-368F2FE86186}.Release|Win32.Build.0 = Release|Win32
+		{12600466-F83B-423F-A3EA-A0B4C8570747}.Debug|Win32.ActiveCfg = Debug|Win32
+		{12600466-F83B-423F-A3EA-A0B4C8570747}.Debug|Win32.Build.0 = Debug|Win32
+		{12600466-F83B-423F-A3EA-A0B4C8570747}.Release|Win32.ActiveCfg = Release|Win32
+		{12600466-F83B-423F-A3EA-A0B4C8570747}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
