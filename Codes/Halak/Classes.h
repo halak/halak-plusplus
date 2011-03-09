@@ -4,10 +4,11 @@
 
     namespace Halak
     {
-#       define HKClasses(declaredClass, declaredRefClass, declaredInterface)
-            declaredClass() \
-            declaredRefClass() \
-            declaredInterface()
+#       define HKClasses(Struct, Class, ReferenceClass, Interface)
+            Struct() \
+            Class() \
+            ReferenceClass() \
+            Interface() \
     }
 
 #endif
