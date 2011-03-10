@@ -3,15 +3,22 @@
 #define __HALAK_GAMECOMPONENT_H__
 
 #   include <Halak/FWD.h>
+#   include <Halak/FOURCC.h>
 
     namespace Halak
     {
-#       define HKDeclareGameComponentClass(id)
-#       define HKDeclareGameComponentClassFOURCC(a, b, c, d)
+#       define HKDeclareGameComponentClass(id) \
+                    public: \
+                        static const uint ClassID = id; \
+                        virtual uint GetClassID() const { return ClassID; } \
+                    private:
+
+#       define HKDeclareGameComponentClassFOURCC(a, b, c, d) HKDeclareGameComponentClass(HKMakeFOURCC(a, b, c, d))
 
         /// Game이란 Application을 구성하는 요소의 기반 class.
         class GameComponent
         {
+            HKDeclareGameComponentClassFOURCC('G', 'A', 'C', 'P')
             public:
                 enum Status
                 {
@@ -43,6 +50,8 @@
                 virtual const IUpdateable* ToUpdateableInterface() const;
                 virtual       IDrawable*   ToDrawableInterface();
                 virtual const IDrawable*   ToDrawableInterface() const;
+                virtual       void* ToInterface(uint classID);
+                virtual const void* ToInterface(uint classID) const;
 
             protected:
                 GameComponent();

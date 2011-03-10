@@ -1,13 +1,7 @@
-#pragma once
-#ifndef __HALAK_DRAWINGCONTEXT_INL__
-#define __HALAK_DRAWINGCONTEXT_INL__
-
-    namespace Halak
+namespace Halak
+{
+    SpriteRenderer* DrawingContext::GetSpriteRenderer() const
     {
-        SpriteRenderer* DrawingContext::GetSpriteRenderer() const
-        {
-            return spriteRenderer;
-        }
+        return spriteRenderer;
     }
-
-#endif
+}

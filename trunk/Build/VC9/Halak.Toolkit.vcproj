@@ -21,7 +21,7 @@
 			OutputDirectory="..\..\Libraries"
 			IntermediateDirectory="Intermediate\$(ProjectName).$(ConfigurationName)"
 			ConfigurationType="4"
-			CharacterSet="1"
+			CharacterSet="2"
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
@@ -84,7 +84,7 @@
 			OutputDirectory="..\..\Libraries"
 			IntermediateDirectory="Intermediate\$(ProjectName).$(ConfigurationName)"
 			ConfigurationType="4"
-			CharacterSet="1"
+			CharacterSet="2"
 			WholeProgramOptimization="1"
 			>
 			<Tool
@@ -444,7 +444,63 @@
 			>
 		</File>
 		<File
+			RelativePath="..\..\Codes\Halak\Attribute.cpp"
+			>
+		</File>
+		<File
+			RelativePath="..\..\Codes\Halak\Attribute.h"
+			>
+		</File>
+		<File
+			RelativePath="..\..\Codes\Halak\Attributes.h"
+			>
+		</File>
+		<File
+			RelativePath="..\..\Codes\Halak.Toolkit\Classes.h"
+			>
+		</File>
+		<File
+			RelativePath="..\..\Codes\Halak\EditorAttribute.cpp"
+			>
+		</File>
+		<File
+			RelativePath="..\..\Codes\Halak\EditorAttribute.h"
+			>
+		</File>
+		<File
+			RelativePath="..\..\Codes\Halak\EntityComponentAttribute.cpp"
+			>
+		</File>
+		<File
+			RelativePath="..\..\Codes\Halak\EntityComponentAttribute.h"
+			>
+		</File>
+		<File
 			RelativePath="..\..\Codes\Halak.Toolkit\FWD.h"
+			>
+		</File>
+		<File
+			RelativePath="..\..\Codes\Halak\RangeAttribute.cpp"
+			>
+		</File>
+		<File
+			RelativePath="..\..\Codes\Halak\RangeAttribute.h"
+			>
+		</File>
+		<File
+			RelativePath="..\..\Codes\Halak\StringFormatterAttribute.cpp"
+			>
+		</File>
+		<File
+			RelativePath="..\..\Codes\Halak\StringFormatterAttribute.h"
+			>
+		</File>
+		<File
+			RelativePath="..\..\Codes\Halak\UnitAttribute.cpp"
+			>
+		</File>
+		<File
+			RelativePath="..\..\Codes\Halak\UnitAttribute.h"
 			>
 		</File>
 	</Files>
