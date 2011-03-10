@@ -9,6 +9,9 @@
         class IDrawable
         {
             public:
+                static const uint ClassID = 0x00000003;
+
+            public:
                 virtual ~IDrawable() { }
 
                 virtual void Draw(DrawingContext& context) = 0;

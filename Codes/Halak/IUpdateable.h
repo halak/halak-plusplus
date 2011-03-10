@@ -9,6 +9,9 @@
         class IUpdateable
         {
             public:
+                static const uint ClassID = 0x00000001;
+
+            public:
                 virtual ~IUpdateable() { }
 
                 virtual void Update(float dt, uint timestamp) = 0;

@@ -3,6 +3,9 @@
 #include <Halak/Exception.h>
 #include <Halak/GameNode.h>
 #include <Halak/GameStructure.h>
+#include <Halak/ICloneable.h>
+#include <Halak/IUpdateable.h>
+#include <Halak/IDrawable.h>
 
 namespace Halak
 {
@@ -107,6 +110,26 @@ namespace Halak
     const IDrawable* GameComponent::ToDrawableInterface() const
     {
         return nullptr;
+    }
+
+    void* GameComponent::ToInterface(uint classID)
+    {
+        switch (classID)
+        {
+            case ICloneable::ClassID:
+                return ToCloneableInterface();
+            case IUpdateable::ClassID:
+                return ToUpdateableInterface();
+            case IDrawable::ClassID:
+                return ToDrawableInterface();
+            default:
+                return nullptr;
+        }
+    }
+
+    const void* GameComponent::ToInterface(uint classID) const
+    {
+        return const_cast<GameComponent*>(this)->ToInterface(classID);
     }
 
     void GameComponent::OnStatusChanged(Status /*old*/)
