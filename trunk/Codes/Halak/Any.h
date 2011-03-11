@@ -21,6 +21,9 @@
         class Any
         {
             public:
+                static const uint ClassID = 0x00000000;
+
+            public:
                 enum Type
                 {
                     NullType,
