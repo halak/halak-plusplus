@@ -126,8 +126,8 @@ namespace Halak
     }
 
     Any::Any(const char* value)
-        : type(StringType),
-          value(reinterpret_cast<void*>(new SmallStorage<String>(value)))
+        : type(value ? StringType : NullType),
+          value(value ? reinterpret_cast<void*>(new SmallStorage<String>(value)) : nullptr)
     {
     }
 

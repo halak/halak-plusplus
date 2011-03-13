@@ -8,6 +8,8 @@
     {
         class AnyPtr
         {
+            HKDeclareStructFOURCC('A', 'N', 'Y', 'P');
+
             public:
                 enum Type
                 {

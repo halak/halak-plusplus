@@ -1,3 +1,4 @@
+#pragma once
 #ifndef __HALAK_RANGE_H__
 #define __HALAK_RANGE_H__
 

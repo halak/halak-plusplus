@@ -9,6 +9,8 @@
     {
         class String
         {
+            HKDeclareStructFOURCC('S', 'T', 'R', '_');
+
             public:
                 class CharRef;
 

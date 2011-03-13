@@ -1,46 +1,7 @@
 #include <Halak/Quaternion.h>
 
 namespace Halak
-{
-    Quaternion::Quaternion()
-        : X(0.0f), Y(0.0f), Z(0.0f), W(0.0f)
-    {
-    }
-
-    Quaternion::Quaternion(float X, float Y, float Z)
-        : X(X), Y(Y), Z(Z), W(0.0f)
-    {
-    }
-
-    Quaternion::Quaternion(float X, float Y, float Z, float W)
-        : X(X), Y(Y), Z(Z), W(W)
-    {
-    }
-
-    Quaternion::Quaternion(const Quaternion& original)
-        : X(original.X), Y(original.Y), Z(original.Z), W(original.W)
-    {
-    }
-
-    Quaternion& Quaternion::operator = (const Quaternion& original)
-    {
-        X = original.X;
-        Y = original.Y;
-        Z = original.Z;
-        W = original.W;
-        return *this;
-    }
-
-    bool Quaternion::operator == (const Quaternion& right) const
-    {
-        return X == right.X && Y == right.Y && Z == right.Z && W == right.W;
-    }
-
-    bool Quaternion::operator != (const Quaternion& right) const
-    {
-        return !operator == (right);
-    }
-    
+{  
     const Quaternion Quaternion::Zero     = Quaternion(0.0f, 0.0f, 0.0f, 0.0f);
     const Quaternion Quaternion::Identity = Quaternion(0.0f, 0.0f, 0.0f, 1.0f);
 }

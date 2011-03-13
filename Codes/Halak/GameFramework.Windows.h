@@ -3,6 +3,7 @@
 #define __HALAK_GAMEFRAMEWORK_WINDOWS_H__
 
 #   include <Halak/FWD.h>
+#   include <Halak/BuildConfiguration.h>
 #   include <Halak/IUpdateable.h>
 #   include <Halak/IDrawable.h>
 #   include <deque>

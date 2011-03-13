@@ -39,7 +39,7 @@ namespace Halak
         {
             // GameStructure내에 같은 ID의 GameComponent가 두 개 이상 존재할 수 없습니다.
             if (value != UnspecifiedID && node && node->GetStructure())
-                HKThrow(node->GetStructure()->Find(value), Exception("value"));
+                HKIfThrow(node->GetStructure()->Find(value), Exception("value"));
 
             const uint oldID = id;
 

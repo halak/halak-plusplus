@@ -5,208 +5,7 @@
 
 namespace Halak
 {
-    byte Color::Clamp(int value)
-    {
-        return value < 0 ? 0 : (value > 255 ? 255 : static_cast<byte>(value));
-    }
-
-    byte Color::Clamp(float value)
-    {
-        return value < 0.0f ? 0 : (value > 255.0f ? 255 : static_cast<byte>(value));
-    }
-
-    Color::Color()
-        : R(0), G(0), B(0), A(0)
-    {
-    }
-
-    Color::Color(int r, int g, int b)
-        : R(Clamp(r)), G(Clamp(g)), B(Clamp(b)), A(255)
-    {
-    }
-
-    Color::Color(int r, int g, int b, int a)
-        : R(Clamp(r)), G(Clamp(g)), B(Clamp(b)), A(Clamp(a))
-    {
-    }
-
-    Color::Color(unsigned long argb)
-        : R(static_cast<byte>((argb & 0x00FF0000) >> 16)),
-          G(static_cast<byte>((argb & 0x0000FF00) >> 8)),
-          B(static_cast<byte>((argb & 0x000000FF) >> 0)),
-          A(static_cast<byte>((argb & 0xFF000000) >> 24))
-    {
-    }
-
-    Color::Color(const Vector3& rgb)
-        : R(Clamp(rgb.X * 255.0f)),
-          G(Clamp(rgb.Y * 255.0f)),
-          B(Clamp(rgb.Z * 255.0f)),
-          A(255)
-    {
-    }
-
-    Color::Color(const Vector4& rgba)
-        : R(Clamp(rgba.X * 255.0f)),
-          G(Clamp(rgba.Y * 255.0f)),
-          B(Clamp(rgba.Z * 255.0f)),
-          A(Clamp(rgba.W * 255.0f))
-    {
-    }
-
-    Color::Color(const Color& original)
-        : R(original.R), G(original.G), B(original.B), A(original.A)
-    {
-    }
-
-    Vector3 Color::ToVector3() const
-    {
-        return Vector3(static_cast<float>(R) / 255.0f, static_cast<float>(G) / 255.0f, static_cast<float>(B) / 255.0f);
-    }
-
-    Vector4 Color::ToVector4() const
-    {
-        return Vector4(static_cast<float>(R) / 255.0f, static_cast<float>(G) / 255.0f, static_cast<float>(B) / 255.0f, static_cast<float>(A) / 255.0f);
-    }
-
-    unsigned long Color::ToRGBA() const
-    {
-        return (static_cast<unsigned long>(R) << 24) |
-               (static_cast<unsigned long>(G) << 16) |
-               (static_cast<unsigned long>(B) << 8)  |
-               (static_cast<unsigned long>(A) << 0);
-    }
-
-    unsigned long Color::ToARGB() const
-    {
-        return (static_cast<unsigned long>(A) << 24) |
-               (static_cast<unsigned long>(R) << 16) |
-               (static_cast<unsigned long>(G) << 8)  |
-               (static_cast<unsigned long>(B) << 0);
-    }
-
-    Color& Color::operator = (const Color& original)
-    {
-        R = original.R;
-        G = original.G;
-        B = original.B;
-        A = original.A;
-        return *this;
-    }
-
-    Color& Color::operator += (Color right)
-    {
-        R = static_cast<byte>(std::min<int>(R + right.R, 255));
-        G = static_cast<byte>(std::min<int>(G + right.G, 255));
-        B = static_cast<byte>(std::min<int>(B + right.B, 255));
-        A = static_cast<byte>(std::min<int>(A + right.A, 255));
-        return *this;
-    }
-
-    Color& Color::operator -= (Color right)
-    {
-        R = static_cast<byte>(std::max<int>(R - right.R, 0));
-        G = static_cast<byte>(std::max<int>(G - right.G, 0));
-        B = static_cast<byte>(std::max<int>(B - right.B, 0));
-        A = static_cast<byte>(std::max<int>(A - right.A, 0));
-        return *this;
-    }
-
-    Color& Color::operator *= (Color right)
-    {
-        R = Clamp(static_cast<float>(R) * (static_cast<float>(right.R) / 255.0f));
-        G = Clamp(static_cast<float>(G) * (static_cast<float>(right.G) / 255.0f));
-        B = Clamp(static_cast<float>(B) * (static_cast<float>(right.B) / 255.0f));
-        A = Clamp(static_cast<float>(A) * (static_cast<float>(right.A) / 255.0f));
-        return *this;
-    }
-
-    Color& Color::operator *= (float right)
-    {
-        R = Clamp(static_cast<float>(R) * right);
-        G = Clamp(static_cast<float>(G) * right);
-        B = Clamp(static_cast<float>(B) * right);
-        A = Clamp(static_cast<float>(A) * right);
-        return *this;
-    }
-
-    Color& Color::operator /= (Color right)
-    {
-        R = Clamp(static_cast<float>(R) / (static_cast<float>(right.R) / 255.0f));
-        G = Clamp(static_cast<float>(G) / (static_cast<float>(right.G) / 255.0f));
-        B = Clamp(static_cast<float>(B) / (static_cast<float>(right.B) / 255.0f));
-        A = Clamp(static_cast<float>(A) / (static_cast<float>(right.A) / 255.0f));
-        return *this;
-    }
-
-    Color& Color::operator /= (float right)
-    {
-        R = Clamp(static_cast<float>(R) / right);
-        G = Clamp(static_cast<float>(G) / right);
-        B = Clamp(static_cast<float>(B) / right);
-        A = Clamp(static_cast<float>(A) / right);
-        return *this;
-    }
-
-    Color Color::operator + (Color right) const
-    {
-        return Color(std::min<int>(R + right.R, 255),
-                     std::min<int>(G + right.G, 255),
-                     std::min<int>(B + right.B, 255),
-                     std::min<int>(A + right.A, 255));
-    }
-
-    Color Color::operator - (Color right) const
-    {
-        return Color(std::max<int>(R - right.R, 0),
-                     std::max<int>(G - right.G, 0),
-                     std::max<int>(B - right.B, 0),
-                     std::max<int>(A - right.A, 0));
-    }
-
-    Color Color::operator * (Color right) const
-    {
-        return Color(Clamp(static_cast<float>(R) * (static_cast<float>(right.R) / 255.0f)),
-                     Clamp(static_cast<float>(G) * (static_cast<float>(right.G) / 255.0f)),
-                     Clamp(static_cast<float>(B) * (static_cast<float>(right.B) / 255.0f)),
-                     Clamp(static_cast<float>(A) * (static_cast<float>(right.A) / 255.0f)));
-    }
-
-    Color Color::operator * (float right) const
-    {
-        return Color(Clamp(static_cast<float>(R) * right),
-                     Clamp(static_cast<float>(G) * right),
-                     Clamp(static_cast<float>(B) * right),
-                     Clamp(static_cast<float>(A) * right));
-    }
-
-    Color Color::operator / (Color right) const
-    {
-        return Color(Clamp(static_cast<float>(R) / (static_cast<float>(right.R) / 255.0f)),
-                     Clamp(static_cast<float>(G) / (static_cast<float>(right.G) / 255.0f)),
-                     Clamp(static_cast<float>(B) / (static_cast<float>(right.B) / 255.0f)),
-                     Clamp(static_cast<float>(A) / (static_cast<float>(right.A) / 255.0f)));
-    }
-
-    Color Color::operator / (float right) const
-    {
-        return Color(Clamp(static_cast<float>(R) / right),
-                     Clamp(static_cast<float>(G) / right),
-                     Clamp(static_cast<float>(B) / right),
-                     Clamp(static_cast<float>(A) / right));
-    }
-
-    bool Color::operator == (Color right) const
-    {
-        return R == right.R && G == right.G && B == right.B && A == right.A;
-    }
-
-    bool Color::operator != (Color right) const
-    {
-        return !operator == (right);
-    }
-
-    bool Color::TryParse(const String& text, __Out Color& color)
+    Color Color::Parse(const String& text)
     {
         if (text.GetLength() >= 7 && text[0] == '#')
         {
@@ -219,12 +18,10 @@ namespace Halak
             if (text.GetLength() == 7)
                 colorCode |= 0xFF000000;
 
-            color.A = static_cast<byte>((colorCode & 0xFF000000) >> 24);
-            color.R = static_cast<byte>((colorCode & 0x00FF0000) >> 16);
-            color.G = static_cast<byte>((colorCode & 0x0000FF00) >> 8);
-            color.B = static_cast<byte>((colorCode & 0x000000FF) >> 0);
-
-            return true;
+            return Color(static_cast<byte>((colorCode & 0xFF000000) >> 24),
+                         static_cast<byte>((colorCode & 0x00FF0000) >> 16),
+                         static_cast<byte>((colorCode & 0x0000FF00) >> 8),
+                         static_cast<byte>((colorCode & 0x000000FF) >> 0));
         }
 
         if (namedColorDictionary.empty())
@@ -232,12 +29,20 @@ namespace Halak
 
         StringColorDictionary::const_iterator it = namedColorDictionary.find(text);
         if (it != namedColorDictionary.end())
-        {
-            color = (*it).second;
-            return true;
-        }
+            return (*it).second;
         else
-            return false;
+            return Color::TransparentBlack;
+    }
+
+    bool Color::CanParse(const String& text)
+    {
+        if (text.GetLength() >= 7 && text[0] == '#')
+            return true;
+
+        if (namedColorDictionary.empty())
+            FillNamedColors();
+
+        return namedColorDictionary.find(text) != namedColorDictionary.end();
     }
 
     const Color Color::TransparentBlack = Color(0, 0, 0, 0);
@@ -245,7 +50,7 @@ namespace Halak
     const Color Color::AliceBlue = Color(0xFFF0F8FF);
     const Color Color::AntiqueWhite = Color(0xFFFAEBD7);
     const Color Color::Aqua = Color(0xFF00FFFF);
-    const Color Color::Aquamarine = Color(0xFF7FFFD4);
+    const Color Color::AquaMarine = Color(0xFF7FFFD4);
     const Color Color::Azure = Color(0xFFF0FFFF);
     const Color Color::Beige = Color(0xFFF5F5DC);
     const Color Color::Bisque = Color(0xFFFFE4C4);
@@ -271,7 +76,7 @@ namespace Halak
     const Color Color::DarkKhaki = Color(0xFFBDB76B);
     const Color Color::DarkMagenta = Color(0xFF8B008B);
     const Color Color::DarkOliveGreen = Color(0xFF556B2F);
-    const Color Color::Darkorange = Color(0xFFFF8C00);
+    const Color Color::DarkOrange = Color(0xFFFF8C00);
     const Color Color::DarkOrchid = Color(0xFF9932CC);
     const Color Color::DarkRed = Color(0xFF8B0000);
     const Color Color::DarkSalmon = Color(0xFFE9967A);
@@ -394,7 +199,7 @@ namespace Halak
             HKAddNamedColor(AliceBlue);
             HKAddNamedColor(AntiqueWhite);
             HKAddNamedColor(Aqua);
-            HKAddNamedColor(Aquamarine);
+            HKAddNamedColor(AquaMarine);
             HKAddNamedColor(Azure);
             HKAddNamedColor(Beige);
             HKAddNamedColor(Bisque);
@@ -420,7 +225,7 @@ namespace Halak
             HKAddNamedColor(DarkKhaki);
             HKAddNamedColor(DarkMagenta);
             HKAddNamedColor(DarkOliveGreen);
-            HKAddNamedColor(Darkorange);
+            HKAddNamedColor(DarkOrange);
             HKAddNamedColor(DarkOrchid);
             HKAddNamedColor(DarkRed);
             HKAddNamedColor(DarkSalmon);

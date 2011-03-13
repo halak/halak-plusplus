@@ -10,6 +10,8 @@
     {
         struct Ray
         {
+            HKDeclareStructFOURCC('R', 'A', 'Y', '3');
+
             Vector3 Origin;
             Vector3 Direction;
             float   Length;

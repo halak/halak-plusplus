@@ -6,24 +6,28 @@
     {
         struct Quaternion
         {
+            HKDeclareStructFOURCC('Q', 'U', 'A', 'T');
+
             float X;
             float Y;
             float Z;
             float W;
 
-            Quaternion();
-            Quaternion(float x, float y, float z);
-            Quaternion(float x, float y, float z, float w);
-            Quaternion(const Quaternion& original);
+            inline Quaternion();
+            inline Quaternion(float x, float y, float z);
+            inline Quaternion(float x, float y, float z, float w);
+            inline Quaternion(const Quaternion& original);
 
-            Quaternion& operator = (const Quaternion& original);
+            inline Quaternion& operator = (const Quaternion& original);
             
-            bool operator == (const Quaternion& right) const;
-            bool operator != (const Quaternion& right) const;
+            inline bool operator == (const Quaternion& right) const;
+            inline bool operator != (const Quaternion& right) const;
 
             static const Quaternion Zero;
             static const Quaternion Identity;
         };
     }
+
+#   include <Halak/Quaternion.h>
 
 #endif

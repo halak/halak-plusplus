@@ -3,6 +3,7 @@
 #define __HALAK_PARALLELTIMELINE_WINDOWS_H__
 
 #   include <Halak/FWD.h>
+#   include <Halak/BuildConfiguration.h>
 #   include <Halak/Timeline.h>
 
 #   if (defined(HALAK_PLATFORM_WINDOWS))

@@ -8,6 +8,8 @@
     {
         struct Matrix4
         {
+            HKDeclareStructFOURCC('M', 'A', 'T', '4');
+
             float M00, M01, M02, M03;
             float M10, M11, M12, M13;
             float M20, M21, M22, M23;
@@ -53,5 +55,7 @@
             static const Matrix4 Identity;
         };
     }
+
+#   include <Halak/Matrix4.inl>
 
 #endif

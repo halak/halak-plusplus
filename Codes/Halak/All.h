@@ -2,26 +2,39 @@
 #ifndef __HALAK_ALL_H__
 #define __HALAK_ALL_H__
 
-    // Core Types
-#   include <Halak/Any.h>
-#   include <Halak/AnyPtr.h>
-#   include <Halak/Color.h>
-#   include <Halak/Matrix4.h>
-#   include <Halak/Point.h>
-#   include <Halak/Quaternion.h>
-#   include <Halak/Rectangle.h>
-#   include <Halak/String.h>
-#   include <Halak/UUID.h>
-#   include <Halak/Vector2.h>
-#   include <Halak/Vector3.h>
-#   include <Halak/Range.h>
+    // 01. Foundation
+        // (BasicTypes)
+#           include <Halak/Any.h>
+#           include <Halak/AnyPtr.h>
+#           include <Halak/AtomicInt.h>
+#           include <Halak/Color.h>
+#           include <Halak/Matrix4.h>
+#           include <Halak/Point.h>
+#           include <Halak/Quaternion.h>
+#           include <Halak/Range.h>
+#           include <Halak/Ray.h>
+#           include <Halak/Ray2D.h>
+#           include <Halak/Rectangle.h>
+#           include <Halak/String.h>
+#           include <Halak/UUID.h>
+#           include <Halak/Vector2.h>
+#           include <Halak/Vector3.h>
+#           include <Halak/Vector4.h>
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        // (SmartPointers)
+#           include <Halak/SharedObject.h>
+#           include <Halak/SharedPointer.h>
+#           include <Halak/WeakPointer.h>
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Any
+#           include <Halak/Any.h>
+#           include <Halak/AnyPtr.h>
 
     // Core Routines
 #   include <Halak/Assert.h>
 #   include <Halak/CheckedRelease.hpp>
 #   include <Halak/Clock.h>
 #   include <Halak/Delete.h>
-#   include <Halak/FOURCC.h>
 #   include <Halak/Math.h>
 #   include <Halak/MPL.h>
 

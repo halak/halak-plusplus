@@ -3,7 +3,6 @@
 #define __HALAK_GAMECOMPONENT_H__
 
 #   include <Halak/FWD.h>
-#   include <Halak/FOURCC.h>
 
     namespace Halak
     {
