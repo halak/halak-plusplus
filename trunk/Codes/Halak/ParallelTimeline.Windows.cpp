@@ -1,4 +1,5 @@
 #include <Halak/ParallelTimeline.Windows.h>
+#include <Halak/BuildConfiguration.h>
 
 #if (defined(HALAK_PLATFORM_WINDOWS))
 

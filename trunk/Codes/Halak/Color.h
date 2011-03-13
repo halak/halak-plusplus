@@ -12,50 +12,53 @@
     {
         struct Color
         {
+            HKDeclareStructFOURCC('C', 'O', 'L', 'R');
+
             byte A;
             byte R;
             byte G;
             byte B;
 
-            Color();
-            Color(int r, int g, int b);
-            Color(int r, int g, int b, int a);
-            Color(unsigned long argb);
-            explicit Color(const Vector3& rgb);
-            explicit Color(const Vector4& rgba);
-            Color(const Color& original);
+            inline Color();
+            inline Color(int r, int g, int b);
+            inline Color(int r, int g, int b, int a);
+            inline Color(unsigned long argb);
+            inline explicit Color(Vector3 rgb);
+            inline explicit Color(Vector4 rgba);
+            inline Color(const Color& original);
 
-            Vector3 ToVector3() const;
-            Vector4 ToVector4() const;
-            unsigned long ToRGBA() const;
-            unsigned long ToARGB() const;
+            inline Vector3 ToVector3() const;
+            inline Vector4 ToVector4() const;
+            inline unsigned long ToRGBA() const;
+            inline unsigned long ToARGB() const;
 
-            Color& operator = (const Color& original);
-            Color& operator += (Color right);
-            Color& operator -= (Color right);
-            Color& operator *= (Color right);
-            Color& operator *= (float right);
-            Color& operator /= (Color right);
-            Color& operator /= (float right);
+            inline Color& operator = (const Color& original);
+            inline Color& operator += (Color right);
+            inline Color& operator -= (Color right);
+            inline Color& operator *= (Color right);
+            inline Color& operator *= (float right);
+            inline Color& operator /= (Color right);
+            inline Color& operator /= (float right);
 
-            Color operator + (Color right) const;
-            Color operator - (Color right) const;
-            Color operator * (Color right) const;
-            Color operator * (float right) const;
-            Color operator / (Color right) const;
-            Color operator / (float right) const;
+            inline Color operator + (Color right) const;
+            inline Color operator - (Color right) const;
+            inline Color operator * (Color right) const;
+            inline Color operator * (float right) const;
+            inline Color operator / (Color right) const;
+            inline Color operator / (float right) const;
 
-            bool operator == (Color right) const;
-            bool operator != (Color right) const;
+            inline bool operator == (Color right) const;
+            inline bool operator != (Color right) const;
 
-            static bool TryParse(const String& text, __Out Color& color);
+            static Color Parse(const String& text);
+            static bool  CanParse(const String& text);
 
             static const Color TransparentBlack;
             static const Color TransparentWhite;
             static const Color AliceBlue;
             static const Color AntiqueWhite;
             static const Color Aqua;
-            static const Color Aquamarine;
+            static const Color AquaMarine;
             static const Color Azure;
             static const Color Beige;
             static const Color Bisque;
@@ -81,7 +84,7 @@
             static const Color DarkKhaki;
             static const Color DarkMagenta;
             static const Color DarkOliveGreen;
-            static const Color Darkorange;
+            static const Color DarkOrange;
             static const Color DarkOrchid;
             static const Color DarkRed;
             static const Color DarkSalmon;
@@ -202,5 +205,7 @@
                 static inline byte Clamp(float value);
         };
     }
+
+#   include <Halak/Color.inl>
 
 #endif

@@ -187,58 +187,6 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\Codes\Halak\Internal\Registration.BatchCommand.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\Internal\Registration.ChangePropertyCommand.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\Internal\Registration.Command.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\Internal\Registration.CommandHistory.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\Internal\Registration.CommandQueue.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\Internal\Registration.EffectEntity.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\Internal\Registration.Entity.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\Internal\Registration.ParticleEffectEntity.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\Internal\Registration.ParticleEmitter.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\Internal\Registration.RestorableCommand.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\Internal\Registration.RootEntity.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\Internal\Registration.SequentialParticleEmitter.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\Internal\Registration.SimpleParticleEmitter.cpp"
-				>
-			</File>
-			<File
 				RelativePath="..\..\Codes\Halak\Internal\StreamFilter.cpp"
 				>
 			</File>
@@ -300,10 +248,6 @@
 			</File>
 			<File
 				RelativePath="..\..\Codes\Halak\DynamicCast.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\FOURCC.h"
 				>
 			</File>
 			<File
@@ -658,30 +602,6 @@
 				Name="(BasicTypes)"
 				>
 				<File
-					RelativePath="..\..\Codes\Halak\Any.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\Any.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\Any.inl"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\AnyPtr.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\AnyPtr.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\AnyPtr.inl"
-					>
-				</File>
-				<File
 					RelativePath="..\..\Codes\Halak\Color.cpp"
 					>
 				</File>
@@ -690,11 +610,19 @@
 					>
 				</File>
 				<File
+					RelativePath="..\..\Codes\Halak\Color.inl"
+					>
+				</File>
+				<File
 					RelativePath="..\..\Codes\Halak\Matrix4.cpp"
 					>
 				</File>
 				<File
 					RelativePath="..\..\Codes\Halak\Matrix4.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\Matrix4.inl"
 					>
 				</File>
 				<File
@@ -710,7 +638,7 @@
 					>
 				</File>
 				<File
-					RelativePath="..\..\Codes\Halak\Ponit.inl"
+					RelativePath="..\..\Codes\Halak\Point.inl"
 					>
 				</File>
 				<File
@@ -719,6 +647,10 @@
 				</File>
 				<File
 					RelativePath="..\..\Codes\Halak\Quaternion.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\Quaternion.inl"
 					>
 				</File>
 				<File
@@ -747,6 +679,10 @@
 				</File>
 				<File
 					RelativePath="..\..\Codes\Halak\Ray2D.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\Ray2D.inl"
 					>
 				</File>
 				<File
@@ -997,6 +933,86 @@
 						>
 					</File>
 				</Filter>
+			</Filter>
+			<Filter
+				Name="(SmartPointers)"
+				>
+				<File
+					RelativePath="..\..\Codes\Halak\NullPointer.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\SharedObject.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\SharedObject.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\SharedObject.inl"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\SharedPointer.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\SharedPointer.inl"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\WeakPointer.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\WeakPointer.inl"
+					>
+				</File>
+				<Filter
+					Name="(Internal)"
+					>
+					<File
+						RelativePath="..\..\Codes\Halak\Internal\ReferenceCount.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\Internal\ReferenceCount.inl"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\Internal\ReferenceCount.Windows.cpp"
+						>
+					</File>
+				</Filter>
+			</Filter>
+			<Filter
+				Name="Any"
+				>
+				<File
+					RelativePath="..\..\Codes\Halak\Any.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\Any.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\Any.inl"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\AnyPtr.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\AnyPtr.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\AnyPtr.inl"
+					>
+				</File>
 			</Filter>
 		</Filter>
 		<Filter
@@ -1861,6 +1877,10 @@
 		</Filter>
 		<File
 			RelativePath="..\..\Codes\Halak\All.h"
+			>
+		</File>
+		<File
+			RelativePath="..\..\Codes\Halak\BuildConfiguration.h"
 			>
 		</File>
 		<File

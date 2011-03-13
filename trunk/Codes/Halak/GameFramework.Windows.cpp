@@ -1,5 +1,6 @@
 #include <Halak/GameFramework.Windows.h>
 #include <Halak/Assert.h>
+#include <Halak/BuildConfiguration.h>
 #include <Halak/Clock.h>
 #include <Halak/GameStructure.h>
 #include <Halak/GameNode.h>

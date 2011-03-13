@@ -10,6 +10,7 @@
         class Exception : public std::exception
         {
             public:
+                inline Exception();
                 inline Exception(const char* what);
                 inline Exception(const Exception& original);
 
@@ -18,10 +19,22 @@
             private:
         };
 
+        class BadCastException : public Exception
+        {
+            public:
+                inline BadCastException();
+                inline BadCastException(const char* what);
+                inline BadCastException(const BadCastException& original);
+
+                inline BadCastException& operator = (const BadCastException& right);
+        };
+
 #       if (defined(HALAK_EXCEPTION))
-#           define HKThrow(condition, exception) { if (condition) { throw exception; } }
+#           define HKThrow(exception) { throw exception; }
+#           define HKIfThrow(condition, exception) { if (condition) { throw exception; } }
 #       else
-#           define HKThrow(condition, exception) { }
+#           define HKThrow(exception) { }
+#           define HKIfThrow(condition, exception) { }
 #       endif
     }
 

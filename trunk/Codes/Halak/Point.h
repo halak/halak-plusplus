@@ -6,25 +6,29 @@
     {
         struct Point
         {
+            HKDeclareStructFOURCC('P', 'O', 'N', 'T');
+
             int X;
             int Y;
 
-            Point();
-            Point(int x, int y);
-            Point(const Point& original);
+            inline Point();
+            inline Point(int x, int y);
+            inline Point(const Point& original);
 
-            Point& operator = (const Point& original);
-            Point& operator += (const Point& right);
-            Point& operator -= (const Point& right);
+            inline Point& operator = (const Point& original);
+            inline Point& operator += (const Point& right);
+            inline Point& operator -= (const Point& right);
 
-            Point operator + (const Point& right) const;
-            Point operator - (const Point& right) const;
+            inline Point operator + (const Point& right) const;
+            inline Point operator - (const Point& right) const;
 
-            bool operator == (const Point& right) const;
-            bool operator != (const Point& right) const;
+            inline bool operator == (const Point& right) const;
+            inline bool operator != (const Point& right) const;
 
             static const Point Zero;
         };
     }
+
+#   include <Halak/Point.inl>
 
 #endif

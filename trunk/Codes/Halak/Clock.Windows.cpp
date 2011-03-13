@@ -1,6 +1,8 @@
 #include <Halak/Clock.h>
+#include <Halak/BuildConfiguration.h>
 
 #if (defined(HALAK_PLATFORM_WINDOWS))
+
 #    include <windows.h>
 
     namespace Halak

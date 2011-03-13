@@ -1,7 +1,9 @@
-#if (defined(WIN32) || defined(WIN64))
+#include <Halak/Matrix4.h>
+#include <Halak/BuildConfiguration.h>
 
-#   include <Halak/Matrix4.h>
-#   include <d3dx9math.h>
+#if (defined(HALAK_PLATFORM_WINDOWS))
+
+#    include <d3dx9math.h>
 
     namespace Halak
     {

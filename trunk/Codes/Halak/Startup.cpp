@@ -3,11 +3,12 @@
 
 namespace Halak
 {
-#   define HKNothing(_)
+#   define HKNothing1(_)
+#   define HKNothing2(_, _)
 #   define HKRegisterClassID(classname)
 
     void Startup()
     {
-        HKClasses(HKNothing, HKRegisterClassID, HKRegisterClassID, HKRegisterClassID);
+        HKClasses(HKNothing, HKRegisterClassID, HKRegisterClassID, HKRegisterClassID, HKNothing2, HKNothing2);
     }
 }

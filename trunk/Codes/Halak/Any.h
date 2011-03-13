@@ -14,14 +14,12 @@
 #   include <Halak/Vector2.h>
 #   include <Halak/Vector3.h>
 #   include <Halak/Vector4.h>
-#   include <memory>
 
     namespace Halak
     {
         class Any
         {
-            public:
-                static const uint ClassID = 0x00000000;
+            HKDeclareStructFOURCC('A', 'N', 'Y', '_');
 
             public:
                 enum Type
