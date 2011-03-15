@@ -201,6 +201,8 @@
                 static StringColorDictionary namedColorDictionary;
                 static void FillNamedColors();
 
+                static inline byte Add(byte a, byte b);
+                static inline byte Subtract(byte a, byte b);
                 static inline byte Clamp(int value);
                 static inline byte Clamp(float value);
         };

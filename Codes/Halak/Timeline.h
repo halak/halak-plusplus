@@ -11,6 +11,7 @@
     {
         class Timeline : public GameComponent, public IUpdateable
         {
+            HKDeclareGameComponentClassFOURCC('T', 'M', 'L', 'N');
             public:
                 struct Item
                 {

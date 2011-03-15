@@ -6,6 +6,7 @@
     {
 #       define HALAK_PLATFORM_WINDOWS
 #       define HALAK_EXCEPTION
+#       define HALAK_RTTI
     }
 
 #endif

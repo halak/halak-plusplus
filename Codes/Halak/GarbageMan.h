@@ -12,10 +12,15 @@
         class GarbageMan : public GameComponent
         {
             public:
+                HKDeclareGameComponentClassFOURCC('G', 'B', 'G', 'M');
+
+            public:
                 typedef std::list<IDisposableWeakPtr> DisposableCollection;
 
             public:
                 GarbageMan();
+                explicit GarbageMan(uint id);
+                virtual ~GarbageMan();
 
                 void DisposeAll();
 
@@ -24,13 +29,13 @@
                 void Clear();
                 bool Contains(IDisposableWeakPtr item) const;
 
-                const DisposableCollection& GetEntries() const;
+                const DisposableCollection& GetItems() const;
 
             private:
                 virtual ~GarbageMan();
 
             private:
-                DisposableCollection entries;
+                DisposableCollection items;
         };
     }
 

@@ -8,6 +8,11 @@ namespace Halak
     {
     }
 
+    GarbageMan::GarbageMan(uint id)
+        : GameComponent(id)
+    {
+    }
+
     GarbageMan::~GarbageMan()
     {
         DisposeAll();
@@ -15,43 +20,43 @@ namespace Halak
     
     void GarbageMan::DisposeAll()
     {
-        for (DisposableCollection::const_iterator it = entries.begin(); it != entries.end();)
+        for (DisposableCollection::const_iterator it = items.begin(); it != items.end();)
         {
-            if (IDisposablePtr item = (*it).lock())
+            if (IDisposablePtr item = (*it).Lock())
             {
                 item->Dispose();
                 it++;
             }
             else
-                entries.erase(it++);
+                items.erase(it++);
         }
     }
 
     void GarbageMan::Add(IDisposableWeakPtr item)
     {
-        if (item.expired())
+        if (item.IsAlive() == false)
             return;
 
-        entries.push_back(item);
+        items.push_back(item);
     }
 
     bool GarbageMan::Remove(IDisposableWeakPtr item)
     {
-        if (item.expired())
+        if (item.IsAlive() == false)
             return false;
 
-        IDisposablePtr lockedItem = item.lock();
-        for (DisposableCollection::const_iterator it = entries.begin(); it != entries.end();)
+        IDisposablePtr lockedItem = item.Lock();
+        for (DisposableCollection::const_iterator it = items.begin(); it != items.end();)
         {
-            if ((*it).expired())
+            if ((*it).IsAlive() == false)
             {
-                entries.erase(it++);
+                items.erase(it++);
                 continue;
             }
 
-            if ((*it).lock() == lockedItem)
+            if ((*it).Lock() == lockedItem)
             {
-                entries.erase(it);
+                items.erase(it);
                 return true;
             }
             else
@@ -63,27 +68,27 @@ namespace Halak
     
     void GarbageMan::Clear()
     {
-        entries.clear();
+        items.clear();
     }
 
     bool GarbageMan::Contains(IDisposableWeakPtr item) const
     {
-        if (item.expired())
+        if (item.IsAlive() == false)
             return false;
 
-        IDisposablePtr lockedItem = item.lock();
+        IDisposablePtr lockedItem = item.Lock();
 
-        for (DisposableCollection::const_iterator it = entries.begin(); it != entries.end(); it++)
+        for (DisposableCollection::const_iterator it = items.begin(); it != items.end(); it++)
         {
-            if ((*it).expired() == false && (*it).lock() == lockedItem)
+            if ((*it).IsAlive() && (*it).Lock() == lockedItem)
                 return true;
         }
 
         return false;
     }
 
-    const GarbageMan::DisposableCollection& GarbageMan::GetEntries() const
+    const GarbageMan::DisposableCollection& GarbageMan::GetItems() const
     {
-        return entries;
+        return items;
     }
 }

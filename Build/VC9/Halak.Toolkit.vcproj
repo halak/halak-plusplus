@@ -559,6 +559,14 @@
 				</File>
 			</Filter>
 		</Filter>
+		<File
+			RelativePath="..\..\Codes\Halak\Hotloader.cpp"
+			>
+		</File>
+		<File
+			RelativePath="..\..\Codes\Halak\Hotloader.h"
+			>
+		</File>
 	</Files>
 	<Globals>
 	</Globals>
