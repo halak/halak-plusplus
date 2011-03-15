@@ -239,79 +239,11 @@
 			Name="01. Foundation"
 			>
 			<File
-				RelativePath="..\..\Codes\Halak\CheckedRelease.hpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\Delete.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\DynamicCast.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\FrameUpdater.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\FrameUpdater.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\Hotloader.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\Hotloader.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\IReloadable.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\IRevisable.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\ISerializable.h"
-				>
-			</File>
-			<File
 				RelativePath="..\..\Codes\Halak\ISpatial.h"
 				>
 			</File>
 			<File
 				RelativePath="..\..\Codes\Halak\ISpatial2D.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\IUpdateable.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\Math.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\Math.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\Math.inl"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\MPL.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\RectangleStorage.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\RectangleStorage.h"
 				>
 			</File>
 			<File
@@ -415,6 +347,10 @@
 				</File>
 				<File
 					RelativePath="..\..\Codes\Halak\ConstructorInfo.inl"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\DynamicCast.h"
 					>
 				</File>
 				<File
@@ -761,6 +697,10 @@
 			<Filter
 				Name="Serialization"
 				>
+				<File
+					RelativePath="..\..\Codes\Halak\ISerializable.h"
+					>
+				</File>
 			</Filter>
 			<Filter
 				Name="Disposal"
@@ -783,7 +723,7 @@
 				</File>
 			</Filter>
 			<Filter
-				Name="Exception"
+				Name="Exceptions"
 				>
 				<File
 					RelativePath="..\..\Codes\Halak\Exception.cpp"
@@ -799,7 +739,7 @@
 				</File>
 			</Filter>
 			<Filter
-				Name="Clock"
+				Name="Time"
 				>
 				<File
 					RelativePath="..\..\Codes\Halak\Clock.h"
@@ -815,6 +755,10 @@
 				</File>
 				<File
 					RelativePath="..\..\Codes\Halak\GlobalClock.Windows.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\IUpdateable.h"
 					>
 				</File>
 				<File
@@ -879,6 +823,10 @@
 				</File>
 				<File
 					RelativePath="..\..\Codes\Halak\AssetLoader.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\IReloadable.h"
 					>
 				</File>
 			</Filter>
@@ -1011,6 +959,54 @@
 				</File>
 				<File
 					RelativePath="..\..\Codes\Halak\AnyPtr.inl"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="Algorithm"
+				>
+				<File
+					RelativePath="..\..\Codes\Halak\CheckedRelease.hpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\Delete.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\FrameUpdater.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\FrameUpdater.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\IRevisable.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\Math.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\Math.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\Math.inl"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\MPL.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\RectangleStorage.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\RectangleStorage.h"
 					>
 				</File>
 			</Filter>

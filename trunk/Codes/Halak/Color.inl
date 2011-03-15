@@ -1,5 +1,15 @@
 namespace Halak
 {
+    byte Color::Add(byte a, byte b)
+    {
+        return 255 - a < b ? 255 : a + b;
+    }
+
+    byte Color::Subtract(byte a, byte b)
+    {
+        return a > b ? a - b : 0;
+    }
+
     byte Color::Clamp(int value)
     {
         return value < 0 ? 0 : (value > 255 ? 255 : static_cast<byte>(value));
@@ -91,19 +101,19 @@ namespace Halak
 
     Color& Color::operator += (Color right)
     {
-        R = static_cast<byte>(std::min<int>(R + right.R, 255));
-        G = static_cast<byte>(std::min<int>(G + right.G, 255));
-        B = static_cast<byte>(std::min<int>(B + right.B, 255));
-        A = static_cast<byte>(std::min<int>(A + right.A, 255));
+        R = Add(R, right.R);
+        G = Add(G, right.G);
+        B = Add(B, right.B);
+        A = Add(A, right.A);
         return *this;
     }
 
     Color& Color::operator -= (Color right)
     {
-        R = static_cast<byte>(std::max<int>(R - right.R, 0));
-        G = static_cast<byte>(std::max<int>(G - right.G, 0));
-        B = static_cast<byte>(std::max<int>(B - right.B, 0));
-        A = static_cast<byte>(std::max<int>(A - right.A, 0));
+        R = Subtract(R, right.R);
+        G = Subtract(G, right.G);
+        B = Subtract(B, right.B);
+        A = Subtract(A, right.A);
         return *this;
     }
 
@@ -145,18 +155,18 @@ namespace Halak
 
     Color Color::operator + (Color right) const
     {
-        return Color(std::min<int>(R + right.R, 255),
-                     std::min<int>(G + right.G, 255),
-                     std::min<int>(B + right.B, 255),
-                     std::min<int>(A + right.A, 255));
+        return Color(Add(R, right.R),
+                     Add(G, right.G),
+                     Add(B, right.B),
+                     Add(A, right.A));
     }
 
     Color Color::operator - (Color right) const
     {
-        return Color(std::max<int>(R - right.R, 0),
-                     std::max<int>(G - right.G, 0),
-                     std::max<int>(B - right.B, 0),
-                     std::max<int>(A - right.A, 0));
+        return Color(Subtract(R, right.R),
+                     Subtract(G, right.G),
+                     Subtract(B, right.B),
+                     Subtract(A, right.A));
     }
 
     Color Color::operator * (Color right) const

@@ -29,6 +29,20 @@
         // Any
 #           include <Halak/Any.h>
 #           include <Halak/AnyPtr.h>
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Disposal
+#           include <Halak/GarbageMan.h>
+#           include <Halak/IDisposal.h>
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Exceptions
+#           include <Halak/Exception.h>
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Timeline
+#           include <Halak/Clock.h>
+#           include <Halak/GlobalClock.h>
+#           include <Halak/ParallelTimeline.h>
+#           include <Halak/SubTimeline.h>
+#           include <Halak/Timeline.h>
 
     // Core Routines
 #   include <Halak/Assert.h>

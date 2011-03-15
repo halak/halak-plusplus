@@ -8,9 +8,7 @@
     {
         class IUpdateable
         {
-            public:
-                static const uint ClassID = 0x00000001;
-
+            HKDeclareClassFOURCC('I', 'U', 'D', 'T');
             public:
                 virtual ~IUpdateable() { }
 

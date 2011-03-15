@@ -1,24 +1,17 @@
 namespace Halak
 {
     Exception::Exception()
-        : std::exception()
     {
     }
 
-    Exception::Exception(const char* what)
-        : std::exception(what)
+    Exception::Exception(const char* message)
+        : Message(message)
     {
     }
 
     Exception::Exception(const Exception& original)
-        : std::exception(original)
+        : Message(original.Message)
     {
-    }
-
-    Exception& Exception::operator = (const Exception& right)
-    {
-        std::exception::operator = (right);
-        return *this;
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -28,8 +21,8 @@ namespace Halak
     {
     }
 
-    BadCastException::BadCastException(const char* what)
-        : Exception(what)
+    BadCastException::BadCastException(const char* message)
+        : Exception(message)
     {
     }
 
@@ -38,9 +31,24 @@ namespace Halak
     {
     }
 
-    BadCastException& BadCastException::operator = (const BadCastException& right)
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    OutOfRangeException::OutOfRangeException()
+        : Exception(),
+          Index(-1),
+          Count(0)
     {
-        Exception::operator = (right);
-        return *this;
+    }
+
+    OutOfRangeException::OutOfRangeException(const char* message, int index, int count)
+        : Exception(message),
+          Index(index),
+          Count(count)
+    {
+    }
+
+    OutOfRangeException::OutOfRangeException(const BadCastException& original)
+        : Exception(original)
+    {
     }
 }

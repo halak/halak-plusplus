@@ -26,7 +26,21 @@
                     TemplateClass1(typename T, WeakPointer) \
                 /* Any */ \
                     Class(Any) \
-                    Class(AnyPtr)
+                    Class(AnyPtr) \
+                /* Disposal */ \
+                    Class(GarbageMan) \
+                    Interface(IDisposable) \
+                /* Exceptions */ \
+                    Class(Exception) \
+                        Class(BadCastException) \
+                        Class(OutOfRangeException) \
+                /* Time */ \
+                    Class(Clock) \
+                    Class(GlobalClock) \
+                    Interface(IUpdateable) \
+                    Class(Timeline) \
+                        Class(ParallelTimeline) \
+                        Class(SubTimeline)
             //Class() \
             //ReferenceClass() \
             //Interface()
@@ -52,11 +66,11 @@
 #       define HKDeclareStruct(id) \
                     static const uint ClassID = id;
 #       define HKDeclareStructFOURCC(a, b, c, d) HKDeclareStruct(HKMakeFOURCC(a, b, c, d))
-#       define HKDeclareClass(classname, id) \
+#       define HKDeclareClass(id) \
                     public: \
                         static const uint ClassID = id; \
                     private:
-#       define HKDeclareClassFOURCC(classname, a, b, c, d) HKDeclareClass(HKMakeFOURCC(a, b, c, d))
+#       define HKDeclareClassFOURCC(a, b, c, d) HKDeclareClass(HKMakeFOURCC(a, b, c, d))
     }
 
 #endif
