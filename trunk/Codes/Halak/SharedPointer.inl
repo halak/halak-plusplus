@@ -4,27 +4,30 @@
 namespace Halak
 {
     template <typename T> SharedPointer<T>::SharedPointer()
-        : pointee(0)
+        : pointee(0),
+          referenceCount(0)
     {
     }
 
     template <typename T> SharedPointer<T>::SharedPointer(T* pointee)
-        : pointee(pointee)
+        : pointee(pointee),
+          referenceCount(pointee ? pointee->referenceCount : 0)
     {
-        if (pointee)
-            pointee->referenceCount->IncreaseStrongCount();
+        if (referenceCount)
+            referenceCount->IncreaseStrongCount();
     }
 
     template <typename T> SharedPointer<T>::SharedPointer(const SharedPointer<T>& original)
-        : pointee(original.pointee)
+        : pointee(original.pointee),
+          referenceCount(original.referenceCount)
     {
-        if (pointee)
-            pointee->referenceCount->IncreaseStrongCount();
+        if (referenceCount)
+            referenceCount->IncreaseStrongCount();
     }
 
     template <typename T> SharedPointer<T>::~SharedPointer()
     {
-        if (pointee && pointee->referenceCount->DecreaseStrongCount())
+        if (referenceCount && referenceCount->DecreaseStrongCount())
             delete pointee;
     }
 
@@ -42,13 +45,14 @@ namespace Halak
     {
         if (pointee != right)
         {
-            if (pointee && pointee->referenceCount->DecreaseStrongCount())
+            if (referenceCount && referenceCount->DecreaseStrongCount())
                 delete pointee;
 
             pointee = right.pointee;
+            referenceCount = right.referenceCount;
 
-            if (pointee)
-                pointee->referenceCount->IncreaseStrongCount();
+            if (referenceCount)
+                referenceCount->IncreaseStrongCount();
         }
 
         return *this;

@@ -183,10 +183,6 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\Codes\Halak\Internal\PrimitiveTypes.h"
-				>
-			</File>
-			<File
 				RelativePath="..\..\Codes\Halak\Internal\StreamFilter.cpp"
 				>
 			</File>
@@ -693,6 +689,14 @@
 					RelativePath="..\..\Codes\Halak\Vector4.inl"
 					>
 				</File>
+				<Filter
+					Name="(Internal)"
+					>
+					<File
+						RelativePath="..\..\Codes\Halak\Internal\PrimitiveTypes.h"
+						>
+					</File>
+				</Filter>
 			</Filter>
 			<Filter
 				Name="Serialization"
