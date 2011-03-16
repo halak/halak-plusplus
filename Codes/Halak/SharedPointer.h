@@ -4,6 +4,9 @@
 
     namespace Halak
     {
+        template <typename T> class SharedPointer;
+        class ReferenceCount;
+
         template <typename T> class SharedPointer
         {
             public:
@@ -28,6 +31,7 @@
 
             private:
                 T* pointee;
+                ReferenceCount* referenceCount;
         };
     }
 

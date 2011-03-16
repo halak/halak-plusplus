@@ -4,47 +4,6 @@
 
     namespace Halak
     {
-#       define HKClasses(Struct, Class, ReferenceClass, Interface, TemplateStruct1, TemplateClass1) \
-            /* 01. Foundation */ \
-                /* (BasicTypes) */ \
-                    Struct(Color) \
-                    Struct(Matrix4) \
-                    Struct(Point) \
-                    Struct(Quaternion) \
-                    TemplateStruct1(typename T, Range) \
-                    Struct(Ray) \
-                    Struct(Ray2D) \
-                    Struct(Rectangle) \
-                    Class(String) \
-                    Struct(UUID) \
-                    Struct(Vector2) \
-                    Struct(Vector3) \
-                    Struct(Vector4) \
-                /* (SmartPointers) */ \
-                    ReferenceClass(SharedObject) \
-                    TemplateClass1(typename T, SharedPointer) \
-                    TemplateClass1(typename T, WeakPointer) \
-                /* Any */ \
-                    Class(Any) \
-                    Class(AnyPtr) \
-                /* Disposal */ \
-                    Class(GarbageMan) \
-                    Interface(IDisposable) \
-                /* Exceptions */ \
-                    Class(Exception) \
-                        Class(BadCastException) \
-                        Class(OutOfRangeException) \
-                /* Time */ \
-                    Class(Clock) \
-                    Class(GlobalClock) \
-                    Interface(IUpdateable) \
-                    Class(Timeline) \
-                        Class(ParallelTimeline) \
-                        Class(SubTimeline)
-            //Class() \
-            //ReferenceClass() \
-            //Interface()
-
 #       define HKThisIsStaticClass(classname)   private: \
                                                     classname(); \
                                                     classname(const classname&); \
