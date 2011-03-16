@@ -47,7 +47,7 @@ namespace Halak
     {
     }
 
-    OutOfRangeException::OutOfRangeException(const BadCastException& original)
+    OutOfRangeException::OutOfRangeException(const OutOfRangeException& original)
         : Exception(original)
     {
     }

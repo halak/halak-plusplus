@@ -2,6 +2,8 @@
 #ifndef __HALAK_QUATERNION_H__
 #define __HALAK_QUATERNION_H__
 
+#   include <Halak/Foundation.h>
+
     namespace Halak
     {
         struct Quaternion

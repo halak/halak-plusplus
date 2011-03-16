@@ -9,9 +9,10 @@
     {
         class SubTimeline : public Timeline
         {
+            HKDeclareGameComponentClassFOURCC('S', 'B', 'T', 'L');
             public:
-                inline SubTimeline();
-                inline SubTimeline(uint id);
+                SubTimeline();
+                explicit SubTimeline(uint id);
                 virtual ~SubTimeline();
 
                 inline Timeline* GetParent() const;

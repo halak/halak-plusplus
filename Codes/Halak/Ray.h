@@ -2,12 +2,16 @@
 #ifndef __HALAK_RAY_H__
 #define __HALAK_RAY_H__
 
-#   include <Halak/FWD.h>
+#   include <Halak/Foundation.h>
 #   include <Halak/Point.h>
 #   include <Halak/Vector3.h>
 
     namespace Halak
     {
+        struct Ray;
+        struct Matrix4;
+        struct Rectangle;
+
         struct Ray
         {
             HKDeclareStructFOURCC('R', 'A', 'Y', '3');

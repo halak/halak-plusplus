@@ -2,6 +2,8 @@
 #ifndef __HALAK_RANGE_H__
 #define __HALAK_RANGE_H__
 
+#   include <Halak/Foundation.h>
+
     namespace Halak
     {
         template <typename T> struct Range

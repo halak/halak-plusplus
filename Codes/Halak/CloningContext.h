@@ -9,20 +9,21 @@
     {
         class CloningContext
         {
+            HKDeclareClassFOURCC('C', 'L', 'C', 'X');
             public:
                 inline CloningContext();
                 inline ~CloningContext();
 
                 template <typename T> inline T* Clone(T* original);
                 template <typename T> inline T* CloneOrNull(T* original);
-                template <typename T> inline shared_ptr<T> Clone(shared_ptr<T> original);
-                template <typename T> inline shared_ptr<T> CloneOrNull(shared_ptr<T> original);
-                template <typename T> inline weak_ptr<T> Clone(weak_ptr<T> original);
-                template <typename T> inline weak_ptr<T> CloneOrNull(weak_ptr<T> original);
+                template <typename T> inline SharedPointer<T> Clone(SharedPointer<T> original);
+                template <typename T> inline SharedPointer<T> CloneOrNull(SharedPointer<T> original);
+                template <typename T> inline WeakPointer<T> Clone(WeakPointer<T> original);
+                template <typename T> inline WeakPointer<T> CloneOrNull(WeakPointer<T> original);
 
             private:
                 template <typename T> inline T* CloneActually(T* original, T* fallback);
-                template <typename T> inline shared_ptr<T> CloneActually(shared_ptr<T> original, shared_ptr<T> fallback);
+                template <typename T> inline SharedPointer<T> CloneActually(SharedPointer<T> original, SharedPointer<T> fallback);
 
             private:
                 std::map<ICloneable*, ICloneable*> clones;

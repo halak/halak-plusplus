@@ -1,6 +1,3 @@
-#include <Halak/SharedObject.h>
-#include <Halak/Internal/ReferenceCount.h>
-
 namespace Halak
 {
     template <typename T> SharedPointer<T>::SharedPointer()
@@ -11,7 +8,7 @@ namespace Halak
 
     template <typename T> SharedPointer<T>::SharedPointer(T* pointee)
         : pointee(pointee),
-          referenceCount(pointee ? pointee->referenceCount : 0)
+          referenceCount(AcquireReferenceCount(pointee))
     {
         if (referenceCount)
             referenceCount->IncreaseStrongCount();
@@ -36,20 +33,20 @@ namespace Halak
         return pointee;
     }
 
-    template <typename T> SharedPointer<T>& SharedPointer<T>::operator = (const SharedPointer<T>& right) const
+    template <typename T> SharedPointer<T>& SharedPointer<T>::operator = (const SharedPointer<T>& right)
     {
         return operator = (right.pointee);
     }
 
-    template <typename T> SharedPointer<T>& SharedPointer<T>::operator = (T* right) const
+    template <typename T> SharedPointer<T>& SharedPointer<T>::operator = (T* right)
     {
         if (pointee != right)
         {
             if (referenceCount && referenceCount->DecreaseStrongCount())
                 delete pointee;
 
-            pointee = right.pointee;
-            referenceCount = right.referenceCount;
+            pointee = right;
+            referenceCount = AcquireReferenceCount(right);
 
             if (referenceCount)
                 referenceCount->IncreaseStrongCount();
@@ -91,5 +88,10 @@ namespace Halak
     template <typename T> T* SharedPointer<T>::operator -> () const
     {
         return pointee;
+    }
+
+    template <typename T> ReferenceCount* SharedPointer<T>::AcquireReferenceCount(SharedObject* instance)
+    {
+        return instance ? instance->referenceCount : 0;
     }
 }

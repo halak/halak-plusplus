@@ -2,7 +2,8 @@
 #ifndef __HALAK_STRING_H__
 #define __HALAK_STRING_H__
 
-#   include <Halak/FWD.h>
+#   include <Halak/Foundation.h>
+#   include <memory>
 #   include <string>
 
     namespace Halak
@@ -10,7 +11,6 @@
         class String
         {
             HKDeclareStructFOURCC('S', 'T', 'R', '_');
-
             public:
                 class CharRef;
 
@@ -216,7 +216,7 @@
                 };
 
             private:
-                shared_ptr<StringBuffer> buffer;
+                std::tr1::shared_ptr<StringBuffer> buffer;
         };
 
         inline int CompareString(const char* s1, const char* s2);

@@ -1,5 +1,5 @@
-#include <Halak/Clock.h>
-#include <Halak/BuildConfiguration.h>
+#include <Halak/PCH.h>
+#include <Halak/GlobalClock.h>
 
 #if (defined(HALAK_PLATFORM_WINDOWS))
 
@@ -64,25 +64,25 @@
 
         WindowsClock WindowsClock::StaticInstance;
 
-        Clock::Clock()
+        GlobalClock::GlobalClock()
         {
         }
 
-        Clock::~Clock()
+        GlobalClock::~GlobalClock()
         {
         }
 
-        float Clock::GetCurrent()
+        float GlobalClock::GetCurrent()
         {
             return static_cast<float>(WindowsClock::StaticInstance.GetCurrent());
         }
 
-        uint Clock::GetCurrentMilliSeconds()
+        uint GlobalClock::GetCurrentMilliSeconds()
         {
             return static_cast<uint>(WindowsClock::StaticInstance.GetCurrentMilliSeconds());
         }
 
-        bool Clock::IsHighResolution()
+        bool GlobalClock::IsHighResolution()
         {
             return WindowsClock::StaticInstance.IsHighResolution;
         }

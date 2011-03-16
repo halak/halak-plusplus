@@ -2,7 +2,7 @@
 #ifndef __HALAK_MATH_H__
 #define __HALAK_MATH_H__
 
-#   include <Halak/FWD.h>
+#   include <Halak/Foundation.h>
 #   include <Halak/Color.h>
 #   include <Halak/Point.h>
 #   include <Halak/Vector2.h>
@@ -14,6 +14,7 @@
     {
         class Math
         {
+            HKThisIsStaticClass(Math);
             public:
                 static const float E;
                 static const float Log10E;
@@ -30,22 +31,47 @@
                 static float Acos(float radian);
                 static float Atan2(float y, float x);
 
-                static short          Abs(short value);
-                static int            Abs(int value);
-                static long           Abs(long value);
-                static float          Abs(float value);
-                static double         Abs(double value);
+                static inline char   Abs(char value);
+                static inline short  Abs(short value);
+                static inline int    Abs(int value);
+                static inline long   Abs(long value);
+                static inline float  Abs(float value);
+                static inline double Abs(double value);
 
-                static short          Clamp(short value, short min, short max);
-                static unsigned short Clamp(unsigned short value, unsigned short min, unsigned short max);
-                static int            Clamp(int value, int min, int max);
-                static unsigned int   Clamp(unsigned int value, unsigned int min, unsigned int max);
-                static long           Clamp(long value, long min, long max);
-                static unsigned long  Clamp(unsigned long value, unsigned long min, unsigned long max);
-                static float          Clamp(float value, float min, float max);
-                static double         Clamp(double value, double min, double max);
+                static inline char   Min(char a, char b);
+                static inline uchar  Min(uchar a, uchar b);
+                static inline short  Min(short a, short b);
+                static inline ushort Min(ushort a, ushort b);
+                static inline int    Min(int a, int b);
+                static inline uint   Min(uint a, uint b);
+                static inline long   Min(long a, long b);
+                static inline ulong  Min(ulong a, ulong b);
+                static inline float  Min(float a, float b);
+                static inline double Min(double a, double b);
 
-                static int Wrap(int value, int upper);
+                static inline char   Max(char a, char b);
+                static inline uchar  Max(uchar a, uchar b);
+                static inline short  Max(short a, short b);
+                static inline ushort Max(ushort a, ushort b);
+                static inline int    Max(int a, int b);
+                static inline uint   Max(uint a, uint b);
+                static inline long   Max(long a, long b);
+                static inline ulong  Max(ulong a, ulong b);
+                static inline float  Max(float a, float b);
+                static inline double Max(double a, double b);
+
+                static inline char   Clamp(char value, char min, char max);
+                static inline uchar  Clamp(uchar value, uchar min, uchar max);
+                static inline short  Clamp(short value, short min, short max);
+                static inline ushort Clamp(ushort value, ushort min, ushort max);
+                static inline int    Clamp(int value, int min, int max);
+                static inline uint   Clamp(uint value, uint min, uint max);
+                static inline long   Clamp(long value, long min, long max);
+                static inline ulong  Clamp(ulong value, ulong min, ulong max);
+                static inline float  Clamp(float value, float min, float max);
+                static inline double Clamp(double value, double min, double max);
+
+                static inline int Wrap(int value, int upper);
 
                 static int  GetNearestMorePowerOfTwo(int value);
                 static uint GetNearestMorePowerOfTwo(uint value);
@@ -75,11 +101,6 @@
                 static Vector3 Random(Vector3 a, Vector3 b);
                 static Vector4 Random(Vector4 a, Vector4 b);
                 static Color   Random(Color a, Color b);
-
-            private:
-                Math();
-                Math(const Math&);
-                Math& operator = (const Math&);
         };
     }
 

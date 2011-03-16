@@ -13,7 +13,7 @@ namespace Halak
     }
 
     Timeline::Item::Item(IUpdateablePtr item)
-        : RawPointer(item.get()),
+        : RawPointer(item.GetPointee()),
           SharedPointer(item)
     {
     }

@@ -2,8 +2,7 @@
 #ifndef __HALAK_EXCEPTION_H__
 #define __HALAK_EXCEPTION_H__
 
-#   include <Halak/BuildConfiguration.h>
-#   include <Halak/Classes.h>
+#   include <Halak/Foundation.h>
 
     namespace Halak
     {

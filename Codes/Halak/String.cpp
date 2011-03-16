@@ -1,6 +1,5 @@
+#include <Halak/PCH.h>
 #include <Halak/String.h>
-#include <Halak/Assert.h>
-#include <cstring>
 
 namespace Halak
 {

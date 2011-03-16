@@ -9,6 +9,8 @@
     {
         class GameNode
         {
+            HKDeclareClassFOURCC('G', 'N', 'O', 'D');
+            HKThisIsNoncopyableClass(GameNode);
             public:
                 typedef std::vector<GameNode*> NodeCollection;
 
@@ -46,9 +48,6 @@
                 GameStructure* structure;
 
             private:
-                GameNode(const GameNode&);
-                GameNode& operator = (const GameNode&);
-
                 friend class GameComponent;
                 friend class GameStructure;
         };

@@ -1,3 +1,4 @@
+#include <Halak/PCH.h>
 #include <Halak/Quaternion.h>
 
 namespace Halak

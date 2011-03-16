@@ -3,14 +3,14 @@
 #define __HALAK_GAMESTRUCTURE_H__
 
 #   include <Halak/FWD.h>
-#   include <Halak/GameNode.h>
-#   include <list>
 #   include <map>
 
     namespace Halak
     {
         class GameStructure
         {
+            HKDeclareClassFOURCC('G', 'S', 'T', 'R');
+            HKThisIsNoncopyableClass(GameStructure);
             public:
                 GameStructure();
                 ~GameStructure();

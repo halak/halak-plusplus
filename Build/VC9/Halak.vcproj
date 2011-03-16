@@ -47,6 +47,7 @@
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
 				UsePrecompiledHeader="0"
+				PrecompiledHeaderThrough="..\..\Codes\Halak\PCH.h"
 				WarningLevel="4"
 				DebugInformationFormat="4"
 			/>
@@ -111,6 +112,7 @@
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
 				UsePrecompiledHeader="0"
+				PrecompiledHeaderThrough="..\..\Codes\Halak\PCH.h"
 				WarningLevel="4"
 				DebugInformationFormat="3"
 			/>
@@ -251,7 +253,7 @@
 				>
 			</File>
 			<Filter
-				Name="(Structure)"
+				Name="*(Structure)"
 				>
 				<File
 					RelativePath="..\..\Codes\Halak\GameComponent.cpp"
@@ -263,22 +265,6 @@
 				</File>
 				<File
 					RelativePath="..\..\Codes\Halak\GameComponent.inl"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\GameFramework.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\GameFramework.Windows.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\GameFramework.Windows.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\GameFramework.Windows.inl"
 					>
 				</File>
 				<File
@@ -431,7 +417,7 @@
 				</File>
 			</Filter>
 			<Filter
-				Name="Clone"
+				Name="*Cloning"
 				>
 				<File
 					RelativePath="..\..\Codes\Halak\CloningContext.cpp"
@@ -531,7 +517,7 @@
 				</File>
 			</Filter>
 			<Filter
-				Name="(BasicTypes)"
+				Name="*(BasicTypes)"
 				>
 				<File
 					RelativePath="..\..\Codes\Halak\Color.cpp"
@@ -689,14 +675,6 @@
 					RelativePath="..\..\Codes\Halak\Vector4.inl"
 					>
 				</File>
-				<Filter
-					Name="(Internal)"
-					>
-					<File
-						RelativePath="..\..\Codes\Halak\Internal\PrimitiveTypes.h"
-						>
-					</File>
-				</Filter>
 			</Filter>
 			<Filter
 				Name="Serialization"
@@ -707,7 +685,7 @@
 				</File>
 			</Filter>
 			<Filter
-				Name="Disposal"
+				Name="*Disposal"
 				>
 				<File
 					RelativePath="..\..\Codes\Halak\GarbageMan.cpp"
@@ -727,7 +705,7 @@
 				</File>
 			</Filter>
 			<Filter
-				Name="Exceptions"
+				Name="*Exceptions"
 				>
 				<File
 					RelativePath="..\..\Codes\Halak\Exception.cpp"
@@ -743,14 +721,14 @@
 				</File>
 			</Filter>
 			<Filter
-				Name="Time"
+				Name="*Time"
 				>
 				<File
-					RelativePath="..\..\Codes\Halak\Clock.h"
+					RelativePath="..\..\Codes\Halak\Clock.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Codes\Halak\Clock.Windows.cpp"
+					RelativePath="..\..\Codes\Halak\Clock.h"
 					>
 				</File>
 				<File
@@ -855,7 +833,7 @@
 				</File>
 			</Filter>
 			<Filter
-				Name="Diagnostics"
+				Name="*Diagnostics"
 				>
 				<File
 					RelativePath="..\..\Codes\Halak\Assert.cpp"
@@ -877,6 +855,10 @@
 						>
 					</File>
 					<File
+						RelativePath="..\..\Codes\Halak\GlobalLogger.inl"
+						>
+					</File>
+					<File
 						RelativePath="..\..\Codes\Halak\Logger.cpp"
 						>
 					</File>
@@ -884,10 +866,14 @@
 						RelativePath="..\..\Codes\Halak\Logger.h"
 						>
 					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\Logger.inl"
+						>
+					</File>
 				</Filter>
 			</Filter>
 			<Filter
-				Name="(SmartPointers)"
+				Name="*(SmartPointers)"
 				>
 				<File
 					RelativePath="..\..\Codes\Halak\NullPointer.h"
@@ -899,10 +885,6 @@
 				</File>
 				<File
 					RelativePath="..\..\Codes\Halak\SharedObject.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\SharedObject.inl"
 					>
 				</File>
 				<File
@@ -970,7 +952,7 @@
 				Name="Algorithm"
 				>
 				<File
-					RelativePath="..\..\Codes\Halak\CheckedRelease.hpp"
+					RelativePath="..\..\Codes\Halak\CheckedRelease.h"
 					>
 				</File>
 				<File
@@ -1778,6 +1760,22 @@
 				Name="Framework"
 				>
 				<File
+					RelativePath="..\..\Codes\Halak\GameFramework.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\GameFramework.Windows.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\GameFramework.Windows.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\GameFramework.Windows.inl"
+					>
+				</File>
+				<File
 					RelativePath="..\..\Codes\Halak\GameWindow.cpp"
 					>
 				</File>
@@ -1880,11 +1878,7 @@
 			>
 		</File>
 		<File
-			RelativePath="..\..\Codes\Halak\BuildConfiguration.h"
-			>
-		</File>
-		<File
-			RelativePath="..\..\Codes\Halak\Classes.h"
+			RelativePath="..\..\Codes\Halak\Foundation.h"
 			>
 		</File>
 		<File

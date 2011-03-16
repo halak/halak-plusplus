@@ -1,6 +1,6 @@
+#include <Halak/PCH.h>
 #include <Halak/Color.h>
 #include <Halak/Assert.h>
-#include <algorithm>
 #include <sstream>
 
 namespace Halak

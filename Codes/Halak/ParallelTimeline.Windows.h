@@ -3,7 +3,6 @@
 #define __HALAK_PARALLELTIMELINE_WINDOWS_H__
 
 #   include <Halak/FWD.h>
-#   include <Halak/BuildConfiguration.h>
 #   include <Halak/Timeline.h>
 
 #   if (defined(HALAK_PLATFORM_WINDOWS))
@@ -12,6 +11,7 @@
         {
             class ParallelTimeline : public Timeline
             {
+                HKDeclareGameComponentClassFOURCC('P', 'R', 'T', 'L');
                 public:
                     ParallelTimeline();
                     explicit ParallelTimeline(uint id);

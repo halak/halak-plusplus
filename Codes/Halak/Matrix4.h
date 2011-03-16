@@ -2,6 +2,7 @@
 #ifndef __HALAK_MATRIX4_H__
 #define __HALAK_MATRIX4_H__
 
+#   include <Halak/Foundation.h>
 #   include <Halak/Vector3.h>
 
     namespace Halak

@@ -2,6 +2,7 @@
 #ifndef __HALAK_SPATIAL_INTERFACE_H__
 #define __HALAK_SPATIAL_INTERFACE_H__
 
+#   include <Halak/Foundation.h>
 #   include <Halak/FWD.h>
 #   include <Halak/Quaternion.h>
 #   include <Halak/Vector3.h>

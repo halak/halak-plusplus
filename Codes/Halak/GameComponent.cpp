@@ -1,3 +1,4 @@
+#include <Halak/PCH.h>
 #include <Halak/GameComponent.h>
 #include <Halak/Assert.h>
 #include <Halak/Exception.h>
@@ -5,7 +6,6 @@
 #include <Halak/GameStructure.h>
 #include <Halak/ICloneable.h>
 #include <Halak/IUpdateable.h>
-#include <Halak/IDrawable.h>
 
 namespace Halak
 {
@@ -82,54 +82,42 @@ namespace Halak
         }
     }
 
-    ICloneable* GameComponent::ToCloneableInterface()
+    ICloneable* GameComponent::AcquireCloneableInterface()
     {
         return nullptr;
     }
 
-    const ICloneable* GameComponent::ToCloneableInterface() const
+    const ICloneable* GameComponent::AcquireCloneableInterface() const
+    {
+        return const_cast<GameComponent*>(this)->AcquireCloneableInterface();
+    }
+
+    IUpdateable* GameComponent::AcquireUpdateableInterface()
     {
         return nullptr;
     }
 
-    IUpdateable* GameComponent::ToUpdateableInterface()
+    const IUpdateable* GameComponent::AcquireUpdateableInterface() const
     {
-        return nullptr;
+        return const_cast<GameComponent*>(this)->AcquireUpdateableInterface();
     }
 
-    const IUpdateable* GameComponent::ToUpdateableInterface() const
-    {
-        return nullptr;
-    }
-
-    IDrawable* GameComponent::ToDrawableInterface()
-    {
-        return nullptr;
-    }
-
-    const IDrawable* GameComponent::ToDrawableInterface() const
-    {
-        return nullptr;
-    }
-
-    void* GameComponent::ToInterface(uint classID)
+    void* GameComponent::AcquireInterface(uint classID)
     {
         switch (classID)
         {
             case ICloneable::ClassID:
-                return ToCloneableInterface();
+                return AcquireCloneableInterface();
             case IUpdateable::ClassID:
-                return ToUpdateableInterface();
-            case IDrawable::ClassID:
-                return ToDrawableInterface();
+                return AcquireUpdateableInterface();
             default:
                 return nullptr;
         }
     }
 
-    const void* GameComponent::ToInterface(uint classID) const
+    const void* GameComponent::AcquireInterface(uint classID) const
     {
-        return const_cast<GameComponent*>(this)->ToInterface(classID);
+        return const_cast<GameComponent*>(this)->AcquireInterface(classID);
     }
 
     void GameComponent::OnStatusChanged(Status /*old*/)

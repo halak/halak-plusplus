@@ -2,8 +2,11 @@
 #ifndef __HAlAK_SHAREDOBJECT_H__
 #define __HAlAK_SHAREDOBJECT_H__
 
+#   include <Halak/Foundation.h>
+
     namespace Halak
     {
+        class SharedObject;
         class ReferenceCount;
 
         class SharedObject
@@ -14,11 +17,9 @@
 
             private:
                 ReferenceCount* referenceCount;
-                friend template <typename T> class SharedPointer;
-                friend template <typename T> class WeakPointer;
+                template <typename T> friend class SharedPointer;
+                template <typename T> friend class WeakPointer;
         };
     }
-
-#   include <Halak/SharedObject.inl>
 
 #endif
