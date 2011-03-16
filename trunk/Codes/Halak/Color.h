@@ -2,11 +2,10 @@
 #ifndef __HALAK_COLOR_H__
 #define __HALAK_COLOR_H__
 
-#   include <Halak/Classes.h>
+#   include <Halak/Foundation.h>
 #   include <Halak/String.h>
 #   include <Halak/Vector3.h>
 #   include <Halak/Vector4.h>
-#   include <Halak/Internal/PrimitiveTypes.h>
 #   include <map>
 
     namespace Halak

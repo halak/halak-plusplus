@@ -1,3 +1,4 @@
+#include <Halak/PCH.h>
 #include <Halak/ICloneable.h>
 #include <Halak/CloningContext.h>
 

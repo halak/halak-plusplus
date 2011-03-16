@@ -1,3 +1,4 @@
+#include <Halak/PCH.h>
 #include <Halak/GameNode.h>
 #include <Halak/Assert.h>
 #include <Halak/Exception.h>

@@ -2,7 +2,7 @@
 #ifndef __HALAK_REFERENCECOUNT_H__
 #define __HALAK_REFERENCECOUNT_H__
 
-#   include <Halak/BuildConfiguration.h>
+#   include <Halak/Foundation.h>
 
     namespace Halak
     {
@@ -17,6 +17,7 @@
 
             public:
                 inline ReferenceCount();
+                inline ReferenceCount(const ReferenceCount& original);
 
                 void IncreaseStrongCount();
                 bool DecreaseStrongCount();
@@ -25,13 +26,11 @@
 
                 inline bool IsAlive() const;
 
+                inline ReferenceCount& operator = (const ReferenceCount&);
+
             private:
                 IntType strong;
                 IntType weak;
-
-            private:
-                ReferenceCount(const ReferenceCount&);
-                ReferenceCount& operator = (const ReferenceCount&);
         };
     }
 

@@ -3,19 +3,17 @@
 #define __HALAK_CLOCK_H__
 
 #   include <Halak/FWD.h>
+#   include <Halak/GameComponent.h>
 
     namespace Halak
     {
-        class Clock
+        class Clock : public GameComponent
         {
+            HKDeclareGameComponentClassFOURCC('C', 'L', 'C', 'K');
             public:
-                static float GetCurrent();
-                static uint  GetCurrentMilliSeconds();
-                static bool IsHighResolution();
-
-            private:
                 Clock();
-                ~Clock();
+                explicit Clock(uint id);
+                virtual ~Clock();
         };
     }
 

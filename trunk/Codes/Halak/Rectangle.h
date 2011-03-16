@@ -2,6 +2,7 @@
 #ifndef __HALAK_RECTANGLE_H__
 #define __HALAK_RECTANGLE_H__
 
+#   include <Halak/Foundation.h>
 #   include <Halak/Point.h>
 
     namespace Halak

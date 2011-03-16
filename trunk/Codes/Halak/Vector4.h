@@ -2,7 +2,7 @@
 #ifndef __HALAK_VECTOR4_H__
 #define __HALAK_VECTOR4_H__
 
-#   include <Halak/FWD.h>
+#   include <Halak/Foundation.h>
 #   include <Halak/Vector3.h>
 
     namespace Halak
@@ -16,11 +16,11 @@
             float Z;
             float W;
 
-            Vector4();
-            Vector4(float x, float y, float z);
-            Vector4(float x, float y, float z, float w);
-            Vector4(const Vector3& original, float w);
-            Vector4(const Vector4& original);
+            inline Vector4();
+            inline Vector4(float x, float y, float z);
+            inline Vector4(float x, float y, float z, float w);
+            inline Vector4(const Vector3& original, float w);
+            inline Vector4(const Vector4& original);
 
             inline Vector4  operator + () const;
             inline Vector4  operator - () const;

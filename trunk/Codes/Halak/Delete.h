@@ -2,6 +2,8 @@
 #ifndef __HALAK_DELETE_H__
 #define __HALAK_DELETE_H__
 
+#   include <Halak/Foundation.h>
+
     namespace Halak
     {
         template <typename T> void DeleteAll(T& container)

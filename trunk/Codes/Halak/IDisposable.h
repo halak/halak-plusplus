@@ -1,8 +1,7 @@
 #ifndef __HALAK_DISPOSABLE_INTERFACE__
 #define __HALAK_DISPOSABLE_INTERFACE__
 
-#   include <Halak/BuildConfiguration.h>
-#   include <Halak/SharedPointer.h>
+#   include <Halak/FWD.h>
 
     namespace Halak
     {
@@ -17,6 +16,7 @@
         /// Dispose에서 강제로 공유 소유권을 파기해야합니다.
         class IDisposable
         {
+            HKDeclareClassFOURCC('I', 'D', 'I', 'S');
             public:
                 virtual ~IDisposable() { }
 

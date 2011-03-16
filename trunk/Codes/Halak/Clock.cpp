@@ -1,18 +1,18 @@
 #include <Halak/PCH.h>
-#include <Halak/Logger.h>
+#include <Halak/Clock.h>
 
 namespace Halak
 {
-    Logger::Logger()
+    Clock::Clock()
     {
     }
 
-    Logger::Logger(uint id)
+    Clock::Clock(uint id)
         : GameComponent(id)
     {
     }
 
-    Logger::~Logger()
+    Clock::~Clock()
     {
     }
 }

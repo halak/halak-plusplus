@@ -6,12 +6,10 @@
 
     namespace Halak
     {
-#       define HKDeclareGameComponentClass(id) \
-                    public: \
-                        static const uint ClassID = id; \
-                        virtual uint GetClassID() const { return ClassID; } \
-                    private:
-
+#       define HKDeclareGameComponentClass(id)  public: \
+                                                    static const uint ClassID = id; \
+                                                    virtual uint GetClassID() const { return ClassID; } \
+                                                private:
 #       define HKDeclareGameComponentClassFOURCC(a, b, c, d) HKDeclareGameComponentClass(HKMakeFOURCC(a, b, c, d))
 
         /// Game이란 Application을 구성하는 요소의 기반 class.
@@ -43,18 +41,16 @@
                 inline bool GetActive() const;
                        void SetActive(bool value);
 
-                virtual       ICloneable*  ToCloneableInterface();
-                virtual const ICloneable*  ToCloneableInterface() const;
-                virtual       IUpdateable* ToUpdateableInterface();
-                virtual const IUpdateable* ToUpdateableInterface() const;
-                virtual       IDrawable*   ToDrawableInterface();
-                virtual const IDrawable*   ToDrawableInterface() const;
-                virtual       void* ToInterface(uint classID);
-                virtual const void* ToInterface(uint classID) const;
+                virtual       ICloneable*  AcquireCloneableInterface();
+                virtual const ICloneable*  AcquireCloneableInterface() const;
+                virtual       IUpdateable* AcquireUpdateableInterface();
+                virtual const IUpdateable* AcquireUpdateableInterface() const;
+                virtual       void* AcquireInterface(uint classID);
+                virtual const void* AcquireInterface(uint classID) const;
 
             protected:
                 GameComponent();
-                explicit GameComponent(uint id);
+                GameComponent(uint id);
 
                 virtual void OnStatusChanged(Status old);
 

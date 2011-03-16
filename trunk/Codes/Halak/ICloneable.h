@@ -8,9 +8,7 @@
     {
         class ICloneable
         {
-            public:
-                static const uint ClassID = 0x00000000;
-
+            HKDeclareClassFOURCC('I', 'C', 'L', 'N');
             public:
                 virtual ~ICloneable() { }
 

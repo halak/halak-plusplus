@@ -2,6 +2,7 @@
 #ifndef __HALAK_WEAKPOINTER_H__
 #define __HALAK_WEAKPOINTER_H__
 
+#   include <Halak/Foundation.h>
 #   include <Halak/SharedPointer.h>
 
     namespace Halak
@@ -21,8 +22,8 @@
 
                 inline bool IsAlive() const;
 
-                inline WeakPointer<T>& operator = (const WeakPointer<T>& right) const;
-                inline WeakPointer<T>& operator = (const SharedPointer<T>& right) const;
+                inline WeakPointer<T>& operator = (const WeakPointer<T>& right);
+                inline WeakPointer<T>& operator = (const SharedPointer<T>& right);
 
                 inline bool operator == (const WeakPointer<T>& right) const;
                 inline bool operator == (const SharedPointer<T>& right) const;

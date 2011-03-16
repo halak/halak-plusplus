@@ -1,8 +1,9 @@
+#include <Halak/PCH.h>
 #include <Halak/Internal/ReferenceCount.h>
-#include <Halak/BuildConfiguration.h>
 
 #if (defined(HALAK_PLATFORM_WINDOWS))
 
+#   define WIN32_LEAN_AND_MEAN
 #   include <windows.h>
 
     namespace Halak

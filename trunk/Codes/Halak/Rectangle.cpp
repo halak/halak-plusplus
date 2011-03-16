@@ -1,14 +1,15 @@
+#include <Halak/PCH.h>
 #include <Halak/Rectangle.h>
-#include <functional>
+#include <Halak/Math.h>
 
 namespace Halak
 {
     Rectangle Rectangle::Union(const Rectangle& a, const Rectangle& b)
     {
-        const int minimumLeft   = std::min(a.GetLeft(),   b.GetLeft());
-        const int minimumTop    = std::min(a.GetTop(),    b.GetTop());
-        const int maximumRight  = std::max(a.GetRight(),  b.GetRight());
-        const int maximumBottom = std::max(a.GetBottom(), b.GetBottom());
+        const int minimumLeft   = Math::Min(a.GetLeft(),   b.GetLeft());
+        const int minimumTop    = Math::Min(a.GetTop(),    b.GetTop());
+        const int maximumRight  = Math::Max(a.GetRight(),  b.GetRight());
+        const int maximumBottom = Math::Max(a.GetBottom(), b.GetBottom());
         return Rectangle(Point(minimumLeft, minimumTop), 
                          Point(maximumRight, maximumBottom));
     }

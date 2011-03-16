@@ -2,6 +2,8 @@
 #ifndef __HALAK_POINT_H__
 #define __HALAK_POINT_H__
 
+#   include <Halak/Foundation.h>
+
     namespace Halak
     {
         struct Point

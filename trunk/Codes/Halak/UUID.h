@@ -2,7 +2,7 @@
 #ifndef __HALAK_UUID_H__
 #define __HALAK_UUID_H__
 
-#   include <Halak/FWD.h>
+#   include <Halak/Foundation.h>
 
     namespace Halak
     {

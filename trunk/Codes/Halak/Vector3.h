@@ -2,7 +2,7 @@
 #ifndef __HALAK_VECTOR3_H__
 #define __HALAK_VECTOR3_H__
 
-#   include <Halak/FWD.h>
+#   include <Halak/Foundation.h>
 #   include <Halak/Vector2.h>
 
     namespace Halak

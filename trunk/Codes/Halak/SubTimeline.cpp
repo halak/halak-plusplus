@@ -1,7 +1,19 @@
+#include <Halak/PCH.h>
 #include <Halak/SubTimeline.h>
 
 namespace Halak
 {
+    SubTimeline::SubTimeline()
+        : parent(nullptr)
+    {
+    }
+
+    SubTimeline::SubTimeline(uint id)
+        : Timeline(id),
+          parent(nullptr)
+    {
+    }
+
     SubTimeline::~SubTimeline()
     {
     }

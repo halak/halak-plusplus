@@ -1,6 +1,6 @@
+#include <Halak/PCH.h>
 #include <Halak/GarbageMan.h>
 #include <Halak/IDisposable.h>
-#include <algorithm>
 
 namespace Halak
 {

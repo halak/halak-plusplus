@@ -1,3 +1,4 @@
+#include <Halak/PCH.h>
 #include <Halak/Vector3.h>
 #include <Halak/Math.h>
 #include <limits>

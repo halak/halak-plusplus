@@ -2,11 +2,12 @@
 #ifndef __HALAK_SHAREDPOINTER_H__
 #define __HALAK_SHAREDPOINTER_H__
 
+#   include <Halak/Foundation.h>
+#   include <Halak/SharedObject.h>
+#   include <Halak/Internal/ReferenceCount.h>
+
     namespace Halak
     {
-        template <typename T> class SharedPointer;
-        class ReferenceCount;
-
         template <typename T> class SharedPointer
         {
             public:
@@ -17,8 +18,8 @@
 
                 inline T* GetPointee() const;
 
-                inline SharedPointer<T>& operator = (const SharedPointer<T>& right) const;
-                inline SharedPointer<T>& operator = (T* right) const;
+                inline SharedPointer<T>& operator = (const SharedPointer<T>& right);
+                inline SharedPointer<T>& operator = (T* right);
 
                 inline bool operator == (const SharedPointer<T>& right) const;
                 inline bool operator == (T* right) const;
@@ -28,6 +29,11 @@
                 inline operator T* () const;
                 inline T& operator * () const;
                 inline T* operator -> () const;
+
+            private:
+                template <typename U>
+                inline ReferenceCount* AcquireReferenceCount(U* instance) { return instance ? new ReferenceCount() : 0; }
+                inline ReferenceCount* AcquireReferenceCount(SharedObject* instance);
 
             private:
                 T* pointee;

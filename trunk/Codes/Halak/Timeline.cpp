@@ -1,6 +1,7 @@
+#include <Halak/PCH.h>
 #include <Halak/Timeline.h>
+#include <Halak/Exception.h>
 #include <algorithm>
-#include <stdexcept>
 
 namespace Halak
 {
@@ -90,7 +91,7 @@ namespace Halak
     void Timeline::RemoveAt(int index)
     {
         if (index < 0 || static_cast<int>(items.size()) <= index)
-            throw std::out_of_range("index");
+            throw OutOfRangeException(nullptr, index, static_cast<int>(items.size()));
 
         items.erase(items.begin() + index);
     }
@@ -115,12 +116,7 @@ namespace Halak
         speed = std::max(value, 0.0f);
     }
 
-    IUpdateable* Timeline::ToUpdateableInterface()
-    {
-        return this;
-    }
-
-    const IUpdateable* Timeline::ToUpdateableInterface() const
+    IUpdateable* Timeline::AcquireUpdateableInterface()
     {
         return this;
     }

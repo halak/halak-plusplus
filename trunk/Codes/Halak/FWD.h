@@ -2,19 +2,20 @@
 #ifndef __HALAK_FWD_H__
 #define __HALAK_FWD_H__
 
-#   include <Halak/Internal/PrimitiveTypes.h>
+#   include <Halak/Foundation.h>
 #   include <Halak/NullPointer.h>
 #   include <Halak/SharedPointer.h>
 #   include <Halak/WeakPointer.h>
 
     namespace Halak
     {
-#       define HKForwardDeclareSmartPointerclass name) class name; \
-                                                       typedef SharedPointer<classname> classname##Ptr; \
-                                                       typedef WeakPointer<classname>   classname##WeakPtr;
+#       define HKForwardDeclareSmartPointerClass(name) class name; \
+                                                       typedef SharedPointer<name> name##Ptr; \
+                                                       typedef WeakPointer<name>   name##WeakPtr;
 
 
         // 01. Foundation
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
             // (BasicTypes)
                 struct Color;
                 struct Matrix4;
@@ -50,18 +51,34 @@
                 typedef Range<Vector3>    Vector3Range;
                 typedef Range<Vector4>    Vector4Range;
             ////////////////////////////////////////////////////////////////////////////////////////////////////
-            // SmartPointers
-                class SharedObject;
+            // (SmartPointers)
+                HKForwardDeclareSmartPointerClass(SharedObject);
                 template <typename T> class SharedPointer;
                 template <typename T> class WeakPointer;
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
+            // (Structure)
+                class GameComponent;
+                    class GameModule;
+                class GameNode;
+                class GameStructure;
             ////////////////////////////////////////////////////////////////////////////////////////////////////
             // Any
                 class Any;
                 class AnyPtr;
             ////////////////////////////////////////////////////////////////////////////////////////////////////
+            // Cloning
+                class CloningContext;
+                HKForwardDeclareSmartPointerClass(ICloneable);
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
+            // Diagnostics
+                ////////////////////////////////////////////////////////////////////////////////////////////////////
+                // Logger
+                    class GlobalLogger;
+                    class Logger;
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
             // Disposal
                 class GarbageMan;
-                class IDisposable;
+                HKForwardDeclareSmartPointerClass(IDisposable);
             ////////////////////////////////////////////////////////////////////////////////////////////////////
             // Exceptions
                 class Exception;
@@ -71,7 +88,7 @@
             // Time
                 class Clock;
                 class GlobalClock;
-                class IUpdateable;
+                HKForwardDeclareSmartPointerClass(IUpdateable);
                 class Timeline;
                     class ParallelTimeline;
                     class SubTimeline;
