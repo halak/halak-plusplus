@@ -38,10 +38,6 @@
 #           include <Halak/GameNode.h>
 #           include <Halak/GameStructure.h>
         ////////////////////////////////////////////////////////////////////////////////////////////////////
-        // Algorithm
-#           include <Halak/CheckedRelease.h>
-#           include <Halak/Delete.h>
-        ////////////////////////////////////////////////////////////////////////////////////////////////////
         // Any
 #           include <Halak/Any.h>
 #           include <Halak/AnyPtr.h>
