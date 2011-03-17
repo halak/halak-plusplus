@@ -24,6 +24,9 @@
                 void IncreaseWeakCount();
                 void DecreaseWeakCount();
 
+                inline int GetStrong() const;
+                inline int GetWeak() const;
+
                 inline bool IsAlive() const;
 
                 inline ReferenceCount& operator = (const ReferenceCount&);

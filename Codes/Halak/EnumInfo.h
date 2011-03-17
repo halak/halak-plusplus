@@ -11,26 +11,32 @@
     {
         class EnumInfo : public TypeInfo
         {
-            friend class TypeLibrary;
+            HKDeclareClassFOURCC('E', 'N', 'U', 'M');
             public:
                 class Value
                 {
-                    friend class EnumInfo;
+                    HKDeclareClassFOURCC('E', 'N', 'V', 'L');
+                    HKThisIsNoncopyableClass(Value);
                     public:
                         ~Value();
 
                         void Add(const Attribute* item);
                         bool Remove(const Attribute* item);
 
-                        const AttributeCollection& GetAttributes() const;
+                        inline const char* GetName() const;
+                        inline int         GetValue() const;
+                        inline const AttributeCollection& GetAttributes() const;
 
                     private:
                         Value(const char* name, int value);
 
                     private:
-                        String name;
+                        const char* name;
                         int value;
                         AttributeCollection attributes;
+
+                    private:
+                        friend class EnumInfo;
                 };
 
             public:
@@ -39,7 +45,7 @@
             public:
                 void Add(const char* name, int value);
 
-                const ValueCollection& GetValues() const;
+                inline const ValueCollection& GetValues() const;
 
             private:
                 EnumInfo(int allocationSize);
@@ -47,6 +53,9 @@
 
             private:
                 ValueCollection values;
+
+            private:
+                friend class TypeLibrary;
         };
     }
 

@@ -12,6 +12,16 @@ namespace Halak
     {
     }
 
+    int ReferenceCount::GetStrong() const
+    {
+        return static_cast<int>(strong);
+    }
+
+    int ReferenceCount::GetWeak() const
+    {
+        return static_cast<int>(weak);
+    }
+
     bool ReferenceCount::IsAlive() const
     {
         return strong != 0;

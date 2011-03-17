@@ -60,6 +60,19 @@
         // Exceptions
 #           include <Halak/Exception.h>
         ////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Reflection
+#           include <Halak/Attribute.h>
+
+#           include <Halak/ConstructorInfo.h>
+#           include <Halak/DynamicCast.h>
+#           include <Halak/InstanceInfo.h>
+#           include <Halak/PropertyInfo.h>
+#           include <Halak/TypeInfo.h>
+#               include <Halak/ClassInfo.h>
+#               include <Halak/EnumInfo.h>
+#               include <Halak/PrimitiveInfo.h>
+#           include <Halak/TypeLibrary.h>
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
         // Time
 #           include <Halak/Clock.h>
 #           include <Halak/GlobalClock.h>

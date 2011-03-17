@@ -10,7 +10,8 @@
     {
         class ClassInfo : public TypeInfo
         {
-            friend class TypeLibrary;
+            HKDeclareClassFOURCC('C', 'L', 'I', 'F');
+            HKThisIsNoncopyableClass(ClassInfo);
             public:
                 typedef std::vector<const ClassInfo*> ClassCollection;
                 typedef std::vector<const ConstructorInfo*> ConstructorCollection;
@@ -50,6 +51,8 @@
                 ClassCollection baseClasses;
                 ConstructorCollection constructors;
                 PropertyCollection  properties;
+
+                friend class TypeLibrary;
         };
     }
 

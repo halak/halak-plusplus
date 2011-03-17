@@ -207,14 +207,6 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\Codes\Halak\Attribute.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\Attribute.h"
-				>
-			</File>
-			<File
 				RelativePath="..\..\Codes\Halak\Attributes.h"
 				>
 			</File>
@@ -240,6 +232,14 @@
 			</File>
 			<File
 				RelativePath="..\..\Codes\Halak.Toolkit\FWD.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\Hotloader.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\Hotloader.h"
 				>
 			</File>
 			<File
@@ -560,11 +560,15 @@
 			</Filter>
 		</Filter>
 		<File
-			RelativePath="..\..\Codes\Halak\Hotloader.cpp"
+			RelativePath="..\..\Codes\Halak.Toolkit\RegistrationContexts.cpp"
 			>
 		</File>
 		<File
-			RelativePath="..\..\Codes\Halak\Hotloader.h"
+			RelativePath="..\..\Codes\Halak.Toolkit\RegistrationContexts.h"
+			>
+		</File>
+		<File
+			RelativePath="..\..\Codes\Halak.Toolkit\RegistrationContexts.inl"
 			>
 		</File>
 	</Files>

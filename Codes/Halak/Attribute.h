@@ -8,15 +8,13 @@
     {
         class Attribute
         {
+            HKDeclareClassFOURCC('A', 'T', 'T', 'R');
+            HKThisIsNoncopyableClass(Attribute);
             public:
                 virtual ~Attribute();
 
             protected:
                 Attribute();
-
-            private:
-                Attribute(const Attribute&);
-                Attribute& operator = (const Attribute&);
         };
     }
 

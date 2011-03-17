@@ -85,6 +85,17 @@
                     class BadCastException;
                     class OutOfRangeException;
             ////////////////////////////////////////////////////////////////////////////////////////////////////
+            // Attribute
+                class Attribute;
+                class ConstructorInfo;
+                class InstanceInfo;
+                class PropertyInfo;
+                class TypeInfo;
+                    class ClassInfo;
+                    class EnumInfo;
+                    class PrimitiveInfo;
+                class TypeLibrary;
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
             // Time
                 class Clock;
                 class GlobalClock;

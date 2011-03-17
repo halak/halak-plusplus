@@ -3,8 +3,7 @@
 #define __HALAK_STRING_H__
 
 #   include <Halak/Foundation.h>
-#   include <memory>
-#   include <string>
+#   include <Halak/SharedPointer.h>
 
     namespace Halak
     {
@@ -19,7 +18,6 @@
                 inline String(const char* s);
                 String(const char* s, int startIndex);
                 String(const char* s, int startIndex, int length);
-                inline String(const std::string& s);
                 inline String(const String& original);
                 inline String(const String& original, int startIndex);
                 inline String(const String& original, int startIndex, int length);
@@ -216,7 +214,7 @@
                 };
 
             private:
-                std::tr1::shared_ptr<StringBuffer> buffer;
+                SharedPointer<StringBuffer> buffer;
         };
 
         inline int CompareString(const char* s1, const char* s2);

@@ -1,5 +1,6 @@
 #include <Halak/PCH.h>
 #include <Halak/String.h>
+#include <ctype.h>
 
 namespace Halak
 {
@@ -8,13 +9,13 @@ namespace Halak
     String::String(const char* s, int startIndex)
     {
         HKAssert(startIndex <= static_cast<int>(strlen(s)));
-        buffer.reset(new StringBuffer(&s[startIndex]));
+        buffer.Reset(new StringBuffer(&s[startIndex]));
     }
 
     String::String(const char* s, int startIndex, int length)
     {
         HKAssert(startIndex <= static_cast<int>(strlen(s)));
-        buffer.reset(new StringBuffer(&s[startIndex], length));
+        buffer.Reset(new StringBuffer(&s[startIndex], length));
     }
 
     String::String(EmptyStringTag)
@@ -30,13 +31,13 @@ namespace Halak
             length2 = static_cast<int>(strlen(s2));
 
         if (length1 > 0 && length2 > 0)
-            buffer.reset(new StringBuffer(InsertTag(), s1, length1, length1, s2, length2));
+            buffer.Reset(new StringBuffer(InsertTag(), s1, length1, length1, s2, length2));
         else
         {
             if (length1 > 0)
-                buffer.reset(new StringBuffer(s1, length1));
+                buffer.Reset(new StringBuffer(s1, length1));
             else
-                buffer.reset(new StringBuffer(s2, length2));
+                buffer.Reset(new StringBuffer(s2, length2));
         }
     }
 
@@ -45,9 +46,9 @@ namespace Halak
         // index == buffer->length로 하게되면 맨 끝에 추가.
         HKAssertDebug(0 <= index && index <= buffer->length);
         if (buffer->length != 0)
-            buffer.reset(new StringBuffer(InsertTag(), buffer->s, buffer->length, index, s, length));
+            buffer.Reset(new StringBuffer(InsertTag(), buffer->s, buffer->length, index, s, length));
         else
-            buffer.reset(new StringBuffer(s, length)); 
+            buffer.Reset(new StringBuffer(s, length)); 
     }
 
     void String::Append(const char* s)
@@ -80,8 +81,8 @@ namespace Halak
         {
             if (buffer->s[i] == oldValue)
             {
-                if (buffer.use_count() > 1)
-                    buffer.reset(new StringBuffer(*buffer));
+                if (buffer.GetReferenceCount() > 1)
+                    buffer.Reset(new StringBuffer(*buffer));
 
                 buffer->s[i] = newValue;
             }
@@ -119,13 +120,13 @@ namespace Halak
         }
 
         if (index1 <= index2)
-            buffer.reset(new StringBuffer(&buffer->s[index1], index2 - index1 + 1));
+            buffer.Reset(new StringBuffer(&buffer->s[index1], index2 - index1 + 1));
     }
 
     void String::ToLower()
     {
-        if (buffer.use_count() > 1)
-            buffer.reset(new StringBuffer(*buffer));
+        if (buffer.GetReferenceCount() > 1)
+            buffer.Reset(new StringBuffer(*buffer));
 
         for (int i = 0; i < buffer->length; i++)
             buffer->s[i] = static_cast<char>(tolower(buffer->s[i]));
@@ -133,8 +134,8 @@ namespace Halak
 
     void String::ToUpper()
     {
-        if (buffer.use_count() > 1)
-            buffer.reset(new StringBuffer(*buffer));
+        if (buffer.GetReferenceCount() > 1)
+            buffer.Reset(new StringBuffer(*buffer));
 
         for (int i = 0; i < buffer->length; i++)
             buffer->s[i] = static_cast<char>(toupper(buffer->s[i]));
