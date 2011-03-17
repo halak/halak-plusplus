@@ -1,10 +1,6 @@
-#pragma once
-#ifndef __HALAK_TYPEINFO_INL__
-#define __HALAK_TYPEINFO_INL__
-
 namespace Halak
 {
-    uint TypeInfo::GetID() const
+    uint32 TypeInfo::GetID() const
     {
         return id;
     }
@@ -59,5 +55,3 @@ namespace Halak
         return attributes;
     }
 }
-
-#endif

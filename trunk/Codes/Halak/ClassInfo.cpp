@@ -1,3 +1,4 @@
+#include <Halak/PCH.h>
 #include <Halak/ClassInfo.h>
 #include <Halak/Assert.h>
 #include <Halak/ConstructorInfo.h>

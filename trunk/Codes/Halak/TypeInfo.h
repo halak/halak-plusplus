@@ -9,10 +9,8 @@
     {
         class TypeInfo
         {
-            friend class TypeLibrary;
-            friend class PrimitiveRegistrationContext;
-            friend class ClassRegistrationContext;
-            friend class EnumRegistrationContext;
+            HKDeclareClassFOURCC('T', 'Y', 'P', 'E');
+            HKThisIsNoncopyableClass(TypeInfo);
             public:
                 typedef std::vector<const Attribute*> AttributeCollection;
 
@@ -20,7 +18,7 @@
                 void Add(const Attribute* item);
                 bool Remove(const Attribute* item);
 
-                inline uint GetID() const;
+                inline uint32 GetID() const;
                 inline const char* GetNamespace() const;
                 inline const char* GetName() const;
                 inline int GetAllocationSize() const;
@@ -44,12 +42,12 @@
                 virtual ~TypeInfo();
 
             private:
-                inline void SetID(uint value);
+                inline void SetID(uint32 value);
                 inline void SetNamespace(const char* value);
                 inline void SetName(const char* value);
 
             private:
-                uint id;
+                uint32 id;
                 const char* namespace_;
                 const char* name;
                 const int allocationSize;
@@ -58,8 +56,10 @@
                 AttributeCollection attributes;
 
             private:
-                TypeInfo(const TypeInfo&);
-                TypeInfo& operator = (const TypeInfo&);
+                friend class TypeLibrary;
+                friend class PrimitiveRegistrationContext;
+                friend class ClassRegistrationContext;
+                friend class EnumRegistrationContext;
         };
     }
 

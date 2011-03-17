@@ -289,8 +289,16 @@
 				</File>
 			</Filter>
 			<Filter
-				Name="Reflection"
+				Name="#Reflection"
 				>
+				<File
+					RelativePath="..\..\Codes\Halak\Attribute.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\Attribute.h"
+					>
+				</File>
 				<File
 					RelativePath="..\..\Codes\Halak\ClassInfo.cpp"
 					>
@@ -328,6 +336,10 @@
 					>
 				</File>
 				<File
+					RelativePath="..\..\Codes\Halak\EnumInfo.inl"
+					>
+				</File>
+				<File
 					RelativePath="..\..\Codes\Halak\InstanceInfo.cpp"
 					>
 				</File>
@@ -360,18 +372,6 @@
 					>
 				</File>
 				<File
-					RelativePath="..\..\Codes\Halak\RegistrationContexts.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\RegistrationContexts.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\RegistrationContexts.inl"
-					>
-				</File>
-				<File
 					RelativePath="..\..\Codes\Halak\TypeInfo.cpp"
 					>
 				</File>
@@ -381,10 +381,6 @@
 				</File>
 				<File
 					RelativePath="..\..\Codes\Halak\TypeInfo.inl"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\TypeInfoRegistration.h"
 					>
 				</File>
 				<File

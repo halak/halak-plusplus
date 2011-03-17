@@ -28,17 +28,22 @@ namespace Halak
             delete pointee;
     }
 
-    template <typename T> T* SharedPointer<T>::GetPointee() const
+    template <typename T> void SharedPointer<T>::Reset(const SharedPointer<T>& right)
     {
-        return pointee;
+        if (this == &right)
+            return;
+
+        if (referenceCount && referenceCount->DecreaseStrongCount())
+            delete referenceCount;
+
+        pointee = right.pointee;
+        referenceCount = right.referenceCount;
+
+        if (referenceCount)
+            referenceCount->IncreaseStrongCount();
     }
 
-    template <typename T> SharedPointer<T>& SharedPointer<T>::operator = (const SharedPointer<T>& right)
-    {
-        return operator = (right.pointee);
-    }
-
-    template <typename T> SharedPointer<T>& SharedPointer<T>::operator = (T* right)
+    template <typename T> void SharedPointer<T>::Reset(T* right)
     {
         if (pointee != right)
         {
@@ -51,7 +56,38 @@ namespace Halak
             if (referenceCount)
                 referenceCount->IncreaseStrongCount();
         }
+    }
 
+    template <typename T> T* SharedPointer<T>::GetPointee() const
+    {
+        return pointee;
+    }
+
+    template <typename T> int SharedPointer<T>::GetReferenceCount() const
+    {
+        if (referenceCount)
+            return referenceCount->GetStrong();
+        else
+            return 0;
+    }
+
+    template <typename T> int SharedPointer<T>::GetWeakReferenceCount() const
+    {
+        if (referenceCount)
+            return referenceCount->GetWeak();
+        else
+            return 0;
+    }
+
+    template <typename T> SharedPointer<T>& SharedPointer<T>::operator = (const SharedPointer<T>& right)
+    {
+        Reset(right);
+        return *this;
+    }
+
+    template <typename T> SharedPointer<T>& SharedPointer<T>::operator = (T* right)
+    {
+        Reset(right);
         return *this;
     }
 

@@ -1,3 +1,4 @@
+#include <Halak/PCH.h>
 #include <Halak/EnumInfo.h>
 #include <Halak/Assert.h>
 #include <Halak/Attribute.h>
@@ -19,11 +20,6 @@ namespace Halak
     void EnumInfo::Add(const char* name, int value)
     {
         values.push_back(new Value(name, value));
-    }
-
-    const EnumInfo::ValueCollection& EnumInfo::GetValues() const
-    {
-        return values;
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -56,10 +52,5 @@ namespace Halak
         }
         else
             return false;
-    }
-
-    const TypeInfo::AttributeCollection& EnumInfo::Value::GetAttributes() const
-    {
-        return attributes;
     }
 }

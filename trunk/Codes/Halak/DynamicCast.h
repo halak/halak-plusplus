@@ -2,7 +2,7 @@
 #ifndef __HALAK_DYNAMICCAST_H__
 #define __HALAK_DYNAMICCAST_H__
 
-#    include <Halak/FWD.h>
+#   include <Halak/FWD.h>
 #   include <Halak/Assert.h>
 #   include <Halak/ClassInfo.h>
 #   include <Halak/TypeLibrary.h>
@@ -35,17 +35,17 @@
             return const_cast<const void*>(DynamicCast<T>(toClass, const_cast<T*>(from)));
         }
 
-        template <typename T> inline void* DynamicCast(const ClassInfo* toClass, shared_ptr<T> from)
+        template <typename T> inline void* DynamicCast(const ClassInfo* toClass, SharedPointer<T> from)
         {
-            return DynamicCast<T>(toClass, static_cast<T*>(from.get()));
+            return DynamicCast<T>(toClass, static_cast<T*>(from.GetPointee()));
         }
 
-        template <typename T> inline void* DynamicCast(const ClassInfo* toClass, weak_ptr<T> from)
+        template <typename T> inline void* DynamicCast(const ClassInfo* toClass, WeakPointer<T> from)
         {
-            if (from.expired())
-                return nullptr;
+            if (from.IsAlive())
+                return DynamicCast<T>(toClass, static_cast<T*>(from.Lock().GetPointee()));
             else
-                return DynamicCast<T>(toClass, static_cast<T*>(from.lock().get()));
+                return nullptr;
         }
     }
 

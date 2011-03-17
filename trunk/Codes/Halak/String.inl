@@ -11,12 +11,7 @@ namespace Halak
     }
 
     String::String(const char* s)
-        : buffer((s && s[0] != '\0') ? std::tr1::shared_ptr<StringBuffer>(new StringBuffer(s)) : Empty.buffer)
-    {
-    }
-
-    String::String(const std::string& s)
-        : buffer((s.empty() == false) ? std::tr1::shared_ptr<StringBuffer>(new StringBuffer(s.data(), static_cast<int>(s.size()))) : Empty.buffer)
+        : buffer((s && s[0] != '\0') ? SharedPointer<StringBuffer>(new StringBuffer(s)) : Empty.buffer)
     {
     }
 
@@ -28,7 +23,7 @@ namespace Halak
     String::String(const String& original, int startIndex)
     {
         if (original.buffer->length > startIndex)
-            buffer.reset(new StringBuffer(&original.buffer->s[startIndex]));
+            buffer.Reset(new StringBuffer(&original.buffer->s[startIndex]));
         else
             buffer = Empty.buffer;
     }
@@ -38,9 +33,9 @@ namespace Halak
         if (original.buffer->length > startIndex)
         {
             if (startIndex + length <= original.buffer->length)
-                buffer.reset(new StringBuffer(&original.buffer->s[startIndex], length));
+                buffer.Reset(new StringBuffer(&original.buffer->s[startIndex], length));
             else
-                buffer.reset(new StringBuffer(&original.buffer->s[startIndex], original.buffer->length - startIndex));
+                buffer.Reset(new StringBuffer(&original.buffer->s[startIndex], original.buffer->length - startIndex));
         }
         else
             buffer = Empty.buffer;
@@ -103,7 +98,7 @@ namespace Halak
     String& String::operator = (const char* original)
     {
         if (original && original[0] != '\0')
-            buffer.reset(new StringBuffer(original));
+            buffer.Reset(new StringBuffer(original));
         else
             buffer = Empty.buffer;
 
@@ -268,8 +263,8 @@ namespace Halak
 
     String::CharRef& String::CharRef::operator = (char c)
     {
-        if (s.buffer.use_count() > 1)
-            s.buffer.reset(new StringBuffer(*s.buffer));
+        if (s.buffer.GetReferenceCount() > 1)
+            s.buffer.Reset(new StringBuffer(*s.buffer));
 
         s.buffer->s[index] = c;
 

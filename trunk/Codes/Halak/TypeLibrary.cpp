@@ -1,7 +1,7 @@
+#include <Halak/PCH.h>
 #include <Halak/TypeLibrary.h>
 #include <Halak/Assert.h>
 #include <Halak/TypeInfo.h>
-#include <Halak/Delete.h>
 #include <Halak/String.h>
 #include <algorithm>
 
@@ -13,8 +13,6 @@ namespace Halak
 
     TypeLibrary::~TypeLibrary()
     {
-        typeTable.clear();
-
         TypeCollection deletingTypes;
         deletingTypes.swap(types);
 
@@ -22,7 +20,7 @@ namespace Halak
             delete (*it);
     }
 
-    const TypeInfo* TypeLibrary::GetType(uint id) const
+    const TypeInfo* TypeLibrary::Find(uint32 id) const
     {
         for (TypeCollection::const_iterator it = types.begin(); it != types.end(); it++)
         {
@@ -33,8 +31,10 @@ namespace Halak
         return nullptr;
     }
 
-    const TypeInfo* TypeLibrary::GetType(const char* name) const
+    const TypeInfo* TypeLibrary::Find(const char* name) const
     {
+        HKAssertDebug(name != nullptr);
+
         for (TypeCollection::const_iterator it = types.begin(); it != types.end(); it++)
         {
             if (CompareString((*it)->GetName(), name) == 0)
@@ -44,8 +44,8 @@ namespace Halak
         return nullptr;
     }
 
-    const TypeInfo* TypeLibrary::GetType(const String& name) const
+    const TypeInfo* TypeLibrary::Find(const String& name) const
     {
-        return GetType(name.CStr());
+        return Find(name.CStr());
     }
 }

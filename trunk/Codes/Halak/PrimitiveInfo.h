@@ -9,12 +9,12 @@
     {
         class PrimitiveInfo : public TypeInfo
         {
-            friend class TypeLibrary;
-            public:
-
             private:
                 PrimitiveInfo(int allocationSize);
                 virtual ~PrimitiveInfo();
+
+            private:
+                friend class TypeLibrary;
         };
     }
 

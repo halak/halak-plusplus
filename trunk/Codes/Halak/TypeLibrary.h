@@ -3,7 +3,6 @@
 #define __HALAK_TYPELIBRARY_H__
 
 #   include <Halak/FWD.h>
-#   include <map>
 #   include <vector>
 
     namespace Halak
@@ -12,16 +11,13 @@
         {
             public:
                 typedef std::vector<const TypeInfo*> TypeCollection;
-                typedef std::map<const char*, const TypeInfo*> TypeDictionary;
 
-            public:               
-                const TypeInfo* GetType(uint id) const;
-                const TypeInfo* GetType(const char* name) const;
-                const TypeInfo* GetType(const String& name) const;
-                template <typename T> const TypeInfo* GetType();
-                template <typename T> const TypeInfo* GetType(T* pointer);
+            public:
+                const TypeInfo* Find(uint32 id) const;
+                const TypeInfo* Find(const char* name) const;
+                const TypeInfo* Find(const String& name) const;
 
-                inline const TypeCollection& GetTypes() const;
+                inline const TypeCollection& GetItems() const;
 
             public:
                 static inline TypeLibrary& GetInstance();
@@ -32,7 +28,6 @@
 
             private:
                 TypeCollection types;
-                TypeDictionary typeTable;
         };
     }
 

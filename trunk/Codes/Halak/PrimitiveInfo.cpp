@@ -1,3 +1,4 @@
+#include <Halak/PCH.h>
 #include <Halak/PrimitiveInfo.h>
 
 namespace Halak

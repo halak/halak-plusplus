@@ -16,7 +16,12 @@
                 inline SharedPointer(const SharedPointer<T>& original);
                 inline ~SharedPointer();
 
+                inline void Reset(const SharedPointer<T>& right);
+                inline void Reset(T* right);
+
                 inline T* GetPointee() const;
+                inline int GetReferenceCount() const;
+                inline int GetWeakReferenceCount() const;
 
                 inline SharedPointer<T>& operator = (const SharedPointer<T>& right);
                 inline SharedPointer<T>& operator = (T* right);
