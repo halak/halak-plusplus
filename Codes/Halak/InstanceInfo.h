@@ -8,6 +8,7 @@
     {
         class InstanceInfo
         {
+            HKDeclareClassFOURCC('I', 'N', 'S', 'T');
             public:
                 inline explicit InstanceInfo(const TypeInfo* typeInfo);
                 inline InstanceInfo(const TypeInfo* typeInfo, int pointerDepth);

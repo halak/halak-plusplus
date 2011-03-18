@@ -9,6 +9,7 @@
     {
         class PrimitiveInfo : public TypeInfo
         {
+            HKDeclareClassFOURCC('P', 'R', 'I', 'M');
             private:
                 PrimitiveInfo(int allocationSize);
                 virtual ~PrimitiveInfo();

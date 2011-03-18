@@ -20,7 +20,6 @@
         class Any
         {
             HKDeclareStructFOURCC('A', 'N', 'Y', '_');
-
             public:
                 enum Type
                 {
@@ -56,34 +55,34 @@
                 };
             
             public:
-                Any();
-                Any(bool value);
-                Any(char value);
-                Any(unsigned char value);
-                Any(short value);
-                Any(unsigned short value);
-                Any(int value);
-                Any(unsigned int value);
-                Any(long value);
-                Any(unsigned long value);
-                Any(int64 value);
-                Any(uint64 value);
-                Any(float value);
-                Any(double value);
-                Any(Color value);
-                Any(const Matrix4& value);
-                Any(Point value);
-                Any(Quaternion value);
-                Any(Rectangle value);
-                Any(const char* value);
-                Any(const String& value);
-                Any(UUID value);
-                Any(Vector2 value);
-                Any(Vector3 value);
-                Any(Vector4 value);
+                inline Any();
+                inline Any(bool value);
+                inline Any(char value);
+                inline Any(unsigned char value);
+                inline Any(short value);
+                inline Any(unsigned short value);
+                inline Any(int value);
+                inline Any(unsigned int value);
+                inline Any(long value);
+                inline Any(unsigned long value);
+                inline Any(int64 value);
+                inline Any(uint64 value);
+                inline Any(float value);
+                inline Any(double value);
+                inline Any(Color value);
+                inline Any(const Matrix4& value);
+                inline Any(Point value);
+                inline Any(Quaternion value);
+                inline Any(Rectangle value);
+                inline Any(const char* value);
+                inline Any(const String& value);
+                inline Any(UUID value);
+                inline Any(Vector2 value);
+                inline Any(Vector3 value);
+                inline Any(Vector4 value);
                 template <typename T> Any(const T& value);
                 template <typename T> Any(const T& value, const String& tag);
-                Any(const Any& original);
+                inline Any(const Any& original);
                 ~Any();
 
                 inline Type GetType() const;
@@ -183,9 +182,6 @@
                     virtual Storage* Clone() const;
                     virtual bool Equals(const Storage* right) const;
                 };
-
-                template <typename T> static bool Equals(const T& a, const T& b);
-                template <typename T> static bool Equals(weak_ptr<T> a, weak_ptr<T> b);
         };
     }
 

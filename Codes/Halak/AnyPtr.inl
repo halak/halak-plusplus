@@ -15,15 +15,15 @@ namespace Halak
     {
     }
 
-    template <typename T> AnyPtr::AnyPtr(shared_ptr<T> pointer)
+    template <typename T> AnyPtr::AnyPtr(SharedPointer<T> pointer)
         : type(pointer ? SharedPointerType : NullType),
           storage(pointer ? new SharedPointerStorage<T>(pointer) : nullptr)              
     {
     }
 
-    template <typename T> AnyPtr::AnyPtr(weak_ptr<T> pointer)
-        : type(pointer.lock() ? WeakPointerType : NullType),
-          storage(pointer.lock() ? new WeakPointerStorage<T>(pointer) : nullptr)
+    template <typename T> AnyPtr::AnyPtr(WeakPointer<T> pointer)
+        : type(pointer.IsAlive() ? WeakPointerType : NullType),
+          storage(pointer.IsAlive() ? new WeakPointerStorage<T>(pointer) : nullptr)
     {
     }
 
@@ -45,18 +45,22 @@ namespace Halak
 
     template <typename T> T* AnyPtr::GetRawPointer() const
     {
+        return nullptr;
     }
 
-    template <typename T> shared_ptr<T> AnyPtr::GetSharedPointer() const
+    template <typename T> SharedPointer<T> AnyPtr::GetSharedPointer() const
     {
+        return nullptr;
     }
 
-    template <typename T> weak_ptr<T> AnyPtr::GetWeakPointer() const
+    template <typename T> WeakPointer<T> AnyPtr::GetWeakPointer() const
     {
+        return nullptr;
     }
 
     template <typename T> T* AnyPtr::CastTo() const
     {
+        return nullptr;
     }
 
     bool AnyPtr::operator < (const AnyPtr& right) const
@@ -83,7 +87,7 @@ namespace Halak
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
     template <typename T> AnyPtr::RawPointerStorage<T>::RawPointerStorage(T* value)
-        : Storage(TypeLibrary::GetInstance().GetType<T>()),
+        : Storage(TypeLibrary::GetInstance().GetTypeInfo<T>()),
           Value(value)
     {
     }
@@ -111,8 +115,8 @@ namespace Halak
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    template <typename T> AnyPtr::SharedPointerStorage<T>::SharedPointerStorage(shared_ptr<T> value)
-        : Storage(TypeLibrary::GetInstance().GetType<T>()),
+    template <typename T> AnyPtr::SharedPointerStorage<T>::SharedPointerStorage(SharedPointer<T> value)
+        : Storage(TypeLibrary::GetInstance().GetTypeInfo<T>()),
           Value(value)
     {
     }
@@ -135,13 +139,13 @@ namespace Halak
 
     template <typename T> void* AnyPtr::SharedPointerStorage<T>::ToVoidPointer() const
     {
-        return Value.get();
+        return Value.GetPointee();
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    template <typename T> AnyPtr::WeakPointerStorage<T>::WeakPointerStorage(weak_ptr<T> value)
-        : Storage(TypeLibrary::GetInstance().GetType<T>()),
+    template <typename T> AnyPtr::WeakPointerStorage<T>::WeakPointerStorage(WeakPointer<T> value)
+        : Storage(TypeLibrary::GetInstance().GetTypeInfo<T>()),
           Value(value)
     {
     }
@@ -164,8 +168,8 @@ namespace Halak
 
     template <typename T> void* AnyPtr::WeakPointerStorage<T>::ToVoidPointer() const
     {
-        if (Value.is_expired() == false)
-            return Value.lock().get();
+        if (Value.IsAlive())
+            return Value.Lock().GetPointee();
         else
             return nullptr;
     }

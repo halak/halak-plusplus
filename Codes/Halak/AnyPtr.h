@@ -9,7 +9,6 @@
         class AnyPtr
         {
             HKDeclareStructFOURCC('A', 'N', 'Y', 'P');
-
             public:
                 enum Type
                 {
@@ -22,16 +21,16 @@
             public:
                 inline AnyPtr();
                 template <typename T> AnyPtr(T* pointer);
-                template <typename T> AnyPtr(shared_ptr<T> pointer);
-                template <typename T> AnyPtr(weak_ptr<T> pointer);
+                template <typename T> AnyPtr(SharedPointer<T> pointer);
+                template <typename T> AnyPtr(WeakPointer<T> pointer);
                 inline AnyPtr(const AnyPtr& original);
                 inline ~AnyPtr();
 
                 inline const TypeInfo* GetPointeeType() const;
 
                 template <typename T> T* GetRawPointer() const;
-                template <typename T> shared_ptr<T> GetSharedPointer() const;
-                template <typename T> weak_ptr<T> GetWeakPointer() const;
+                template <typename T> SharedPointer<T> GetSharedPointer() const;
+                template <typename T> WeakPointer<T> GetWeakPointer() const;
 
                 template <typename T> T* CastTo() const;
                 void* DynamicCastTo(const ClassInfo* toClass) const;
@@ -81,9 +80,9 @@
 
                 template <typename T> struct SharedPointerStorage : Storage
                 {
-                    shared_ptr<T> Value;
+                    SharedPointer<T> Value;
 
-                    SharedPointerStorage(shared_ptr<T> value);
+                    SharedPointerStorage(SharedPointer<T> value);
                     SharedPointerStorage(const SharedPointerStorage<T>& original);
 
                     virtual Storage* Clone() const;
@@ -93,9 +92,9 @@
 
                 template <typename T> struct WeakPointerStorage : Storage
                 {
-                    weak_ptr<T> Value;
+                    WeakPointer<T> Value;
 
-                    WeakPointerStorage(weak_ptr<T> value);
+                    WeakPointerStorage(WeakPointer<T> value);
                     WeakPointerStorage(const WeakPointerStorage<T>& original);
 
                     virtual Storage* Clone() const;

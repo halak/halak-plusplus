@@ -5,14 +5,15 @@
 #   include <Halak/FWD.h>
 #   include <Halak/Any.h>
 #   include <Halak/InstanceInfo.h>
-#   include <type_traits>
+#   include <Halak/MPL.h>
 #   include <vector>
 
     namespace Halak
     {
         class PropertyInfo
         {
-            friend class PropertyRegistrationContext;
+            HKDeclareClassFOURCC('P', 'R', 'O', 'P');
+            HKThisIsNoncopyableClass(PropertyInfo);
             public:
                 typedef std::vector<const Attribute*> AttributeCollection;
 
@@ -55,8 +56,8 @@
                 template <typename C, typename V> struct GetterTemplate : Getter
                 {
                     typedef V (C::*MethodType)() const;
-                    typedef typename std::tr1::remove_const<V>::type ConstRemovedType;
-                    typedef typename std::tr1::remove_reference<ConstRemovedType>::type StorageType;
+                    typedef typename MPL::RemoveConst<V>::type ConstRemovedType;
+                    typedef typename MPL::RemoveReference<ConstRemovedType>::type StorageType;
                     MethodType method;
 
                     GetterTemplate(V (C::*method)());
@@ -79,8 +80,8 @@
                 template <typename C, typename V> struct SetterTemplate : Setter
                 {
                     typedef void (C::*MethodType)(V);
-                    typedef typename std::tr1::remove_const<V>::type ConstRemovedType;
-                    typedef typename std::tr1::remove_reference<ConstRemovedType>::type StorageType;
+                    typedef typename MPL::RemoveConst<V>::type ConstRemovedType;
+                    typedef typename MPL::RemoveReference<ConstRemovedType>::type StorageType;
                     MethodType method;
 
                     SetterTemplate(void (C::*method)(V));
@@ -97,9 +98,7 @@
                 Setter* setter;
                 AttributeCollection attributes;
 
-            private:
-                PropertyInfo(const PropertyInfo&);
-                PropertyInfo& operator = (const PropertyInfo&);
+                friend class PropertyRegistrationContext;
         };
     }
 

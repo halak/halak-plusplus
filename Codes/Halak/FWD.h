@@ -85,7 +85,7 @@
                     class BadCastException;
                     class OutOfRangeException;
             ////////////////////////////////////////////////////////////////////////////////////////////////////
-            // Attribute
+            // Reflection
                 class Attribute;
                 class ConstructorInfo;
                 class InstanceInfo;
