@@ -16,6 +16,7 @@
                 const TypeInfo* Find(uint32 id) const;
                 const TypeInfo* Find(const char* name) const;
                 const TypeInfo* Find(const String& name) const;
+                template <typename T> const TypeInfo* GetTypeInfo() const;
 
                 inline const TypeCollection& GetItems() const;
 

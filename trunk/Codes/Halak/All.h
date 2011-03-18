@@ -60,9 +60,12 @@
         // Exceptions
 #           include <Halak/Exception.h>
         ////////////////////////////////////////////////////////////////////////////////////////////////////
+        // FileSystem
+#           include <Halak/FileSystem.h>
+#           include <Halak/GlobalFileSystem.h>
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
         // Reflection
 #           include <Halak/Attribute.h>
-
 #           include <Halak/ConstructorInfo.h>
 #           include <Halak/DynamicCast.h>
 #           include <Halak/InstanceInfo.h>

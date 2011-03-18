@@ -10,7 +10,7 @@
     {
         class ClassInfo : public TypeInfo
         {
-            HKDeclareClassFOURCC('C', 'L', 'I', 'F');
+            HKDeclareClassFOURCC('C', 'L', 'S', 'S');
             HKThisIsNoncopyableClass(ClassInfo);
             public:
                 typedef std::vector<const ClassInfo*> ClassCollection;

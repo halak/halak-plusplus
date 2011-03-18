@@ -1,3 +1,4 @@
+#include <Halak/PCH.h>
 #include <Halak/PropertyInfo.h>
 #include <Halak/Assert.h>
 #include <Halak/Attribute.h>

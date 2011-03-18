@@ -11,6 +11,8 @@
     {
         class ConstructorInfo
         {
+            HKDeclareClassFOURCC('C', 'T', 'O', 'R');
+            HKThisIsNoncopyableClass(ConstructorInfo);
             public:
                 typedef std::vector<InstanceInfo> InstanceCollection;
                 typedef std::vector<const Attribute*> AttributeCollection;

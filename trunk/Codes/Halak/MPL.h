@@ -60,6 +60,16 @@
                 typedef T Result;
             };
 
+            template <typename T> struct RemoveConst
+            {
+                typedef T Result;
+            };
+
+            template <typename T> struct RemoveConst<const T>
+            {
+                typedef T Result;
+            };
+
             template <typename T> struct RemoveAllPointers         { typedef T Result; };
             template <typename T> struct RemoveAllPointers<T*>     { typedef T Result; };
             template <typename T> struct RemoveAllPointers<T**>    { typedef T Result; };

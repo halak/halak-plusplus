@@ -1,5 +1,10 @@
 namespace Halak
 {
+    template <typename T> const TypeInfo* TypeLibrary::GetTypeInfo() const
+    {
+        return nullptr;
+    }
+
     const TypeLibrary::TypeCollection& TypeLibrary::GetItems() const
     {
         return types;

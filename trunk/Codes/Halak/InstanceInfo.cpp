@@ -1,3 +1,4 @@
+#include <Halak/PCH.h>
 #include <Halak/InstanceInfo.h>
 #include <Halak/Assert.h>
 

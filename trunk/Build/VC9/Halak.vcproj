@@ -289,7 +289,7 @@
 				</File>
 			</Filter>
 			<Filter
-				Name="#Reflection"
+				Name="*Reflection"
 				>
 				<File
 					RelativePath="..\..\Codes\Halak\Attribute.cpp"
@@ -901,7 +901,7 @@
 				</Filter>
 			</Filter>
 			<Filter
-				Name="Any"
+				Name="*Any"
 				>
 				<File
 					RelativePath="..\..\Codes\Halak\Any.cpp"
