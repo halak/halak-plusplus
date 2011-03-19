@@ -51,7 +51,8 @@
                 typedef Range<Vector3>    Vector3Range;
                 typedef Range<Vector4>    Vector4Range;
             ////////////////////////////////////////////////////////////////////////////////////////////////////
-            // (SmartPointers)
+            // (Object)
+                HKForwardDeclareSmartPointerClass(Object);
                 HKForwardDeclareSmartPointerClass(SharedObject);
                 template <typename T> class SharedPointer;
                 template <typename T> class WeakPointer;
@@ -84,6 +85,10 @@
                 class Exception;
                     class BadCastException;
                     class OutOfRangeException;
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
+            // FileSystem
+                class FileSystem;
+                class GlobalFileSystem;
             ////////////////////////////////////////////////////////////////////////////////////////////////////
             // Reflection
                 class Attribute;
