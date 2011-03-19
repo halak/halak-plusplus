@@ -236,6 +236,14 @@
 		<Filter
 			Name="01. Foundation"
 			>
+			<File
+				RelativePath="..\..\Codes\Halak\GameComponentFactory.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak\GameComponentFactory.h"
+				>
+			</File>
 			<Filter
 				Name="*(Structure)"
 				>
@@ -853,10 +861,22 @@
 				</Filter>
 			</Filter>
 			<Filter
-				Name="*(SmartPointers)"
+				Name="*(Object)"
 				>
 				<File
 					RelativePath="..\..\Codes\Halak\NullPointer.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\Object.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\Object.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\Object.inl"
 					>
 				</File>
 				<File
@@ -990,7 +1010,7 @@
 			</Filter>
 		</Filter>
 		<Filter
-			Name="02. (NotYet)"
+			Name="03. (NotYet)"
 			>
 			<File
 				RelativePath="..\..\Codes\Halak\ISpatial.h"
@@ -1130,7 +1150,7 @@
 			</Filter>
 		</Filter>
 		<Filter
-			Name="03. (NotYet)"
+			Name="04. (NotYet)"
 			>
 			<Filter
 				Name="Animation"
@@ -1872,6 +1892,10 @@
 					</File>
 				</Filter>
 			</Filter>
+		</Filter>
+		<Filter
+			Name="02. BasicComponents"
+			>
 		</Filter>
 		<File
 			RelativePath="..\..\Codes\Halak\All.h"

@@ -52,6 +52,12 @@
                                                         classname(const classname&); \
                                                         classname& operator = (const classname&);
 
+#       define HKDeclareObject(id)  public: \
+                                        static const uint32 ClassID = id; \
+                                        virtual uint32 GetClassID() const { return ClassID; }
+                                    private:
+#       define HKDeclareObjectFOURCC(a, b, c, d) HKDeclareObject(HKMakeFOURCC(a, b, c, d))
+
 #       define HKDeclareStruct(id) static const uint32 ClassID = id;
 #       define HKDeclareStructFOURCC(a, b, c, d) HKDeclareStruct(HKMakeFOURCC(a, b, c, d))
 #       define HKDeclareClass(id)   public: \
