@@ -4,7 +4,6 @@
 
 #   include <Halak/FWD.h>
 #   include <Halak/Color.h>
-#   include <Halak/InstanceInfo.h>
 #   include <Halak/Matrix4.h>
 #   include <Halak/Point.h>
 #   include <Halak/Quaternion.h>
@@ -19,7 +18,6 @@
     {
         class Any
         {
-            HKDeclareStructFOURCC('A', 'N', 'Y', '_');
             public:
                 enum Type
                 {
@@ -113,7 +111,6 @@
 
                 // !ONLY! Class
                 const String& GetTag() const;
-                const InstanceInfo& GetStoredInstanceInfo() const;
 
                 Any& operator = (const Any& right);
 
@@ -160,11 +157,10 @@
 
                 struct ClassStorageBase : Storage
                 {
-                    InstanceInfo StoredInstanceInfo;
                     String Tag;
 
-                    inline ClassStorageBase(const InstanceInfo& storedInstanceInfo);
-                    inline ClassStorageBase(const InstanceInfo& storedInstanceInfo, const String& tag);
+                    inline ClassStorageBase();
+                    inline ClassStorageBase(const String& tag);
                     inline ClassStorageBase(const ClassStorageBase& original);
                     inline virtual ~ClassStorageBase();
                 };

@@ -8,7 +8,7 @@
     {
         class ICloneable
         {
-            HKDeclareClassFOURCC('I', 'C', 'L', 'N');
+            HKClassIDFOURCC('I', 'C', 'L', 'N');
             public:
                 virtual ~ICloneable() { }
 

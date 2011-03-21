@@ -8,7 +8,6 @@
     {
         class GlobalClock
         {
-            HKDeclareClassFOURCC('G', 'B', 'C', 'K');
             public:
                 static float GetCurrent();
                 static uint  GetCurrentMilliSeconds();

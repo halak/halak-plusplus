@@ -8,8 +8,6 @@
     {
         struct Vector2
         {
-            HKDeclareStructFOURCC('V', 'E', 'C', '2');
-
             float X;
             float Y;
 

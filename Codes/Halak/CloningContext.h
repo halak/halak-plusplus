@@ -9,10 +9,9 @@
     {
         class CloningContext
         {
-            HKDeclareClassFOURCC('C', 'L', 'C', 'X');
             public:
-                inline CloningContext();
-                inline ~CloningContext();
+                CloningContext();
+                ~CloningContext();
 
                 template <typename T> inline T* Clone(T* original);
                 template <typename T> inline T* CloneOrNull(T* original);

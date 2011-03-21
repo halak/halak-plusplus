@@ -8,7 +8,6 @@
     {
         class GlobalLogger
         {
-            HKDeclareClassFOURCC('G', 'B', 'L', 'G');
             public:
         };
     }

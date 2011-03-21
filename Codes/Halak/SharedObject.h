@@ -3,16 +3,14 @@
 #define __HAlAK_SHAREDOBJECT_H__
 
 #   include <Halak/Foundation.h>
-#   include <Halak/Object.h>
 
     namespace Halak
     {
         class SharedObject;
         class ReferenceCount;
 
-        class SharedObject : public Object
+        class SharedObject
         {
-            HKDeclareObjectFOURCC('S', 'H', 'O', 'B');
             public:
                 virtual ~SharedObject();
 

@@ -51,8 +51,7 @@
                 typedef Range<Vector3>    Vector3Range;
                 typedef Range<Vector4>    Vector4Range;
             ////////////////////////////////////////////////////////////////////////////////////////////////////
-            // (Object)
-                HKForwardDeclareSmartPointerClass(Object);
+            // (SmartPointers)
                 HKForwardDeclareSmartPointerClass(SharedObject);
                 template <typename T> class SharedPointer;
                 template <typename T> class WeakPointer;

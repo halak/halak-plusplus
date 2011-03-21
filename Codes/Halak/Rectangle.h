@@ -9,8 +9,6 @@
     {
         struct Rectangle
         {
-            HKDeclareStructFOURCC('R', 'E', 'C', 'T');
-
             int X;
             int Y;
             int Width;

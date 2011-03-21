@@ -8,7 +8,6 @@
 #   include <Halak/Vector2.h>
 #   include <Halak/Vector3.h>
 #   include <Halak/Vector4.h>
-#   include <vector>
 
     namespace Halak
     {
@@ -83,8 +82,7 @@
                 static Vector2 GetClosestPoint(Vector2 origin, Vector2 direction, float length, Vector2 point);
 
                 static bool IsClockwise(Vector2 a, Vector2 b, Vector2 c);
-                static bool IsClockwise(const std::vector<Vector2>& points);
-                static bool IsClockwise(const std::vector<Vector2>& points, int numberOfPoints);
+                static bool IsClockwise(const Vector2* points, int numberOfPoints);
 
                 static inline int     Interpolate(int a, int b, float t);
                 static inline float   Interpolate(float a, float b, float t);

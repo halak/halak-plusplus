@@ -8,8 +8,6 @@
     {
         struct Point
         {
-            HKDeclareStructFOURCC('P', 'O', 'N', 'T');
-
             int X;
             int Y;
 

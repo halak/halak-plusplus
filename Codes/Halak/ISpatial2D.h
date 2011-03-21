@@ -9,7 +9,7 @@
     {
         class ISpatial2D
         {
-            HKDeclareClassFOURCC('I', 'S', 'P', '2');
+            HKClassIDFOURCC('I', 'S', 'P', '2');
             public:
                 virtual ~ISpatial2D() {}
 

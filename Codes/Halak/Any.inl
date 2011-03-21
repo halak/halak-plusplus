@@ -551,20 +551,17 @@ namespace Halak
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    Any::ClassStorageBase::ClassStorageBase(const InstanceInfo& storedInstanceInfo)
-        : StoredInstanceInfo(storedInstanceInfo)
+    Any::ClassStorageBase::ClassStorageBase()
     {
     }
 
-    Any::ClassStorageBase::ClassStorageBase(const InstanceInfo& storedInstanceInfo, const String& tag)
-        : StoredInstanceInfo(storedInstanceInfo),
-          Tag(tag)
+    Any::ClassStorageBase::ClassStorageBase(const String& tag)
+        : Tag(tag)
     {
     }
 
     Any::ClassStorageBase::ClassStorageBase(const ClassStorageBase& original)
-        : StoredInstanceInfo(original.StoredInstanceInfo),
-          Tag(original.Tag)
+        : Tag(original.Tag)
     {
     }
 
@@ -605,6 +602,6 @@ namespace Halak
     template <typename T> bool Any::ClassStorage<T>::Equals(const Storage* right) const
     {
         const ClassStorage<T>* castedRight = static_cast<const ClassStorage<T>*>(right);
-        return StoredInstanceInfo == castedRight->StoredInstanceInfo && Tag == castedRight->Tag && (*Value) == (*castedRight->Value);
+        return Tag == castedRight->Tag && (*Value) == (*castedRight->Value);
     }
 }

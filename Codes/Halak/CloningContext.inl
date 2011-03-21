@@ -2,14 +2,6 @@
 
 namespace Halak
 {
-    CloningContext::CloningContext()
-    {
-    }
-
-    CloningContext::~CloningContext()
-    {
-    }
-
     template <typename T> T* CloningContext::CloneActually(T* original, T* fallback)
     {
         if (original == nullptr)
