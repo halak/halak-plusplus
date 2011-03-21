@@ -8,7 +8,6 @@
     {
         class Exception
         {
-            HKDeclareClassFOURCC('E', 'X', 'C', 'P');
             public:
                 const char* Message;
 
@@ -22,7 +21,6 @@
 
         class BadCastException : public Exception
         {
-            HKDeclareClassFOURCC('B', 'C', 'E', 'X');
             public:
                 inline BadCastException();
                 inline BadCastException(const char* message);
@@ -33,7 +31,6 @@
 
         class OutOfRangeException : public Exception
         {
-            HKDeclareClassFOURCC('O', 'R', 'E', 'X');
             public:
                 int Index;
                 int Count;

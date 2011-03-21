@@ -27,9 +27,8 @@
 #           include <Halak/Vector3.h>
 #           include <Halak/Vector4.h>
         ////////////////////////////////////////////////////////////////////////////////////////////////////
-        // (Object)
-#           include <Halak/Object.h>
-#               include <Halak/SharedObject.h>
+        // (SmartPointers)
+#           include <Halak/SharedObject.h>
 #           include <Halak/SharedPointer.h>
 #           include <Halak/WeakPointer.h>
         ////////////////////////////////////////////////////////////////////////////////////////////////////

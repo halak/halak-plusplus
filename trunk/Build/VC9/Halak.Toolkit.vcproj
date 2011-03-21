@@ -560,6 +560,98 @@
 			</Filter>
 		</Filter>
 		<File
+			RelativePath="..\..\Codes\Halak.Toolkit\AnyPtr.cpp"
+			>
+		</File>
+		<File
+			RelativePath="..\..\Codes\Halak.Toolkit\AnyPtr.h"
+			>
+		</File>
+		<File
+			RelativePath="..\..\Codes\Halak.Toolkit\AnyPtr.inl"
+			>
+		</File>
+		<File
+			RelativePath="..\..\Codes\Halak.Toolkit\Attribute.cpp"
+			>
+		</File>
+		<File
+			RelativePath="..\..\Codes\Halak.Toolkit\Attribute.h"
+			>
+		</File>
+		<File
+			RelativePath="..\..\Codes\Halak.Toolkit\ClassInfo.cpp"
+			>
+		</File>
+		<File
+			RelativePath="..\..\Codes\Halak.Toolkit\ClassInfo.h"
+			>
+		</File>
+		<File
+			RelativePath="..\..\Codes\Halak.Toolkit\ClassInfo.inl"
+			>
+		</File>
+		<File
+			RelativePath="..\..\Codes\Halak.Toolkit\ConstructorInfo.cpp"
+			>
+		</File>
+		<File
+			RelativePath="..\..\Codes\Halak.Toolkit\ConstructorInfo.h"
+			>
+		</File>
+		<File
+			RelativePath="..\..\Codes\Halak.Toolkit\ConstructorInfo.inl"
+			>
+		</File>
+		<File
+			RelativePath="..\..\Codes\Halak.Toolkit\DynamicCast.h"
+			>
+		</File>
+		<File
+			RelativePath="..\..\Codes\Halak.Toolkit\EnumInfo.cpp"
+			>
+		</File>
+		<File
+			RelativePath="..\..\Codes\Halak.Toolkit\EnumInfo.h"
+			>
+		</File>
+		<File
+			RelativePath="..\..\Codes\Halak.Toolkit\EnumInfo.inl"
+			>
+		</File>
+		<File
+			RelativePath="..\..\Codes\Halak.Toolkit\InstanceInfo.cpp"
+			>
+		</File>
+		<File
+			RelativePath="..\..\Codes\Halak.Toolkit\InstanceInfo.h"
+			>
+		</File>
+		<File
+			RelativePath="..\..\Codes\Halak.Toolkit\InstanceInfo.inl"
+			>
+		</File>
+		<File
+			RelativePath="..\..\Codes\Halak.Toolkit\PrimitiveInfo.cpp"
+			>
+		</File>
+		<File
+			RelativePath="..\..\Codes\Halak.Toolkit\PrimitiveInfo.h"
+			>
+		</File>
+		<File
+			RelativePath="..\..\Codes\Halak.Toolkit\PropertyInfo.cpp"
+			>
+		</File>
+		<File
+			RelativePath="..\..\Codes\Halak.Toolkit\PropertyInfo.h"
+			>
+		</File>
+		<File
+			RelativePath="..\..\Codes\Halak.Toolkit\PropertyInfo.inl"
+			>
+		</File>
+		<File
 			RelativePath="..\..\Codes\Halak.Toolkit\RegistrationContexts.cpp"
 			>
 		</File>
@@ -569,6 +661,30 @@
 		</File>
 		<File
 			RelativePath="..\..\Codes\Halak.Toolkit\RegistrationContexts.inl"
+			>
+		</File>
+		<File
+			RelativePath="..\..\Codes\Halak.Toolkit\TypeInfo.cpp"
+			>
+		</File>
+		<File
+			RelativePath="..\..\Codes\Halak.Toolkit\TypeInfo.h"
+			>
+		</File>
+		<File
+			RelativePath="..\..\Codes\Halak.Toolkit\TypeInfo.inl"
+			>
+		</File>
+		<File
+			RelativePath="..\..\Codes\Halak.Toolkit\TypeLibrary.cpp"
+			>
+		</File>
+		<File
+			RelativePath="..\..\Codes\Halak.Toolkit\TypeLibrary.h"
+			>
+		</File>
+		<File
+			RelativePath="..\..\Codes\Halak.Toolkit\TypeLibrary.inl"
 			>
 		</File>
 	</Files>

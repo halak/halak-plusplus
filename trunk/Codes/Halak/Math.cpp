@@ -99,12 +99,7 @@ namespace Halak
         return ((b.X - a.X) * (c.Y - a.Y) - (c.X - a.X) * (b.Y - a.Y)) > 0.0f;
     }
 
-    bool Math::IsClockwise(const std::vector<Vector2>& points)
-    {
-        return IsClockwise(points, static_cast<int>(points.size()));
-    }
-
-    bool Math::IsClockwise(const std::vector<Vector2>& points, int numberOfPoints)
+    bool Math::IsClockwise(const Vector2* points, int numberOfPoints)
     {
         const int last = numberOfPoints - 1;
         float crossProductSum = (points[last].X * points[0].Y) - (points[0].X * points[last].Y);

@@ -9,8 +9,6 @@
     {
         struct Ray2D
         {
-            HKDeclareStructFOURCC('R', 'A', 'Y', '2');
-
             Vector2 Origin;
             Vector2 Direction;
             float   Length;

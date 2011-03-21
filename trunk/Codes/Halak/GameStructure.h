@@ -9,7 +9,6 @@
     {
         class GameStructure
         {
-            HKDeclareClassFOURCC('G', 'S', 'T', 'R');
             HKThisIsNoncopyableClass(GameStructure);
             public:
                 GameStructure();

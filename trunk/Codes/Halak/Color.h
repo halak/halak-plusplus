@@ -12,8 +12,6 @@
     {
         struct Color
         {
-            HKDeclareStructFOURCC('C', 'O', 'L', 'R');
-
             byte A;
             byte R;
             byte G;

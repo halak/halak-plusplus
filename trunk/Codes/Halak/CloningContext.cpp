@@ -3,4 +3,11 @@
 
 namespace Halak
 {
+    CloningContext::CloningContext()
+    {
+    }
+
+    CloningContext::~CloningContext()
+    {
+    }
 }

@@ -8,8 +8,6 @@
     {
         struct Quaternion
         {
-            HKDeclareStructFOURCC('Q', 'U', 'A', 'T');
-
             float X;
             float Y;
             float Z;

@@ -8,8 +8,6 @@
     {
         struct UUID
         {
-            HKDeclareStructFOURCC('U', 'U', 'I', 'D');
-
             dword values[4];
 
             inline UUID();

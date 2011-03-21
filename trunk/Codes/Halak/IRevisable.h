@@ -8,6 +8,7 @@
     {
         class IRevisable
         {
+            HKClassIDFOURCC('I', 'R', 'E', 'V');
             public:
                 virtual ~IRevisable() { }
 

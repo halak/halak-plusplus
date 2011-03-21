@@ -38,14 +38,6 @@ namespace Halak
             return String::Empty;
     }
 
-    const InstanceInfo& Any::GetStoredInstanceInfo() const
-    {
-        if (type == ClassType)
-            return reinterpret_cast<ClassStorageBase*>(value)->StoredInstanceInfo;
-        else
-            return InstanceInfo::Empty;
-    }
-
     Any& Any::operator = (const Any& right)
     {
         Type  oldType  = type;

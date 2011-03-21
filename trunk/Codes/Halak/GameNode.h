@@ -9,7 +9,6 @@
     {
         class GameNode
         {
-            HKDeclareClassFOURCC('G', 'N', 'O', 'D');
             HKThisIsNoncopyableClass(GameNode);
             public:
                 typedef std::vector<GameNode*> NodeCollection;

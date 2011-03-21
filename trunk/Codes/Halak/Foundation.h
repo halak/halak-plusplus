@@ -51,19 +51,10 @@
 #       define HKThisIsNoncopyableClass(classname)  private: \
                                                         classname(const classname&); \
                                                         classname& operator = (const classname&);
-
-#       define HKDeclareObject(id)  public: \
-                                        static const uint32 ClassID = id; \
-                                        virtual uint32 GetClassID() const { return ClassID; }
-                                    private:
-#       define HKDeclareObjectFOURCC(a, b, c, d) HKDeclareObject(HKMakeFOURCC(a, b, c, d))
-
-#       define HKDeclareStruct(id) static const uint32 ClassID = id;
-#       define HKDeclareStructFOURCC(a, b, c, d) HKDeclareStruct(HKMakeFOURCC(a, b, c, d))
-#       define HKDeclareClass(id)   public: \
-                                        static const uint32 ClassID = id; \
-                                    private:
-#       define HKDeclareClassFOURCC(a, b, c, d) HKDeclareClass(HKMakeFOURCC(a, b, c, d))
+#       define HKClassID(id)    public: \
+                                    static const uint ClassID = id; \
+                                private:
+#       define HKClassIDFOURCC(a, b, c, d) HKClassID(HKMakeFOURCC(a, b, c, d))
     }
 
 #endif
