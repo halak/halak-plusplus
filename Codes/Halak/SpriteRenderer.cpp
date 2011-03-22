@@ -1,15 +1,16 @@
+#include <Halak/PCH.h>
 #include <Halak/SpriteRenderer.h>
+#include <Halak/Assert.h>
+#include <Halak/CheckedRelease.h>
 #include <Halak/Font.h>
+#include <Halak/FontString.h>
 #include <Halak/GraphicsDevice.h>
+#include <Halak/Math.h>
+#include <Halak/NumericLimits.h>
 #include <Halak/Sprite.h>
 #include <Halak/Texture2D.h>
-#include <Halak/FontString.h>
 #include <Halak/Internal/Glyph.h>
 #include <Halak/Internal/TypingContext.h>
-#include <Halak/Assert.h>
-#include <Halak/CheckedRelease.hpp>
-#include <Halak/Math.h>
-#include <limits>
 
 namespace Halak
 {
@@ -208,7 +209,7 @@ namespace Halak
         worldTransforms = std::stack<Matrix4>();
         Push(Matrix4::Identity);
 
-        cachedTexture.reset();
+        cachedTexture.Reset();
         cachedNumberOfQuads = 0;
 
         HKAssert(lockedVertices); // Push에서 Flush할 때 Lock을 겁니다.
@@ -247,7 +248,7 @@ namespace Halak
             IDirect3DDevice9* d3dDevice = graphicsDevice->GetD3DDevice();
             d3dDevice->SetTexture(0, cachedTexture->GetD3DTexture());
             d3dDevice->DrawIndexedPrimitive(D3DPT_TRIANGLELIST, 0, 0, cachedNumberOfQuads * VerticesPerQuad, 0, cachedNumberOfQuads * TrianglesPerQuad);
-            cachedTexture.reset();
+            cachedTexture.Reset();
             cachedNumberOfQuads = 0;
         }
 
@@ -459,7 +460,7 @@ namespace Halak
 
     void SpriteRenderer::DrawString(Vector2 position, const FontString& fontString)
     {
-        DrawString(position, fontString, static_cast<float>(fontString.GetRegularGlyphs().size()), std::numeric_limits<float>::max());
+        DrawString(position, fontString, static_cast<float>(fontString.GetRegularGlyphs().size()), NumericLimits::MaxFloat);
     }
 
     void SpriteRenderer::DrawString(Vector2 position, const FontString& fontString, float length, float boundary)
@@ -490,7 +491,7 @@ namespace Halak
                 if (glyph->GetTexture())
                 {
                     const Color drawingColor = Color(strokeColor.R, strokeColor.G, strokeColor.B,
-                                                     static_cast<byte>(static_cast<float>(strokeColor.A) * std::min(remainingLength, 1.0f)));
+                                                     static_cast<byte>(static_cast<float>(strokeColor.A) * Math::Min(remainingLength, 1.0f)));
                     const Vector2 drawingPosition = position + context.GetPosition() + glyph->GetBitmapOffset();
                     Draw(Vector3(drawingPosition, 0.0f), Vector3::Zero, Vector2::One, glyph->GetTexture(), glyph->GetClippingRectangle(), Vector2::Zero, drawingColor);
                 }
@@ -509,7 +510,7 @@ namespace Halak
             if (glyph->GetTexture())
             {
                 const Color drawingColor = Color(color.R, color.G, color.B,
-                                                 static_cast<byte>(static_cast<float>(color.A) * std::min(remainingLength, 1.0f)));
+                                                 static_cast<byte>(static_cast<float>(color.A) * Math::Min(remainingLength, 1.0f)));
                 const Vector2 drawingPosition = position + context.GetPosition() + glyph->GetBitmapOffset();
                 Draw(Vector3(drawingPosition, 0.0f), Vector3::Zero, Vector2::One, glyph->GetTexture(), glyph->GetClippingRectangle(), Vector2::Zero, drawingColor);
             }

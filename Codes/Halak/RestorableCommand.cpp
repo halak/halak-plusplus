@@ -1,3 +1,4 @@
+#include <Halak/PCH.h>
 #include <Halak/RestorableCommand.h>
 
 namespace Halak

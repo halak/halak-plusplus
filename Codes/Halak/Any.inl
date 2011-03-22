@@ -572,13 +572,13 @@ namespace Halak
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
     template <typename T> Any::ClassStorage<T>::ClassStorage(const T& value)
-        : ClassStorageBase(InstanceInfo::From<T>()),
+        : ClassStorageBase(),
           Value(new T(value))
     {
     }
 
     template <typename T> Any::ClassStorage<T>::ClassStorage(const T& value, const String& tag)
-        : ClassStorageBase(InstanceInfo::From<T>(), tag),
+        : ClassStorageBase(tag),
           Value(new T(value))
     {
     }

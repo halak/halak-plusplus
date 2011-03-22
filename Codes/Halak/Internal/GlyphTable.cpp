@@ -1,3 +1,4 @@
+#include <Halak/PCH.h>
 #include <Halak/Internal/GlyphTable.h>
 #include <Halak/Internal/GlyphSurface.h>
 #include <Halak/Internal/Glyph.h>

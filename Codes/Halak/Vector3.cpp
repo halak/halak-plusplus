@@ -1,7 +1,7 @@
 #include <Halak/PCH.h>
 #include <Halak/Vector3.h>
 #include <Halak/Math.h>
-#include <limits>
+#include <Halak/NumericLimits.h>
 
 namespace Halak
 {
@@ -40,6 +40,6 @@ namespace Halak
     const Vector3 Vector3::UnitY = Vector3(0.0f, 1.0f, 0.0f);
     const Vector3 Vector3::UnitZ = Vector3(0.0f, 0.0f, 1.0f);
     const Vector3 Vector3::One   = Vector3(1.0f, 1.0f, 1.0f);
-    const Vector3 Vector3::Minimum = Vector3(std::numeric_limits<float>::min(), std::numeric_limits<float>::min(), std::numeric_limits<float>::min());
-    const Vector3 Vector3::Maximum = Vector3(std::numeric_limits<float>::max(), std::numeric_limits<float>::max(), std::numeric_limits<float>::max());
+    const Vector3 Vector3::Minimum = Vector3(NumericLimits::MinFloat, NumericLimits::MinFloat, NumericLimits::MinFloat);
+    const Vector3 Vector3::Maximum = Vector3(NumericLimits::MaxFloat, NumericLimits::MaxFloat, NumericLimits::MaxFloat);
 }

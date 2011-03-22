@@ -29,7 +29,7 @@
                 virtual bool CanUndo() const;
                 virtual bool CanRedo() const;
 
-                const CommandCollection& GetCommands() const;
+                inline const CommandCollection& GetCommands() const;
                 void SetCommands(const CommandCollection& value);
 
             private:
@@ -41,5 +41,7 @@
                 static void __Startup__();
         };
     }
+
+#   include <Halak/BatchCommand.inl>
 
 #endif

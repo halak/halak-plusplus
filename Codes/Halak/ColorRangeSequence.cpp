@@ -1,3 +1,4 @@
+#include <Halak/PCH.h>
 #include <Halak/ColorRangeSequence.h>
 #include <Halak/SequenceTemplate.h>
 

@@ -1,5 +1,6 @@
+#include <Halak/PCH.h>
 #include <Halak/DisplaySwapChain.h>
-#include <Halak/CheckedRelease.hpp>
+#include <Halak/CheckedRelease.h>
 #include <Halak/GraphicsDevice.h>
 #include <Halak/Window.h>
 #include <d3dx9.h>

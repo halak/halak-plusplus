@@ -1,11 +1,12 @@
+#include <Halak/PCH.h>
 #include <Halak/GameFramework.Windows.h>
 #include <Halak/Assert.h>
-#include <Halak/BuildConfiguration.h>
 #include <Halak/Clock.h>
 #include <Halak/GameStructure.h>
 #include <Halak/GameNode.h>
 #include <Halak/GameWindow.h>
 #include <Halak/GraphicsDevice.h>
+#include <Halak/Math.h>
 
 #if (defined(HALAK_PLATFORM_WINDOWS))
 
@@ -93,7 +94,7 @@
 
         void GameFramework::SetDesiredElapsedTime(float value)
         {
-            desiredElapsedTime = std::max(value, 0.0001f);
+            desiredElapsedTime = Math::Max(value, 0.0001f);
             desiredFPS = static_cast<uint>(1.0f / desiredElapsedTime);
         }
 

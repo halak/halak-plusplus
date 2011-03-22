@@ -4,14 +4,15 @@
 
 #   include <Halak/FWD.h>
 #   include <Halak/GameComponent.h>
+#   include <Halak/Exception.h>
 #   include <Halak/String.h>
-#   include <stdexcept>
 #   include <tuple>
 
     namespace Halak
     {
         class LuaRuntimeEnvironment : public GameComponent
         {
+            HKDeclareGameComponentClassFOURCC('L', 'U', 'A', 'E');
             public:
                 LuaRuntimeEnvironment();
                 virtual ~LuaRuntimeEnvironment();
@@ -347,7 +348,7 @@
                 Fields& m;
         };
 
-        class LuaError : public std::exception
+        class LuaError : public Exception
         {
             public:
                 const String Filename;

@@ -70,6 +70,9 @@
                 static inline float  Clamp(float value, float min, float max);
                 static inline double Clamp(double value, double min, double max);
 
+                static float  Mod(float a, float b);
+                static double Mod(double a, double b);
+
                 static inline int Wrap(int value, int upper);
 
                 static int  GetNearestMorePowerOfTwo(int value);

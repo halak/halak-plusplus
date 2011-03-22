@@ -9,11 +9,10 @@
     {
         class CommandQueue : public GameComponent
         {
+            HKDeclareGameComponentClassFOURCC('C', 'M', 'D', 'Q');
             public:
                 CommandQueue();
-
-            private:
-                virtual ~CommandQueue();
+                virtual ~CommandQueue();               
 
             private:
                 friend void __Startup__();

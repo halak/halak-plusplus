@@ -1,3 +1,4 @@
+#include <Halak/PCH.h>
 #include <Halak/EvaluableFloatSequence.h>
 #include <Halak/EvaluableSequenceTemplate.h>
 #include <Halak/FloatSequence.h>

@@ -1,6 +1,9 @@
+#include <Halak/NullPointer.h>
+
 namespace Halak
 {
     Exception::Exception()
+        : Message(nullptr)
     {
     }
 
@@ -11,6 +14,32 @@ namespace Halak
 
     Exception::Exception(const Exception& original)
         : Message(original.Message)
+    {
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    BadArgumentException::BadArgumentException()
+        : Exception(),
+          ArgumentName(nullptr)
+    {
+    }
+
+    BadArgumentException::BadArgumentException(const char* argumentName)
+        : Exception(),
+          ArgumentName(argumentName)
+    {
+    }
+
+    BadArgumentException::BadArgumentException(const char* argumentName, const char* message)
+        : Exception(message),
+          ArgumentName(argumentName)
+    {
+    }
+
+    BadArgumentException::BadArgumentException(const BadArgumentException& original)
+        : Exception(original),
+          ArgumentName(original.ArgumentName)
     {
     }
 

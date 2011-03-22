@@ -1,6 +1,7 @@
+#include <Halak/PCH.h>
 #include <Halak/Texture2D.h>
 #include <Halak/GraphicsDevice.h>
-#include <Halak/CheckedRelease.hpp>
+#include <Halak/CheckedRelease.h>
 
 namespace Halak
 {

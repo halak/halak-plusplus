@@ -10,15 +10,21 @@
     {
         class Mouse : public GameComponent
         {
+            HKDeclareGameComponentClassFOURCC('M', 'O', 'U', 'S');
             public:
+                Mouse();
                 Mouse(Window* window);
+                virtual ~Mouse();
 
                 const MouseState& GetState();
 
                 void SetPosition(Point value);
 
+                Window* GetWindow();
+                void SetWindow(Window* value);
+
             protected:
-                virtual ~Mouse();
+                
 
             private:
                 void OnMouseWheel(int delta);

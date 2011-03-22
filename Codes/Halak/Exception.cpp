@@ -14,6 +14,18 @@ namespace Halak
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     
+    BadArgumentException& BadArgumentException::operator = (const BadArgumentException& right)
+    {
+        if (this == &right)
+            return *this;
+
+        Exception::operator = (right);
+        ArgumentName = right.ArgumentName;
+        return *this;
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    
     BadCastException& BadCastException::operator = (const BadCastException& right)
     {
         if (this == &right)

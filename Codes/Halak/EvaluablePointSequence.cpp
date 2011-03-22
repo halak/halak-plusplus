@@ -1,3 +1,4 @@
+#include <Halak/PCH.h>
 #include <Halak/EvaluablePointSequence.h>
 #include <Halak/EvaluableSequenceTemplate.h>
 #include <Halak/PointSequence.h>

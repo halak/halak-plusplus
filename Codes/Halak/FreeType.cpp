@@ -1,3 +1,4 @@
+#include <Halak/PCH.h>
 #include <Halak/FreeType.h>
 #include <Halak/Internal/FreeTypeFontRenderer.h>
 #include <vector>

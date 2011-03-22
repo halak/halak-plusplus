@@ -63,6 +63,7 @@
             ////////////////////////////////////////////////////////////////////////////////////////////////////
             // Exceptions
                 class Exception;
+                    class BadArgumentException;
                     class BadCastException;
                     class OutOfRangeException;
             ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -111,6 +112,118 @@
                     class ParallelTimeline;
                     class SubTimeline;
             ////////////////////////////////////////////////////////////////////////////////////////////////////
+        // 03. (NotYet)
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
+            // Graphics
+                class DisplaySwapChain;
+                class DrawingContext;
+                class GraphicsDevice;
+                HKForwardDeclareSmartPointerClass(IDrawable);
+                class Sprite;
+                class SpriteRenderer;
+                HKForwardDeclareSmartPointerClass(Texture2D);
+                    HKForwardDeclareSmartPointerClass(DynamicTexture2D);
+                    HKForwardDeclareSmartPointerClass(MemoryTexture2D);
+                    HKForwardDeclareSmartPointerClass(SourceTexture2D);
+                class Window;
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
+            // Input
+                class Mouse;
+                struct MouseState;
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
+        // 04. Application
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
+            // Animation
+                HKForwardDeclareSmartPointerClass(ColorRangeSequence);
+                HKForwardDeclareSmartPointerClass(ColorSequence);
+                HKForwardDeclareSmartPointerClass(ColorSequence);
+                HKForwardDeclareSmartPointerClass(EvaluableBlenderTemplate);
+                HKForwardDeclareSmartPointerClass(EvaluableConstants);
+                HKForwardDeclareSmartPointerClass(EvaluableFloatBlender);
+                HKForwardDeclareSmartPointerClass(EvaluableFloatConstant);
+                HKForwardDeclareSmartPointerClass(EvaluableFloatPrioritySelector);
+                HKForwardDeclareSmartPointerClass(EvaluableFloatRangeSequence);
+                HKForwardDeclareSmartPointerClass(EvaluableFloatSequence);
+                HKForwardDeclareSmartPointerClass(EvaluablePointSequence);
+                template <typename T> class EvaluablePrioritySelectorTemplate;
+                template <typename T> class EvaluableRangeSequenceTemplate;
+                HKForwardDeclareSmartPointerClass(EvaluableSequences);
+                template <typename T> class EvaluableSequenceTemplate;
+                HKForwardDeclareSmartPointerClass(EvaluableSpriteConstant);
+                HKForwardDeclareSmartPointerClass(EvaluableSpriteSequence);
+                HKForwardDeclareSmartPointerClass(FloatRangeSequence);
+                HKForwardDeclareSmartPointerClass(FloatSequence);
+                HKForwardDeclareSmartPointerClass(IBoolEvaluable);
+                HKForwardDeclareSmartPointerClass(ICharEvaluable);
+                HKForwardDeclareSmartPointerClass(IColorEvaluable);
+                HKForwardDeclareSmartPointerClass(IDoubleEvaluable);
+                HKForwardDeclareSmartPointerClass(IEvaluables);
+                HKForwardDeclareSmartPointerClass(IFloatEvaluable);
+                HKForwardDeclareSmartPointerClass(IFloatRangeEvaluable);
+                HKForwardDeclareSmartPointerClass(IIntEvaluable);
+                HKForwardDeclareSmartPointerClass(ILongEvaluable);
+                HKForwardDeclareSmartPointerClass(IPointEvaluable);
+                HKForwardDeclareSmartPointerClass(IQuaternionEvaluable);
+                HKForwardDeclareSmartPointerClass(IRectangleEvaluable);
+                HKForwardDeclareSmartPointerClass(IShortEvaluable);
+                HKForwardDeclareSmartPointerClass(ISpriteEvaluable);
+                HKForwardDeclareSmartPointerClass(IUCharEvaluable);
+                HKForwardDeclareSmartPointerClass(IUIntEvaluable);
+                HKForwardDeclareSmartPointerClass(IULongEvaluable);
+                HKForwardDeclareSmartPointerClass(IUShortEvaluable);
+                HKForwardDeclareSmartPointerClass(IVector2Evaluable);
+                HKForwardDeclareSmartPointerClass(IVector3Evaluable);
+                HKForwardDeclareSmartPointerClass(IVector4Evaluable);
+                HKForwardDeclareSmartPointerClass(PointSequence);
+                template <typename T> class SequenceTemplate;
+                HKForwardDeclareSmartPointerClass(SpriteSequence);
+                HKForwardDeclareSmartPointerClass(Vector2RangeSequence);
+                HKForwardDeclareSmartPointerClass(Vector2Sequence);
+                HKForwardDeclareSmartPointerClass(Vector3RangeSequence);
+                HKForwardDeclareSmartPointerClass(Vector3Sequence);
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
+            // Collision
+                HKForwardDeclareSmartPointerClass(IPickable);
+                class PickingContext;
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
+            // Command
+                class Command;
+                    class RestorabelCommand;
+                        class BatchCommand;
+                class CommandHistory;
+                class CommandQueue;
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
+            // Framework
+                class GameFramework;
+                class GameWindow;
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
+            // Gameplay
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
+            // JSON
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
+            // Lua
+                class LuaRuntimeEnvironment;
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
+            // OS
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
+            // Script
+                HKForwardDeclareSmartPointerClass(Flowchart);
+                HKForwardDeclareSmartPointerClass(FlowchartBlock);
+                class FlowingContext;
+                HKForwardDeclareSmartPointerClass(IFlowchartProcess);
+                HKForwardDeclareSmartPointerClass(VariableStorage);
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
+            // Typography
+                HKForwardDeclareSmartPointerClass(Font);
+                class FontString;
+                class FreeType;
+                // (Internal)
+                    HKForwardDeclareSmartPointerClass(FreeTypeFontRenderer);
+                    struct FreeTypeFontRendererParameters;
+                    class Glyph;
+                    class GlyphSurface;
+                    class GlyphTable;
+                ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #       undef HKForwardDeclareSmartPointerClass
     }

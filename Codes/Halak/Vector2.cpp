@@ -1,7 +1,7 @@
 #include <Halak/PCH.h>
 #include <Halak/Vector2.h>
 #include <Halak/Math.h>
-#include <limits>
+#include <Halak/NumericLimits.h>
 
 namespace Halak
 {
@@ -68,6 +68,6 @@ namespace Halak
     const Vector2 Vector2::UnitX = Vector2(1.0f, 0.0f);
     const Vector2 Vector2::UnitY = Vector2(0.0f, 1.0f);
     const Vector2 Vector2::One   = Vector2(1.0f, 1.0f);
-    const Vector2 Vector2::Minimum = Vector2(std::numeric_limits<float>::min(), std::numeric_limits<float>::min());
-    const Vector2 Vector2::Maximum = Vector2(std::numeric_limits<float>::max(), std::numeric_limits<float>::max());
+    const Vector2 Vector2::Minimum = Vector2(NumericLimits::MinFloat, NumericLimits::MinFloat);
+    const Vector2 Vector2::Maximum = Vector2(NumericLimits::MaxFloat, NumericLimits::MaxFloat);
 }

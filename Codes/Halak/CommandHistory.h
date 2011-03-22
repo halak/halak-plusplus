@@ -11,11 +11,13 @@
     {
         class CommandHistory : public GameComponent
         {
+            HKDeclareGameComponentClassFOURCC('C', 'M', 'D', 'H');
             public:
                 typedef std::list<Command*> CommandCollection;
 
             public:
                 CommandHistory();
+                virtual ~CommandHistory();
 
                 void Execute(Command* command);
                 void Undo();
@@ -37,9 +39,6 @@
                 Signal<CommandHistory*, Command*, const CommandCollection&>& Executed();
                 Signal<CommandHistory*, const CommandCollection&>& Undone();
                 Signal<CommandHistory*, const CommandCollection&>& Redone();
-
-            private:
-                virtual ~CommandHistory();
 
             private:
                 CommandCollection commands;

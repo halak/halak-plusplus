@@ -1,3 +1,4 @@
+#include <Halak/PCH.h>
 #include <Halak/Command.h>
 
 namespace Halak

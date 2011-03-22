@@ -1,3 +1,4 @@
+#include <Halak/PCH.h>
 #include <Halak/FlowchartBlock.h>
 #include <Halak/IFlowchartProcess.h>
 
@@ -39,7 +40,7 @@ namespace Halak
 
     void FlowchartBlock::FlattenTo(std::set<FlowchartBlockPtr>& collection)
     {
-        collection.insert(CastTo<FlowchartBlock>());
+        collection.insert(FlowchartBlockPtr(this));
 
         for (BlockDictionary::const_iterator it = nextBlocks.begin(); it != nextBlocks.end(); it++)
         {
@@ -66,7 +67,7 @@ namespace Halak
         if (it != nextBlocks.end())
         {
             if (key.GetType() == Any::NullType)
-                defaultNextBlock.reset();
+                defaultNextBlock.Reset();
 
             nextBlocks.erase(it);
             return true;
@@ -78,7 +79,7 @@ namespace Halak
     void FlowchartBlock::ClearNextBlocks()
     {
         nextBlocks.clear();
-        defaultNextBlock.reset();
+        defaultNextBlock.Reset();
     }
         
     FlowchartBlockPtr FlowchartBlock::FindNextBlock(const Any& key) const

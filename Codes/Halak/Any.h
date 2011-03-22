@@ -168,7 +168,6 @@
                 template <typename T> struct ClassStorage : ClassStorageBase
                 {
                     T* Value;
-                    const TypeInfo* Type;
 
                     ClassStorage(const T& value);
                     ClassStorage(const T& value, const String& tag);

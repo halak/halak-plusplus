@@ -1,5 +1,7 @@
+#include <Halak/PCH.h>
 #include <Halak/SpriteSequence.h>
 #include <Halak/SequenceTemplate.h>
+#include <Halak/Texture2D.h>
 
 namespace Halak
 {

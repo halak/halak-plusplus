@@ -380,14 +380,14 @@ namespace Halak
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
     LuaError::LuaError(const String& message, const String& filename, int line)
-        : std::exception(message.CStr()),
+        : Exception(message.CStr()),
           Filename(filename),
           Line(line)
     {
     }
 
     LuaError::LuaError(const LuaError& original)
-        : std::exception(original),
+        : Exception(original),
           Filename(original.Filename),
           Line(original.Line)
     {
