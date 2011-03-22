@@ -1,3 +1,4 @@
+#include <Halak/PCH.h>
 #include <Halak/SourceTexture2D.h>
 #include <Halak/GraphicsDevice.h>
 

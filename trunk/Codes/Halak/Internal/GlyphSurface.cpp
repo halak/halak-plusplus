@@ -1,3 +1,4 @@
+#include <Halak/PCH.h>
 #include <Halak/Internal/GlyphSurface.h>
 #include <Halak/DynamicTexture2D.h>
 #include <Halak/RectangleStorage.h>

@@ -1,6 +1,7 @@
+#include <Halak/PCH.h>
 #include <Halak/GraphicsDevice.h>
 #include <Halak/Assert.h>
-#include <Halak/CheckedRelease.hpp>
+#include <Halak/CheckedRelease.h>
 #include <Halak/DisplaySwapChain.h>
 #include <Halak/Window.h>
 #include <stdexcept>

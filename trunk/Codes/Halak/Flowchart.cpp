@@ -1,4 +1,6 @@
+#include <Halak/PCH.h>
 #include <Halak/Flowchart.h>
+#include <Halak/FlowchartBlock.h>
 
 namespace Halak
 {

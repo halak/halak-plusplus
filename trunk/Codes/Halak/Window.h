@@ -12,6 +12,8 @@
         class Window : public GameComponent
         {
             public:
+                virtual ~Window();
+
                 virtual void Close() = 0;
 
                 virtual Point GetPosition() const = 0;
@@ -26,9 +28,6 @@
                 virtual void* GetHandle() const = 0;
 
                 inline Signal<int>& MouseWheel();
-
-            protected:
-                virtual ~Window();
 
             private:
                 Signal<int> mouseWheel;

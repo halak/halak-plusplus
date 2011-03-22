@@ -1,3 +1,4 @@
+#include <Halak/PCH.h>
 #include <Halak/FlowingContext.h>
 #include <Halak/Assert.h>
 #include <Halak/Flowchart.h>
@@ -10,14 +11,14 @@ namespace Halak
 {
     FlowingContext::FlowingContext(FlowchartPtr source)
         : source(source),
-          status(FlowingStatus::Finished),
+          status(FinishedStatus),
           variables(new VariableStorage())
     {
     }
 
     FlowingContext::FlowingContext(FlowchartPtr source, VariableStoragePtr parentVariables)
         : source(source),
-          status(FlowingStatus::Finished),
+          status(FinishedStatus),
           variables(new VariableStorage(parentVariables))
     {
     }
@@ -28,9 +29,9 @@ namespace Halak
     
     void FlowingContext::Execute()
     {
-        if (GetStatus() == FlowingStatus::Executing)
-            throw std::runtime_error("이미 실행중입니다.");
-        if (GetStatus() == FlowingStatus::Suspended)
+        if (GetStatus() == ExecutingStatus)
+            throw Exception("이미 실행중입니다.");
+        if (GetStatus() == SuspendedStatus)
         {
             Resume(Any::Null);
             return;
@@ -41,9 +42,9 @@ namespace Halak
 
     void FlowingContext::Resume(const Any& result)
     {
-        if (GetStatus() == FlowingStatus::Executing)
-            throw std::runtime_error("이미 실행중입니다.");
-        if (GetStatus() == FlowingStatus::Finished)
+        if (GetStatus() == ExecutingStatus)
+            throw Exception("이미 실행중입니다.");
+        if (GetStatus() == FinishedStatus)
         {
             Execute();
             return;
@@ -54,12 +55,12 @@ namespace Halak
         if (FlowchartBlockPtr block = current->FindNextBlock(result))
             ExecuteActually(block);
         else
-            throw std::invalid_argument("result");
+            throw BadArgumentException("result");
     }
 
     void FlowingContext::ExecuteActually(FlowchartBlockPtr next)
     {
-        status = FlowingStatus::Executing;
+        status = ExecutingStatus;
 
         while (next)
         {
@@ -69,13 +70,13 @@ namespace Halak
 
         switch (GetStatus())
         {
-            case FlowingStatus::Executing:
-            case FlowingStatus::Finished:
+            case ExecutingStatus:
+            case FinishedStatus:
                 // 정상적으로 끝나거나 중단(Break) 되었습니다.
-                current.reset();
-                status = FlowingStatus::Finished;
+                current.Reset();
+                status = FinishedStatus;
                 break;
-            case FlowingStatus::Suspended:
+            case SuspendedStatus:
                 // 일시적으로 중지(Yield) 되었습니다.
                 // Current를 유지합니다.
                 break;
@@ -84,13 +85,13 @@ namespace Halak
 
     const Any& FlowingContext::Yield()
     {
-        status = FlowingStatus::Suspended;
+        status = SuspendedStatus;
         return Any::Missing;
     }
 
     const Any& FlowingContext::Break()
     {
-        status = FlowingStatus::Finished;
+        status = FinishedStatus;
         return Any::Missing;
     }
 
@@ -104,7 +105,7 @@ namespace Halak
         return current;
     }
 
-    FlowingStatus::E FlowingContext::GetStatus() const
+    FlowingContext::Status FlowingContext::GetStatus() const
     {
         return status;
     }

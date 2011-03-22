@@ -13,6 +13,9 @@
         template <typename T> class WeakPointer
         {
             public:
+                typedef T PointeeType;
+
+            public:
                 inline WeakPointer();
                 inline WeakPointer(const SharedPointer<T>& pointer);
                 inline WeakPointer(const WeakPointer<T>& original);

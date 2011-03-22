@@ -19,6 +19,20 @@
                 Exception& operator = (const Exception& right);
         };
 
+        class BadArgumentException : public Exception
+        {
+            public:
+                const char* ArgumentName;
+
+            public:
+                inline BadArgumentException();
+                inline BadArgumentException(const char* argumentName);
+                inline BadArgumentException(const char* argumentName, const char* message);
+                inline BadArgumentException(const BadArgumentException& original);
+
+                BadArgumentException& operator = (const BadArgumentException& right);
+        };
+
         class BadCastException : public Exception
         {
             public:

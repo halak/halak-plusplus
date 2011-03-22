@@ -1,3 +1,4 @@
+#include <Halak/PCH.h>
 #include <Halak/Sprite.h>
 #include <Halak/Texture2D.h>
 

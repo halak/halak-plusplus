@@ -1,6 +1,8 @@
+#include <Halak/PCH.h>
 #include <Halak/EvaluableSpriteSequence.h>
 #include <Halak/EvaluableSequenceTemplate.h>
 #include <Halak/SpriteSequence.h>
+#include <Halak/Texture2D.h>
 
 namespace Halak
 {

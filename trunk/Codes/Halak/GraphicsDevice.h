@@ -13,9 +13,10 @@ namespace Halak
 {
     class GraphicsDevice : public GameComponent
     {
-        friend class DisplaySwapChain;
+        HKDeclareGameComponentClassFOURCC('G', 'R', 'P', 'D');
         public:
             GraphicsDevice();
+            virtual ~GraphicsDevice();
 
             void Clear();
             void Clear(Color color);
@@ -38,9 +39,6 @@ namespace Halak
             IDirect3D9*       GetD3DObject();
             IDirect3DDevice9* GetD3DDevice();
 
-        protected:
-            virtual ~GraphicsDevice();
-
         private:
             void InitializeDevice();
             void FinalizeDevice();
@@ -60,6 +58,8 @@ namespace Halak
 
             Rectangle viewport;
             bool fullscreen;
+
+            friend class DisplaySwapChain;
     };
 }
 

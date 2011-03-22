@@ -44,6 +44,16 @@ namespace Halak
         return std::atan2(y, x);
     }
 
+    float Math::Mod(float a, float b)
+    {
+        return std::fmodf(a, b);
+    }
+
+    double Mod(double a, double b)
+    {
+        return std::fmod(a, b);
+    }
+
     int Math::GetNearestMorePowerOfTwo(int value)
     {
         if (value > 0)

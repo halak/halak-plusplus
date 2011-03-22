@@ -7,8 +7,13 @@
 
     namespace Halak
     {
-        class FileSystem
+        class FileSystem : public GameComponent
         {
+            HKDeclareGameComponentClassFOURCC('F', 'S', 'Y', 'S');
+            public:
+                FileSystem();
+                explicit FileSystem(uint id);
+                virtual ~FileSystem();
         };
     }
 

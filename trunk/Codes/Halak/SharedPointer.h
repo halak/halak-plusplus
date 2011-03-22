@@ -11,11 +11,15 @@
         template <typename T> class SharedPointer
         {
             public:
+                typedef T PointeeType;
+
+            public:
                 inline SharedPointer();
                 inline SharedPointer(T* pointee);
                 inline SharedPointer(const SharedPointer<T>& original);
                 inline ~SharedPointer();
 
+                inline void Reset();
                 inline void Reset(const SharedPointer<T>& right);
                 inline void Reset(T* right);
 

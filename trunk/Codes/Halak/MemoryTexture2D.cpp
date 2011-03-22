@@ -1,3 +1,4 @@
+#include <Halak/PCH.h>
 #include <Halak/MemoryTexture2D.h>
 #include <Halak/GraphicsDevice.h>
 #include <Halak/Assert.h>

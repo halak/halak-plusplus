@@ -1,4 +1,6 @@
+#include <Halak/PCH.h>
 #include <Halak/PickingContext.h>
+#include <Halak/IPickable.h>
 #include <Halak/Assert.h>
 
 namespace Halak

@@ -9,10 +9,11 @@
     {
         class DisplaySwapChain : public GameComponent
         {
-            friend class GraphicsDevice;
+            HKDeclareGameComponentClassFOURCC('S', 'W', 'C', 'H');
             public:
                 DisplaySwapChain(GraphicsDevice* graphicsDevice, Window* window);
                 DisplaySwapChain(GraphicsDevice* graphicsDevice, Window* window, Point size);
+                virtual ~DisplaySwapChain();
 
                 void BeginDraw();
                 void EndDraw();
@@ -28,7 +29,6 @@
 
             protected:
                 DisplaySwapChain(GraphicsDevice* graphicsDevice, Window* window, void* swapChainInterface);
-                virtual ~DisplaySwapChain();
 
                 void Construct(Window* window, Point size);
 
@@ -36,6 +36,8 @@
                 struct Fields;
                 Fields* mPointer;
                 Fields& m;
+
+                friend class GraphicsDevice;
         };
     }
 

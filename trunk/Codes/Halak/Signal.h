@@ -24,13 +24,13 @@
                 inline void DisconnectAll(const void* instance, const void* function, int functionSize);
 
                 template <typename T> inline static T  Strip(T pointer);
-                template <typename T> inline static T* Strip(shared_ptr<T> pointer);
-                template <typename T> inline static T* Strip(weak_ptr<T> pointer);
+                template <typename T> inline static T* Strip(SharedPointer<T> pointer);
+                template <typename T> inline static T* Strip(WeakPointer<T> pointer);
 
                 template <typename T> struct Extract { };
-                template <typename T> struct Extract<T*>            { typedef T Result; };
-                template <typename T> struct Extract<shared_ptr<T>> { typedef T Result; };
-                template <typename T> struct Extract<weak_ptr<T>>   { typedef T Result; };
+                template <typename T> struct Extract<T*>               { typedef T Result; };
+                template <typename T> struct Extract<SharedPointer<T>> { typedef T Result; };
+                template <typename T> struct Extract<WeakPointer<T>>   { typedef T Result; };
 
                 template <typename F> inline static bool CompareGlobalFunctionTemplate(const F* globalFunction, const void* otherInstance, const void* otherFunction, int otherFunctionSize);
                 template <typename C> inline static bool CompareMemberFunctionTemplate(const C* instance, const void* memberFunction, int memberFunctionSize, const void* otherInstance, const void* otherFunction, int otherFunctionSize);

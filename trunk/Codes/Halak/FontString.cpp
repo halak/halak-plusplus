@@ -1,3 +1,4 @@
+#include <Halak/PCH.h>
 #include <Halak/FontString.h>
 #include <Halak/Assert.h>
 #include <Halak/Font.h>

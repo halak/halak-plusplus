@@ -1,3 +1,4 @@
+#include <Halak/PCH.h>
 #include <Halak/BatchCommand.h>
 #include <Halak/Assert.h>
 #include <Halak/CloningContext.h>
@@ -80,11 +81,6 @@ namespace Halak
         }
 
         return true;
-    }
-
-    const BatchCommand::CommandCollection& BatchCommand::GetCommands() const
-    {
-        return commands;
     }
 
     void BatchCommand::SetCommands(const CommandCollection& value)

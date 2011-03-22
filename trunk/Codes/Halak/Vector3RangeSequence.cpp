@@ -1,3 +1,4 @@
+#include <Halak/PCH.h>
 #include <Halak/Vector3RangeSequence.h>
 #include <Halak/SequenceTemplate.h>
 

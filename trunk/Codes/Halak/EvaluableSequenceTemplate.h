@@ -9,7 +9,7 @@
         template <typename T> class EvaluableSequenceTemplate
         {
             public:
-                typedef typename T::element_type SequenceType;
+                typedef typename T::PointeeType SequenceType;
                 typedef typename SequenceType::KeyframeType KeyframeType;
                 typedef typename KeyframeType::ValueType ValueType;
 

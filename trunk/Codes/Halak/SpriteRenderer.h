@@ -17,8 +17,10 @@
     {
         class SpriteRenderer : public GameComponent
         {
+            HKDeclareGameComponentClassFOURCC('S', 'P', 'R', 'R');
             public:
                 SpriteRenderer(GraphicsDevice* graphicsDevice);
+                virtual ~SpriteRenderer();
 
                 void Push(const Matrix4& transform);
                 void Pop();
@@ -41,9 +43,6 @@
                 void DrawString(Vector2 position, const FontString& fontString);
                 void DrawString(Vector2 position, const FontString& fontString, float length, float boundary);
                 void End();
-
-            protected:
-                virtual ~SpriteRenderer();
 
             private:
                 void BeginActually();

@@ -28,6 +28,15 @@ namespace Halak
             delete pointee;
     }
 
+    template <typename T> void SharedPointer<T>::Reset()
+    {
+        if (referenceCount && referenceCount->DecreaseStrongCount())
+            delete referenceCount;
+
+        pointee = nullptr;
+        referenceCount = nullptr;
+    }
+
     template <typename T> void SharedPointer<T>::Reset(const SharedPointer<T>& right)
     {
         if (this == &right)

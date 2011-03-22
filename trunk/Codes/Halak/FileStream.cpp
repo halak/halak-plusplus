@@ -1,5 +1,5 @@
 #include <Halak/FileStream.h>
-#include <limits>
+#include <Halak/NumericLimits.h>
 #include <vector>
 #include <windows.h>
 
@@ -61,7 +61,7 @@ namespace Halak
         DWORD sizeHigh = 0;
         DWORD sizeLow = GetFileSize(m.Handle, &sizeHigh);
         m.position = 0;
-        m.size     = sizeHigh == 0 ? static_cast<int>(sizeLow) : std::numeric_limits<int>::max();
+        m.size     = sizeHigh == 0 ? static_cast<int>(sizeLow) : NumericLimits::MaxInt;
         m.position64 = 0;
         m.size64     = (static_cast<uint64>(sizeHigh) << 32) | (static_cast<uint64>(sizeLow) << 0);
 

@@ -1,13 +1,14 @@
+#include <Halak/PCH.h>
 #include <Halak/Font.h>
 #include <Halak/Assert.h>
 #include <Halak/FontString.h>
 #include <Halak/FreeType.h>
+#include <Halak/NumericLimits.h>
 #include <Halak/String.h>
 #include <Halak/Internal/FreeTypeFontRenderer.h>
 #include <Halak/Internal/Glyph.h>
 #include <Halak/Internal/GlyphTable.h>
 #include <Halak/Internal/TypingContext.h>
-#include <limits>
 
 namespace Halak
 {
@@ -45,7 +46,7 @@ namespace Halak
 
     Vector2 Font::Measure(const String& text)
     {
-        return Measure(text, std::numeric_limits<float>::max());
+        return Measure(text, NumericLimits::MaxFloat);
     }
 
     Vector2 Font::Measure(const String& text, float boundary)
@@ -55,7 +56,7 @@ namespace Halak
 
     Vector2 Font::Measure(const FontString& fontString)
     {
-        return Measure(fontString, std::numeric_limits<float>::max());
+        return Measure(fontString, NumericLimits::MaxFloat);
     }
     
     Vector2 Font::Measure(const FontString& fontString, float boundary)

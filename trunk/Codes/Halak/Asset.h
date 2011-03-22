@@ -3,20 +3,18 @@
 #define __HALAK_ASSET_H__
 
 #   include <Halak/FWD.h>
+#   include <Halak/SharedObject.h>
 
     namespace Halak
     {
         class Asset : public SharedObject
         {
+            HKThisIsNoncopyableClass(Asset);
             public:
                 virtual ~Asset();
 
             protected:
                 Asset();
-
-            private:
-                Asset(const Asset&);
-                Asset& operator = (const Asset&);
         };
     }
 
