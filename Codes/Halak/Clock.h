@@ -2,18 +2,17 @@
 #ifndef __HALAK_CLOCK_H__
 #define __HALAK_CLOCK_H__
 
-#   include <Halak/FWD.h>
-#   include <Halak/GameComponent.h>
+#   include <Halak/Foundation.h>
 
     namespace Halak
     {
-        class Clock : public GameComponent
+        class Clock
         {
-            HKDeclareGameComponentClassFOURCC('C', 'L', 'C', 'K');
+            HKThisIsStaticClass(Clock);
             public:
-                Clock();
-                explicit Clock(uint id);
-                virtual ~Clock();
+                static float GetCurrent();
+                static uint  GetCurrentMilliSeconds();
+                static bool IsHighResolution();
         };
     }
 
