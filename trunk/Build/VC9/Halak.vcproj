@@ -249,8 +249,16 @@
 				</File>
 			</Filter>
 			<Filter
-				Name="Time"
+				Name="Clock"
 				>
+				<File
+					RelativePath="..\..\Codes\Halak\Clock.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\Clock.Windows.cpp"
+					>
+				</File>
 			</Filter>
 			<Filter
 				Name="Memory"
@@ -497,7 +505,7 @@
 				</File>
 			</Filter>
 			<Filter
-				Name="Mathmatics"
+				Name="Mathematics"
 				>
 				<File
 					RelativePath="..\..\Codes\Halak\Math.cpp"
@@ -553,6 +561,78 @@
 				</File>
 				<File
 					RelativePath="..\..\Codes\Halak\Signal.inl"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="IO"
+				>
+				<File
+					RelativePath="..\..\Codes\Halak\BinaryStreamReader.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\BinaryStreamReader.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\BinaryStreamWriter.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\BinaryStreamWriter.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\DirectoryInfo.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\DirectoryInfo.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\FileInfo.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\FileInfo.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\FileStream.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\FileStream.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\Stream.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\Stream.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\StreamReader.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\StreamReader.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\StreamReader.inl"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\StreamWriter.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\StreamWriter.h"
 					>
 				</File>
 			</Filter>
@@ -698,7 +778,7 @@
 			</Filter>
 		</Filter>
 		<Filter
-			Name="04. (NotYet)"
+			Name="04. Application"
 			>
 			<Filter
 				Name="Animation"
@@ -1442,10 +1522,10 @@
 			</Filter>
 		</Filter>
 		<Filter
-			Name="02. GameComponent"
+			Name="02. Component base"
 			>
 			<Filter
-				Name="(Structure)"
+				Name="(Core)"
 				>
 				<File
 					RelativePath="..\..\Codes\Halak\GameComponent.cpp"
@@ -1544,22 +1624,6 @@
 				Name="Time"
 				>
 				<File
-					RelativePath="..\..\Codes\Halak\Clock.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\Clock.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\GlobalClock.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\GlobalClock.Windows.cpp"
-					>
-				</File>
-				<File
 					RelativePath="..\..\Codes\Halak\IUpdateable.h"
 					>
 				</File>
@@ -1629,78 +1693,6 @@
 				</File>
 				<File
 					RelativePath="..\..\Codes\Halak\IReloadable.h"
-					>
-				</File>
-			</Filter>
-			<Filter
-				Name="*IO"
-				>
-				<File
-					RelativePath="..\..\Codes\Halak\BinaryStreamReader.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\BinaryStreamReader.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\BinaryStreamWriter.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\BinaryStreamWriter.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\DirectoryInfo.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\DirectoryInfo.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\FileInfo.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\FileInfo.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\FileStream.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\FileStream.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\Stream.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\Stream.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\StreamReader.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\StreamReader.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\StreamReader.inl"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\StreamWriter.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\StreamWriter.h"
 					>
 				</File>
 			</Filter>

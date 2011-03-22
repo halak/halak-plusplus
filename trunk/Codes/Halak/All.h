@@ -10,9 +10,6 @@
     // 01. Foundation
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         // (BasicTypes)
-#           include <Halak/Any.h>
-#           include <Halak/AnyPtr.h>
-#           include <Halak/AtomicInt.h>
 #           include <Halak/Color.h>
 #           include <Halak/Matrix4.h>
 #           include <Halak/Point.h>
@@ -28,59 +25,40 @@
 #           include <Halak/Vector4.h>
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         // (SmartPointers)
+#           include <Halak/NullPointer.h>
 #           include <Halak/SharedObject.h>
 #           include <Halak/SharedPointer.h>
 #           include <Halak/WeakPointer.h>
         ////////////////////////////////////////////////////////////////////////////////////////////////////
-        // (Structure)
-#           include <Halak/GameComponent.h>
-#           include <Halak/GameModule.h>
-#           include <Halak/GameNode.h>
-#           include <Halak/GameStructure.h>
-        ////////////////////////////////////////////////////////////////////////////////////////////////////
-        // Any
+        // (Any)
 #           include <Halak/Any.h>
-#           include <Halak/AnyPtr.h>
-        ////////////////////////////////////////////////////////////////////////////////////////////////////
-        // Cloning
-#           include <Halak/CloningContext.h>
-#           include <Halak/ICloneable.h>
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         // Diagnostics
 #           include <Halak/Assert.h>
-            ////////////////////////////////////////////////////////////////////////////////////////////////////
-            // Logger
-#               include <Halak/GlobalLogger.h>
-#               include <Halak/Logger.h>
-        ////////////////////////////////////////////////////////////////////////////////////////////////////
-        // Disposal
-#           include <Halak/GarbageMan.h>
-#           include <Halak/IDisposal.h>
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         // Exceptions
 #           include <Halak/Exception.h>
         ////////////////////////////////////////////////////////////////////////////////////////////////////
-        // FileSystem
-#           include <Halak/FileSystem.h>
-#           include <Halak/GlobalFileSystem.h>
+        // IO
         ////////////////////////////////////////////////////////////////////////////////////////////////////
-        // Reflection
-#           include <Halak/Attribute.h>
-#           include <Halak/ConstructorInfo.h>
-#           include <Halak/DynamicCast.h>
-#           include <Halak/InstanceInfo.h>
-#           include <Halak/PropertyInfo.h>
-#           include <Halak/TypeInfo.h>
-#               include <Halak/ClassInfo.h>
-#               include <Halak/EnumInfo.h>
-#               include <Halak/PrimitiveInfo.h>
-#           include <Halak/TypeLibrary.h>
+        // Mathemetics
+#           include <Halak/Math.h>
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Memory
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         // Time
-#           include <Halak/Clock.h>
-#           include <Halak/GlobalClock.h>
-#           include <Halak/ParallelTimeline.h>
-#           include <Halak/SubTimeline.h>
-#           include <Halak/Timeline.h>
-
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Utilities
+#           include <Halak/CheckedRelease.h>
+#           include <Halak/Delete.h>
+#           include <Halak/FrameUpdater.h>
+#           include <Halak/IRevisable.h>
+#           include <Halak/MPL.h>
+#           include <Halak/RectangleStorage.h>
+#           include <Halak/Signal.h>
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    // 02. GameComponent
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Utilities
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
 #endif
