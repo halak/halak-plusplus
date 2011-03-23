@@ -50,12 +50,12 @@ namespace Halak
     {
     }
 
-    bool DynamicTexture2D::Lock(__Out Locker& locker)
+    bool DynamicTexture2D::Lock(Locker& outLocker)
     {
-        return Lock(locker, Rectangle(0, 0, GetWidth(), GetHeight()));
+        return Lock(outLocker, Rectangle(0, 0, GetWidth(), GetHeight()));
     }
 
-    bool DynamicTexture2D::Lock(__Out Locker& locker, const Rectangle& rectangle)
+    bool DynamicTexture2D::Lock(Locker& outLocker, const Rectangle& rectangle)
     {
         if (IsLocked())
             return false;
@@ -66,7 +66,7 @@ namespace Halak
         HRESULT result = GetD3DTexture()->LockRect(0, &lockInfo, &d3dLockingRect, 0x00000000);
         if (result == D3D_OK)
         {
-            locker.SetData(CastTo<DynamicTexture2D>(), lockInfo.pBits, static_cast<int>(lockInfo.Pitch));
+            outLocker.SetData(CastTo<DynamicTexture2D>(), lockInfo.pBits, static_cast<int>(lockInfo.Pitch));
             isLocked = true;
             return true;
         }
@@ -74,9 +74,9 @@ namespace Halak
             return false;
     }
 
-    void DynamicTexture2D::Unlock(__Out Locker& locker)
+    void DynamicTexture2D::Unlock(Locker& outLocker)
     {
-        HKAssert(locker.texture.get() == this);
+        HKAssert(outLocker.texture == this);
 
         if (IsLocked() == false)
             return;
@@ -85,7 +85,7 @@ namespace Halak
         HKAssert(result == D3D_OK);
 
         isLocked = false;
-        locker.SetData(nullptr, nullptr, 0);
+        outLocker.SetData(nullptr, nullptr, 0);
     }
 
     bool DynamicTexture2D::IsLocked() const

@@ -40,9 +40,9 @@
                 DynamicTexture2D(GraphicsDevice* graphicsDevice, int width, int height, SurfaceFormat::E format);
                 virtual ~DynamicTexture2D();
 
-                bool Lock(__Out Locker& locker);
-                bool Lock(__Out Locker& locker, const Rectangle& rectangle);
-                void Unlock(__Out Locker& locker);
+                bool Lock(Locker& outLocker);
+                bool Lock(Locker& outLocker, const Rectangle& rectangle);
+                void Unlock(Locker& outLocker);
 
                 bool IsLocked() const;
 

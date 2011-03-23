@@ -1,3 +1,4 @@
+#include <Halak/PCH.h>
 #include <Halak/StreamWriter.h>
 #include <Halak/Assert.h>
 #include <Halak/Stream.h>

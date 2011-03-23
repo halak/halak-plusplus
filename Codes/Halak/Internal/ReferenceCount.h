@@ -9,7 +9,7 @@
         class ReferenceCount
         {
             public:
-#               if defined(HALAK_PLATFORM_WINDOWS)
+#               if (defined(HALAK_PLATFORM_WINDOWS))
                     typedef long IntType;
 #               else
                     typedef int IntType;

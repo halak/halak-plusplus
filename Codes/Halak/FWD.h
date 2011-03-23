@@ -68,6 +68,14 @@
                     class OutOfRangeException;
             ////////////////////////////////////////////////////////////////////////////////////////////////////
             // IO
+                class BinaryStreamReader;
+                class BinaryStreamWriter;
+                class StreamReader;
+                class StreamWriter;
+                HKForwardDeclareSmartPointerClass(Stream);
+                HKForwardDeclareSmartPointerClass(FileStream);
+                class FileInfo;
+                class DirectoryInfo;
             ////////////////////////////////////////////////////////////////////////////////////////////////////
             // Mathematics
             ////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,6 +1,10 @@
-#if (defined(WIN32) || defined(WIN64))
+#include <Halak/PCH.h>
+#include <Halak/Internal/WindowsError.h>
 
-#   include <Halak/Internal/WindowsError.h>
+#if (defined(HALAK_PLATFORM_WINDOWS))
+
+#   define WIN32_LEAN_AND_MEAN
+#   include <windows.h>
 
     namespace Halak
     {

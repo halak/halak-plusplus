@@ -3,11 +3,12 @@
 #define __HALAK_STREAM_H__
 
 #   include <Halak/FWD.h>
+#   include <Halak/SharedObject.h>
 #   include <Halak/String.h>
 
     namespace Halak
     {
-        class Stream
+        class Stream : public SharedObject
         {
             public:
                 virtual ~Stream();
