@@ -8,11 +8,15 @@
     {
         class SharedObject;
         class ReferenceCount;
+        template <typename T> class SharedPointer;
+        template <typename T> class WeakPointer;
 
         class SharedObject
         {
             public:
                 virtual ~SharedObject();
+
+                template <typename T> SharedPointer<T> CastTo();
 
             protected:
                 SharedObject();
@@ -23,5 +27,7 @@
                 template <typename T> friend class WeakPointer;
         };
     }
+
+#   include <Halak/SharedObject.inl>
 
 #endif

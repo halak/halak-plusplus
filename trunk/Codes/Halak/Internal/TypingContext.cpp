@@ -1,3 +1,4 @@
+#include <Halak/PCH.h>
 #include <Halak/Internal/TypingContext.h>
 #include <Halak/Internal/GlyphTable.h>
 #include <Halak/Internal/Glyph.h>
@@ -5,6 +6,7 @@
 #include <Halak/Font.h>
 #include <Halak/FontString.h>
 #include <Halak/String.h>
+#include <Halak/Texture2D.h>
 #include <windows.h>
 
 namespace Halak

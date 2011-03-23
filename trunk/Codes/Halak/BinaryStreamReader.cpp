@@ -1,4 +1,6 @@
+#include <Halak/PCH.h>
 #include <Halak/BinaryStreamReader.h>
+#include <Halak/Stream.h>
 
 namespace Halak
 {

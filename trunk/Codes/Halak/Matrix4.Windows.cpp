@@ -3,7 +3,7 @@
 
 #if (defined(HALAK_PLATFORM_WINDOWS))
 
-#    include <d3dx9math.h>
+#   include <d3dx9math.h>
 
     namespace Halak
     {

@@ -40,6 +40,14 @@
 #           include <Halak/Exception.h>
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         // IO
+#           include <Halak/BinaryStreamReader.h>
+#           include <Halak/BinaryStreamWriter.h>
+#           include <Halak/DirectoryInfo.h>
+#           include <Halak/FileInfo.h>
+#           include <Halak/FileStream.h>
+#           include <Halak/Stream.h>
+#           include <Halak/StreamReader.h>
+#           include <Halak/StreamWriter.h>
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         // Mathemetics
 #           include <Halak/Math.h>
