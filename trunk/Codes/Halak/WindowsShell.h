@@ -3,9 +3,9 @@
 #define __HALAK_WINDOWSSHELL_H__
 
 #   include <Halak/FWD.h>
-#   include <Halak/BuildConfiguration.h>
 
 #   if (defined(HALAK_PLATFORM_WINDOWS))
+
         namespace Halak
         {
             class WindowsShell
@@ -14,6 +14,7 @@
                 public:
             };
         }
+
 #   endif
 
 #endif

@@ -17,7 +17,7 @@
                     virtual ~ParticleEmitterTool();
 
                 protected:
-                    ParticleEmitterWeakPtr GetTarget() const;
+                    ParticleEmitterWeakPtr GetTarGetPointee() const;
                     void SetTarget(ParticleEmitterWeakPtr value);
 
                 private:

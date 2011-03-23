@@ -17,7 +17,7 @@
 
                     virtual void Draw(DrawingContext& context);
 
-                    SimpleParticleEmitterWeakPtr GetTarget() const;
+                    SimpleParticleEmitterWeakPtr GetTarGetPointee() const;
                     void SetTarget(SimpleParticleEmitterWeakPtr value);
 
                 private:

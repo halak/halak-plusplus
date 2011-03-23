@@ -101,7 +101,7 @@
 #           include <Halak/ISerializable.h>
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         // Time
-#           include <Halak/IUpdatable.h>
+#           include <Halak/IUpdateable.h>
 #           include <Halak/ParallelTimeline.h>
 #           include <Halak/SubTimeline.h>
 #           include <Halak/Timeline.h>

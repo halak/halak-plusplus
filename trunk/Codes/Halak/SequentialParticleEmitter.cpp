@@ -57,15 +57,15 @@ namespace Halak
 
     void SequentialParticleEmitter::UpdateParticle(SequentialParticle* particle, float dt)
     {
-        SpriteSequence* spriteSequence = spriteSequences[particle->SpriteSequenceIndex].get();
+        SpriteSequence* spriteSequence = spriteSequences[particle->SpriteSequenceIndex].GetPointee();
 
-        UpdateParticleSequence(particle->LinearVelocity, velocitySequence.get(),
+        UpdateParticleSequence(particle->LinearVelocity, velocitySequence.GetPointee(),
                                particle->Age, particle->LastLinearVelocityRange, particle->LastLinearVelocityKeyrameIndex);
-        UpdateParticleSequence(particle->Rotation, rotationSequence.get(),
+        UpdateParticleSequence(particle->Rotation, rotationSequence.GetPointee(),
                                particle->Age, particle->LastRotationRange, particle->LastRotationKeyframeIndex);
-        UpdateParticleSequence(particle->Scale, scaleSequence.get(),
+        UpdateParticleSequence(particle->Scale, scaleSequence.GetPointee(),
                                particle->Age, particle->LastScaleRange, particle->LastScaleKeyframeIndex);
-        UpdateParticleSequence(particle->Tint, tintSequence.get(),
+        UpdateParticleSequence(particle->Tint, tintSequence.GetPointee(),
                                particle->Age, particle->LastTintRange, particle->LastTintKeyframeIndex);
 
         const int spriteKeyframeIndex = spriteSequence->GetKeyframeIndex(particle->Age, particle->LastSpriteKeyframeIndex);

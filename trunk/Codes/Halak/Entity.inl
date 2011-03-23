@@ -11,7 +11,7 @@
 
         EntityPtr Entity::GetParent() const
         {
-            return parent.lock();
+            return parent.Lock();
         }
 
         const Entity::EntityCollection& Entity::GetChildren() const

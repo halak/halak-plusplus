@@ -117,7 +117,7 @@ namespace Halak
             }
         }
 
-        const AnyPtr& PropertiesWindow::GetTarget() const
+        const AnyPtr& PropertiesWindow::GetTarGetPointee() const
         {
             if (targets.empty() == false)
                 return targets.front();

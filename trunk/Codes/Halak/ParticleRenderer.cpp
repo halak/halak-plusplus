@@ -10,7 +10,7 @@ namespace Halak
     {
     }
 
-    ParticleEmitterPtr ParticleRenderer::GetTarget() const
+    ParticleEmitterPtr ParticleRenderer::GetTarGetPointee() const
     {
         return target;
     }

@@ -38,7 +38,7 @@ namespace Halak
         propertyInfo->SetValue(target, oldValue);
     }
 
-    const AnyPtr& ChangePropertyCommand::GetTarget() const
+    const AnyPtr& ChangePropertyCommand::GetTarGetPointee() const
     {
         return target;
     }
