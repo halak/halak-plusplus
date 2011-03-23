@@ -22,7 +22,7 @@
                 virtual void Execute();
                 virtual void Undo();
 
-                const AnyPtr& GetTarget() const;
+                const AnyPtr& GetTarGetPointee() const;
                 const PropertyInfo* GetPropertyInfo() const;
                 const Any& GetOldValue() const;
                 const Any& GetNewValue() const;

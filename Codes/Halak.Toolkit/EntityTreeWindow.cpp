@@ -161,7 +161,7 @@ namespace Halak
             for (int i = 0; i < count; i++)
             {
                 EntityRenderPanel* item = dynamic_cast<EntityRenderPanel*>(mainWindow->GetNotebookPage(i));
-                if (item && item->GetTarget() == entity)
+                if (item && item->GetTarGetPointee() == entity)
                     return item;
             }
 
@@ -272,7 +272,7 @@ namespace Halak
             const Any& itemData = static_cast<EntityTreeItemData*>(tree->GetItemData(id))->GetValue();
             EntityPtr entity = itemData.CastTo<EntityPtr>();
 
-            const ClassInfo* classInfo = static_cast<const ClassInfo*>(TypeLibrary::GetInstance().GetType(entity.get()));
+            const ClassInfo* classInfo = static_cast<const ClassInfo*>(TypeLibrary::GetInstance().GetType(entity.GetPointee()));
             tree->SetItemText(id, classInfo->GetName());
         }
 

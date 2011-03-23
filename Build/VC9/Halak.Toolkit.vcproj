@@ -559,6 +559,42 @@
 				</File>
 			</Filter>
 		</Filter>
+		<Filter
+			Name="JSON"
+			>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\JSONDocument.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\JSONDocument.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\JSONNodes.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\JSONNodes.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\JSONStreamReader.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\JSONStreamReader.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\JSONStreamWriter.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\JSONStreamWriter.h"
+				>
+			</File>
+		</Filter>
 		<File
 			RelativePath="..\..\Codes\Halak.Toolkit\AnyPtr.cpp"
 			>
@@ -577,6 +613,14 @@
 		</File>
 		<File
 			RelativePath="..\..\Codes\Halak.Toolkit\Attribute.h"
+			>
+		</File>
+		<File
+			RelativePath="..\..\Codes\Halak.Toolkit\ChangePropertyCommand.cpp"
+			>
+		</File>
+		<File
+			RelativePath="..\..\Codes\Halak.Toolkit\ChangePropertyCommand.h"
 			>
 		</File>
 		<File

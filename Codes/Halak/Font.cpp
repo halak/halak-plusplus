@@ -61,7 +61,7 @@ namespace Halak
     
     Vector2 Font::Measure(const FontString& fontString, float boundary)
     {
-        HKAssert(fontString.GetFont().get() == this);
+        HKAssert(fontString.GetFont().GetPointee() == this);
 
        TypingContext context(fontString, boundary);
 

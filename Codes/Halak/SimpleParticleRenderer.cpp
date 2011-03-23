@@ -18,11 +18,11 @@ namespace Halak
     void SimpleParticleRenderer::Draw(DrawingContext& context)
     {
         HKAssertDebug(context.GetSpriteRenderer());
-        if (GetTarget() == nullptr)
+        if (GetTarGetPointee() == nullptr)
             return;
 
         SpriteRenderer* renderer = context.GetSpriteRenderer();
-        const SimpleParticleEmitter* castedTarget = static_cast<const SimpleParticleEmitter*>(GetTarget().get());
+        const SimpleParticleEmitter* castedTarget = static_cast<const SimpleParticleEmitter*>(GetTarGetPointee().GetPointee());
         const SimpleParticleEmitter::ParticleCollection& particles = castedTarget->GetParticles();
         for (SimpleParticleEmitter::ParticleCollection::const_reverse_iterator it = particles.rbegin(); it != particles.rend(); it++)
         {
@@ -34,11 +34,11 @@ namespace Halak
     void SimpleParticleRenderer::DrawDebugInformation(DrawingContext& context)
     {
         HKAssertDebug(context.GetSpriteRenderer());
-        if (GetTarget() == nullptr)
+        if (GetTarGetPointee() == nullptr)
             return;
 
         SpriteRenderer* renderer = context.GetSpriteRenderer();
-        const SimpleParticleEmitter* castedTarget = static_cast<const SimpleParticleEmitter*>(GetTarget().get());
+        const SimpleParticleEmitter* castedTarget = static_cast<const SimpleParticleEmitter*>(GetTarGetPointee().GetPointee());
         const SimpleParticleEmitter::ParticleCollection& particles = castedTarget->GetParticles();
         //for (SimpleParticleEmitter::ParticleCollection::const_reverse_iterator it = particles.rbegin(); it != particles.rend(); it++)
         //{
@@ -49,7 +49,7 @@ namespace Halak
 
     void SimpleParticleRenderer::OnTargetChanged(ParticleEmitterPtr old)
     {
-        if (dynamic_cast<SimpleParticleEmitter*>(GetTarget().get()) == nullptr)
+        if (dynamic_cast<SimpleParticleEmitter*>(GetTarGetPointee().GetPointee()) == nullptr)
             throw std::bad_typeid("SimpleParticleRenderer::OnTargetChanged(ParticleEmitterPtr)");
     }
 }

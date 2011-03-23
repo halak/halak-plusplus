@@ -63,9 +63,9 @@ namespace Halak
             for (ReloadableCollection::iterator itHotloadable = m.entries.begin(); itHotloadable != m.entries.end(); itHotloadable++)
             {
                 IReloadableWeakPtr item = (*itHotloadable);
-                if (item.expired() == false)
+                if (item.IsAlive())
                 {
-                    if (item.lock()->GetFilename().EqualsIgnoreCase(*it))
+                    if (item.Lock()->GetFilename().EqualsIgnoreCase(*it))
                     {
                         m.changedEntries.insert(item);
                         break;
@@ -89,8 +89,8 @@ namespace Halak
         for (ReloadableCollection::iterator it = reloadingEntries.begin(); it != reloadingEntries.end(); it++)
         {
             IReloadableWeakPtr item = (*it);
-            if (item.expired() == false)
-                item.lock()->Reload();
+            if (item.IsAlive())
+                item.Lock()->Reload();
             else
                 m.entries.erase(item);
         }
@@ -98,7 +98,7 @@ namespace Halak
 
     void Hotloader::Add(IReloadableWeakPtr item)
     {
-        if (item.expired())
+        if (item.IsAlive() == false)
             throw std::invalid_argument("item is nullptr");
 
         m.entries.insert(item);
@@ -106,7 +106,7 @@ namespace Halak
 
     bool Hotloader::Remove(IReloadableWeakPtr item)
     {
-        if (item.expired())
+        if (item.IsAlive() == false)
             return false;
 
         if (m.entries.erase(item))

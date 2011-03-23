@@ -48,9 +48,9 @@ namespace Halak
             (*it)->Dispose();
         }
 
-        if (parent.expired() == false)
+        if (parent.IsAlive())
         {
-            parent.lock()->RemoveChild(CastTo<Entity>());
+            parent.Lock()->RemoveChild(CastTo<Entity>());
             parent.reset();
         }
     }
@@ -60,8 +60,8 @@ namespace Halak
         EntityCollection::iterator it = std::find(children.begin(), children.end(), item);
         if (it == children.end())
         {
-            if (item->parent.expired() == false)
-                item->parent.lock()->RemoveChild(item);
+            if (item->parent.IsAlive())
+                item->parent.Lock()->RemoveChild(item);
 
             children.push_back(item);
             item->parent = CastTo<Entity>();

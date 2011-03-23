@@ -150,90 +150,6 @@
 	</References>
 	<Files>
 		<Filter
-			Name="Internal"
-			>
-			<File
-				RelativePath="..\..\Codes\Halak\Internal\Archive.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\Internal\Archive.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\Internal\Archive1.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\Internal\Archive1.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\Internal\DirectXError.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\Internal\DirectXError.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\Internal\FileSystem.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\Internal\FileSystem.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\Internal\StreamFilter.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\Internal\StreamFilter.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\Internal\TypingContext.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\Internal\TypingContext.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\Internal\WindowsError.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\Internal\WindowsError.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\Internal\XORStreamFilter.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\Internal\XORStreamFilter.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\Internal\ZLib.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\Internal\ZLib.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\Internal\ZLibStreamFilter.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\Internal\ZLibStreamFilter.h"
-				>
-			</File>
-		</Filter>
-		<Filter
 			Name="01. Foundation"
 			>
 			<Filter
@@ -439,6 +355,26 @@
 					RelativePath="..\..\Codes\Halak\Exception.inl"
 					>
 				</File>
+				<Filter
+					Name="(Internal)"
+					>
+					<File
+						RelativePath="..\..\Codes\Halak\Internal\DirectXError.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\Internal\DirectXError.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\Internal\WindowsError.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\Internal\WindowsError.h"
+						>
+					</File>
+				</Filter>
 			</Filter>
 			<Filter
 				Name="(SmartPointers)"
@@ -453,6 +389,10 @@
 				</File>
 				<File
 					RelativePath="..\..\Codes\Halak\SharedObject.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\SharedObject.inl"
 					>
 				</File>
 				<File
@@ -517,6 +457,14 @@
 				</File>
 				<File
 					RelativePath="..\..\Codes\Halak\Math.inl"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\NumericLimits.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\NumericLimits.h"
 					>
 				</File>
 			</Filter>
@@ -635,19 +583,39 @@
 					RelativePath="..\..\Codes\Halak\StreamWriter.h"
 					>
 				</File>
+				<Filter
+					Name="(Internal)"
+					>
+					<File
+						RelativePath="..\..\Codes\Halak\Internal\Archive.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\Internal\Archive.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\Internal\Archive1.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\Internal\Archive1.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\Internal\ZLib.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\Internal\ZLib.h"
+						>
+					</File>
+				</Filter>
 			</Filter>
 		</Filter>
 		<Filter
 			Name="03. (NotYet)"
 			>
-			<File
-				RelativePath="..\..\Codes\Halak\ISpatial.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\ISpatial2D.h"
-				>
-			</File>
 			<Filter
 				Name="Graphics"
 				>
@@ -768,6 +736,10 @@
 					>
 				</File>
 				<File
+					RelativePath="..\..\Codes\Halak\Mouse.Window.cpp"
+					>
+				</File>
+				<File
 					RelativePath="..\..\Codes\Halak\MouseState.cpp"
 					>
 				</File>
@@ -780,6 +752,14 @@
 		<Filter
 			Name="04. Application"
 			>
+			<File
+				RelativePath="..\..\Codes\Halak\ISpatial.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak\ISpatial2D.h"
+				>
+			</File>
 			<Filter
 				Name="Animation"
 				>
@@ -1073,42 +1053,6 @@
 				</File>
 			</Filter>
 			<Filter
-				Name="JSON"
-				>
-				<File
-					RelativePath="..\..\Codes\Halak\JSONDocument.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\JSONDocument.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\JSONNodes.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\JSONNodes.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\JSONStreamReader.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\JSONStreamReader.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\JSONStreamWriter.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\JSONStreamWriter.h"
-					>
-				</File>
-			</Filter>
-			<Filter
 				Name="Command"
 				>
 				<File
@@ -1120,11 +1064,7 @@
 					>
 				</File>
 				<File
-					RelativePath="..\..\Codes\Halak\ChangePropertyCommand.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\ChangePropertyCommand.h"
+					RelativePath="..\..\Codes\Halak\BatchCommand.inl"
 					>
 				</File>
 				<File
@@ -1185,10 +1125,6 @@
 				</File>
 				<File
 					RelativePath="..\..\Codes\Halak\FlowingContext.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\FlowingStatus.h"
 					>
 				</File>
 				<File
@@ -1424,11 +1360,15 @@
 					>
 				</File>
 				<File
-					RelativePath="..\..\Codes\Halak\GameWindow.cpp"
+					RelativePath="..\..\Codes\Halak\GameWindow.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Codes\Halak\GameWindow.h"
+					RelativePath="..\..\Codes\Halak\GameWindow.Windows.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\GameWindow.Windows.h"
 					>
 				</File>
 			</Filter>
@@ -1516,6 +1456,14 @@
 					</File>
 					<File
 						RelativePath="..\..\Codes\Halak\Internal\GlyphTable.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\Internal\TypingContext.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\Internal\TypingContext.h"
 						>
 					</File>
 				</Filter>

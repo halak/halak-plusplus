@@ -19,13 +19,13 @@ namespace Halak
         {
             if (GetStatus() != Tool::ActiveStatus)
                 return;
-            if (target.expired())
+            if (target.IsAlive() == false)
                 return;
 
             SpriteRenderer* renderer = context.GetSpriteRenderer();
         }
 
-        SimpleParticleEmitterWeakPtr SimpleParticleEmitterTool::GetTarget() const
+        SimpleParticleEmitterWeakPtr SimpleParticleEmitterTool::GetTarGetPointee() const
         {
             return target;
         }
