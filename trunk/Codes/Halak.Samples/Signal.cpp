@@ -28,8 +28,8 @@ void TEST2(int v, int, int, int, int)
 
 void Halak::Samples::SignalSample(const std::vector<const char*>& /*args*/)
 {
-    shared_ptr<A> a(new A());
-    shared_ptr<A> b = a;
+    SharedPointer<A> a = new A();
+    SharedPointer<A> b = a;
     A* c = new A();
 
     {

@@ -136,8 +136,8 @@ void Halak::Samples::SequentialParticleSample(const std::vector<const char*>& /*
         }
     }
     
-    emitter.reset();
-    texture.reset();
+    emitter.Reset();
+    texture.Reset();
 
     delete componentMap;
 }

@@ -1,6 +1,6 @@
 #include <Halak/GameWindow.Windows.h>
 
-#if (defined(HALAK_PLATFORM_WINDOW))
+#if (defined(HALAK_PLATFORM_WINDOWS))
 
 #   define WIN32_LEAN_AND_MEAN
 #   include <windows.h>

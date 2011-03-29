@@ -1,12 +1,14 @@
+#include <Halak/PCH.h>
 #include <Halak/SequentialParticleEmitter.h>
 #include <Halak/ColorRangeSequence.h>
 #include <Halak/Delete.h>
 #include <Halak/FloatRangeSequence.h>
 #include <Halak/IFloatRangeEvaluable.h>
+#include <Halak/Math.h>
 #include <Halak/SpriteSequence.h>
+#include <Halak/Texture2D.h>
 #include <Halak/Vector2RangeSequence.h>
 #include <Halak/Vector3RangeSequence.h>
-#include <Halak/Math.h>
 
 namespace Halak
 {
@@ -150,7 +152,7 @@ namespace Halak
         if (lifespan != value)
         {
             lifespan = value;
-            updateableLifespan = dynamic_pointer_cast<IUpdateable>(lifespan);
+            updateableLifespan = lifespan.DynamicCast<IUpdateable>();
         }
     }
 

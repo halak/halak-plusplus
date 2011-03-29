@@ -61,10 +61,10 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="Halak.$(ConfigurationName).lib Halak.Reflection.$(ConfigurationName).lib"
+				AdditionalDependencies="Halak.$(ConfigurationName).lib lua-5.1.4.$(ConfigurationName).lib JSON.$(ConfigurationName).lib freetype244_D.lib winmm.lib d3d9.lib d3dx9d.lib"
 				OutputFile="$(OutDir)\$(ProjectName).$(ConfigurationName).exe"
 				LinkIncremental="2"
-				AdditionalLibraryDirectories="..\..\Libraries"
+				AdditionalLibraryDirectories="..\..\Libraries;..\..\Libraries\References"
 				GenerateDebugInformation="true"
 				SubSystem="1"
 				TargetMachine="1"
@@ -137,8 +137,10 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
+				AdditionalDependencies="Halak.$(ConfigurationName).lib lua-5.1.4.$(ConfigurationName).lib JSON.$(ConfigurationName).lib freetype244.lib winmm.lib d3d9.lib d3dx9d.lib"
 				OutputFile="$(OutDir)\$(ProjectName).$(ConfigurationName).exe"
 				LinkIncremental="1"
+				AdditionalLibraryDirectories="..\..\Libraries;..\..\Libraries\References"
 				GenerateDebugInformation="true"
 				SubSystem="1"
 				OptimizeReferences="2"

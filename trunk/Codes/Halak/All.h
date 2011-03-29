@@ -61,6 +61,8 @@
 #           include <Halak/Delete.h>
 #           include <Halak/FrameUpdater.h>
 #           include <Halak/IRevisable.h>
+#           include <Halak/ISpatial.h>
+#           include <Halak/ISpatial2D.h>
 #           include <Halak/MPL.h>
 #           include <Halak/RectangleStorage.h>
 #           include <Halak/Signal.h>
@@ -115,7 +117,7 @@
 #           include <Halak/IDrawable.h>
 #           include <Halak/Sprite.h>
 #           include <Halak/SpriteRenderer.h>
-#           include <Halak/SurceFormat.h>
+#           include <Halak/SurfaceFormat.h>
 #           include <Halak/Texture2D.h>
 #               include <Halak/DynamicTexture2D.h>
 #               include <Halak/MemoryTexture2D.h>
@@ -132,8 +134,8 @@
         // Animation
 #           include <Halak/ColorRangeSequence.h>
 #           include <Halak/ColorSequence.h>
-#           include <Halak/ColorSequence.h.h>
-#           include <Halak/EvaluableBlenderTemplate.h.h>
+#           include <Halak/ColorSequence.h>
+#           include <Halak/EvaluableBlenderTemplate.h>
 #           include <Halak/EvaluableConstants.h>
 #           include <Halak/EvaluableFloatBlender.h>
 #           include <Halak/EvaluableFloatConstant.h>
@@ -193,11 +195,40 @@
 #           include <Halak/GameFramework.h>
 #           include <Halak/GameWindow.h>
         ////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Gameplay
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
+            // Entity System
+#               include <Halak/Entity.h>
+#                   include <Halak/EffectEntity.h>
+#                       include <Halak/ParticleEffectEntity.h>
+#                   include <Halak/RootEntity.h>
+#               include <Halak/EntityExtension.h>
+#               include <Halak/EntityWorld.h>
+#               include <Halak/SpatialNode.h>
+#               include <Halak/SpatialObject.h>
+#               include <Halak/SpatialObject2D.h>
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
         // Lua
 #           include <Halak/LuaRuntimeEnvironment.h>
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         // OS
 #           include <Halak/WindowsShell.h>
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        // SFX
+#           include <Halak/Effect.h>
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
+            // Particle
+#               include <Halak/Particle.h>
+#               include <Halak/ParticleControllers.h>
+#               include <Halak/ParticleEmitter.h>
+#               include <Halak/ParticleRenderer.h>
+#               include <Halak/ParticleSpace.h>
+#               include <Halak/ParticleSpawnPoints.h>
+#               include <Halak/SequentialParticle.h>
+#               include <Halak/SequentialParticleEmitter.h>
+#               include <Halak/SimpleParticle.h>
+#               include <Halak/SimpleParticleEmitter.h>
+#               include <Halak/SimpleParticleRenderer.h>
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         // Script
 #           include <Halak/Flowchart.h>

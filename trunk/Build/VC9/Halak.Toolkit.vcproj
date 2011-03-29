@@ -148,70 +148,194 @@
 	</References>
 	<Files>
 		<Filter
-			Name="Halak.Reflection"
+			Name="Reflection"
 			>
 			<File
-				RelativePath="..\..\Codes\Halak.Reflection\BatchCommand.cpp"
+				RelativePath="..\..\Codes\Halak.Toolkit\Attribute.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Codes\Halak.Reflection\ChangePropertyCommand.cpp"
+				RelativePath="..\..\Codes\Halak.Toolkit\Attribute.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Codes\Halak.Reflection\CommandHistory.cpp"
+				RelativePath="..\..\Codes\Halak.Toolkit\ClassInfo.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Codes\Halak.Reflection\CommandQueue.cpp"
+				RelativePath="..\..\Codes\Halak.Toolkit\ClassInfo.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Codes\Halak.Reflection\EffectEntity.cpp"
+				RelativePath="..\..\Codes\Halak.Toolkit\ClassInfo.inl"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Codes\Halak.Reflection\Entity.cpp"
+				RelativePath="..\..\Codes\Halak.Toolkit\ConstructorInfo.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Codes\Halak.Reflection\ParticleEffectEntity.cpp"
+				RelativePath="..\..\Codes\Halak.Toolkit\ConstructorInfo.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Codes\Halak.Reflection\ParticleEmitter.cpp"
+				RelativePath="..\..\Codes\Halak.Toolkit\ConstructorInfo.inl"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Codes\Halak.Reflection\RestorableCommand.cpp"
+				RelativePath="..\..\Codes\Halak.Toolkit\DynamicCast.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Codes\Halak.Reflection\RootEntity.cpp"
+				RelativePath="..\..\Codes\Halak.Toolkit\EnumInfo.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Codes\Halak.Reflection\SequentialParticleEmitter.cpp"
+				RelativePath="..\..\Codes\Halak.Toolkit\EnumInfo.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Codes\Halak.Reflection\SimpleParticleEmitter.cpp"
+				RelativePath="..\..\Codes\Halak.Toolkit\EnumInfo.inl"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\InstanceInfo.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\InstanceInfo.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\InstanceInfo.inl"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\PrimitiveInfo.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\PrimitiveInfo.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\PropertyInfo.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\PropertyInfo.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\PropertyInfo.inl"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\RegistrationContexts.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\RegistrationContexts.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\RegistrationContexts.inl"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\TypeInfo.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\TypeInfo.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\TypeInfo.inl"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\TypeLibrary.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\TypeLibrary.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\TypeLibrary.inl"
 				>
 			</File>
 		</Filter>
 		<Filter
-			Name="Halak.Toolkit"
+			Name="Any"
 			>
 			<File
-				RelativePath="..\..\Codes\Halak.Toolkit\All.h"
+				RelativePath="..\..\Codes\Halak.Toolkit\AnyPtr.cpp"
 				>
 			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\AnyPtr.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\AnyPtr.inl"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="Command"
+			>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\ChangePropertyCommand.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\ChangePropertyCommand.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="JSON"
+			>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\JSONDocument.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\JSONDocument.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\JSONNodes.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\JSONNodes.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\JSONStreamReader.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\JSONStreamReader.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\JSONStreamWriter.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\JSONStreamWriter.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="Attributes"
+			>
 			<File
 				RelativePath="..\..\Codes\Halak\Attributes.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak.Toolkit\Classes.h"
 				>
 			</File>
 			<File
@@ -228,18 +352,6 @@
 			</File>
 			<File
 				RelativePath="..\..\Codes\Halak\EntityComponentAttribute.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak.Toolkit\FWD.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak.Toolkit\Hotloader.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak.Toolkit\Hotloader.h"
 				>
 			</File>
 			<File
@@ -266,6 +378,86 @@
 				RelativePath="..\..\Codes\Halak\UnitAttribute.h"
 				>
 			</File>
+		</Filter>
+		<Filter
+			Name="IO"
+			>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\Hotloader.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\Hotloader.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="wxWindows"
+			>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\EntityRenderPanel.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\EntityRenderPanel.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\EntityTreeWindow.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\EntityTreeWindow.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\HistoryWindow.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\HistoryWindow.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\MainWindow.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\MainWindow.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\PaletteWindow.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\PaletteWindow.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\PropertiesWindow.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\PropertiesWindow.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\PropertiesWindow.inl"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\RenderPanel.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Toolkit\RenderPanel.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="(Classes)"
+			>
 			<Filter
 				Name="(Foundation)"
 				>
@@ -319,6 +511,10 @@
 				</File>
 			</Filter>
 			<Filter
+				Name="Command"
+				>
+			</Filter>
+			<Filter
 				Name="Document"
 				>
 				<File
@@ -347,8 +543,56 @@
 				</File>
 			</Filter>
 			<Filter
-				Name="Command"
+				Name="Halak.Reflection"
 				>
+				<File
+					RelativePath="..\..\Codes\Halak.Reflection\BatchCommand.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak.Reflection\ChangePropertyCommand.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak.Reflection\CommandHistory.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak.Reflection\CommandQueue.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak.Reflection\EffectEntity.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak.Reflection\Entity.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak.Reflection\ParticleEffectEntity.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak.Reflection\ParticleEmitter.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak.Reflection\RestorableCommand.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak.Reflection\RootEntity.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak.Reflection\SequentialParticleEmitter.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak.Reflection\SimpleParticleEmitter.cpp"
+					>
+				</File>
 			</Filter>
 			<Filter
 				Name="Properties"
@@ -494,241 +738,17 @@
 					>
 				</File>
 			</Filter>
-			<Filter
-				Name="Windows"
-				>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\EntityRenderPanel.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\EntityRenderPanel.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\EntityTreeWindow.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\EntityTreeWindow.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\HistoryWindow.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\HistoryWindow.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\MainWindow.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\MainWindow.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\PaletteWindow.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\PaletteWindow.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\PropertiesWindow.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\PropertiesWindow.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\PropertiesWindow.inl"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\RenderPanel.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\RenderPanel.h"
-					>
-				</File>
-			</Filter>
-		</Filter>
-		<Filter
-			Name="JSON"
-			>
-			<File
-				RelativePath="..\..\Codes\Halak.Toolkit\JSONDocument.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak.Toolkit\JSONDocument.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak.Toolkit\JSONNodes.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak.Toolkit\JSONNodes.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak.Toolkit\JSONStreamReader.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak.Toolkit\JSONStreamReader.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak.Toolkit\JSONStreamWriter.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak.Toolkit\JSONStreamWriter.h"
-				>
-			</File>
 		</Filter>
 		<File
-			RelativePath="..\..\Codes\Halak.Toolkit\AnyPtr.cpp"
+			RelativePath="..\..\Codes\Halak.Toolkit\All.h"
 			>
 		</File>
 		<File
-			RelativePath="..\..\Codes\Halak.Toolkit\AnyPtr.h"
+			RelativePath="..\..\Codes\Halak.Toolkit\Classes.h"
 			>
 		</File>
 		<File
-			RelativePath="..\..\Codes\Halak.Toolkit\AnyPtr.inl"
-			>
-		</File>
-		<File
-			RelativePath="..\..\Codes\Halak.Toolkit\Attribute.cpp"
-			>
-		</File>
-		<File
-			RelativePath="..\..\Codes\Halak.Toolkit\Attribute.h"
-			>
-		</File>
-		<File
-			RelativePath="..\..\Codes\Halak.Toolkit\ChangePropertyCommand.cpp"
-			>
-		</File>
-		<File
-			RelativePath="..\..\Codes\Halak.Toolkit\ChangePropertyCommand.h"
-			>
-		</File>
-		<File
-			RelativePath="..\..\Codes\Halak.Toolkit\ClassInfo.cpp"
-			>
-		</File>
-		<File
-			RelativePath="..\..\Codes\Halak.Toolkit\ClassInfo.h"
-			>
-		</File>
-		<File
-			RelativePath="..\..\Codes\Halak.Toolkit\ClassInfo.inl"
-			>
-		</File>
-		<File
-			RelativePath="..\..\Codes\Halak.Toolkit\ConstructorInfo.cpp"
-			>
-		</File>
-		<File
-			RelativePath="..\..\Codes\Halak.Toolkit\ConstructorInfo.h"
-			>
-		</File>
-		<File
-			RelativePath="..\..\Codes\Halak.Toolkit\ConstructorInfo.inl"
-			>
-		</File>
-		<File
-			RelativePath="..\..\Codes\Halak.Toolkit\DynamicCast.h"
-			>
-		</File>
-		<File
-			RelativePath="..\..\Codes\Halak.Toolkit\EnumInfo.cpp"
-			>
-		</File>
-		<File
-			RelativePath="..\..\Codes\Halak.Toolkit\EnumInfo.h"
-			>
-		</File>
-		<File
-			RelativePath="..\..\Codes\Halak.Toolkit\EnumInfo.inl"
-			>
-		</File>
-		<File
-			RelativePath="..\..\Codes\Halak.Toolkit\InstanceInfo.cpp"
-			>
-		</File>
-		<File
-			RelativePath="..\..\Codes\Halak.Toolkit\InstanceInfo.h"
-			>
-		</File>
-		<File
-			RelativePath="..\..\Codes\Halak.Toolkit\InstanceInfo.inl"
-			>
-		</File>
-		<File
-			RelativePath="..\..\Codes\Halak.Toolkit\PrimitiveInfo.cpp"
-			>
-		</File>
-		<File
-			RelativePath="..\..\Codes\Halak.Toolkit\PrimitiveInfo.h"
-			>
-		</File>
-		<File
-			RelativePath="..\..\Codes\Halak.Toolkit\PropertyInfo.cpp"
-			>
-		</File>
-		<File
-			RelativePath="..\..\Codes\Halak.Toolkit\PropertyInfo.h"
-			>
-		</File>
-		<File
-			RelativePath="..\..\Codes\Halak.Toolkit\PropertyInfo.inl"
-			>
-		</File>
-		<File
-			RelativePath="..\..\Codes\Halak.Toolkit\RegistrationContexts.cpp"
-			>
-		</File>
-		<File
-			RelativePath="..\..\Codes\Halak.Toolkit\RegistrationContexts.h"
-			>
-		</File>
-		<File
-			RelativePath="..\..\Codes\Halak.Toolkit\RegistrationContexts.inl"
-			>
-		</File>
-		<File
-			RelativePath="..\..\Codes\Halak.Toolkit\TypeInfo.cpp"
-			>
-		</File>
-		<File
-			RelativePath="..\..\Codes\Halak.Toolkit\TypeInfo.h"
-			>
-		</File>
-		<File
-			RelativePath="..\..\Codes\Halak.Toolkit\TypeInfo.inl"
-			>
-		</File>
-		<File
-			RelativePath="..\..\Codes\Halak.Toolkit\TypeLibrary.cpp"
-			>
-		</File>
-		<File
-			RelativePath="..\..\Codes\Halak.Toolkit\TypeLibrary.h"
-			>
-		</File>
-		<File
-			RelativePath="..\..\Codes\Halak.Toolkit\TypeLibrary.inl"
+			RelativePath="..\..\Codes\Halak.Toolkit\FWD.h"
 			>
 		</File>
 	</Files>

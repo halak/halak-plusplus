@@ -5,6 +5,7 @@
 #include <Halak/FreeType.h>
 #include <Halak/NumericLimits.h>
 #include <Halak/String.h>
+#include <Halak/Texture2D.h>
 #include <Halak/Internal/FreeTypeFontRenderer.h>
 #include <Halak/Internal/Glyph.h>
 #include <Halak/Internal/GlyphTable.h>

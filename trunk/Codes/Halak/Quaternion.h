@@ -28,6 +28,6 @@
         };
     }
 
-#   include <Halak/Quaternion.h>
+#   include <Halak/Quaternion.inl>
 
 #endif

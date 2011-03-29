@@ -1,3 +1,4 @@
+#include <Halak/PCH.h>
 #include <Halak/ParticleEmitter.h>
 #include <Halak/CloningContext.h>
 #include <Halak/IFloatEvaluable.h>
@@ -67,7 +68,7 @@ namespace Halak
         if (spawnPeriod != value)
         {
             spawnPeriod = value;
-            updateableSpawnPeriod = dynamic_pointer_cast<IUpdateable>(value);
+            updateableSpawnPeriod = value.DynamicCast<IUpdateable>();
         }
     }
 

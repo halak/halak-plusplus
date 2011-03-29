@@ -87,6 +87,6 @@ void Halak::Samples::SwapChainSample(const std::vector<const char*>& /*args*/)
         }
     }
 
-    font.reset();
+    font.Reset();
     delete componentMap;
 }

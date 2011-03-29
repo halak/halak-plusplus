@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\Codes"
+				AdditionalIncludeDirectories="..\..\Codes;&quot;..\..\Codes\References\lua-5.1.4\src&quot;;&quot;..\..\Codes\References\freetype-2.4.4\include&quot;"
 				PreprocessorDefinitions="WIN32;_DEBUG;_LIB"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -107,7 +107,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
-				AdditionalIncludeDirectories="..\..\Codes"
+				AdditionalIncludeDirectories="..\..\Codes;&quot;..\..\Codes\References\lua-5.1.4\src&quot;;&quot;..\..\Codes\References\freetype-2.4.4\include&quot;"
 				PreprocessorDefinitions="WIN32;NDEBUG;_LIB"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
@@ -492,6 +492,14 @@
 					>
 				</File>
 				<File
+					RelativePath="..\..\Codes\Halak\ISpatial.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\ISpatial2D.h"
+					>
+				</File>
+				<File
 					RelativePath="..\..\Codes\Halak\MPL.h"
 					>
 				</File>
@@ -752,14 +760,6 @@
 		<Filter
 			Name="04. Application"
 			>
-			<File
-				RelativePath="..\..\Codes\Halak\ISpatial.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak\ISpatial2D.h"
-				>
-			</File>
 			<Filter
 				Name="Animation"
 				>
@@ -1159,186 +1159,86 @@
 			<Filter
 				Name="Gameplay"
 				>
-				<File
-					RelativePath="..\..\Codes\Halak\Effect.cpp"
+				<Filter
+					Name="Entity System"
 					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\Effect.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\EffectEntity.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\EffectEntity.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\Entity.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\Entity.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\Entity.inl"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\EntityExtension.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\EntityExtension.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\EntityWorld.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\EntityWorld.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\Particle.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\Particle.inl"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\ParticleControllers.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\ParticleControllers.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\ParticleEffectEntity.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\ParticleEffectEntity.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\ParticleEmitter.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\ParticleEmitter.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\ParticleEmitter.inl"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\ParticleRenderer.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\ParticleRenderer.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\ParticleRenderer.inl"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\ParticleSpace.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\ParticleSpace.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\ParticleSpawnPoints.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\ParticleSpawnPoints.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\RootEntity.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\RootEntity.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\SequentialParticle.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\SequentialParticle.inl"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\SequentialParticleEmitter.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\SequentialParticleEmitter.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\SimpleParticle.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\SimpleParticle.inl"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\SimpleParticleEmitter.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\SimpleParticleEmitter.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\SimpleParticleRenderer.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\SimpleParticleRenderer.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\SpatialNode.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\SpatialNode.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\SpatialObject.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\SpatialObject.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\SpatialObject2D.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\SpatialObject2D.h"
-					>
-				</File>
+					<File
+						RelativePath="..\..\Codes\Halak\EffectEntity.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\EffectEntity.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\Entity.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\Entity.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\Entity.inl"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\EntityExtension.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\EntityExtension.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\EntityWorld.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\EntityWorld.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\ParticleEffectEntity.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\ParticleEffectEntity.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\RootEntity.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\RootEntity.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\SpatialNode.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\SpatialNode.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\SpatialObject.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\SpatialObject.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\SpatialObject2D.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\SpatialObject2D.h"
+						>
+					</File>
+				</Filter>
 			</Filter>
 			<Filter
 				Name="Framework"
@@ -1467,6 +1367,122 @@
 						>
 					</File>
 				</Filter>
+			</Filter>
+			<Filter
+				Name="SFX"
+				>
+				<File
+					RelativePath="..\..\Codes\Halak\Effect.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\Effect.h"
+					>
+				</File>
+				<Filter
+					Name="Particle"
+					>
+					<File
+						RelativePath="..\..\Codes\Halak\Particle.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\Particle.inl"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\ParticleControllers.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\ParticleControllers.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\ParticleEmitter.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\ParticleEmitter.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\ParticleEmitter.inl"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\ParticleRenderer.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\ParticleRenderer.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\ParticleRenderer.inl"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\ParticleSpace.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\ParticleSpace.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\ParticleSpawnPoints.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\ParticleSpawnPoints.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\SequentialParticle.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\SequentialParticle.inl"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\SequentialParticleEmitter.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\SequentialParticleEmitter.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\SimpleParticle.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\SimpleParticle.inl"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\SimpleParticleEmitter.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\SimpleParticleEmitter.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\SimpleParticleRenderer.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\SimpleParticleRenderer.h"
+						>
+					</File>
+				</Filter>
+			</Filter>
+			<Filter
+				Name="UI"
+				>
 			</Filter>
 		</Filter>
 		<Filter
@@ -1716,6 +1732,10 @@
 					>
 				</File>
 			</Filter>
+		</Filter>
+		<Filter
+			Name="05. Model"
+			>
 		</Filter>
 		<File
 			RelativePath="..\..\Codes\Halak\All.h"

@@ -28,6 +28,39 @@ namespace Halak
             referenceCount->DecreaseWeakCount();
     }
 
+    template <typename T> void WeakPointer<T>::Reset()
+    {
+        if (referenceCount)
+            referenceCount->DecreaseWeakCount();
+
+        pointee = 0;
+        referenceCount = 0;
+    }
+
+    template <typename T> void WeakPointer<T>::Reset(const WeakPointer<T>& right)
+    {
+        if (referenceCount)
+            referenceCount->DecreaseWeakCount();
+
+        pointee = right.pointee;
+        referenceCount = right.referenceCount;
+
+        if (referenceCount)
+            referenceCount->IncreaseWeakCount();
+    }
+
+    template <typename T> void WeakPointer<T>::Reset(const SharedPointer<T>& right)
+    {
+        if (referenceCount)
+            referenceCount->DecreaseWeakCount();
+
+        pointee = right.pointee;
+        referenceCount = right.referenceCount;
+
+        if (referenceCount)
+            referenceCount->IncreaseWeakCount();
+    }
+
     template <typename T> SharedPointer<T> WeakPointer<T>::Lock() const
     {
         if (referenceCount && referenceCount->IsAlive())
@@ -43,20 +76,13 @@ namespace Halak
 
     template <typename T> WeakPointer<T>& WeakPointer<T>::operator = (const WeakPointer<T>& right)
     {
-        if (referenceCount)
-            referenceCount->DecreaseWeakCount();
-
-        pointee = right.pointee;
-        referenceCount = right.referenceCount;
-
-        if (referenceCount)
-            referenceCount->IncreaseWeakCount();
-
+        Reset(right);
         return *this;
     }
 
     template <typename T> WeakPointer<T>& WeakPointer<T>::operator = (const SharedPointer<T>& right)
     {
+        Reset(right);
         return *this;
     }
 
