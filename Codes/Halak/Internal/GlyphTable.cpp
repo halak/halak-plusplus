@@ -3,6 +3,7 @@
 #include <Halak/Internal/GlyphSurface.h>
 #include <Halak/Internal/Glyph.h>
 #include <Halak/Assert.h>
+#include <Halak/Texture2D.h>
 
 namespace Halak
 {

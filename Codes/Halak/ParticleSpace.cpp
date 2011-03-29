@@ -1,3 +1,4 @@
+#include <Halak/PCH.h>
 #include <Halak/ParticleSpace.h>
 #include <Halak/ParticleEmitter.h>
 

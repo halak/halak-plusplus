@@ -1,4 +1,6 @@
+#include <Halak/PCH.h>
 #include <Halak/ParticleRenderer.h>
+#include <Halak/ParticleEmitter.h>
 
 namespace Halak
 {
@@ -19,8 +21,7 @@ namespace Halak
     {
         if (target != value)
         {
-            ParticleEmitterPtr old;
-            old.swap(target);
+            ParticleEmitterPtr old = target;
 
             target = value;
 

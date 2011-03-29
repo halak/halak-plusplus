@@ -26,7 +26,7 @@ namespace Halak
     {
         Entity::Dispose();
         DynamicDispose(origin);
-        origin.reset();
+        origin.Reset();
     }
 
     ISpatialPtr EffectEntity::GetOrigin() const
@@ -39,7 +39,7 @@ namespace Halak
         if (origin != value)
         {
             ISpatialPtr old;
-            old.swap(origin);
+            old.Swap(origin);
 
             origin = value;
 

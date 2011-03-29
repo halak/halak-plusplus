@@ -44,14 +44,14 @@ namespace Halak
 
         for (EntityCollection::iterator it = temporaryChildren.begin(); it != temporaryChildren.end(); it++)
         {
-            (*it)->parent.reset();
+            (*it)->parent.Reset();
             (*it)->Dispose();
         }
 
         if (parent.IsAlive())
         {
             parent.Lock()->RemoveChild(CastTo<Entity>());
-            parent.reset();
+            parent.Reset();
         }
     }
 
@@ -76,7 +76,7 @@ namespace Halak
         EntityCollection::iterator it = std::find(children.begin(), children.end(), item);
         if (it != children.end())
         {
-            item->parent.reset();
+            item->parent.Reset();
             children.erase(it);
 
             childRemoved.Emit(this, item);

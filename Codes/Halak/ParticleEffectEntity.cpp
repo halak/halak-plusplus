@@ -38,8 +38,8 @@ namespace Halak
     void ParticleEffectEntity::Dispose()
     {
         EffectEntity::Dispose();
-        emitter.reset();
-        renderer.reset();
+        emitter.Reset();
+        renderer.Reset();
     }
 
     bool ParticleEffectEntity::Pick(PickingContext& context)
@@ -77,7 +77,7 @@ namespace Halak
         if (emitter != value)
         {
             ParticleEmitterPtr old;
-            old.swap(emitter);
+            old.Swap(emitter);
 
             emitter = value;
             OnEmitterChanged(old);
@@ -94,7 +94,7 @@ namespace Halak
         if (renderer != value)
         {
             ParticleRendererPtr old;
-            old.swap(renderer);
+            old.Swap(renderer);
 
             renderer = value;
             OnRendererChanged(old);

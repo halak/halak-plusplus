@@ -126,7 +126,7 @@
 
             private:
                 struct MissingTag { };
-                Any(MissingTag);
+                inline Any(MissingTag);
 
                 template <typename T> T CastNumericValueTo() const;
 

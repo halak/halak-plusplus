@@ -2,6 +2,7 @@
 #include <Halak/FontString.h>
 #include <Halak/Assert.h>
 #include <Halak/Font.h>
+#include <Halak/Texture2D.h>
 #include <Halak/Internal/Glyph.h>
 #include <windows.h>
 

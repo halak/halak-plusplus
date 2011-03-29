@@ -18,11 +18,16 @@
 
                 template <typename T> SharedPointer<T> CastTo();
 
+#               if (defined(HALAK_RTTI))
+                    template <typename T> SharedPointer<T> DynamicCastTo();
+#               endif
+
             protected:
                 SharedObject();
 
             private:
                 ReferenceCount* referenceCount;
+
                 template <typename T> friend class SharedPointer;
                 template <typename T> friend class WeakPointer;
         };

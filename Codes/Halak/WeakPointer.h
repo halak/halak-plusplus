@@ -21,6 +21,10 @@
                 inline WeakPointer(const WeakPointer<T>& original);
                 inline ~WeakPointer();
 
+                inline void Reset();
+                inline void Reset(const WeakPointer<T>& right);
+                inline void Reset(const SharedPointer<T>& right);
+
                 inline SharedPointer<T> Lock() const;
 
                 inline bool IsAlive() const;

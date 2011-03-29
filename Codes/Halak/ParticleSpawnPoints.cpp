@@ -1,3 +1,4 @@
+#include <Halak/PCH.h>
 #include <Halak/ParticleSpawnPoints.h>
 #include <Halak/Math.h>
 #include <random>

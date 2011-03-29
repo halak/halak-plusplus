@@ -86,6 +86,8 @@
             // Utilities
                 class FrameUpdater;
                 HKForwardDeclareSmartPointerClass(IRevisable);
+                HKForwardDeclareSmartPointerClass(ISpatial);
+                HKForwardDeclareSmartPointerClass(ISpatial2D);
                 class RectangleStorage;
             ////////////////////////////////////////////////////////////////////////////////////////////////////
         // 02. GameComponent
@@ -145,7 +147,7 @@
                 HKForwardDeclareSmartPointerClass(ColorRangeSequence);
                 HKForwardDeclareSmartPointerClass(ColorSequence);
                 HKForwardDeclareSmartPointerClass(ColorSequence);
-                HKForwardDeclareSmartPointerClass(EvaluableBlenderTemplate);
+                template <typename T> class EvaluableBlenderTemplate;
                 HKForwardDeclareSmartPointerClass(EvaluableConstants);
                 HKForwardDeclareSmartPointerClass(EvaluableFloatBlender);
                 HKForwardDeclareSmartPointerClass(EvaluableFloatConstant);
@@ -206,6 +208,17 @@
                 class GameWindow;
             ////////////////////////////////////////////////////////////////////////////////////////////////////
             // Gameplay
+                ////////////////////////////////////////////////////////////////////////////////////////////////////
+                // Entity System
+                    HKForwardDeclareSmartPointerClass(Entity);
+                        HKForwardDeclareSmartPointerClass(EffectEntity);
+                        HKForwardDeclareSmartPointerClass(ParticleEffectEntity);
+                    HKForwardDeclareSmartPointerClass(RootEntity);
+                    class EntityExtension;
+                    class EntityWorld;
+                    HKForwardDeclareSmartPointerClass(SpatialNode);
+                    HKForwardDeclareSmartPointerClass(SpatialObject);
+                    HKForwardDeclareSmartPointerClass(SpatialObject2D);
             ////////////////////////////////////////////////////////////////////////////////////////////////////
             // JSON
             ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -213,6 +226,23 @@
                 class LuaRuntimeEnvironment;
             ////////////////////////////////////////////////////////////////////////////////////////////////////
             // OS
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
+            // SFX
+                ////////////////////////////////////////////////////////////////////////////////////////////////////
+                // Particle
+                class Particle;
+                HKForwardDeclareSmartPointerClass(ParticleEmitter);
+                HKForwardDeclareSmartPointerClass(ParticleRenderer);
+                HKForwardDeclareSmartPointerClass(ParticleSpace);
+                class ParticleSpawnPoint;
+                class ParticleSpawnSegment;
+                class ParticleSpawnBox;
+                class ParticleSpawnSphere;
+                class SequentialParticle;
+                HKForwardDeclareSmartPointerClass(SequentialParticleEmitter);
+                class SimpleParticle;
+                HKForwardDeclareSmartPointerClass(SimpleParticleEmitter);
+                HKForwardDeclareSmartPointerClass(SimpleParticleRenderer);
             ////////////////////////////////////////////////////////////////////////////////////////////////////
             // Script
                 HKForwardDeclareSmartPointerClass(Flowchart);

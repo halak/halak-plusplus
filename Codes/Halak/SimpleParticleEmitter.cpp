@@ -1,6 +1,8 @@
+#include <Halak/PCH.h>
 #include <Halak/SimpleParticleEmitter.h>
 #include <Halak/Delete.h>
 #include <Halak/Math.h>
+#include <Halak/Texture2D.h>
 
 namespace Halak
 {

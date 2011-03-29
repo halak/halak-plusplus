@@ -1,8 +1,10 @@
+#include <Halak/PCH.h>
 #include <Halak/SimpleParticleRenderer.h>
 #include <Halak/Assert.h>
 #include <Halak/DrawingContext.h>
 #include <Halak/SimpleParticleEmitter.h>
 #include <Halak/SpriteRenderer.h>
+#include <Halak/Texture2D.h>
 #include <stdexcept>
 
 namespace Halak

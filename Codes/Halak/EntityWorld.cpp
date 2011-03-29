@@ -11,7 +11,7 @@ namespace Halak
     EntityWorld::~EntityWorld()
     {
         root->Dispose();
-        root.reset();
+        root.Reset();
     }
 
     EntityPtr EntityWorld::GetRoot() const

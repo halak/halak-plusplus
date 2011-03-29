@@ -15,7 +15,7 @@ namespace Halak
         {
             EntityPtr item = (*it);
 
-            if (IPickablePtr pickableEntity = dynamic_pointer_cast<IPickable>(item))
+            if (IPickablePtr pickableEntity = item.DynamicCast<IPickable>())
                 pickableEntity->Pick(context);
 
             Pick(item, context);

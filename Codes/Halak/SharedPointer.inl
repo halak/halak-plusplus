@@ -14,6 +14,14 @@ namespace Halak
             referenceCount->IncreaseStrongCount();
     }
 
+    template <typename T> SharedPointer<T>::SharedPointer(T* pointee, ReferenceCount* referenceCount)
+        : pointee(pointee),
+          referenceCount(pointee ? referenceCount : 0)
+    {
+        if (referenceCount)
+            referenceCount->IncreaseStrongCount();
+    }
+
     template <typename T> SharedPointer<T>::SharedPointer(const SharedPointer<T>& original)
         : pointee(original.pointee),
           referenceCount(original.referenceCount)
@@ -65,6 +73,18 @@ namespace Halak
             if (referenceCount)
                 referenceCount->IncreaseStrongCount();
         }
+    }
+
+    template <typename T> void SharedPointer<T>::Swap(SharedPointer<T>& right)
+    {
+        T* temporaryPointee = pointee;
+        ReferenceCount* temporaryReferenceCount = referenceCount;
+
+        pointee = right.pointee;
+        referenceCount = right.referenceCount;
+
+        right.pointee = temporaryPointee;
+        right.referenceCount = temporaryReferenceCount;
     }
 
     template <typename T> T* SharedPointer<T>::GetPointee() const
