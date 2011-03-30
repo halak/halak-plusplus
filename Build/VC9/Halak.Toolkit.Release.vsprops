@@ -2,10 +2,11 @@
 <VisualStudioPropertySheet
 	ProjectType="Visual C++"
 	Version="8.00"
-	Name="Halak.Release"
+	Name="Halak.Toolkit.Release"
+	InheritedPropertySheets=".\Halak.Release.vsprops"
 	>
 	<Tool
 		Name="VCLinkerTool"
-		AdditionalDependencies="Halak.Release.lib winmm.lib d3d9.lib d3dx9.lib freetype244.lib lua-5.1.4.Release.lib"
+		AdditionalDependencies="JSON.Release.lib"
 	/>
 </VisualStudioPropertySheet>
