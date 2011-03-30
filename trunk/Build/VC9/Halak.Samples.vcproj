@@ -21,6 +21,7 @@
 			OutputDirectory="..\..\Samples"
 			IntermediateDirectory="Intermediate\$(ProjectName).$(ConfigurationName)"
 			ConfigurationType="1"
+			InheritedPropertySheets=".\Halak.Debug.vsprops;.\Halak.Toolkit.Debug.vsprops"
 			CharacterSet="2"
 			>
 			<Tool
@@ -61,7 +62,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="Halak.$(ConfigurationName).lib lua-5.1.4.$(ConfigurationName).lib JSON.$(ConfigurationName).lib freetype244_D.lib winmm.lib d3d9.lib d3dx9d.lib"
+				AdditionalDependencies="Halak.$(ConfigurationName).lib"
 				OutputFile="$(OutDir)\$(ProjectName).$(ConfigurationName).exe"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="..\..\Libraries;..\..\Libraries\References"
@@ -96,6 +97,7 @@
 			OutputDirectory="..\..\Samples"
 			IntermediateDirectory="Intermediate\$(ProjectName).$(ConfigurationName)"
 			ConfigurationType="1"
+			InheritedPropertySheets=".\Halak.Release.vsprops"
 			CharacterSet="2"
 			WholeProgramOptimization="1"
 			>

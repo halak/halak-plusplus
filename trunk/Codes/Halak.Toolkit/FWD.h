@@ -1,48 +1,25 @@
 #pragma once
-#ifndef __HALAK_WXTOOLKIT_FWD_H__
-#define __HALAK_WXTOOLKIT_FWD_H__
+#ifndef __HALAK_TOOLKIT_FWD_H__
+#define __HALAK_TOOLKIT_FWD_H__
 
 #   include <Halak/FWD.h>
 
     namespace Halak
     {
-        namespace wxToolkit
+        namespace Toolkit
         {
-            class AdaptedWxWindow;
-            class BaseApplication;
-            class SelectedObjects;
-            class ToolAssistant;
+#           define HKForwardDeclareSmartPointerClass(name) class name; \
+                                                           typedef SharedPointer<name> name##Ptr; \
+                                                           typedef WeakPointer<name>   name##WeakPtr;
 
-            class IGlobalSignals;
-            class IWIndowSignals;
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
+            // 01. Foundation
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
+            // 02. 
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
+            // 03. GUI (wxWidgets)
 
-            HKForwardDeclareSmartPointerClass(DocumentFolder);
-            HKForwardDeclareSmartPointerClass(Document);
-                HKForwardDeclareSmartPointerClass(EntityDocument);
-
-            HKForwardDeclareSmartPointerClass(Tool);
-                HKForwardDeclareSmartPointerClass(ParticleEmitterTool);
-                    HKForwardDeclareSmartPointerClass(SimpleParticleEmitterTool);
-
-            class EntityRenderPanel;
-            class EntityTreeWindow;
-            class HistoryWindow;
-            class MainWindow;
-            class PaletteWindow;
-            class PropertiesWindow;
-            class RenderPanel;
-
-            class IPropertyUpdateable;
-            class BooleanProperty;
-            class ColorProperty;
-            class Matrix4Property;
-            class NumberProperty;
-            class PointProperty;
-            class QuaternionProperty;
-            class RectanglePropety;
-            class Vector2Property;
-            class Vector3Property;
-            class Vector4Property;
+#           undef HKForwardDeclareSmartPointerClass
         }
     }
 
