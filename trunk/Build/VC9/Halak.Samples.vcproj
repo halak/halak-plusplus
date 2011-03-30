@@ -62,7 +62,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="Halak.$(ConfigurationName).lib"
 				OutputFile="$(OutDir)\$(ProjectName).$(ConfigurationName).exe"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="..\..\Libraries;..\..\Libraries\References"
@@ -97,7 +96,7 @@
 			OutputDirectory="..\..\Samples"
 			IntermediateDirectory="Intermediate\$(ProjectName).$(ConfigurationName)"
 			ConfigurationType="1"
-			InheritedPropertySheets=".\Halak.Release.vsprops"
+			InheritedPropertySheets=".\Halak.Release.vsprops;.\Halak.Toolkit.Release.vsprops"
 			CharacterSet="2"
 			WholeProgramOptimization="1"
 			>

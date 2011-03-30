@@ -3,5 +3,10 @@
 	ProjectType="Visual C++"
 	Version="8.00"
 	Name="Halak.Toolkit.Debug"
+	InheritedPropertySheets=".\Halak.Debug.vsprops"
 	>
+	<Tool
+		Name="VCLinkerTool"
+		AdditionalDependencies="JSON.Debug.lib"
+	/>
 </VisualStudioPropertySheet>
