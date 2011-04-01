@@ -1,23 +1,26 @@
 #pragma once
-#ifndef __HALAK_UNITATTRIBUTE_H__
-#define __HALAK_UNITATTRIBUTE_H__
+#ifndef __HALAK_TOOLKIT_UNITATTRIBUTE_H__
+#define __HALAK_TOOLKIT_UNITATTRIBUTE_H__
 
-#   include <Halak/FWD.h>
-#   include <Halak/Attribute.h>
+#   include <Halak.Toolkit/FWD.h>
+#   include <Halak.Toolkit/Attribute.h>
 
     namespace Halak
     {
-        class UnitAttribute : public Attribute
+        namespace Toolkit
         {
-            public:
-                UnitAttribute(const char* name);
-                virtual ~UnitAttribute();
+            class UnitAttribute : public Attribute
+            {
+                public:
+                    UnitAttribute(const char* name);
+                    virtual ~UnitAttribute();
 
-                const char* GetName() const;
+                    const char* GetName() const;
 
-            private:
-                const char* name;
-        };
+                private:
+                    const char* name;
+            };
+        }
     }
 
 #endif

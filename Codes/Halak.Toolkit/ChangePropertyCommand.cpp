@@ -1,60 +1,51 @@
-#include <Halak/ChangePropertyCommand.h>
-#include <Halak/PropertyInfo.h>
+#include <Halak.Toolkit/PCH.h>
+#include <Halak.Toolkit/ChangePropertyCommand.h>
+#include <Halak.Toolkit/PropertyInfo.h>
 
 namespace Halak
 {
-    ChangePropertyCommand::ChangePropertyCommand(const AnyPtr& target, const PropertyInfo* propertyInfo, const Any& value)
-        : target(target),
-          propertyInfo(propertyInfo),
-          newValue(value)
+    namespace Toolkit
     {
-        oldValue = propertyInfo->GetValue(target);
-    }
+        ChangePropertyCommand::ChangePropertyCommand(const AnyPtr& target, const PropertyInfo* propertyInfo, const Any& value)
+            : target(target),
+              propertyInfo(propertyInfo),
+              newValue(value)
+        {
+            oldValue = propertyInfo->GetValue(target);
+        }
 
-    ChangePropertyCommand::ChangePropertyCommand(const ChangePropertyCommand& original, CloningContext& /*context*/)
-        : target(original.target),
-          propertyInfo(original.propertyInfo),
-          newValue(original.newValue),
-          oldValue(original.oldValue)
-    {
-    }
+        ChangePropertyCommand::~ChangePropertyCommand()
+        {
+        }
 
-    ChangePropertyCommand::~ChangePropertyCommand()
-    {
-    }
+        void ChangePropertyCommand::Execute()
+        {
+            propertyInfo->SetValue(target, newValue);
+        }
 
-    ChangePropertyCommand* ChangePropertyCommand::CloneWith(CloningContext& context) const
-    {
-        return new ChangePropertyCommand(*this, context);
-    }
+        void ChangePropertyCommand::Undo()
+        {
+            propertyInfo->SetValue(target, oldValue);
+        }
 
-    void ChangePropertyCommand::Execute()
-    {
-        propertyInfo->SetValue(target, newValue);
-    }
+        const AnyPtr& ChangePropertyCommand::GetTargetPointee() const
+        {
+            return target;
+        }
 
-    void ChangePropertyCommand::Undo()
-    {
-        propertyInfo->SetValue(target, oldValue);
-    }
+        const PropertyInfo* ChangePropertyCommand::GetPropertyInfo() const
+        {
+            return propertyInfo;
+        }
 
-    const AnyPtr& ChangePropertyCommand::GetTarGetPointee() const
-    {
-        return target;
-    }
+        const Any& ChangePropertyCommand::GetOldValue() const
+        {
+            return oldValue;
+        }
 
-    const PropertyInfo* ChangePropertyCommand::GetPropertyInfo() const
-    {
-        return propertyInfo;
-    }
-
-    const Any& ChangePropertyCommand::GetOldValue() const
-    {
-        return oldValue;
-    }
-
-    const Any& ChangePropertyCommand::GetNewValue() const
-    {
-        return newValue;
+        const Any& ChangePropertyCommand::GetNewValue() const
+        {
+            return newValue;
+        }
     }
 }

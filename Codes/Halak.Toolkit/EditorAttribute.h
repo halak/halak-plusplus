@@ -1,23 +1,26 @@
 #pragma once
-#ifndef __HALAK_EDITORATTRIBUTE_H__
-#define __HALAK_EDITORATTRIBUTE_H__
+#ifndef __HALAK_TOOLKIT_EDITORATTRIBUTE_H__
+#define __HALAK_TOOLKIT_EDITORATTRIBUTE_H__
 
-#   include <Halak/FWD.h>
-#   include <Halak/Attribute.h>
+#   include <Halak.Toolkit/FWD.h>
+#   include <Halak.Toolkit/Attribute.h>
 
     namespace Halak
     {
-        class EditorAttribute : public Attribute
+        namespace Toolkit
         {
-            public:
-                EditorAttribute(const char* editorTypeName);
-                virtual ~EditorAttribute();
+            class EditorAttribute : public Attribute
+            {
+                public:
+                    EditorAttribute(const char* editorTypeName);
+                    virtual ~EditorAttribute();
 
-                const TypeInfo* GetEditorType() const;
+                    const TypeInfo* GetEditorType() const;
 
-            private:
-                const char* editorTypeName;
-        };
+                private:
+                    const char* editorTypeName;
+            };
+        }
     }
 
 #endif

@@ -18,7 +18,7 @@
                     Color GetClearColor() const;
                     void SetClearColor(Color value);
 
-                    RootEntityPtr GetTarGetPointee() const;
+                    RootEntityPtr GetTargetPointee() const;
                     void SetTarget(const RootEntityPtr value);
 
                     SpriteRenderer* GetSpriteRenderer() const;

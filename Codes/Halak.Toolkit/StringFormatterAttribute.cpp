@@ -1,20 +1,24 @@
-#include <Halak/StringFormatterAttribute.h>
-#include <Halak/TypeLibrary.h>
+#include <Halak.Toolkit/PCH.h>
+#include <Halak.Toolkit/StringFormatterAttribute.h>
+#include <Halak.Toolkit/TypeLibrary.h>
 
 namespace Halak
 {
-    StringFormatterAttribute::StringFormatterAttribute(const char* formatterTypeName)
-        : Attribute(),
-          formatterTypeName(formatterTypeName)
+    namespace Toolkit
     {
-    }
+        StringFormatterAttribute::StringFormatterAttribute(const char* formatterTypeName)
+            : Attribute(),
+              formatterTypeName(formatterTypeName)
+        {
+        }
 
-    StringFormatterAttribute::~StringFormatterAttribute()
-    {
-    }
+        StringFormatterAttribute::~StringFormatterAttribute()
+        {
+        }
 
-    const TypeInfo* StringFormatterAttribute::GetFormatterType() const
-    {
-        return TypeLibrary::GetInstance().GetType(formatterTypeName);
+        const TypeInfo* StringFormatterAttribute::GetFormatterType() const
+        {
+            return TypeLibrary::GetInstance().GetType(formatterTypeName);
+        }
     }
 }

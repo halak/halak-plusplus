@@ -1,13 +1,16 @@
-#include <Halak/PCH.h>
-#include <Halak/Attribute.h>
+#include <Halak.Toolkit/PCH.h>
+#include <Halak.Toolkit/Attribute.h>
 
 namespace Halak
 {
-    Attribute::Attribute()
+    namespace Toolkit
     {
-    }
-    
-    Attribute::~Attribute()
-    {
+        Attribute::Attribute()
+        {
+        }
+        
+        Attribute::~Attribute()
+        {
+        }
     }
 }

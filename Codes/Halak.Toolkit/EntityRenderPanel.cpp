@@ -90,7 +90,7 @@ namespace Halak
             clearColor = value;
         }
 
-        RootEntityPtr EntityRenderPanel::GetTarGetPointee() const
+        RootEntityPtr EntityRenderPanel::GetTargetPointee() const
         {
             return target;
         }
@@ -140,7 +140,7 @@ namespace Halak
         {
             const Ray ray(Vector3(event.GetX(), event.GetY(), 0), Vector3(0.0f, 0.0f, -1.0f));
             PickingContext context(ray, true, false, true);
-            if (EntityExtension::Pick(GetTarGetPointee(), context))
+            if (EntityExtension::Pick(GetTargetPointee(), context))
             {
                 HKAssertDebug(context.GetResults().size() == 1);
 

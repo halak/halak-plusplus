@@ -15,7 +15,7 @@ namespace Halak
         {
         }
 
-        ParticleEmitterWeakPtr ParticleEmitterTool::GetTarGetPointee() const
+        ParticleEmitterWeakPtr ParticleEmitterTool::GetTargetPointee() const
         {
             return target;
         }

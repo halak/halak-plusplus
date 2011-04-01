@@ -1,5 +1,6 @@
 #include <Halak.Toolkit/PCH.h>
 #include <Halak.Toolkit/AnyPtr.h>
+
 namespace Halak
 {
     const AnyPtr AnyPtr::Null;
