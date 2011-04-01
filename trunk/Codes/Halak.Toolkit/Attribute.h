@@ -1,21 +1,23 @@
 #pragma once
-#ifndef __HALAK_ATTRIBUTE_H__
-#define __HALAK_ATTRIBUTE_H__
+#ifndef __HALAK_TOOLKIT_ATTRIBUTE_H__
+#define __HALAK_TOOLKIT_ATTRIBUTE_H__
 
-#   include <Halak/FWD.h>
+#   include <Halak.Toolkit/FWD.h>
 
     namespace Halak
     {
-        class Attribute
+        namespace Toolkit
         {
-            HKDeclareClassFOURCC('A', 'T', 'T', 'R');
-            HKThisIsNoncopyableClass(Attribute);
-            public:
-                virtual ~Attribute();
+            class Attribute
+            {
+                HKThisIsNoncopyableClass(Attribute);
+                public:
+                    virtual ~Attribute();
 
-            protected:
-                Attribute();
-        };
+                protected:
+                    Attribute();
+            };
+        }
     }
 
 #endif

@@ -25,7 +25,7 @@ namespace Halak
             SpriteRenderer* renderer = context.GetSpriteRenderer();
         }
 
-        SimpleParticleEmitterWeakPtr SimpleParticleEmitterTool::GetTarGetPointee() const
+        SimpleParticleEmitterWeakPtr SimpleParticleEmitterTool::GetTargetPointee() const
         {
             return target;
         }

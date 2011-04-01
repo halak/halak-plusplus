@@ -161,7 +161,7 @@ namespace Halak
             for (int i = 0; i < count; i++)
             {
                 EntityRenderPanel* item = dynamic_cast<EntityRenderPanel*>(mainWindow->GetNotebookPage(i));
-                if (item && item->GetTarGetPointee() == entity)
+                if (item && item->GetTargetPointee() == entity)
                     return item;
             }
 

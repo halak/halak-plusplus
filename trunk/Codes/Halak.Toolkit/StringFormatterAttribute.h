@@ -1,23 +1,26 @@
 #pragma once
-#ifndef __HALAK_STRINGFORMATTERATTRIBUTE_H__
-#define __HALAK_STRINGFORMATTERATTRIBUTE_H__
+#ifndef __HALAK_TOOLKIT_STRINGFORMATTERATTRIBUTE_H__
+#define __HALAK_TOOLKIT_STRINGFORMATTERATTRIBUTE_H__
 
-#   include <Halak/FWD.h>
-#   include <Halak/Attribute.h>
+#   include <Halak.Toolkit/FWD.h>
+#   include <Halak.Toolkit/Attribute.h>
 
     namespace Halak
     {
-        class StringFormatterAttribute : public Attribute
+        namespace Toolkit
         {
-            public:
-                StringFormatterAttribute(const char* formatterTypeName);
-                virtual ~StringFormatterAttribute();
+            class StringFormatterAttribute : public Attribute
+            {
+                public:
+                    StringFormatterAttribute(const char* formatterTypeName);
+                    virtual ~StringFormatterAttribute();
 
-                const TypeInfo* GetFormatterType() const;
+                    const TypeInfo* GetFormatterType() const;
 
-            private:
-                const char* formatterTypeName;
-        };
+                private:
+                    const char* formatterTypeName;
+            };
+        }
     }
 
 #endif

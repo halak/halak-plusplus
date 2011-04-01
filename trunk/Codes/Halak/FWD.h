@@ -100,6 +100,10 @@
                 class GameNode;
                 class GameStructure;
             ////////////////////////////////////////////////////////////////////////////////////////////////////
+            // Asset
+                class Asset;
+                HKForwardDeclareSmartPointerClass(IReloadable);
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
             // Cloning
                 class CloningContext;
                 HKForwardDeclareSmartPointerClass(ICloneable);

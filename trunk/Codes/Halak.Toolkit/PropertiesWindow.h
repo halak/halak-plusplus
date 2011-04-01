@@ -26,7 +26,7 @@
                     CommandHistory* GetHistory() const;
                     void SetHistory(CommandHistory* value);
 
-                    const Halak::AnyPtr& GetTarGetPointee() const;
+                    const Halak::AnyPtr& GetTargetPointee() const;
                     void SetTarget(const Halak::AnyPtr& value);
 
                     const AnyPtrCollection& GetTargets() const;

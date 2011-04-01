@@ -1,17 +1,15 @@
-#ifndef __HALAK_WXTOOLKIT_COMMANDSTRINGFORMATTERS_H__
-#define __HALAK_WXTOOLKIT_COMMANDSTRINGFORMATTERS_H__
+#pragma once
+#ifndef __HALAK_TOOLKIT_COMMANDSTRINGFORMATTERS_H__
+#define __HALAK_TOOLKIT_COMMANDSTRINGFORMATTERS_H__
 
-#   include <Halak.wxToolkit/FWD.h>
+#   include <Halak.Toolkit/FWD.h>
+#   include <Halak.Toolkit/StringFormatter.h>
 
     namespace Halak
     {
-        namespace wxToolkit
+        namespace Toolkit
         {
-            class BatchCommandStringFormatter
-            {
-            };
-
-            class StringFormatter
+            class BatchCommandStringFormatter : public StringFormatter
             {
             };
         }

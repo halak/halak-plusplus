@@ -13,7 +13,7 @@
                 ParticleRenderer();
                 virtual ~ParticleRenderer();
 
-                ParticleEmitterPtr GetTarGetPointee() const;
+                ParticleEmitterPtr GetTargetPointee() const;
                 void SetTarget(ParticleEmitterPtr value);
 
             protected:

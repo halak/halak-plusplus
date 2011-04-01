@@ -1,12 +1,16 @@
-#include <Halak/EntityComponentAttribute.h>
+#include <Halak.Toolkit/PCH.h>
+#include <Halak.Toolkit/EntityComponentAttribute.h>
 
 namespace Halak
 {
-    EntityComponentAttribute::EntityComponentAttribute()
+    namespace Toolkit
     {
-    }
+        EntityComponentAttribute::EntityComponentAttribute()
+        {
+        }
 
-    EntityComponentAttribute::~EntityComponentAttribute()
-    {
+        EntityComponentAttribute::~EntityComponentAttribute()
+        {
+        }
     }
 }

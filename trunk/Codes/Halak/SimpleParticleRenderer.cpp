@@ -20,11 +20,11 @@ namespace Halak
     void SimpleParticleRenderer::Draw(DrawingContext& context)
     {
         HKAssertDebug(context.GetSpriteRenderer());
-        if (GetTarGetPointee() == nullptr)
+        if (GetTargetPointee() == nullptr)
             return;
 
         SpriteRenderer* renderer = context.GetSpriteRenderer();
-        const SimpleParticleEmitter* castedTarget = static_cast<const SimpleParticleEmitter*>(GetTarGetPointee().GetPointee());
+        const SimpleParticleEmitter* castedTarget = static_cast<const SimpleParticleEmitter*>(GetTargetPointee().GetPointee());
         const SimpleParticleEmitter::ParticleCollection& particles = castedTarget->GetParticles();
         for (SimpleParticleEmitter::ParticleCollection::const_reverse_iterator it = particles.rbegin(); it != particles.rend(); it++)
         {
@@ -36,11 +36,11 @@ namespace Halak
     void SimpleParticleRenderer::DrawDebugInformation(DrawingContext& context)
     {
         HKAssertDebug(context.GetSpriteRenderer());
-        if (GetTarGetPointee() == nullptr)
+        if (GetTargetPointee() == nullptr)
             return;
 
         SpriteRenderer* renderer = context.GetSpriteRenderer();
-        const SimpleParticleEmitter* castedTarget = static_cast<const SimpleParticleEmitter*>(GetTarGetPointee().GetPointee());
+        const SimpleParticleEmitter* castedTarget = static_cast<const SimpleParticleEmitter*>(GetTargetPointee().GetPointee());
         const SimpleParticleEmitter::ParticleCollection& particles = castedTarget->GetParticles();
         //for (SimpleParticleEmitter::ParticleCollection::const_reverse_iterator it = particles.rbegin(); it != particles.rend(); it++)
         //{
@@ -51,7 +51,7 @@ namespace Halak
 
     void SimpleParticleRenderer::OnTargetChanged(ParticleEmitterPtr old)
     {
-        if (dynamic_cast<SimpleParticleEmitter*>(GetTarGetPointee().GetPointee()) == nullptr)
+        if (dynamic_cast<SimpleParticleEmitter*>(GetTargetPointee().GetPointee()) == nullptr)
             throw std::bad_typeid("SimpleParticleRenderer::OnTargetChanged(ParticleEmitterPtr)");
     }
 }

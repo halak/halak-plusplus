@@ -14,8 +14,45 @@
 
             ////////////////////////////////////////////////////////////////////////////////////////////////////
             // 01. Foundation
+                ////////////////////////////////////////////////////////////////////////////////////////////////////
+                // Any
+                    class AnyPtr;
+                ////////////////////////////////////////////////////////////////////////////////////////////////////
+                // Reflection
+                    class Attribte;
+                    class ConstructorInfo;
+                    class InstanceInfo;
+                    class PropertyInfo;
+                    class TypeInfo;
+                        class ClassInfo;
+                        class EnumInfo;
+                        class PrimitiveInfo;
+                    class TypeLibrary;
+                    class RegistrationContext;
+                        class ConstructorRegistrationContext;
+                        class PropertyRegistrationContext;
+                        class PrimitiveRegistrationContext;
+                        class ClassRegistrationContext;
+                        class EnumRegistrationContext;
             ////////////////////////////////////////////////////////////////////////////////////////////////////
-            // 02. 
+            // 02. Design
+                ////////////////////////////////////////////////////////////////////////////////////////////////////
+                // Attributes
+                    class EditorAttribute;
+                    class EntityComponentAttribute;
+                    class RangeAttribute;
+                    class StringFormatterAttribute;
+                    class UnitAttribute;
+                ////////////////////////////////////////////////////////////////////////////////////////////////////
+                // Command
+                    class ChangePropertyCommand;
+                ////////////////////////////////////////////////////////////////////////////////////////////////////
+                // IO
+                    class Hotloader;
+                ////////////////////////////////////////////////////////////////////////////////////////////////////
+                // StringFormatters
+                    class StringFormatter;
+                        class BatchCommandStringFormatter;
             ////////////////////////////////////////////////////////////////////////////////////////////////////
             // 03. GUI (wxWidgets)
 

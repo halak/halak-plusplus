@@ -1,24 +1,28 @@
-#include <Halak/RangeAttribute.h>
+#include <Halak.Toolkit/PCH.h>
+#include <Halak.Toolkit/RangeAttribute.h>
 
 namespace Halak
 {
-    RangeAttribute::RangeAttribute(const Any& minValue, const Any& maxValue)
-        : minValue(minValue),
-          maxValue(maxValue)
+    namespace Toolkit
     {
-    }
+        RangeAttribute::RangeAttribute(const Any& minValue, const Any& maxValue)
+            : minValue(minValue),
+              maxValue(maxValue)
+        {
+        }
 
-    RangeAttribute::~RangeAttribute()
-    {
-    }
+        RangeAttribute::~RangeAttribute()
+        {
+        }
 
-    const Any& RangeAttribute::GetMinValue() const
-    {
-        return minValue;
-    }
+        const Any& RangeAttribute::GetMinValue() const
+        {
+            return minValue;
+        }
 
-    const Any& RangeAttribute::GetMaxValue() const
-    {
-        return maxValue;
+        const Any& RangeAttribute::GetMaxValue() const
+        {
+            return maxValue;
+        }
     }
 }

@@ -1,11 +1,11 @@
 #pragma once
-#ifndef __HALAK_ATTRIBUTES_H__
-#define __HALAK_ATTRIBUTES_H__
+#ifndef __HALAK_TOOLKIT_ATTRIBUTES_H__
+#define __HALAK_TOOLKIT_ATTRIBUTES_H__
 
-#   include <Halak/EditorAttribute.h>
-#   include <Halak/EntityComponentAttribute.h>
-#   include <Halak/StringFormatterAttribute.h>
-#   include <Halak/RangeAttribute.h>
-#   include <Halak/UnitAttribute.h>
+#   include <Halak.Toolkit/EditorAttribute.h>
+#   include <Halak.Toolkit/EntityComponentAttribute.h>
+#   include <Halak.Toolkit/StringFormatterAttribute.h>
+#   include <Halak.Toolkit/RangeAttribute.h>
+#   include <Halak.Toolkit/UnitAttribute.h>
 
 #endif

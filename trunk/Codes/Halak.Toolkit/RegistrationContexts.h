@@ -6,7 +6,11 @@
 
     namespace Halak
     {
-        class ConstructorRegistrationContext
+        class RegistrationContext
+        {
+        };
+
+        class ConstructorRegistrationContext : public RegistrationContext
         {
             public:
                 ConstructorRegistrationContext(ClassRegistrationContext* parent, ConstructorInfo* constructorInfo);
@@ -25,7 +29,7 @@
                 ConstructorInfo* constructorInfo;
         };
 
-        class PropertyRegistrationContext
+        class PropertyRegistrationContext : public RegistrationContext
         {
             public:
                 PropertyRegistrationContext(ClassRegistrationContext* parent, PropertyInfo* propertyInfo);
@@ -44,10 +48,10 @@
                 PropertyInfo* propertyInfo;
         };
 
-        class PrimitiveRegistrationContext
+        class PrimitiveRegistrationContext : public RegistrationContext
         {
             public:
-                typedef PropertyInfo TargetType;
+                typedef PrimitiveInfo TargetType;
 
             public:
                 PrimitiveRegistrationContext(void*, PrimitiveInfo* primitiveInfo);
@@ -65,7 +69,7 @@
                 PrimitiveInfo* primitiveInfo;
         };
 
-        class ClassRegistrationContext
+        class ClassRegistrationContext : public RegistrationContext
         {
             public:
                 typedef ClassInfo TargetType;
@@ -95,7 +99,7 @@
                 ClassInfo* classInfo;
         };
 
-        class EnumRegistrationContext
+        class EnumRegistrationContext : public RegistrationContext
         {
             public:
                 typedef EnumInfo TargetType;

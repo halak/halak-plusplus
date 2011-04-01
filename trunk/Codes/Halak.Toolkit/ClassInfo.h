@@ -1,9 +1,9 @@
 #pragma once
-#ifndef __HALAK_CLASSINFO_H__
-#define __HALAK_CLASSINFO_H__
+#ifndef __HALAK_TOOLKIT_CLASSINFO_H__
+#define __HALAK_TOOLKIT_CLASSINFO_H__
 
-#   include <Halak/FWD.h>
-#   include <Halak/TypeInfo.h>
+#   include <Halak.Toolkit/FWD.h>
+#   include <Halak.Toolkit/TypeInfo.h>
 #   include <vector>
 
     namespace Halak
