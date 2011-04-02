@@ -1,12 +1,12 @@
-#include <Halak.wxToolkit/DocumentFolder.h>
-#include <Halak.wxToolkit/Document.h>
-#include <Halak.wxToolkit/EntityDocument.h>
+#include <Halak.Toolkit/DocumentFolder.h>
+#include <Halak.Toolkit/Document.h>
+#include <Halak.Toolkit/EntityDocument.h>
 #include <Halak/Assert.h>
 #include <algorithm>
 
 namespace Halak
 {
-    namespace wxToolkit
+    namespace Toolkit
     {
         DocumentFolder::DocumentFolder()
         {

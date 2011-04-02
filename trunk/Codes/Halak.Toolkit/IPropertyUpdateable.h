@@ -1,13 +1,14 @@
-#ifndef __HALAK_WXTOOLKIT_PROPERTYUPDATEABLE_INTERFACE__
-#define __HALAK_WXTOOLKIT_PROPERTYUPDATEABLE_INTERFACE__
+#pragma once
+#ifndef __HALAK_TOOLKIT_PROPERTYUPDATEABLE_INTERFACE__
+#define __HALAK_TOOLKIT_PROPERTYUPDATEABLE_INTERFACE__
 
-#   include <Halak.wxToolkit/FWD.h>
-#   include <Halak/AnyPtr.h>
+#   include <Halak.Toolkit/FWD.h>
+#   include <Halak.Toolkit/AnyPtr.h>
 #   include <vector>
 
     namespace Halak
     {
-        namespace wxToolkit
+        namespace Toolkit
         {
             class IPropertyUpdateable
             {

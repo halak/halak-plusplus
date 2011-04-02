@@ -1,8 +1,8 @@
-#include <Halak.wxToolkit/BaseEntityTracker.h>
+#include <Halak.Toolkit/BaseEntityTracker.h>
 
 namespace Halak
 {
-    namespace wxToolkit
+    namespace Toolkit
     {
         BaseEntityTracker::BaseEntityTracker()
         {

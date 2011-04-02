@@ -1,14 +1,14 @@
 #pragma once
-#ifndef __HALAK_WXTOOLKIT_ENTITYRENDERPANEL_H__
-#define __HALAK_WXTOOLKIT_ENTITYRENDERPANEL_H__
+#ifndef __HALAK_TOOLKIT_ENTITYRENDERPANEL_H__
+#define __HALAK_TOOLKIT_ENTITYRENDERPANEL_H__
 
-#   include <Halak.wxToolkit/FWD.h>
-#   include <Halak.wxToolkit/RenderPanel.h>
+#   include <Halak.Toolkit/FWD.h>
+#   include <Halak.Toolkit/RenderPanel.h>
 #   include <Halak/Color.h>
 
     namespace Halak
     {
-        namespace wxToolkit
+        namespace Toolkit
         {
             class EntityRenderPanel : public RenderPanel
             {

@@ -1,19 +1,18 @@
-#include <Halak.wxToolkit/PropertiesWindow.h>
-#include <Halak.wxToolkit/IPropertyUpdateable.h>
-#include <Halak.wxToolkit/NumberProperty.h>
-#include <Halak.wxToolkit/Vector3Property.h>
-#include <Halak/Attributes.h>
-#include <Halak/ClassInfo.h>
+#include <Halak.Toolkit/PropertiesWindow.h>
+#include <Halak.Toolkit/IPropertyUpdateable.h>
+#include <Halak.Toolkit/NumberProperty.h>
+#include <Halak.Toolkit/Vector3Property.h>
+#include <Halak.Toolkit/Attributes.h>
+#include <Halak.Toolkit/ClassInfo.h>
+#include <Halak.Toolkit/PropertyInfo.h>
 #include <Halak/CommandHistory.h>
-#include <Halak/PropertyInfo.h>
-#include <Halak/ServiceTree.h>
 #include <wx/propgrid/manager.h>
 #include <wx/propgrid/propdev.h>
 #include <wx/propgrid/advprops.h>
 
 namespace Halak
 {
-    namespace wxToolkit
+    namespace Toolkit
     {
         enum IDs
         {
@@ -143,7 +142,7 @@ namespace Halak
         void PropertiesWindow::SetTargets(const AnyPtrCollection& value)
         {
             targets = value;
-            //FillPage(Halak::TypeLibrary::GetInstance().GetTypeInfo<T::element_type>());
+            //FillPage(TypeLibrary::GetInstance().GetTypeInfo<T::element_type>());
         }
     
         void PropertiesWindow::OnPropertyGridSelected(wxPropertyGridEvent& event)
@@ -190,7 +189,7 @@ namespace Halak
             UpdateProperties();
         }
 
-        void PropertiesWindow::FillPage(const Halak::ClassInfo* classInfo)
+        void PropertiesWindow::FillPage(const ClassInfo* classInfo)
         {
             const int numberOfPages = propertyGridManager->GetPageCount();
             for (int i = numberOfPages - 1; i >= 0; i--)

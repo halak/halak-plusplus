@@ -1,7 +1,8 @@
-#include <Halak.wxToolkit/Vector3Property.h>
-#include <Halak/AnyPtr.h>
+#include <Halak.Toolkit/PCH.h>
+#include <Halak.Toolkit/Vector3Property.h>
+#include <Halak.Toolkit/AnyPtr.h>
+#include <Halak.Toolkit/PropertyInfo.h>
 #include <Halak/CommandHistory.h>
-#include <Halak/PropertyInfo.h>
 using namespace Halak;
 
 WX_PG_DECLARE_VARIANT_DATA(Vector3VariantData, Vector3, wxPG_NO_DECL)
@@ -9,7 +10,7 @@ WX_PG_IMPLEMENT_VARIANT_DATA(Vector3VariantData, Vector3)
 
 namespace Halak
 {
-    namespace wxToolkit
+    namespace Toolkit
     {
         WX_PG_IMPLEMENT_PROPERTY_CLASS(Vector3Property, wxPGProperty, Vector3, const Vector3&, TextCtrl)
 

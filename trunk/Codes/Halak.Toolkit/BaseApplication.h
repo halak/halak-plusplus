@@ -2,13 +2,13 @@
 #ifndef __HALAK_BASEAPPLICATION_H__
 #define __HALAK_BASEAPPLICATION_H__
 
-#   include <Halak.wxToolkit/FWD.h>
+#   include <Halak.Toolkit/FWD.h>
 #   include <wx/wx.h>
 #   include <vector>
 
     namespace Halak
     {
-        namespace wxToolkit
+        namespace Toolkit
         {
             class BaseApplication : public wxApp
             {

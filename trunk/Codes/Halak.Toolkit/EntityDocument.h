@@ -1,13 +1,13 @@
 #pragma once
-#ifndef __HALAK_WXTOOLKIT_ENTITYDOCUMENT_H__
-#define __HALAK_WXTOOLKIT_ENTITYDOCUMENT_H__
+#ifndef __HALAK_TOOLKIT_ENTITYDOCUMENT_H__
+#define __HALAK_TOOLKIT_ENTITYDOCUMENT_H__
 
-#   include <Halak.wxToolkit/FWD.h>
-#   include <Halak.wxToolkit/Document.h>
+#   include <Halak.Toolkit/FWD.h>
+#   include <Halak.Toolkit/Document.h>
 
     namespace Halak
     {
-        namespace wxToolkit
+        namespace Toolkit
         {
             class EntityDocument : public Document
             {

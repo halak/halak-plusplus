@@ -1,13 +1,13 @@
-#include <Halak.wxToolkit/EntityDocument.h>
+#include <Halak.Toolkit/EntityDocument.h>
 #include <Halak/Assert.h>
 #include <Halak/CommandHistory.h>
+#include <Halak/GameStructure.h>
 #include <Halak/RootEntity.h>
-#include <Halak/ServiceTree.h>
 #include <Halak/Timeline.h>
 
 namespace Halak
 {
-    namespace wxToolkit
+    namespace Toolkit
     {
         EntityDocument::EntityDocument(RootEntityPtr entity, ServiceTree* services)
             : entity(entity),

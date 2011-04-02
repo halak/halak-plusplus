@@ -1,15 +1,15 @@
 #pragma once
-#ifndef __HALAK_WXTOOLKIT_ENTITYTREEWINDOW_H__
-#define __HALAK_WXTOOLKIT_ENTITYTREEWINDOW_H__
+#ifndef __HALAK_TOOLKIT_ENTITYTREEWINDOW_H__
+#define __HALAK_TOOLKIT_ENTITYTREEWINDOW_H__
 
-#   include <Halak.wxToolkit/FWD.h>
+#   include <Halak.Toolkit/FWD.h>
 #   include <wx/wx.h>
 #   include <wx/treectrl.h>
 #   include <list>
 
     namespace Halak
     {
-        namespace wxToolkit
+        namespace Toolkit
         {
             class EntityTreeWindow : public wxPanel
             {

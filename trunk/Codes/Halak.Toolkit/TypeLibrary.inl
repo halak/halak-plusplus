@@ -42,7 +42,7 @@ namespace Halak
             if (it != typeTable.end())
                 return (*it).second;
             else
-                return GetType<Type>();
+                return GetTypeInfo<Type>();
         }
 
         const TypeLibrary::TypeCollection& TypeLibrary::GetItems() const

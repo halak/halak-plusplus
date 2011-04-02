@@ -1,10 +1,10 @@
-#include <Halak.wxToolkit/RenderPanel.h>
+#include <Halak.Toolkit/RenderPanel.h>
 #include <Halak/DisplaySwapChain.h>
 #include <Halak/Rectangle.h>
 
 namespace Halak
 {
-    namespace wxToolkit
+    namespace Toolkit
     {
         BEGIN_EVENT_TABLE(RenderPanel, wxPanel)
             EVT_ERASE_BACKGROUND(RenderPanel::OnDraw)

@@ -1,8 +1,9 @@
-#include <Halak.wxToolkit/Tool.h>
+#include <Halak.Toolkit/PCH.h>
+#include <Halak.Toolkit/Tool.h>
 
 namespace Halak
 {
-    namespace wxToolkit
+    namespace Toolkit
     {
         Tool::Tool()
             : alive(true),

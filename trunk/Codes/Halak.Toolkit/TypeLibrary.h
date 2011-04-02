@@ -3,6 +3,7 @@
 #define __HALAK_TOOLKIT_TYPELIBRARY_H__
 
 #   include <Halak.Toolkit/FWD.h>
+#   include <map>
 #   include <vector>
 
     namespace Halak
@@ -13,6 +14,7 @@
             {
                 public:
                     typedef std::vector<const TypeInfo*> TypeCollection;
+                    typedef std::map<const char*, const TypeInfo*> TypeDictionary;
 
                 public:
                     const TypeInfo* Find(uint32 id) const;
@@ -32,6 +34,7 @@
 
                 private:
                     TypeCollection types;
+                    TypeDictionary typeTable;
             };
         }
     }

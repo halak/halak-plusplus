@@ -1,20 +1,23 @@
 #pragma once
-#ifndef __HALAK_JSONSTREAMREADER_H__
-#define __HALAK_JSONSTREAMREADER_H__
+#ifndef __HALAK_TOOLKIT_JSONSTREAMREADER_H__
+#define __HALAK_TOOLKIT_JSONSTREAMREADER_H__
 
-#   include <Halak/FWD.h>
+#   include <Halak.Toolkit/FWD.h>
 #   include <Halak/StreamReader.h>
 
     namespace Halak
     {
-        class JSONStreamReader : public StreamReader
+        namespace Toolkit
         {
-            public:
-                JSONStreamReader(StreamPtr source);
-                virtual ~JSONStreamReader();
+            class JSONStreamReader : public StreamReader
+            {
+                public:
+                    JSONStreamReader(StreamPtr source);
+                    virtual ~JSONStreamReader();
 
-            private:
-        };
+                private:
+            };
+        }
     }
 
 #endif

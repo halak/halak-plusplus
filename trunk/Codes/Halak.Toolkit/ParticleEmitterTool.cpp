@@ -1,13 +1,14 @@
-#include <Halak.wxToolkit/ParticleEmitterTool.h>
+#include <Halak.Toolkit/PCH.h>
+#include <Halak.Toolkit/ParticleEmitterTool.h>
 #include <Halak/Assert.h>
 #include <Halak/ParticleEmitter.h>
 
 namespace Halak
 {
-    namespace wxToolkit
+    namespace Toolkit
     {
-        ParticleEmitterTool::ParticleEmitterTool(ServiceTree* services)
-            : services(services)
+        ParticleEmitterTool::ParticleEmitterTool(GameStructure* structure)
+            : structure(structure)
         {
         }
         

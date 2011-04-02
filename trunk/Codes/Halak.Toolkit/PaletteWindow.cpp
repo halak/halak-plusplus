@@ -1,16 +1,15 @@
-#include <Halak.wxToolkit/PaletteWindow.h>
+#include <Halak.Toolkit/PaletteWindow.h>
 
 namespace Halak
 {
-    namespace wxToolkit
+    namespace Toolkit
     {
         BEGIN_EVENT_TABLE(PaletteWindow, wxPanel)
             EVT_CLOSE(PaletteWindow::OnCloseWindow)
         END_EVENT_TABLE()
 
-        PaletteWindow::PaletteWindow(wxWindow* parent, ServiceTree* services)
-            : wxPanel(parent, wxID_ANY),
-              services(services)
+        PaletteWindow::PaletteWindow(wxWindow* parent)
+            : wxPanel(parent, wxID_ANY)
         {
         }
 

@@ -1,13 +1,13 @@
-#include <Halak.wxToolkit/MainWindow.h>
-#include <Halak.wxToolkit/EntityRenderPanel.h>
-#include <Halak.wxToolkit/HistoryWindow.h>
-#include <Halak.wxToolkit/PaletteWindow.h>
-#include <Halak.wxToolkit/PropertiesWindow.h>
+#include <Halak.Toolkit/MainWindow.h>
+#include <Halak.Toolkit/EntityRenderPanel.h>
+#include <Halak.Toolkit/HistoryWindow.h>
+#include <Halak.Toolkit/PaletteWindow.h>
+#include <Halak.Toolkit/PropertiesWindow.h>
 #include <Halak/CommandHistory.h>
 
 namespace Halak
 {
-    namespace wxToolkit
+    namespace Toolkit
     {
         enum IDs
         {
@@ -23,9 +23,9 @@ namespace Halak
             EVT_MENU(MenuEditRedoID, MainWindow::OnMenuEditRedo)
         END_EVENT_TABLE()
 
-        MainWindow::MainWindow(const wxString& title, wxSize size, ServiceTree* services)
+        MainWindow::MainWindow(const wxString& title, wxSize size, GameStructure* structure)
             : wxFrame(nullptr, wxID_ANY, title, wxDefaultPosition, size, wxDEFAULT_FRAME_STYLE | wxSUNKEN_BORDER),
-              services(services),
+              structure(structure),
               notebook(notebook),
               layoutSuspended(false),
               history(nullptr)

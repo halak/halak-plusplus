@@ -1,19 +1,19 @@
 #pragma once
-#ifndef __HALAK_WXTOOLKIT_PARTICLEEMITTERTOOL_H__
-#define __HALAK_WXTOOLKIT_PARTICLEEMITTERTOOL_H__
+#ifndef __HALAK_TOOLKIT_PARTICLEEMITTERTOOL_H__
+#define __HALAK_TOOLKIT_PARTICLEEMITTERTOOL_H__
 
-#   include <Halak.wxToolkit/FWD.h>
-#   include <Halak.wxToolkit/Tool.h>
+#   include <Halak.Toolkit/FWD.h>
+#   include <Halak.Toolkit/Tool.h>
 #   include <Halak/IDrawable.h>
 
     namespace Halak
     {
-        namespace wxToolkit
+        namespace Toolkit
         {
             class ParticleEmitterTool : public Tool, public IDrawable
             {
                 public:
-                    ParticleEmitterTool(ServiceTree* services);
+                    ParticleEmitterTool(GameStructure* structure);
                     virtual ~ParticleEmitterTool();
 
                 protected:
@@ -21,7 +21,7 @@
                     void SetTarget(ParticleEmitterWeakPtr value);
 
                 private:
-                    ServiceTree* services;
+                    GameStructure* structure;
                     ParticleEmitterWeakPtr target;
             };
         }

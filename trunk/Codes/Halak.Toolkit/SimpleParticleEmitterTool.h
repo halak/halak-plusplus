@@ -1,18 +1,18 @@
 #pragma once
-#ifndef __HALAK_WXTOOLKIT_SIMPLEPARTICLEEMITTERTOOL_H__
-#define __HALAK_WXTOOLKIT_SIMPLEPARTICLEEMITTERTOOL_H__
+#ifndef __HALAK_TOOLKIT_SIMPLEPARTICLEEMITTERTOOL_H__
+#define __HALAK_TOOLKIT_SIMPLEPARTICLEEMITTERTOOL_H__
 
-#   include <Halak.wxToolkit/FWD.h>
-#   include <Halak.wxToolkit/ParticleEmitterTool.h>
+#   include <Halak.Toolkit/FWD.h>
+#   include <Halak.Toolkit/ParticleEmitterTool.h>
 
     namespace Halak
     {
-        namespace wxToolkit
+        namespace Toolkit
         {
             class SimpleParticleEmitterTool : public ParticleEmitterTool
             {
                 public:
-                    SimpleParticleEmitterTool(ServiceTree* services);
+                    SimpleParticleEmitterTool(GameStructure* structure);
                     virtual ~SimpleParticleEmitterTool();
 
                     virtual void Draw(DrawingContext& context);
