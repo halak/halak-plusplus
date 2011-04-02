@@ -1,56 +1,47 @@
-#include <Halak/PCH.h>
-#include <Halak/PropertyInfo.h>
+#include <Halak.Toolkit/PCH.h>
+#include <Halak.Toolkit/PropertyInfo.h>
+#include <Halak.Toolkit/Attribute.h>
 #include <Halak/Assert.h>
-#include <Halak/Attribute.h>
 #include <Halak/Delete.h>
 #include <algorithm>
 
 namespace Halak
 {
-    PropertyInfo::~PropertyInfo()
+    namespace Toolkit
     {
-        DeleteAll(attributes);
-
-        delete getter;
-        delete setter;
-    }
-
-    void PropertyInfo::Add(const Attribute* item)
-    {
-        HKAssertDebug(std::find(attributes.begin(), attributes.end(), item) == attributes.end());
-
-        attributes.push_back(item);
-    }
-
-    bool PropertyInfo::Remove(const Attribute* item)
-    {
-        AttributeCollection::iterator it = std::find(attributes.begin(), attributes.end(), item);
-        if (it != attributes.end())
+        PropertyInfo::~PropertyInfo()
         {
-            attributes.erase(it);
-            return true;
+            DeleteAll(attributes);
+
+            delete getter;
+            delete setter;
         }
-        else
-            return false;
-    }
 
-    Any PropertyInfo::GetValue(const AnyPtr& instance) const
-    {
-        if (const void* castedInstance = instance.DynamicCastTo(class_))
-            return getter->Call(castedInstance);
-        else
-            return Any::Missing;
-    }
+        void PropertyInfo::Add(const Attribute* item)
+        {
+            HKAssertDebug(std::find(attributes.begin(), attributes.end(), item) == attributes.end());
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////
+            attributes.push_back(item);
+        }
 
-    PropertyInfo::Getter::~Getter()
-    {
-    }
+        bool PropertyInfo::Remove(const Attribute* item)
+        {
+            AttributeCollection::iterator it = std::find(attributes.begin(), attributes.end(), item);
+            if (it != attributes.end())
+            {
+                attributes.erase(it);
+                return true;
+            }
+            else
+                return false;
+        }
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    PropertyInfo::Setter::~Setter()
-    {
+        Any PropertyInfo::GetValue(const AnyPtr& instance) const
+        {
+            if (const void* castedInstance = instance.DynamicCastTo(class_))
+                return getter->Call(castedInstance);
+            else
+                return Any::Missing;
+        }
     }
 }

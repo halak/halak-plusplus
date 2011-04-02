@@ -1,7 +1,7 @@
 #include <Halak.Toolkit/PCH.h>
 #include <Halak.Toolkit/TypeInfo.h>
+#include <Halak.Toolkit/Attribute.h>
 #include <Halak/Assert.h>
-#include <Halak/Attribute.h>
 #include <Halak/Delete.h>
 #include <algorithm>
 
