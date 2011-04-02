@@ -18,7 +18,7 @@ namespace Halak
 
         const TypeInfo* StringFormatterAttribute::GetFormatterType() const
         {
-            return TypeLibrary::GetInstance().GetType(formatterTypeName);
+            return TypeLibrary::GetInstance().GetTypeInfo(formatterTypeName);
         }
     }
 }

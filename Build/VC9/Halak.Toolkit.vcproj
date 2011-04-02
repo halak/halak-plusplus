@@ -247,51 +247,51 @@
 			Name="(Classes)"
 			>
 			<File
-				RelativePath="..\..\Codes\Halak.Reflection\BatchCommand.cpp"
+				RelativePath="..\..\Codes\Halak.Reflection\__BatchCommand.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Codes\Halak.Reflection\ChangePropertyCommand.cpp"
+				RelativePath="..\..\Codes\Halak.Reflection\__ChangePropertyCommand.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Codes\Halak.Reflection\CommandHistory.cpp"
+				RelativePath="..\..\Codes\Halak.Reflection\__CommandHistory.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Codes\Halak.Reflection\CommandQueue.cpp"
+				RelativePath="..\..\Codes\Halak.Reflection\__CommandQueue.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Codes\Halak.Reflection\EffectEntity.cpp"
+				RelativePath="..\..\Codes\Halak.Reflection\__EffectEntity.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Codes\Halak.Reflection\Entity.cpp"
+				RelativePath="..\..\Codes\Halak.Reflection\__Entity.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Codes\Halak.Reflection\ParticleEffectEntity.cpp"
+				RelativePath="..\..\Codes\Halak.Reflection\__ParticleEffectEntity.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Codes\Halak.Reflection\ParticleEmitter.cpp"
+				RelativePath="..\..\Codes\Halak.Reflection\__ParticleEmitter.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Codes\Halak.Reflection\RestorableCommand.cpp"
+				RelativePath="..\..\Codes\Halak.Reflection\__RestorableCommand.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Codes\Halak.Reflection\RootEntity.cpp"
+				RelativePath="..\..\Codes\Halak.Reflection\__RootEntity.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Codes\Halak.Reflection\SequentialParticleEmitter.cpp"
+				RelativePath="..\..\Codes\Halak.Reflection\__SequentialParticleEmitter.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Codes\Halak.Reflection\SimpleParticleEmitter.cpp"
+				RelativePath="..\..\Codes\Halak.Reflection\__SimpleParticleEmitter.cpp"
 				>
 			</File>
 		</Filter>

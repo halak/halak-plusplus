@@ -1,12 +1,10 @@
-#pragma once
-#ifndef __HALAK_PROPERTYINFO_INL__
-#define __HALAK_PROPERTYINFO_INL__
+#include <Halak.Toolkit/AnyPtr.h>
+#include <Halak.Toolkit/DynamicCast.h>
+#include <Halak.Toolkit/TypeLibrary.h>
 
-#   include <Halak/AnyPtr.h>
-#   include <Halak/DynamicCast.h>
-#   include <Halak/TypeLibrary.h>
-
-    namespace Halak
+namespace Halak
+{
+    namespace Toolkit
     {
         PropertyInfo::Getter::Getter(const InstanceInfo& instanceInfo)
             : instanceInfo(instanceInfo)
@@ -61,7 +59,7 @@
         template <typename C, typename G> PropertyInfo::PropertyInfo(uint id, const char* name, G (C::*getter)())
             : id(id),
               name(name),
-              class_(static_cast<const ClassInfo*>(TypeLibrary::GetInstance().GetType<C>())),
+              class_(static_cast<const ClassInfo*>(TypeLibrary::GetInstance().GetTypeInfo<C>())),
               getter(new GetterTemplate<C, G>(getter)),
               setter(nullptr)
         {
@@ -70,7 +68,7 @@
         template <typename C, typename G> PropertyInfo::PropertyInfo(uint id, const char* name, G (C::*getter)() const)
             : id(id),
               name(name),
-              class_(static_cast<const ClassInfo*>(TypeLibrary::GetInstance().GetType<C>())),
+              class_(static_cast<const ClassInfo*>(TypeLibrary::GetInstance().GetTypeInfo<C>())),
               getter(new GetterTemplate<C, G>(getter)),
               setter(nullptr)
         {
@@ -79,7 +77,7 @@
         template <typename C, typename G, typename S> PropertyInfo::PropertyInfo(uint id, const char* name, G (C::*getter)(), void (C::*setter)(S))
             : id(id),
               name(name),
-              class_(static_cast<const ClassInfo*>(TypeLibrary::GetInstance().GetType<C>())),
+              class_(static_cast<const ClassInfo*>(TypeLibrary::GetInstance().GetTypeInfo<C>())),
               getter(new GetterTemplate<C, G>(getter)),
               setter(new SetterTemplate<C, S>(setter))
         {
@@ -88,7 +86,7 @@
         template <typename C, typename G, typename S> PropertyInfo::PropertyInfo(uint id, const char* name, G (C::*getter)() const, void (C::*setter)(S))
             : id(id),
               name(name),
-              class_(static_cast<const ClassInfo*>(TypeLibrary::GetInstance().GetType<C>())),
+              class_(static_cast<const ClassInfo*>(TypeLibrary::GetInstance().GetTypeInfo<C>())),
               getter(new GetterTemplate<C, G>(getter)),
               setter(new SetterTemplate<C, S>(setter))
         {
@@ -167,5 +165,4 @@
             (instance->*m)(value);
         }
     }
-
-#endif
+}

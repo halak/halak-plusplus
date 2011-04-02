@@ -1,14 +1,17 @@
-#include <Halak/PCH.h>
-#include <Halak/PrimitiveInfo.h>
+#include <Halak.Toolkit/PCH.h>
+#include <Halak.Toolkit/PrimitiveInfo.h>
 
 namespace Halak
 {
-    PrimitiveInfo::PrimitiveInfo(int allocationSize)
-        : TypeInfo(TypeInfo::Primitive, allocationSize)
+    namespace Toolkit
     {
-    }
+        PrimitiveInfo::PrimitiveInfo(int allocationSize)
+            : TypeInfo(TypeInfo::Primitive, allocationSize)
+        {
+        }
 
-    PrimitiveInfo::~PrimitiveInfo()
-    {
+        PrimitiveInfo::~PrimitiveInfo()
+        {
+        }
     }
 }

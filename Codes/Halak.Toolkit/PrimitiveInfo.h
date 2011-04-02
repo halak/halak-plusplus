@@ -1,22 +1,24 @@
 #pragma once
-#ifndef __HALAK_PRIMITIVEINFO_H__
-#define __HALAK_PRIMITIVEINFO_H__
+#ifndef __HALAK_TOOLKIT_PRIMITIVEINFO_H__
+#define __HALAK_TOOLKIT_PRIMITIVEINFO_H__
 
-#   include <Halak/FWD.h>
-#   include <Halak/TypeInfo.h>
+#   include <Halak.Toolkit/FWD.h>
+#   include <Halak.Toolkit/TypeInfo.h>
 
     namespace Halak
     {
-        class PrimitiveInfo : public TypeInfo
+        namespace Toolkit
         {
-            HKDeclareClassFOURCC('P', 'R', 'I', 'M');
-            private:
-                PrimitiveInfo(int allocationSize);
-                virtual ~PrimitiveInfo();
+            class PrimitiveInfo : public TypeInfo
+            {
+                private:
+                    PrimitiveInfo(int allocationSize);
+                    virtual ~PrimitiveInfo();
 
-            private:
-                friend class TypeLibrary;
-        };
+                private:
+                    friend class TypeLibrary;
+            };
+        }
     }
 
 #endif

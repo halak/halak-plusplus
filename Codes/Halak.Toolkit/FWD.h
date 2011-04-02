@@ -19,7 +19,7 @@
                     class AnyPtr;
                 ////////////////////////////////////////////////////////////////////////////////////////////////////
                 // Reflection
-                    class Attribte;
+                    class Attribute;
                     class ConstructorInfo;
                     class InstanceInfo;
                     class PropertyInfo;
