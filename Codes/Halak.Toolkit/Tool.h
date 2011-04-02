@@ -1,12 +1,12 @@
 #pragma once
-#ifndef __HALAK_WXTOOLKIT_TOOL_H__
-#define __HALAK_WXTOOLKIT_TOOL_H__
+#ifndef __HALAK_TOOLKIT_TOOL_H__
+#define __HALAK_TOOLKIT_TOOL_H__
 
-#   include <Halak.wxToolkit/FWD.h>
+#   include <Halak.Toolkit/FWD.h>
 
     namespace Halak
     {
-        namespace wxToolkit
+        namespace Toolkit
         {
             class Tool
             {

@@ -1,10 +1,10 @@
 #pragma once
-#ifndef __HALAK_WXTOOLKIT_ENTITYTOOLPROVIDER_H__
-#define __HALAK_WXTOOLKIT_ENTITYTOOLPROVIDER_H__
+#ifndef __HALAK_TOOLKIT_ENTITYTOOLPROVIDER_H__
+#define __HALAK_TOOLKIT_ENTITYTOOLPROVIDER_H__
 
     namespace Halak
     {
-        namespace wxToolkit
+        namespace Toolkit
         {
             class EntityToolProvider
             {

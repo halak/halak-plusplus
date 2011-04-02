@@ -1,8 +1,8 @@
-#include <Halak.wxToolkit/Document.h>
+#include <Halak.Toolkit/Document.h>
 
 namespace Halak
 {
-    namespace wxToolkit
+    namespace Toolkit
     {
         Document::Document()
         {

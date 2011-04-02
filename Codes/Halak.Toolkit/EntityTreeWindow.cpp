@@ -1,19 +1,19 @@
-#include <Halak.wxToolkit/EntityTreeWindow.h>
-#include <Halak.wxToolkit/BaseApplication.h>
-#include <Halak.wxToolkit/DocumentFolder.h>
-#include <Halak.wxToolkit/EntityDocument.h>
-#include <Halak.wxToolkit/EntityRenderPanel.h>
-#include <Halak.wxToolkit/MainWindow.h>
+#include <Halak.Toolkit/EntityTreeWindow.h>
+#include <Halak.Toolkit/BaseApplication.h>
+#include <Halak.Toolkit/ClassInfo.h>
+#include <Halak.Toolkit/DocumentFolder.h>
+#include <Halak.Toolkit/EntityDocument.h>
+#include <Halak.Toolkit/EntityRenderPanel.h>
+#include <Halak.Toolkit/MainWindow.h>
+#include <Halak.Toolkit/TypeLibrary.h>
 #include <Halak/Any.h>
-#include <Halak/ClassInfo.h>
 #include <Halak/RootEntity.h>
-#include <Halak/TypeLibrary.h>
 #include <wx/treectrl.h>
 #include <algorithm>
 
 namespace Halak
 {
-    namespace wxToolkit
+    namespace Toolkit
     {
         enum IDs
         {

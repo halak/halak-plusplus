@@ -1,20 +1,23 @@
 #pragma once
-#ifndef __HALAK_JSONSTREAMWRITER_H__
-#define __HALAK_JSONSTREAMWRITER_H__
+#ifndef __HALAK_TOOLKIT_JSONSTREAMWRITER_H__
+#define __HALAK_TOOLKIT_JSONSTREAMWRITER_H__
 
-#   include <Halak/FWD.h>
+#   include <Halak.Toolkit/FWD.h>
 #   include <Halak/StreamWriter.h>
 
     namespace Halak
     {
-        class JSONStreamWriter : public StreamWriter
+        namespace Toolkit
         {
-            public:
-                JSONStreamWriter(StreamPtr destination);
-                virtual ~JSONStreamWriter();
+            class JSONStreamWriter : public StreamWriter
+            {
+                public:
+                    JSONStreamWriter(StreamPtr destination);
+                    virtual ~JSONStreamWriter();
 
-            private:
-        };
+                private:
+            };
+        }
     }
 
 #endif

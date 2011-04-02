@@ -1,8 +1,8 @@
-#include <Halak.wxToolkit/AdaptedWxWindow.h>
+#include <Halak.Toolkit/AdaptedWxWindow.h>
 
 namespace Halak
 {
-    namespace wxToolkit
+    namespace Toolkit
     {
         AdaptedWxWindow::AdaptedWxWindow(wxWindow* window)
             : window(window)

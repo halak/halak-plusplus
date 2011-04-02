@@ -14,6 +14,14 @@ namespace Halak
             referenceCount->IncreaseWeakCount();
     }
 
+    template <typename T> WeakPointer<T>::WeakPointer(T* pointee, ReferenceCount* referenceCount)
+        : pointee(pointee),
+          referenceCount(referenceCount)
+    {
+        if (referenceCount)
+            referenceCount->IncreaseWeakCount();
+    }
+
     template <typename T> WeakPointer<T>::WeakPointer(const WeakPointer<T>& original)
         : pointee(original.pointee),
           referenceCount(original.referenceCount)

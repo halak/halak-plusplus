@@ -1,7 +1,7 @@
-#include <Halak.wxToolkit/BaseApplication.h>
-#include <Halak.wxToolkit/AdaptedWxWindow.h>
-#include <Halak.wxToolkit/DocumentFolder.h>
-#include <Halak.wxToolkit/MainWindow.h>
+#include <Halak.Toolkit/BaseApplication.h>
+#include <Halak.Toolkit/AdaptedWxWindow.h>
+#include <Halak.Toolkit/DocumentFolder.h>
+#include <Halak.Toolkit/MainWindow.h>
 #include <Halak/Clock.h>
 #include <Halak/FreeType.h>
 #include <Halak/GraphicsDevice.h>
@@ -11,7 +11,7 @@
 
 namespace Halak
 {
-    namespace wxToolkit
+    namespace Toolkit
     {
         BEGIN_EVENT_TABLE(BaseApplication, wxApp)
             EVT_IDLE(BaseApplication::OnIdle)

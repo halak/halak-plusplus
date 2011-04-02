@@ -1,20 +1,20 @@
 #pragma once
-#ifndef __HALAK_WXTOOLKIT_DOCUMENTFOLDER_H__
-#define __HALAK_WXTOOLKIT_DOCUMENTFOLDER_H__
+#ifndef __HALAK_TOOLKIT_DOCUMENTFOLDER_H__
+#define __HALAK_TOOLKIT_DOCUMENTFOLDER_H__
 
-#   include <Halak.wxToolkit/FWD.h>
-#   include <Halak/Service.h>
+#   include <Halak.Toolkit/FWD.h>
+#   include <Halak/GameComponent.h>
 #   include <Halak/Signal.h>
 #   include <list>
 
     namespace Halak
     {
-        namespace wxToolkit
+        namespace Toolkit
         {
-            class DocumentFolder : public Service
+            class DocumentFolder : public GameComponent
             {
                 public:
-                    typedef std::list<DocumentPtr> DocumentCollection;
+                    typedef std::list<Document*> DocumentCollection;
 
                 public:
                     DocumentFolder();

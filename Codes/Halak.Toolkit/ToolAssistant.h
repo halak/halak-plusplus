@@ -1,8 +1,8 @@
 #pragma once
-#ifndef __HALAK_WXTOOLKIT_TOOLASSISTANT_H__
-#define __HALAK_WXTOOLKIT_TOOLASSISTANT_H__
+#ifndef __HALAK_TOOLKIT_TOOLASSISTANT_H__
+#define __HALAK_TOOLKIT_TOOLASSISTANT_H__
 
-#   include <Halak.wxToolkit/FWD.h>
+#   include <Halak.Toolkit/FWD.h>
 #   include <Halak/Service.h>
 #   include <Halak/AnyPtr.h>
 #   include <list>
@@ -10,7 +10,7 @@
 
     namespace Halak
     {
-        namespace wxToolkit
+        namespace Toolkit
         {
             class ToolAssistant : public Service
             {

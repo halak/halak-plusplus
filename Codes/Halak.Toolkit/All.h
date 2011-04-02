@@ -1,5 +1,5 @@
-#ifndef __HALAK_WXTOOLKIT_ALL_H__
-#define __HALAK_WXTOOLKIT_ALL_H__
+#ifndef __HALAK_TOOLKIT_ALL_H__
+#define __HALAK_TOOLKIT_ALL_H__
 
 #   include <Halak/All.h>
 
@@ -8,6 +8,15 @@
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         // Any
 #           include <Halak.Toolkit/AnyPtr.h>
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        // IO
+#           include <Halak.Toolkit/Hotloader.h>
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        // JSON
+#           include <Halak.Toolkit/JSONDocument.h>
+#           include <Halak.Toolkit/JSONNodes.h>
+#           include <Halak.Toolkit/JSONStreamReader.h>
+#           include <Halak.Toolkit/JSONStreamWriter.h>
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         // Reflection
 #           include <Halak.Toolkit/Attribute.h>
@@ -30,13 +39,42 @@
         // Command
 #           include <Halak.Toolkit/ChangePropertyCommand.h>
         ////////////////////////////////////////////////////////////////////////////////////////////////////
-        // IO
-#           include <Halak.Toolkit/Hotloader.h>
+        // Document
+#           include <Halak.Toolkit/Document.h>
+#               include <Halak.Toolkit/EntityDocument.h>
+#           include <Halak.Toolkit/DocumentFolder.h>
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         // StringFormatters
+#           include <Halak.Toolkit/Tool.h>
+#               include <Halak.Toolkit/ParticleEmitterTool.h>
+#                   include <Halak.Toolkit/SimpleParticleEmitterTool.h>
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Tools
 #           include <Halak.Toolkit/StringFormatter.h>
 #               include <Halak.Toolkit/CommandStringFormatters.h>
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     // 03. GUI (wxWidgets)
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Properties
+#           include <Halak.Toolkit/BooleanProperty.h>
+#           include <Halak.Toolkit/ColorProperty.h>
+#           include <Halak.Toolkit/IPropertyUpdateable.h>
+#           include <Halak.Toolkit/Matrix4Property.h>
+#           include <Halak.Toolkit/NumberProperty.h>
+#           include <Halak.Toolkit/PointProperty.h>
+#           include <Halak.Toolkit/QuaternionProperty.h>
+#           include <Halak.Toolkit/RectangleProperty.h>
+#           include <Halak.Toolkit/Vector2Property.h>
+#           include <Halak.Toolkit/Vector3Property.h>
+#           include <Halak.Toolkit/Vector4Property.h>
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Windows
+#           include <Halak.Toolkit/EntityTreeWindow.h>
+#           include <Halak.Toolkit/HistoryWindow.h>
+#           include <Halak.Toolkit/MainWindow.h>
+#           include <Halak.Toolkit/PaletteWindow.h>
+#           include <Halak.Toolkit/PropertiesWindow.h>
+#           include <Halak.Toolkit/RenderPanel.h>
+#               include <Halak.Toolkit/EntityRenderPanel.h>
 
 #endif

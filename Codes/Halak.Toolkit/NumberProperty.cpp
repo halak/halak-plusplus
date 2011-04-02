@@ -1,12 +1,12 @@
-#include <Halak.wxToolkit/NumberProperty.h>
-#include <Halak/AnyPtr.h>
+#include <Halak.Toolkit/PCH.h>
+#include <Halak.Toolkit/NumberProperty.h>
+#include <Halak.Toolkit/AnyPtr.h>
+#include <Halak.Toolkit/PropertyInfo.h>
 #include <Halak/CommandHistory.h>
-#include <Halak/PropertyInfo.h>
-using namespace Halak;
 
 namespace Halak
 {
-    namespace wxToolkit
+    namespace Toolkit
     {
         WX_PG_IMPLEMENT_PROPERTY_CLASS(NumberProperty, wxFloatProperty, double, double, TextCtrl)
 

@@ -1,16 +1,16 @@
 #pragma once
-#ifndef __HALAK_WXTOOLKIT_VECTOR3PROPERTY_H__
-#define __HALAK_WXTOOLKIT_VECTOR3PROPERTY_H__
+#ifndef __HALAK_TOOLKIT_VECTOR3PROPERTY_H__
+#define __HALAK_TOOLKIT_VECTOR3PROPERTY_H__
 
-#   include <Halak.wxToolkit/FWD.h>
-#   include <Halak.wxToolkit/IPropertyUpdateable.h>
+#   include <Halak.Toolkit/FWD.h>
+#   include <Halak.Toolkit/IPropertyUpdateable.h>
 #   include <Halak/Vector3.h>
 #   include <wx/propgrid/propgrid.h>
 #   include <wx/propgrid/propdev.h>
 
     namespace Halak
     {
-        namespace wxToolkit
+        namespace Toolkit
         {
             class Vector3Property : public wxPGProperty, public IPropertyUpdateable
             {

@@ -1,13 +1,15 @@
-#include <Halak.wxToolkit/SimpleParticleEmitterTool.h>
+#include <Halak.Toolkit/PCH.h>
+#include <Halak.Toolkit/SimpleParticleEmitterTool.h>
 #include <Halak/DrawingContext.h>
 #include <Halak/SimpleParticleEmitter.h>
+#include <Halak/Texture2D.h>
 
 namespace Halak
 {
-    namespace wxToolkit
+    namespace Toolkit
     {
-        SimpleParticleEmitterTool::SimpleParticleEmitterTool(ServiceTree* services)
-            : ParticleEmitterTool(services)
+        SimpleParticleEmitterTool::SimpleParticleEmitterTool(GameStructure* structure)
+            : ParticleEmitterTool(structure)
         {
         }
 

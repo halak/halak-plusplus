@@ -1,20 +1,20 @@
 #pragma once
-#ifndef __HALAK_WXTOOLKIT_MAINWINDOW_H__
-#define __HALAK_WXTOOLKIT_MAINWINDOW_H__
+#ifndef __HALAK_TOOLKIT_MAINWINDOW_H__
+#define __HALAK_TOOLKIT_MAINWINDOW_H__
 
-#   include <Halak.wxToolkit/FWD.h>
+#   include <Halak.Toolkit/FWD.h>
 #   include <wx/wx.h>
 #   include <wx/aui/aui.h>
 #   include <vector>
 
     namespace Halak
     {
-        namespace wxToolkit
+        namespace Toolkit
         {
             class MainWindow : public wxFrame
             {
                 public:
-                    MainWindow(const wxString& title, wxSize size, ServiceTree* services);
+                    MainWindow(const wxString& title, wxSize size, GameStructure* structure);
                     virtual ~MainWindow();
 
                     void AddDockablePane(wxWindow* window, wxAuiPaneInfo& paneInfo);
@@ -48,7 +48,7 @@
                 private:
                     wxAuiManager   auiManager;
                     wxAuiNotebook* notebook;
-                    ServiceTree*   services;
+                    GameStructure* structure;
                     bool layoutSuspended;
 
                     CommandHistory* history;

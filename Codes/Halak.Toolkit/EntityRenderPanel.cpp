@@ -1,7 +1,7 @@
-#include <Halak.wxToolkit/EntityRenderPanel.h>
-#include <Halak.wxToolkit/AdaptedWxWindow.h>
-#include <Halak.wxToolkit/BaseApplication.h>
-#include <Halak.wxToolkit/EntityDocument.h>
+#include <Halak.Toolkit/EntityRenderPanel.h>
+#include <Halak.Toolkit/AdaptedWxWindow.h>
+#include <Halak.Toolkit/BaseApplication.h>
+#include <Halak.Toolkit/EntityDocument.h>
 #include <Halak/DisplaySwapChain.h>
 #include <Halak/DrawingContext.h>
 #include <Halak/EntityExtension.h>
@@ -16,7 +16,7 @@
 
 namespace Halak
 {
-    namespace wxToolkit
+    namespace Toolkit
     {
         BEGIN_EVENT_TABLE(EntityRenderPanel, RenderPanel)
             EVT_LEFT_DOWN   (OnMouseButtonDown)

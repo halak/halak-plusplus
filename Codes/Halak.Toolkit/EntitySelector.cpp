@@ -1,8 +1,8 @@
-#include <Halak.wxToolkit/EntitySelector.h>
+#include <Halak.Toolkit/EntitySelector.h>
 
 namespace Halak
 {
-    namespace wxToolkit
+    namespace Toolkit
     {
         EntitySelector::EntitySelector()
         {

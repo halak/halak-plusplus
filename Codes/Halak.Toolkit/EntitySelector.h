@@ -1,13 +1,13 @@
 #pragma once
-#ifndef __HALAK_WXTOOLKIT_ENTITYSELECTOR_H__
-#define __HALAK_WXTOOLKIT_ENTITYSELECTOR_H__
+#ifndef __HALAK_TOOLKIT_ENTITYSELECTOR_H__
+#define __HALAK_TOOLKIT_ENTITYSELECTOR_H__
 
-#   include <Halak.wxToolkit/FWD.h>
+#   include <Halak.Toolkit/FWD.h>
 #   include <Halak/Service.h>
 
     namespace Halak
     {
-        namespace wxToolkit
+        namespace Toolkit
         {
             class EntitySelector : public Service
             {

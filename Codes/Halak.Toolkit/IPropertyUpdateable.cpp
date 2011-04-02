@@ -1,13 +1,14 @@
-#include <Halak.wxToolkit/IPropertyUpdateable.h>
+#include <Halak.Toolkit/PCH.h>
+#include <Halak.Toolkit/IPropertyUpdateable.h>
+#include <Halak.Toolkit/ChangePropertyCommand.h>
+#include <Halak.Toolkit/PropertyInfo.h>
 #include <Halak/Any.h>
 #include <Halak/BatchCommand.h>
-#include <Halak/ChangePropertyCommand.h>
 #include <Halak/CommandHistory.h>
-#include <Halak/PropertyInfo.h>
 
 namespace Halak
 {
-    namespace wxToolkit
+    namespace Toolkit
     {
         void IPropertyUpdateable::UpdateTo(CommandHistory* history, const AnyPtrCollection& targets, const PropertyInfo* propertyInfo, const Any& value)
         {

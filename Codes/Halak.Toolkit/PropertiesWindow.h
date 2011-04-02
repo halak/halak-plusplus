@@ -1,16 +1,17 @@
 #pragma once
-#ifndef __HALAK_WXTOOLKIT_PROPERTIESWINDOW_H__
-#define __HALAK_WXTOOLKIT_PROPERTIESWINDOW_H__
+#ifndef __HALAK_TOOLKIT_PROPERTIESWINDOW_H__
+#define __HALAK_TOOLKIT_PROPERTIESWINDOW_H__
 
-#   include <Halak.wxToolkit/FWD.h>
-#   include <Halak/Any.h>
+#   include <Halak.Toolkit/FWD.h>
+#   include <Halak.Toolkit/AnyPtr.h>
 #   include <wx/wx.h>
 #   include <wx/propgrid/propgrid.h>
 #   include <list>
+#   include <vector>
 
     namespace Halak
     {
-        namespace wxToolkit
+        namespace Toolkit
         {
             class PropertiesWindow : public wxPanel
             {
@@ -26,8 +27,8 @@
                     CommandHistory* GetHistory() const;
                     void SetHistory(CommandHistory* value);
 
-                    const Halak::AnyPtr& GetTargetPointee() const;
-                    void SetTarget(const Halak::AnyPtr& value);
+                    const AnyPtr& GetTargetPointee() const;
+                    void SetTarget(const AnyPtr& value);
 
                     const AnyPtrCollection& GetTargets() const;
                     void SetTargets(const AnyPtrCollection& value);
@@ -45,7 +46,7 @@
                     virtual void OnCommandRedone(CommandHistory* sender, const std::list<Command*>& commands);
 
                 private:
-                    void FillPage(const Halak::ClassInfo* classInfo);
+                    void FillPage(const ClassInfo* classInfo);
 
                 private:
                     CommandHistory* history;
@@ -63,6 +64,6 @@
         }
     }
 
-#   include <Halak.wxToolkit/PropertiesWindow.inl>
+#   include <Halak.Toolkit/PropertiesWindow.inl>
 
 #endif

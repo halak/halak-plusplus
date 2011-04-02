@@ -1,14 +1,14 @@
 #pragma once
-#ifndef __HALAK_WXTOOLKIT_ADAPTEDWXWINDOW_H__
-#define __HALAK_WXTOOLKIT_ADAPTEDWXWINDOW_H__
+#ifndef __HALAK_TOOLKIT_ADAPTEDWXWINDOW_H__
+#define __HALAK_TOOLKIT_ADAPTEDWXWINDOW_H__
 
-#   include <Halak.wxToolkit/FWD.h>
+#   include <Halak.Toolkit/FWD.h>
 #   include <Halak/Window.h>
 #   include <wx/wx.h>
 
     namespace Halak
     {
-        namespace wxToolkit
+        namespace Toolkit
         {
             class AdaptedWxWindow : public Halak::Window
             {

@@ -1,13 +1,18 @@
-#include <Halak/JSONStreamReader.h>
+#include <Halak.Toolkit/PCH.h>
+#include <Halak.Toolkit/JSONStreamReader.h>
+#include <Halak/Stream.h>
 
 namespace Halak
 {
-    JSONStreamReader::JSONStreamReader(StreamPtr source)
-        : StreamReader(source)
+    namespace Toolkit
     {
-    }
+        JSONStreamReader::JSONStreamReader(StreamPtr source)
+            : StreamReader(source)
+        {
+        }
 
-    JSONStreamReader::~JSONStreamReader()
-    {
+        JSONStreamReader::~JSONStreamReader()
+        {
+        }
     }
 }

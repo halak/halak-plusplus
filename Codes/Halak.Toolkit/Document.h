@@ -1,14 +1,15 @@
 #pragma once
-#ifndef __HALAK_WXTOOLKIT_DOCUMENT_H__
-#define __HALAK_WXTOOLKIT_DOCUMENT_H__
+#ifndef __HALAK_TOOLKIT_DOCUMENT_H__
+#define __HALAK_TOOLKIT_DOCUMENT_H__
 
-#   include <Halak.wxToolkit/FWD.h>
+#   include <Halak.Toolkit/FWD.h>
+#   include <Halak/GameComponent.h>
 
     namespace Halak
     {
-        namespace wxToolkit
+        namespace Toolkit
         {
-            class Document : public SharedObject
+            class Document
             {
                 public:
                     Document();

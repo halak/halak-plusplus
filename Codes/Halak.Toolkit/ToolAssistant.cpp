@@ -1,8 +1,8 @@
-#include <Halak.wxToolkit/ToolAssistant.h>
+#include <Halak.Toolkit/ToolAssistant.h>
 
 namespace Halak
 {
-    namespace wxToolkit
+    namespace Toolkit
     {
         ToolAssistant::ToolAssistant(IGlobalSignals* signals)
         {

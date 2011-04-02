@@ -17,6 +17,7 @@
 
             public:
                 inline WeakPointer();
+                inline WeakPointer(T* pointee, ReferenceCount* referenceCount);
                 inline WeakPointer(const SharedPointer<T>& pointer);
                 inline WeakPointer(const WeakPointer<T>& original);
                 inline ~WeakPointer();
@@ -41,6 +42,11 @@
 
                 inline operator T* () const;
                 inline operator SharedPointer<T> () const;
+
+                template <typename U> operator WeakPointer<U>() const
+                {
+                    return WeakPointer<U>(static_cast<U*>(pointee), referenceCount);
+                }
 
             private:
                 T* pointee;

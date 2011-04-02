@@ -1,11 +1,11 @@
-#include <Halak.wxToolkit/HistoryWindow.h>
+#include <Halak.Toolkit/HistoryWindow.h>
+#include <Halak.Toolkit/TypeLibrary.h>
 #include <Halak/BatchCommand.h>
 #include <Halak/CommandHistory.h>
-#include <Halak/TypeLibrary.h>
 
 namespace Halak
 {
-    namespace wxToolkit
+    namespace Toolkit
     {
         enum IDs
         {

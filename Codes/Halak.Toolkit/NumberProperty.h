@@ -1,14 +1,15 @@
-#ifndef __HALAK_NUMBERPROPERTY_H__
-#define __HALAK_NUMBERPROPERTY_H__
+#pragma once
+#ifndef __HALAK_TOOLKIT_NUMBERPROPERTY_H__
+#define __HALAK_TOOLKIT_NUMBERPROPERTY_H__
 
-#   include <Halak.wxToolkit/FWD.h>
-#   include <Halak.wxToolkit/IPropertyUpdateable.h>
+#   include <Halak.Toolkit/FWD.h>
+#   include <Halak.Toolkit/IPropertyUpdateable.h>
 #   include <wx/propgrid/propgrid.h>
 #   include <wx/propgrid/propdev.h>
 
     namespace Halak
     {
-        namespace wxToolkit
+        namespace Toolkit
         {
             class NumberProperty : public wxFloatProperty, public IPropertyUpdateable
             {
