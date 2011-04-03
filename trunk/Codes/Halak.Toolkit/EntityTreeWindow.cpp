@@ -272,7 +272,7 @@ namespace Halak
             const Any& itemData = static_cast<EntityTreeItemData*>(tree->GetItemData(id))->GetValue();
             EntityPtr entity = itemData.CastTo<EntityPtr>();
 
-            const ClassInfo* classInfo = static_cast<const ClassInfo*>(TypeLibrary::GetInstance().GetTypeInfo(entity.GetPointee()));
+            const ClassInfo* classInfo = static_cast<const ClassInfo*>(TypeLibrary::GetInstance().Find(entity.GetPointee()));
             tree->SetItemText(id, classInfo->GetName());
         }
 

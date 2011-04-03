@@ -33,22 +33,17 @@ namespace Halak
             return nullptr;
         }
 
-        const TypeInfo* TypeLibrary::Find(const char* name) const
+        const TypeInfo* TypeLibrary::Find(const String& name) const
         {
             HKAssertDebug(name != nullptr);
 
             for (TypeCollection::const_iterator it = types.begin(); it != types.end(); it++)
             {
-                if (CompareString((*it)->GetName(), name) == 0)
+                if (name == (*it)->GetName())
                     return *it;
             }
 
             return nullptr;
-        }
-
-        const TypeInfo* TypeLibrary::Find(const String& name) const
-        {
-            return Find(name.CStr());
         }
     }
 }

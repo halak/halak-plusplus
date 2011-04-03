@@ -13,7 +13,7 @@
             class EntityRenderPanel : public RenderPanel
             {
                 public:
-                    EntityRenderPanel(wxWindow* parent, EntityDocumentPtr document);
+                    EntityRenderPanel(wxWindow* parent, EntityDocument* document);
 
                     Color GetClearColor() const;
                     void SetClearColor(Color value);
@@ -33,7 +33,7 @@
 
                 private:
                     Color clearColor;
-                    RootEntityPtr target;
+                    RootEntity* target;
                     SpriteRenderer* spriteRenderer;
 
                 private:

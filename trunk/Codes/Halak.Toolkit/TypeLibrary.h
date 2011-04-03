@@ -18,10 +18,9 @@
 
                 public:
                     const TypeInfo* Find(uint32 id) const;
-                    const TypeInfo* Find(const char* name) const;
                     const TypeInfo* Find(const String& name) const;
-                    template <typename T> const TypeInfo* GetTypeInfo();
-                    template <typename T> const TypeInfo* GetTypeInfo(T* pointer);
+                    template <typename T> const TypeInfo* Find();
+                    template <typename T> const TypeInfo* Find(T* pointer);
 
                     inline const TypeCollection& GetItems() const;
 

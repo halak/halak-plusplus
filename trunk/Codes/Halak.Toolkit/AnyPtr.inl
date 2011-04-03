@@ -89,7 +89,7 @@ namespace Halak
         ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         template <typename T> AnyPtr::RawPointerStorage<T>::RawPointerStorage(T* value)
-            : Storage(TypeLibrary::GetInstance().GetTypeInfo<T>()),
+            : Storage(TypeLibrary::GetInstance().Find<T>()),
               Value(value)
         {
         }
@@ -118,7 +118,7 @@ namespace Halak
         ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         template <typename T> AnyPtr::SharedPointerStorage<T>::SharedPointerStorage(SharedPointer<T> value)
-            : Storage(TypeLibrary::GetInstance().GetTypeInfo<T>()),
+            : Storage(TypeLibrary::GetInstance().Find<T>()),
               Value(value)
         {
         }
@@ -147,7 +147,7 @@ namespace Halak
         ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         template <typename T> AnyPtr::WeakPointerStorage<T>::WeakPointerStorage(WeakPointer<T> value)
-            : Storage(TypeLibrary::GetInstance().GetTypeInfo<T>()),
+            : Storage(TypeLibrary::GetInstance().Find<T>()),
               Value(value)
         {
         }

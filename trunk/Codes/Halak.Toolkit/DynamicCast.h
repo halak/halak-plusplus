@@ -15,10 +15,10 @@
             {
                 HKAssertDebug(toClass && toClass->IsClass());
 
-                const ClassInfo* fromClass = static_cast<const ClassInfo*>(TypeLibrary::GetInstance().GetTypeInfo<T>());
+                const ClassInfo* fromClass = static_cast<const ClassInfo*>(TypeLibrary::GetInstance().Find<T>());
                 HKAssertDebug(fromClass && fromClass->IsClass());
 
-                const ClassInfo* actualClass = static_cast<const ClassInfo*>(TypeLibrary::GetInstance().GetTypeInfo(from));
+                const ClassInfo* actualClass = static_cast<const ClassInfo*>(TypeLibrary::GetInstance().Find(from));
                 HKAssertDebug(actualClass && actualClass->IsClass());
 
                 const int fromOffset = actualClass->GetOffset(fromClass);

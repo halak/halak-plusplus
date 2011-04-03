@@ -142,7 +142,7 @@ namespace Halak
         void PropertiesWindow::SetTargets(const AnyPtrCollection& value)
         {
             targets = value;
-            //FillPage(TypeLibrary::GetInstance().GetTypeInfo<T::element_type>());
+            //FillPage(TypeLibrary::GetInstance().Find<T::element_type>());
         }
     
         void PropertiesWindow::OnPropertyGridSelected(wxPropertyGridEvent& event)

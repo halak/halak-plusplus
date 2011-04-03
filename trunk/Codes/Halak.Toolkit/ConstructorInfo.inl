@@ -102,7 +102,7 @@ namespace Halak
         {
             Fields f;
             f.constructor = new ConstructorTemplate0<C>();
-            f.class_ = static_cast<const ClassInfo*>(TypeLibrary::GetInstance().GetTypeInfo<C>());
+            f.class_ = static_cast<const ClassInfo*>(TypeLibrary::GetInstance().Find<C>());
             return f;
         }
 
@@ -111,7 +111,7 @@ namespace Halak
         {
             Fields f;
             f.constructor = new ConstructorTemplate1<C, T1>();
-            f.class_ = static_cast<const ClassInfo*>(TypeLibrary::GetInstance().GetTypeInfo<C>());
+            f.class_ = static_cast<const ClassInfo*>(TypeLibrary::GetInstance().Find<C>());
             f.parameters.push_back(InstanceInfo::From<T1>());
             return f;
         }
@@ -121,7 +121,7 @@ namespace Halak
         {
             Fields f;
             f.constructor = new ConstructorTemplate2<C, T1, T2>();
-            f.class_ = static_cast<const ClassInfo*>(TypeLibrary::GetInstance().GetTypeInfo<C>());
+            f.class_ = static_cast<const ClassInfo*>(TypeLibrary::GetInstance().Find<C>());
             f.parameters.push_back(InstanceInfo::From<T1>());
             f.parameters.push_back(InstanceInfo::From<T2>());
             return f;
@@ -132,7 +132,7 @@ namespace Halak
         {
             Fields f;
             f.constructor = new ConstructorTemplate3<C, T1, T2, T3>();
-            f.class_ = static_cast<const ClassInfo*>(TypeLibrary::GetInstance().GetTypeInfo<C>());
+            f.class_ = static_cast<const ClassInfo*>(TypeLibrary::GetInstance().Find<C>());
             f.parameters.push_back(InstanceInfo::From<T1>());
             f.parameters.push_back(InstanceInfo::From<T2>());
             f.parameters.push_back(InstanceInfo::From<T3>());
@@ -144,7 +144,7 @@ namespace Halak
         {
             Fields f;
             f.constructor = new ConstructorTemplate4<C, T1, T2, T3, T4>();
-            f.class_ = static_cast<const ClassInfo*>(TypeLibrary::GetInstance().GetTypeInfo<C>());
+            f.class_ = static_cast<const ClassInfo*>(TypeLibrary::GetInstance().Find<C>());
             f.parameters.push_back(InstanceInfo::From<T1>());
             f.parameters.push_back(InstanceInfo::From<T2>());
             f.parameters.push_back(InstanceInfo::From<T3>());
@@ -157,7 +157,7 @@ namespace Halak
         {
             Fields f;
             f.constructor = new ConstructorTemplate5<C, T1, T2, T3, T4, T5>();
-            f.class_ = static_cast<const ClassInfo*>(TypeLibrary::GetInstance().GetTypeInfo<C>());
+            f.class_ = static_cast<const ClassInfo*>(TypeLibrary::GetInstance().Find<C>());
             f.parameters.push_back(InstanceInfo::From<T1>());
             f.parameters.push_back(InstanceInfo::From<T2>());
             f.parameters.push_back(InstanceInfo::From<T3>());
@@ -171,7 +171,7 @@ namespace Halak
         {
             Fields f;
             f.constructor = new ConstructorTemplate6<C, T1, T2, T3, T4, T5, T6>();
-            f.class_ = static_cast<const ClassInfo*>(TypeLibrary::GetInstance().GetTypeInfo<C>());
+            f.class_ = static_cast<const ClassInfo*>(TypeLibrary::GetInstance().Find<C>());
             f.parameters.push_back(InstanceInfo::From<T1>());
             f.parameters.push_back(InstanceInfo::From<T2>());
             f.parameters.push_back(InstanceInfo::From<T3>());
@@ -186,7 +186,7 @@ namespace Halak
         {
             Fields f;
             f.constructor = new ConstructorTemplate7<C, T1, T2, T3, T4, T5, T6, T7>();
-            f.class_ = static_cast<const ClassInfo*>(TypeLibrary::GetInstance().GetTypeInfo<C>());
+            f.class_ = static_cast<const ClassInfo*>(TypeLibrary::GetInstance().Find<C>());
             f.parameters.push_back(InstanceInfo::From<T1>());
             f.parameters.push_back(InstanceInfo::From<T2>());
             f.parameters.push_back(InstanceInfo::From<T3>());
@@ -202,7 +202,7 @@ namespace Halak
         {
             Fields f;
             f.constructor = new ConstructorTemplate8<C, T1, T2, T3, T4, T5, T6, T7, T8>();
-            f.class_ = static_cast<const ClassInfo*>(TypeLibrary::GetInstance().GetTypeInfo<C>());
+            f.class_ = static_cast<const ClassInfo*>(TypeLibrary::GetInstance().Find<C>());
             f.parameters.push_back(InstanceInfo::From<T1>());
             f.parameters.push_back(InstanceInfo::From<T2>());
             f.parameters.push_back(InstanceInfo::From<T3>());
@@ -219,7 +219,7 @@ namespace Halak
         {
             Fields f;
             f.constructor = new ConstructorTemplate9<C, T1, T2, T3, T4, T5, T6, T7, T8, T9>();
-            f.class_ = static_cast<const ClassInfo*>(TypeLibrary::GetInstance().GetTypeInfo<C>());
+            f.class_ = static_cast<const ClassInfo*>(TypeLibrary::GetInstance().Find<C>());
             f.parameters.push_back(InstanceInfo::From<T1>());
             f.parameters.push_back(InstanceInfo::From<T2>());
             f.parameters.push_back(InstanceInfo::From<T3>());
@@ -237,7 +237,7 @@ namespace Halak
         {
             Fields f;
             f.constructor = new ConstructorTemplate10<C, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>();
-            f.class_ = static_cast<const ClassInfo*>(TypeLibrary::GetInstance().GetTypeInfo<C>());
+            f.class_ = static_cast<const ClassInfo*>(TypeLibrary::GetInstance().Find<C>());
             f.parameters.push_back(InstanceInfo::From<T1>());
             f.parameters.push_back(InstanceInfo::From<T2>());
             f.parameters.push_back(InstanceInfo::From<T3>());
@@ -256,7 +256,7 @@ namespace Halak
         {
             Fields f;
             f.constructor = new ConstructorTemplate11<C, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11>();
-            f.class_ = static_cast<const ClassInfo*>(TypeLibrary::GetInstance().GetTypeInfo<C>());
+            f.class_ = static_cast<const ClassInfo*>(TypeLibrary::GetInstance().Find<C>());
             f.parameters.push_back(InstanceInfo::From<T1>());
             f.parameters.push_back(InstanceInfo::From<T2>());
             f.parameters.push_back(InstanceInfo::From<T3>());
@@ -276,7 +276,7 @@ namespace Halak
         {
             Fields f;
             f.constructor = new ConstructorTemplate12<C, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12>();
-            f.class_ = static_cast<const ClassInfo*>(TypeLibrary::GetInstance().GetTypeInfo<C>());
+            f.class_ = static_cast<const ClassInfo*>(TypeLibrary::GetInstance().Find<C>());
             f.parameters.push_back(InstanceInfo::From<T1>());
             f.parameters.push_back(InstanceInfo::From<T2>());
             f.parameters.push_back(InstanceInfo::From<T3>());
