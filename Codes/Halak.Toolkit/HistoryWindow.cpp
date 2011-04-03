@@ -200,7 +200,7 @@ namespace Halak
         {
             Command* command = static_cast<HistoryItemData*>(tree->GetItemData(id))->GetCommand();
 
-            const ClassInfo* classInfo = static_cast<const ClassInfo*>(TypeLibrary::GetInstance().GetTypeInfo(command));
+            const ClassInfo* classInfo = static_cast<const ClassInfo*>(TypeLibrary::GetInstance().Find(command));
 
             if (isCancelled)
             {

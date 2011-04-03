@@ -28,7 +28,7 @@ namespace Halak
             EVT_MOTION      (OnMouseMotion)
         END_EVENT_TABLE()
 
-        EntityRenderPanel::EntityRenderPanel(wxWindow* parent, EntityDocumentPtr document)
+        EntityRenderPanel::EntityRenderPanel(wxWindow* parent, EntityDocument* document)
             : RenderPanel(parent),
               clearColor(Color::CornflowerBlue),
               target(document->GetEntity()),

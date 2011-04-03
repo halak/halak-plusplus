@@ -31,7 +31,7 @@ namespace Halak
             //wxLocale::AddCatalogLookupPathPrefix("{Toolkit}\\Texts");
             //bool c = locale.AddCatalog(locale.GetCanonicalName());
 
-            services = new ServiceTree();
+            structure = new GameStructure();
 
             // --------------------------------------------------
             // Basic Service Layer

@@ -18,7 +18,7 @@ namespace Halak
 
         const TypeInfo* EditorAttribute::GetEditorType() const
         {
-            return TypeLibrary::GetInstance().GetTypeInfo(editorTypeName);
+            return TypeLibrary::GetInstance().Find(editorTypeName);
         }
     }
 }

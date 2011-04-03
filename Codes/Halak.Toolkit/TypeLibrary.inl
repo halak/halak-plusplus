@@ -8,7 +8,7 @@ namespace Halak
 {
     namespace Toolkit
     {
-        template <typename T> const TypeInfo* TypeLibrary::GetTypeInfo()
+        template <typename T> const TypeInfo* TypeLibrary::Find()
         {
             // T의 순수한 형태를 가져온다. (예를들어 int& 혹은 int**를 모두 int로 변환한다)
             typedef MPL::RemoveReference<MPL::RemoveAllPointers<T>::Result>::Result Type;
@@ -31,7 +31,7 @@ namespace Halak
             }
         }
         
-        template <typename T> const TypeInfo* TypeLibrary::GetTypeInfo(T* pointer)
+        template <typename T> const TypeInfo* TypeLibrary::Find(T* pointer)
         {
             // T의 순수한 형태를 가져온다. (예를들어 int& 혹은 int**를 모두 int로 변환한다)
             typedef MPL::RemoveReference<MPL::RemoveAllPointers<T>::Result>::Result Type;
@@ -42,7 +42,7 @@ namespace Halak
             if (it != typeTable.end())
                 return (*it).second;
             else
-                return GetTypeInfo<Type>();
+                return Find<Type>();
         }
 
         const TypeLibrary::TypeCollection& TypeLibrary::GetItems() const

@@ -57,8 +57,8 @@
                     template <typename C, typename V> struct GetterTemplate : Getter
                     {
                         typedef V (C::*MethodType)() const;
-                        typedef typename MPL::RemoveConst<V>::type ConstRemovedType;
-                        typedef typename MPL::RemoveReference<ConstRemovedType>::type StorageType;
+                        typedef typename MPL::RemoveConst<V>::Result ConstRemovedType;
+                        typedef typename MPL::RemoveReference<ConstRemovedType>::Result StorageType;
                         MethodType method;
 
                         GetterTemplate(V (C::*method)());
@@ -81,8 +81,8 @@
                     template <typename C, typename V> struct SetterTemplate : Setter
                     {
                         typedef void (C::*MethodType)(V);
-                        typedef typename MPL::RemoveConst<V>::type ConstRemovedType;
-                        typedef typename MPL::RemoveReference<ConstRemovedType>::type StorageType;
+                        typedef typename MPL::RemoveConst<V>::Result ConstRemovedType;
+                        typedef typename MPL::RemoveReference<ConstRemovedType>::Result StorageType;
                         MethodType method;
 
                         SetterTemplate(void (C::*method)(V));

@@ -16,7 +16,7 @@
                     virtual bool OnInit();
                     virtual int  OnExit();
 
-                    ServiceTree*    GetServices() const;
+                    GameStructure*  GetStructure() const;
                     GraphicsDevice* GetGraphicsDevice() const;
                     FreeType*       GetFreeType() const;
                     SpriteRenderer* GetSpriteRenderer() const;
@@ -37,7 +37,7 @@
                 private:
                     wxLocale locale;
 
-                    ServiceTree*    services;
+                    GameStructure*  structure;
                     GraphicsDevice* graphicsDevice;
                     FreeType*       freeType;
                     SpriteRenderer* spriteRenderer;

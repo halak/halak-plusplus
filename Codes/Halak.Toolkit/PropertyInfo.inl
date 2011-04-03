@@ -59,7 +59,7 @@ namespace Halak
         template <typename C, typename G> PropertyInfo::PropertyInfo(uint id, const char* name, G (C::*getter)())
             : id(id),
               name(name),
-              class_(static_cast<const ClassInfo*>(TypeLibrary::GetInstance().GetTypeInfo<C>())),
+              class_(static_cast<const ClassInfo*>(TypeLibrary::GetInstance().Find<C>())),
               getter(new GetterTemplate<C, G>(getter)),
               setter(nullptr)
         {
@@ -68,7 +68,7 @@ namespace Halak
         template <typename C, typename G> PropertyInfo::PropertyInfo(uint id, const char* name, G (C::*getter)() const)
             : id(id),
               name(name),
-              class_(static_cast<const ClassInfo*>(TypeLibrary::GetInstance().GetTypeInfo<C>())),
+              class_(static_cast<const ClassInfo*>(TypeLibrary::GetInstance().Find<C>())),
               getter(new GetterTemplate<C, G>(getter)),
               setter(nullptr)
         {
@@ -77,7 +77,7 @@ namespace Halak
         template <typename C, typename G, typename S> PropertyInfo::PropertyInfo(uint id, const char* name, G (C::*getter)(), void (C::*setter)(S))
             : id(id),
               name(name),
-              class_(static_cast<const ClassInfo*>(TypeLibrary::GetInstance().GetTypeInfo<C>())),
+              class_(static_cast<const ClassInfo*>(TypeLibrary::GetInstance().Find<C>())),
               getter(new GetterTemplate<C, G>(getter)),
               setter(new SetterTemplate<C, S>(setter))
         {
@@ -86,7 +86,7 @@ namespace Halak
         template <typename C, typename G, typename S> PropertyInfo::PropertyInfo(uint id, const char* name, G (C::*getter)() const, void (C::*setter)(S))
             : id(id),
               name(name),
-              class_(static_cast<const ClassInfo*>(TypeLibrary::GetInstance().GetTypeInfo<C>())),
+              class_(static_cast<const ClassInfo*>(TypeLibrary::GetInstance().Find<C>())),
               getter(new GetterTemplate<C, G>(getter)),
               setter(new SetterTemplate<C, S>(setter))
         {
