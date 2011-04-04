@@ -7,6 +7,6 @@
 	>
 	<Tool
 		Name="VCLinkerTool"
-		AdditionalDependencies="JSON.Release.lib"
+		AdditionalDependencies="Halak.Toolkit.Release.lib JSON.Release.lib wxmsw28_aui.lib wxmsw28_html.lib wxmsw28_core.lib wxmsw28_adv.lib wxbase28.lib wxtiff.lib wxjpeg.lib wxpng.lib wxzlib.lib wxregex.lib wxexpat.lib wxcode_msw28_propgrid.lib winmm.lib comctl32.lib rpcrt4.lib wsock32.lib odbc32.lib"
 	/>
 </VisualStudioPropertySheet>
