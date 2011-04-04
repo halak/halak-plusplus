@@ -42,7 +42,6 @@
         // Document
 #           include <Halak.Toolkit/Document.h>
 #               include <Halak.Toolkit/EntityDocument.h>
-#           include <Halak.Toolkit/DocumentFolder.h>
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         // StringFormatters
 #           include <Halak.Toolkit/Tool.h>
@@ -55,7 +54,11 @@
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     // 03. GUI (wxWidgets)
         ////////////////////////////////////////////////////////////////////////////////////////////////////
-        // Properties
+        // (Integration)
+#           include <Halak.Toolkit/wxWidgetsApplication.h>
+#           include <Halak.Toolkit/wxWidgetsWindow.h>
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        // wxProperties
 #           include <Halak.Toolkit/BooleanProperty.h>
 #           include <Halak.Toolkit/ColorProperty.h>
 #           include <Halak.Toolkit/IPropertyUpdateable.h>
@@ -68,7 +71,7 @@
 #           include <Halak.Toolkit/Vector3Property.h>
 #           include <Halak.Toolkit/Vector4Property.h>
         ////////////////////////////////////////////////////////////////////////////////////////////////////
-        // Windows
+        // wxWindows
 #           include <Halak.Toolkit/EntityTreeWindow.h>
 #           include <Halak.Toolkit/HistoryWindow.h>
 #           include <Halak.Toolkit/MainWindow.h>

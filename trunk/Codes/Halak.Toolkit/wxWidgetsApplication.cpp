@@ -1,29 +1,30 @@
-#include <Halak.Toolkit/BaseApplication.h>
-#include <Halak.Toolkit/AdaptedWxWindow.h>
-#include <Halak.Toolkit/DocumentFolder.h>
+#include <Halak.Toolkit/wxWidgetsApplication.h>
 #include <Halak.Toolkit/MainWindow.h>
+#include <Halak.Toolkit/wxWidgetsWindow.h>
 #include <Halak/Clock.h>
 #include <Halak/FreeType.h>
+#include <Halak/GameStructure.h>
+#include <Halak/GameNode.h>
 #include <Halak/GraphicsDevice.h>
-#include <Halak/ServiceTree.h>
 #include <Halak/SpriteRenderer.h>
+#include <Halak/Timeline.h>
 #include <Halak/Startup.h>
 
 namespace Halak
 {
     namespace Toolkit
     {
-        BEGIN_EVENT_TABLE(BaseApplication, wxApp)
-            EVT_IDLE(BaseApplication::OnIdle)
-            EVT_TIMER(wxID_ANY, BaseApplication::OnTimer)
+        BEGIN_EVENT_TABLE(wxWidgetsApplication, wxApp)
+            EVT_IDLE(wxWidgetsApplication::OnIdle)
+            EVT_TIMER(wxID_ANY, wxWidgetsApplication::OnTimer)
         END_EVENT_TABLE()
 
-        BaseApplication::BaseApplication()
+        wxWidgetsApplication::wxWidgetsApplication()
             : idleTimer(this)
         {
         }
 
-        bool BaseApplication::OnInit()
+        bool wxWidgetsApplication::OnInit()
         {
             Halak::Startup();
 
@@ -36,21 +37,21 @@ namespace Halak
             // --------------------------------------------------
             // Basic Service Layer
 
-            AdaptedWxWindow* adaptedMainWindow = new AdaptedWxWindow(GetMainWindow());
-            services->GetRoot()->AttachChild(adaptedMainWindow);
+            wxWidgetsWindow* adaptedMainWindow = new wxWidgetsWindow(GetMainWindow());
+            structure->GetRoot()->AttachChild(adaptedMainWindow);
 
             graphicsDevice = new GraphicsDevice();
             graphicsDevice->SetWindow(adaptedMainWindow);
-            services->GetRoot()->AttachChild(graphicsDevice);
+            structure->GetRoot()->AttachChild(graphicsDevice);
 
             freeType = new FreeType(graphicsDevice);
-            services->GetRoot()->AttachChild(freeType);
+            structure->GetRoot()->AttachChild(freeType);
 
             spriteRenderer = new SpriteRenderer(graphicsDevice);
-            services->GetRoot()->AttachChild(spriteRenderer);
+            structure->GetRoot()->AttachChild(spriteRenderer);
 
-            documentFolder = new DocumentFolder();
-            services->GetRoot()->AttachChild(documentFolder);
+            mainTimeline = new Timeline();
+            structure->GetRoot()->AttachChild(mainTimeline);
 
             // --------------------------------------------------
             // Service Layer
@@ -64,52 +65,52 @@ namespace Halak
             return true;
         }
 
-        int BaseApplication::OnExit()
+        int wxWidgetsApplication::OnExit()
         {
-            delete services;
+            delete structure;
             return wxApp::OnExit();
         }
 
-        ServiceTree* BaseApplication::GetServices() const
+        GameStructure* wxWidgetsApplication::GetStructure() const
         {
-            return services;
+            return structure;
         }
 
-        GraphicsDevice* BaseApplication::GetGraphicsDevice() const
+        GraphicsDevice* wxWidgetsApplication::GetGraphicsDevice() const
         {
             return graphicsDevice;
         }
 
-        FreeType* BaseApplication::GetFreeType() const
+        FreeType* wxWidgetsApplication::GetFreeType() const
         {
             return freeType;
         }
 
-        SpriteRenderer* BaseApplication::GetSpriteRenderer() const
+        SpriteRenderer* wxWidgetsApplication::GetSpriteRenderer() const
         {
             return spriteRenderer;
         }
 
-        DocumentFolder* BaseApplication::GetDocumentFolder() const
+        Timeline* wxWidgetsApplication::GetMainTimeline() const
         {
-            return documentFolder;
+            return mainTimeline;
         }
 
-        BaseApplication* BaseApplication::GetInstance()
+        wxWidgetsApplication* wxWidgetsApplication::GetInstance()
         {
-            return static_cast<BaseApplication*>(wxApp::GetInstance());
+            return static_cast<wxWidgetsApplication*>(wxApp::GetInstance());
         }
 
-        void BaseApplication::OnIdle(wxIdleEvent& /*event*/)
+        void wxWidgetsApplication::OnIdle(wxIdleEvent& /*event*/)
         {
 
         }
 
-        void BaseApplication::OnTimer(wxTimerEvent& /*event*/)
+        void wxWidgetsApplication::OnTimer(wxTimerEvent& /*event*/)
         {
             const float current = Clock::GetCurrent();
 
-            services->Update(current - lastUpdatedTime, timestamp);
+            mainTimeline->Update(current - lastUpdatedTime, timestamp);
 
             lastUpdatedTime = current;
             timestamp++;

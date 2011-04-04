@@ -1,3 +1,4 @@
+#include <Halak.Toolkit/PCH.h>
 #include <Halak.Toolkit/PropertiesWindow.h>
 #include <Halak.Toolkit/IPropertyUpdateable.h>
 #include <Halak.Toolkit/NumberProperty.h>

@@ -1,6 +1,6 @@
 #pragma once
-#ifndef __HALAK_TOOLKIT_ADAPTEDWXWINDOW_H__
-#define __HALAK_TOOLKIT_ADAPTEDWXWINDOW_H__
+#ifndef __HALAK_TOOLKIT_WXWIDGETSWINDOW_H__
+#define __HALAK_TOOLKIT_WXWIDGETSWINDOW_H__
 
 #   include <Halak.Toolkit/FWD.h>
 #   include <Halak/Window.h>
@@ -10,10 +10,11 @@
     {
         namespace Toolkit
         {
-            class AdaptedWxWindow : public Halak::Window
+            class wxWidgetsWindow : public Halak::Window
             {
                 public:
-                    AdaptedWxWindow(wxWindow* window);
+                    wxWidgetsWindow(wxWindow* window);
+                    virtual ~wxWidgetsWindow();
 
                     virtual void Close();
 
@@ -27,9 +28,6 @@
                     virtual void SetVisible(bool value);
 
                     virtual void* GetHandle() const;
-
-                private:
-                    virtual ~AdaptedWxWindow();
 
                 private:
                     wxWindow* window;

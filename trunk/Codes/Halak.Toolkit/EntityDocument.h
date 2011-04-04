@@ -12,20 +12,18 @@
             class EntityDocument : public Document
             {
                 public:
-                    EntityDocument(RootEntityPtr entity, ServiceTree* services);
+                    EntityDocument(RootEntityPtr entity, GameStructure* structure);
                     virtual ~EntityDocument();
 
                     RootEntityPtr GetEntity() const;
 
-                    ServiceNode* GetLocalServices() const;
                     Timeline* GetTimeline() const;
                     CommandHistory* GetHistory() const;
 
                 private:
                     RootEntityPtr entity;
 
-                    ServiceTree* globalServices;
-                    ServiceNode* localServices;
+                    GameStructure* structure;
                     Timeline* timeline;
                     CommandHistory* history;
             };

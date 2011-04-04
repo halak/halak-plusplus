@@ -270,14 +270,6 @@
 					>
 				</File>
 				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\DocumentFolder.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\DocumentFolder.h"
-					>
-				</File>
-				<File
 					RelativePath="..\..\Codes\Halak.Toolkit\EntityDocument.cpp"
 					>
 				</File>
@@ -336,58 +328,6 @@
 			</File>
 			<File
 				RelativePath="..\..\Codes\Halak.Reflection\__SimpleParticleEmitter.cpp"
-				>
-			</File>
-		</Filter>
-		<Filter
-			Name="(Foundation)"
-			>
-			<File
-				RelativePath="..\..\Codes\Halak.Toolkit\AdaptedWxWindow.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak.Toolkit\AdaptedWxWindow.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak.Toolkit\BaseApplication.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak.Toolkit\BaseApplication.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak.Toolkit\BaseEntityTracker.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak.Toolkit\BaseEntityTracker.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak.Toolkit\EntitySelector.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak.Toolkit\EntitySelector.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak.Toolkit\EntityToolProvider.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak.Toolkit\EntityToolProvider.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak.Toolkit\ToolAssistant.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak.Toolkit\ToolAssistant.h"
 				>
 			</File>
 		</Filter>
@@ -583,7 +523,7 @@
 			Name="03. GUI (wxWidgets)"
 			>
 			<Filter
-				Name="Properties"
+				Name="wxProperties"
 				>
 				<File
 					RelativePath="..\..\Codes\Halak.Toolkit\BooleanProperty.cpp"
@@ -675,7 +615,7 @@
 				</File>
 			</Filter>
 			<Filter
-				Name="Windows"
+				Name="wxWindows"
 				>
 				<File
 					RelativePath="..\..\Codes\Halak.Toolkit\EntityRenderPanel.cpp"
@@ -735,6 +675,26 @@
 				</File>
 				<File
 					RelativePath="..\..\Codes\Halak.Toolkit\RenderPanel.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="(Integration)"
+				>
+				<File
+					RelativePath="..\..\Codes\Halak.Toolkit\wxWidgetsApplication.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak.Toolkit\wxWidgetsApplication.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak.Toolkit\wxWidgetsWindow.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak.Toolkit\wxWidgetsWindow.h"
 					>
 				</File>
 			</Filter>

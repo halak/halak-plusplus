@@ -2,6 +2,7 @@
 #include <Halak/Assert.h>
 #include <Halak/CommandHistory.h>
 #include <Halak/GameStructure.h>
+#include <Halak/GameNode.h>
 #include <Halak/RootEntity.h>
 #include <Halak/Timeline.h>
 
@@ -9,33 +10,27 @@ namespace Halak
 {
     namespace Toolkit
     {
-        EntityDocument::EntityDocument(RootEntityPtr entity, ServiceTree* services)
+        EntityDocument::EntityDocument(RootEntityPtr entity, GameStructure* structure)
             : entity(entity),
-              globalServices(services),
-              localServices(nullptr),
+              structure(structure),
               timeline(new Timeline()),
               history(new CommandHistory())
         {
-            HKAssert(globalServices);
-            localServices = globalServices->GetRoot()->AttachChild(nullptr);
-            localServices->Add(history);
-            localServices->Add(timeline);
-            globalServices->Add(localServices);
+            HKAssert(structure);
+            //localServices = globalServices->GetRoot()->AttachChild(nullptr);
+            //localServices->Add(history);
+            //localServices->Add(timeline);
+            //structure->Add(localServices);
         }
 
         EntityDocument::~EntityDocument()
         {
-            globalServices->GetRoot()->DetachChild(localServices);
+            /*structure->GetRoot()->DetachChild(localServices);*/
         }
 
         RootEntityPtr EntityDocument::GetEntity() const
         {
             return entity;
-        }
-
-        ServiceTree* EntityDocument::GetLocalServices() const
-        {
-            return localServices;
         }
 
         CommandHistory* EntityDocument::GetHistory() const

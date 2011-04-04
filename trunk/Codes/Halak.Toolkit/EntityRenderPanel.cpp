@@ -1,16 +1,17 @@
+#include <Halak.Toolkit/PCH.h>
 #include <Halak.Toolkit/EntityRenderPanel.h>
-#include <Halak.Toolkit/AdaptedWxWindow.h>
-#include <Halak.Toolkit/BaseApplication.h>
 #include <Halak.Toolkit/EntityDocument.h>
+#include <Halak.Toolkit/wxWidgetsApplication.h>
+#include <Halak.Toolkit/wxWidgetsWindow.h>
 #include <Halak/DisplaySwapChain.h>
 #include <Halak/DrawingContext.h>
 #include <Halak/EntityExtension.h>
+#include <Halak/GameStructure.h>
 #include <Halak/GraphicsDevice.h>
 #include <Halak/IDrawable.h>
 #include <Halak/IPickable.h>
 #include <Halak/Ray.h>
 #include <Halak/RootEntity.h>
-#include <Halak/ServiceTree.h>
 #include <Halak/SpriteRenderer.h>
 #include <Halak/Timeline.h>
 
@@ -34,27 +35,27 @@ namespace Halak
               target(document->GetEntity()),
               spriteRenderer(nullptr)
         {
-            AdaptedWxWindow*  adaptedWindow = new AdaptedWxWindow(this);
-            DisplaySwapChain* swapChain = new DisplaySwapChain(BaseApplication::GetInstance()->GetGraphicsDevice(), adaptedWindow, Point(800, 600));
-            document->GetLocalServices()->Add(adaptedWindow);
-            document->GetLocalServices()->Add(swapChain);
-            spriteRenderer = BaseApplication::GetInstance()->GetSpriteRenderer();
+            wxWidgetsWindow* adaptedWindow = new wxWidgetsWindow(this);
+            DisplaySwapChain* swapChain = new DisplaySwapChain(wxWidgetsApplication::GetInstance()->GetGraphicsDevice(), adaptedWindow, Point(800, 600));
+            //document->GetLocalServices()->Add(adaptedWindow);
+            //document->GetLocalServices()->Add(swapChain);
+            spriteRenderer = wxWidgetsApplication::GetInstance()->GetSpriteRenderer();
             SetSwapChain(swapChain);
             document->GetTimeline()->SetSpeed(1.0f);
 
-                //MainWindow* mainWindow = BaseApplication::GetInstance()->GetMainWindow();
+                //MainWindow* mainWindow = wxWidgetsApplication::GetInstance()->GetMainWindow();
                 //EntityRenderPanel* renderPanel = new EntityRenderPanel(mainWindow);
                 //renderPanel->SetTarget(rootEntity);
                 //mainWindow->AddNotebookPage(renderPanel, rootEntity->GetName());
 
                 //EntityDocumentPtr document = GetDocumentFolder()->Find(rootEntity);
                 //AdaptedWxWindow*  panelWindow    = new AdaptedWxWindow(renderPanel);
-                //DisplaySwapChain* panelSwapChain = new DisplaySwapChain(BaseApplication::GetInstance()->GetGraphicsDevice(), panelWindow);
+                //DisplaySwapChain* panelSwapChain = new DisplaySwapChain(wxWidgetsApplication::GetInstance()->GetGraphicsDevice(), panelWindow);
                 //document->GetLocalServices()->Add(panelWindow);
                 //document->GetLocalServices()->Add(panelSwapChain);
 
                 //renderPanel->SetSwapChain(panelSwapChain);
-                //renderPanel->SetSpriteRenderer(BaseApplication::GetInstance()->GetSpriteRenderer());
+                //renderPanel->SetSpriteRenderer(wxWidgetsApplication::GetInstance()->GetSpriteRenderer());
 
                 //document->GetTimeline()->SetSpeed(1.0f);
            //{
@@ -129,7 +130,7 @@ namespace Halak
             const Entity::EntityCollection& children = target->GetChildren();
             for (Entity::EntityCollection::const_iterator it = children.begin(); it != children.end(); it++)
             {
-                if (IDrawablePtr item = dynamic_pointer_cast<IDrawable>(*it))
+                if (IDrawablePtr item = (*it).DynamicCast<IDrawable>())
                     item->Draw(context);
             }
             spriteRenderer->Pop();
@@ -145,7 +146,7 @@ namespace Halak
                 HKAssertDebug(context.GetResults().size() == 1);
 
                 const PickResult& result = context.GetResults().front();
-                EntityPtr pickedEntity = dynamic_pointer_cast<Entity>(result.SharedObject);
+                EntityPtr pickedEntity = result.SharedObject.DynamicCast<Entity>();
                 HKAssertDebug(pickedEntity);
             }
         }
