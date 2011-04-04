@@ -283,51 +283,55 @@
 			Name="(Classes)"
 			>
 			<File
-				RelativePath="..\..\Codes\Halak.Reflection\__BatchCommand.cpp"
+				RelativePath="..\..\Codes\Halak.Reflection\BatchCommand.reg.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Codes\Halak.Reflection\__ChangePropertyCommand.cpp"
+				RelativePath="..\..\Codes\Halak.Reflection\ChangePropertyCommand.reg.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Codes\Halak.Reflection\__CommandHistory.cpp"
+				RelativePath="..\..\Codes\Halak.Reflection\Command.reg.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Codes\Halak.Reflection\__CommandQueue.cpp"
+				RelativePath="..\..\Codes\Halak.Reflection\CommandHistory.reg.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Codes\Halak.Reflection\__EffectEntity.cpp"
+				RelativePath="..\..\Codes\Halak.Reflection\CommandQueue.reg.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Codes\Halak.Reflection\__Entity.cpp"
+				RelativePath="..\..\Codes\Halak.Reflection\EffectEntity.reg.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Codes\Halak.Reflection\__ParticleEffectEntity.cpp"
+				RelativePath="..\..\Codes\Halak.Reflection\Entity.reg.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Codes\Halak.Reflection\__ParticleEmitter.cpp"
+				RelativePath="..\..\Codes\Halak.Reflection\ParticleEffectEntity.reg.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Codes\Halak.Reflection\__RestorableCommand.cpp"
+				RelativePath="..\..\Codes\Halak.Reflection\ParticleEmitter.reg.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Codes\Halak.Reflection\__RootEntity.cpp"
+				RelativePath="..\..\Codes\Halak.Reflection\RestorableCommand.reg.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Codes\Halak.Reflection\__SequentialParticleEmitter.cpp"
+				RelativePath="..\..\Codes\Halak.Reflection\RootEntity.reg.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Codes\Halak.Reflection\__SimpleParticleEmitter.cpp"
+				RelativePath="..\..\Codes\Halak.Reflection\SequentialParticleEmitter.reg.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Reflection\SimpleParticleEmitter.reg.cpp"
 				>
 			</File>
 		</Filter>

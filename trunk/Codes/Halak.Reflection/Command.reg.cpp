@@ -1,7 +1,8 @@
+#include <Halak/PCH.h>
 #include <Halak/Command.h>
-#include <Halak/Attributes.h>
-#include <Halak/FOURCC.h>
-#include <Halak/RegistrationContexts.h>
+#include <Halak.Toolkit/Attributes.h>
+#include <Halak.Toolkit/RegistrationContexts.h>
+using namespace Halak::Toolkit;
 
 namespace Halak
 {

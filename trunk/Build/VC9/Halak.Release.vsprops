@@ -5,7 +5,12 @@
 	Name="Halak.Release"
 	>
 	<Tool
+		Name="VCCLCompilerTool"
+		AdditionalIncludeDirectories="$(DXSDK_DIR)Include"
+	/>
+	<Tool
 		Name="VCLinkerTool"
 		AdditionalDependencies="Halak.Release.lib winmm.lib d3d9.lib d3dx9.lib freetype244.lib lua-5.1.4.Release.lib"
+		AdditionalLibraryDirectories="&quot;$(DXSDK_DIR)Lib\x86&quot;"
 	/>
 </VisualStudioPropertySheet>
