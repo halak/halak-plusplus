@@ -110,7 +110,7 @@
 //        .Inherits<ClassB>()
 //        .Inherits<ClassE>();
 //
-//    const ClassInfo* ci = static_cast<const ClassInfo*>(TypeLibrary::GetInstance().GetTypeInfo<ClassB>());
+//    const ClassInfo* ci = static_cast<const ClassInfo*>(TypeLibrary::GetInstance().Find<ClassB>());
 //
 //    ClassC* i1 = new ClassC();
 //    ClassA* i2 = dynamic_cast<ClassA*>(i1);

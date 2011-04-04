@@ -1,3 +1,4 @@
+#include <Halak.Toolkit/PCH.h>
 #include <Halak.Toolkit/ChangePropertyCommand.h>
 #include <Halak.Toolkit/Attributes.h>
 #include <Halak.Toolkit/RegistrationContexts.h>
@@ -10,8 +11,7 @@ namespace Halak
         {
             Class<ChangePropertyCommand>()
                 .SetID(HKMakeFOURCC('C', 'P', 'C', 'M'), "Halak", "ChangePropertyCommand")
-                .Inherits<RestorableCommand>()
-                .Inherits<ICloneable>();
+                .Inherits<RestorableCommand>();
         }
     }
 }
