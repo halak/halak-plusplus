@@ -1,6 +1,6 @@
 #pragma once
-#ifndef __HALAK_BASEAPPLICATION_H__
-#define __HALAK_BASEAPPLICATION_H__
+#ifndef __HALAK_TOOLKIT_WXWIDGETSAPPLICATION_H__
+#define __HALAK_TOOLKIT_WXWIDGETSAPPLICATION_H__
 
 #   include <Halak.Toolkit/FWD.h>
 #   include <wx/wx.h>
@@ -10,7 +10,7 @@
     {
         namespace Toolkit
         {
-            class BaseApplication : public wxApp
+            class wxWidgetsApplication : public wxApp
             {
                 public:
                     virtual bool OnInit();
@@ -20,15 +20,15 @@
                     GraphicsDevice* GetGraphicsDevice() const;
                     FreeType*       GetFreeType() const;
                     SpriteRenderer* GetSpriteRenderer() const;
-                    DocumentFolder* GetDocumentFolder() const;
+                    Timeline*       GetMainTimeline() const;
 
                     virtual MainWindow* GetMainWindow() = 0;
 
                 public:
-                    static BaseApplication* GetInstance();
+                    static wxWidgetsApplication* GetInstance();
 
                 protected:
-                    BaseApplication();
+                    wxWidgetsApplication();
 
                 protected:
                     virtual void OnIdle(wxIdleEvent& event);
@@ -41,7 +41,7 @@
                     GraphicsDevice* graphicsDevice;
                     FreeType*       freeType;
                     SpriteRenderer* spriteRenderer;
-                    DocumentFolder* documentFolder;
+                    Timeline*       mainTimeline;
 
                     float lastUpdatedTime;
                     uint  timestamp;

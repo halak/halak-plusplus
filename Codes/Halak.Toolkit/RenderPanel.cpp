@@ -1,3 +1,4 @@
+#include <Halak.Toolkit/PCH.h>
 #include <Halak.Toolkit/RenderPanel.h>
 #include <Halak/DisplaySwapChain.h>
 #include <Halak/Rectangle.h>

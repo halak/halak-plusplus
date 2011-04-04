@@ -1,3 +1,4 @@
+#include <Halak.Toolkit/PCH.h>
 #include <Halak.Toolkit/HistoryWindow.h>
 #include <Halak.Toolkit/TypeLibrary.h>
 #include <Halak/BatchCommand.h>

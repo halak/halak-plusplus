@@ -61,7 +61,6 @@
                 // Document
                     class Document;
                         class EntityDocument;
-                    class DocumentFolder;
                 ////////////////////////////////////////////////////////////////////////////////////////////////////
                 // StringFormatters
                     class StringFormatter;
@@ -74,7 +73,11 @@
             ////////////////////////////////////////////////////////////////////////////////////////////////////
             // 03. GUI (wxWidgets)
                 ////////////////////////////////////////////////////////////////////////////////////////////////////
-                // Properties
+                // (Integration)
+                    class wxWidgetsApplication;
+                    class wxWidgetsWindow;
+                ////////////////////////////////////////////////////////////////////////////////////////////////////
+                // wxProperties
                     class BooleanProperty;
                     class ColorProperty;
                     class IPropertyUpdateable;
@@ -87,7 +90,7 @@
                     class Vector3Property;
                     class Vector4Property;
                 ////////////////////////////////////////////////////////////////////////////////////////////////////
-                // Windows
+                // wxWindows
                     class EntityTreeWindow;
                     class HistoryWindow;
                     class MainWindow;

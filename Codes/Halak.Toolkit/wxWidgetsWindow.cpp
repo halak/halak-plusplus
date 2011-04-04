@@ -1,56 +1,57 @@
-#include <Halak.Toolkit/AdaptedWxWindow.h>
+#include <Halak.Toolkit/PCH.h>
+#include <Halak.Toolkit/wxWidgetsWindow.h>
 
 namespace Halak
 {
     namespace Toolkit
     {
-        AdaptedWxWindow::AdaptedWxWindow(wxWindow* window)
+        wxWidgetsWindow::wxWidgetsWindow(wxWindow* window)
             : window(window)
         {
         }
 
-        AdaptedWxWindow::~AdaptedWxWindow()
+        wxWidgetsWindow::~wxWidgetsWindow()
         {
         }
 
-        void AdaptedWxWindow::Close()
+        void wxWidgetsWindow::Close()
         {
             window->Close();
         }
 
-        Point AdaptedWxWindow::GetPosition() const
+        Point wxWidgetsWindow::GetPosition() const
         {
             const wxPoint position = window->GetPosition();
             return Point(position.x, position.y);
         }
 
-        void AdaptedWxWindow::SetPosition(Point value)
+        void wxWidgetsWindow::SetPosition(Point value)
         {
             window->SetPosition(wxPoint(value.X, value.Y));
         }
 
-        Point AdaptedWxWindow::GetSize() const
+        Point wxWidgetsWindow::GetSize() const
         {
             const wxSize size = window->GetClientSize();
             return Point(size.x, size.y);
         }
 
-        void AdaptedWxWindow::SetSize(Point value)
+        void wxWidgetsWindow::SetSize(Point value)
         {
             window->SetClientSize(value.X, value.Y);
         }
 
-        bool AdaptedWxWindow::GetVisible() const
+        bool wxWidgetsWindow::GetVisible() const
         {
             return window->IsShown();
         }
 
-        void AdaptedWxWindow::SetVisible(bool value)
+        void wxWidgetsWindow::SetVisible(bool value)
         {
             window->Show(value);
         }
 
-        void* AdaptedWxWindow::GetHandle() const
+        void* wxWidgetsWindow::GetHandle() const
         {
             return window->GetHandle();
         }
