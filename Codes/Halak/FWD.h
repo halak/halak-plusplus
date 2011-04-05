@@ -203,15 +203,17 @@
                 class PickingContext;
             ////////////////////////////////////////////////////////////////////////////////////////////////////
             // Collision2D
-                class CollisionSpace2D;                
-                class RaycastReport2D;                
-                class Shape2D;
-                    class AxisAlignedBoxShape2D;
-                    class BoxShape2D;
-                    class PointShape2D;
-                    class SegmentShape2D;
-                    class SphereShape2D;
-                    class UserShape2D;
+                class CollisionSpace2D;
+                class IRaycastCallback2D;
+                HKForwardDeclareSmartPointerClass(IUserShape2D);
+                struct RaycastReport2D;
+                HKForwardDeclareSmartPointerClass(Shape2D);
+                    HKForwardDeclareSmartPointerClass(AxisAlignedBoxShape2D);
+                    HKForwardDeclareSmartPointerClass(BoxShape2D);
+                    HKForwardDeclareSmartPointerClass(PointShape2D);
+                    HKForwardDeclareSmartPointerClass(SegmentShape2D);
+                    HKForwardDeclareSmartPointerClass(SphereShape2D);
+                    HKForwardDeclareSmartPointerClass(UserShape2D);
             ////////////////////////////////////////////////////////////////////////////////////////////////////
             // Command
                 class Command;

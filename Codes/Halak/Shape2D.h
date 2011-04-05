@@ -1,57 +1,64 @@
 #pragma once
-#ifndef __TH_COLLISION2D_SHAPE_H__
-#define __TH_COLLISION2D_SHAPE_H__
+#ifndef __HALAK_SHAPE2D_H__
+#define __HALAK_SHAPE2D_H__
 
-#   include <TH/Collision2D/FWD.h>
-#   include <TH/Collision2D/ShapeType.h>
+#   include <Halak/FWD.h>
 #   include <Halak/Vector2.h>
 #   include <Halak/Ray2D.h>
 #   include <list>
 
-    namespace TH
+    namespace Halak
     {
-        namespace Collision2D
+        class Shape2D
         {
-            class Shape
-            {
-                public:
-                    virtual ~Shape();
+            public:
+                enum Type
+                {
+                    PointType,
+                    SegmentType,
+                    SphereType,
+                    AxisAlignedBoxType,
+                    BoxType,
+                    UserType,
+                };
 
-                    inline ShapeType::E GetType() const;
+            public:
+                virtual ~Shape2D();
 
-                    inline Vector2 GetPosition() const;
-                           void    SetPosition(Vector2 value);
+                inline Type GetType() const;
 
-                    inline float GetRotation() const;
-                           void  SetRotation(float value);
+                inline Vector2 GetPosition() const;
+                       void    SetPosition(Vector2 value);
 
-                    inline float GetScale() const;
-                           void  SetScale(float value);
+                inline float GetRotation() const;
+                       void  SetRotation(float value);
 
-                    virtual bool Raycast(const Ray2D& ray, RaycastReport& outReport, IRaycastCallback* callback) = 0;
-                    virtual void AppendTo(std::list<Vector2>& vertices) = 0;
+                inline float GetScale() const;
+                       void  SetScale(float value);
 
-                    static bool Intersects(Shape* left, Shape* right);
+                virtual bool Raycast(const Ray2D& ray, RaycastReport2D& outReport, IRaycastCallback2D* callback) = 0;
+                virtual void AppendTo(std::list<Vector2>& vertices) = 0;
 
-                protected:
-                    Shape(ShapeType::E type);
+                static bool Intersect(Shape2D* left, Shape2D* right);
 
-                    inline unsigned int GetSpatialRevision() const;
+            protected:
+                Shape2D(Type type);
 
-                private:
-                    const ShapeType::E type;
+                inline unsigned int GetSpatialRevision() const;
 
-                    Vector2 position;
-                    float   rotation;
-                    float   scale;
-                    unsigned int revision;
+            private:
+                const Type type;
 
-                private:
-                    Shape& operator = (const Shape&);
-            };
-        }
+                Vector2 position;
+                float   rotation;
+                float   scale;
+                unsigned int revision;
+
+            private:
+                Shape2D& operator = (const Shape2D&);
+        };
     }
 
-#   include <TH/Collision2D/Shape.inl>
+#   include <Halak/Shape2D.inl>
 
 #endif

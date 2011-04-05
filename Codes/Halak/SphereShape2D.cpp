@@ -1,96 +1,93 @@
-#include <TH/Collision2D/CircleShape.h>
-#include <TH/Collision2D/RaycastReport.h>
-#include <TH/Collision2D/Algorithm/Raycast.h>
+#include <Halak/PCH.h>
+#include <Halak/SphereShape2D.h>
+#include <Halak/Geom2D.h>
 #include <Halak/Math.h>
-using Halak::Math;
+#include <Halak/RaycastReport2D.h>
 
-namespace TH
+namespace Halak
 {
-    namespace Collision2D
+    SphereShape2D::SphereShape2D()
+        : Shape2D(Shape2D::SphereType),
+          radius(0.0f),
+          radiusSquared(0.0f),
+          scaledRadius(0.0f),
+          scaledRadiusSquared(0.0f),
+          revision(0)
     {
-        CircleShape::CircleShape()
-            : Shape(ShapeType::Circle),
-              radius(0.0f),
-              radiusSquared(0.0f),
-              scaledRadius(0.0f),
-              scaledRadiusSquared(0.0f),
-              revision(0)
-        {
-        }
+    }
 
-        CircleShape::~CircleShape()
-        {
-        }
+    SphereShape2D::~SphereShape2D()
+    {
+    }
 
-        float CircleShape::GetRadius() const
+    float SphereShape2D::GetRadius() const
+    {
+        return radius;
+    }
+    
+    void SphereShape2D::SetRadius(float value)
+    {
+        if (GetRadius() != value)
         {
-            return radius;
+            radius = value;
+            radiusSquared = radius * radius;
+            revision = 0;
         }
-        
-        void CircleShape::SetRadius(float value)
+    }
+
+    float SphereShape2D::GetScaledRadius()
+    {
+        if (revision != GetSpatialRevision())
+            UpdateParameters();
+
+        return scaledRadius;
+    }
+
+    float SphereShape2D::GetScaledRadiusSquared()
+    {
+        if (revision != GetSpatialRevision())              
+            UpdateParameters();
+
+        return scaledRadiusSquared;
+    }
+
+    void SphereShape2D::UpdateParameters()
+    {
+        revision = GetSpatialRevision();
+        scaledRadius = GetRadius() * GetScale();
+        scaledRadiusSquared = scaledRadius * scaledRadius;
+    }
+
+    bool SphereShape2D::Raycast(const Ray2D& ray, RaycastReport2D& outReport, IRaycastCallback2D* callback)
+    {
+        float distance = 0.0f;
+        if (Geom2D::RaycastSphere(ray.Origin, ray.Direction, GetPosition(), GetScaledRadiusSquared(), distance) && distance <= ray.Length)
         {
-            if (GetRadius() != value)
+            if (callback == nullptr || callback->OnHit(distance * distance))
             {
-                radius = value;
-                radiusSquared = radius * radius;
-                revision = 0;
+                outReport.ImpactShape = this;
+                outReport.ImpactPoint = ray.Origin + (ray.Direction * distance);
+                outReport.ImpactNormal = outReport.ImpactPoint - GetPosition();
+                outReport.ImpactNormal.Normalize();
+                outReport.ImpactDistance = distance;
+                return true;
             }
         }
 
-        float CircleShape::GetScaledRadius()
+        return false;
+    }
+
+    void SphereShape2D::AppendTo(std::list<Vector2>& vertices)
+    {
+        const float scaledRadius = GetScaledRadius();
+        if (scaledRadius > 0.0f)
         {
-            if (revision != GetSpatialRevision())
-                UpdateParameters();
-
-            return scaledRadius;
-        }
-
-        float CircleShape::GetScaledRadiusSquared()
-        {
-            if (revision != GetSpatialRevision())              
-                UpdateParameters();
-
-            return scaledRadiusSquared;
-        }
-
-        void CircleShape::UpdateParameters()
-        {
-            revision = GetSpatialRevision();
-            scaledRadius = GetRadius() * GetScale();
-            scaledRadiusSquared = scaledRadius * scaledRadius;
-        }
-
-        bool CircleShape::Raycast(const Ray2D& ray, RaycastReport& outReport, IRaycastCallback* callback)
-        {
-            float outDistance = 0.0f;
-            if (Algorithm::RaycastCircle(ray.Origin, ray.Direction, GetPosition(), GetScaledRadiusSquared(), outDistance) && outDistance <= ray.Length)
+            const Vector2 center = GetPosition();
+            const float increment = Math::TwoPi / 32.0f;
+            for (float r = 0.0f; r < Math::TwoPi; r += increment)
             {
-                if (callback == nullptr || callback->OnHit(distance * distance))
-                {
-                    outReport.ImpactShape = this;
-                    outReport.ImpactPoint = ray.Origin + (ray.Direction * distance);
-                    outReport.ImpactNormal = report.ImpactPoint - GetPosition();
-                    outReport.ImpactNormal.Normalize();
-                    outReport.ImpactDistance = distance;
-                    return true;
-                }
-            }
-
-            return false;
-        }
-
-        void CircleShape::AppendTo(std::list<Vector2>& vertices)
-        {
-            const float scaledRadius = GetScaledRadius();
-            if (scaledRadius > 0.0f)
-            {
-                const Vector2 center = GetPosition();
-                const float increment = Math::TwoPi / 32.0f;
-                for (float r = 0.0f; r < Math::TwoPi; r += increment)
-                {
-                    vertices.push_back(Vector2(center.X + scaledRadius * Math::Sin(r),
-                                               center.Y + scaledRadius * Math::Cos(r)));
-                }
+                vertices.push_back(Vector2(center.X + scaledRadius * Math::Sin(r),
+                                           center.Y + scaledRadius * Math::Cos(r)));
             }
         }
     }

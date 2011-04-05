@@ -1,36 +1,38 @@
 #pragma once
-#ifndef __TH_COLLISION2D_RAYCASTREPORT_H__
-#define __TH_COLLISION2D_RAYCASTREPORT_H__
+#ifndef __HALAK_RAYCASTREPORT2D_H__
+#define __HALAK_RAYCASTREPORT2D_H__
 
-#   include <TH/Collision2D/FWD.h>
+#   include <Halak/FWD.h>
 #   include <Halak/Vector2.h>
 
-    namespace TH
+    namespace Halak
     {
-        namespace Collision2D
+        struct RaycastReport2D
         {
-            struct RaycastReport
-            {
-                Shape*  ImpactShape;
-                Vector2 ImpactPoint;
-                Vector2 ImpactNormal;
-                float   ImpactDistance;
+            Shape2D* ImpactShape;
+            Vector2  ImpactPoint;
+            Vector2  ImpactNormal;
+            float    ImpactDistance;
 
-                RaycastReport();
-                RaycastReport(Shape* shape, const Vector2& point, const Vector2& normal, float distance);
-                RaycastReport(const RaycastReport& original);
+            inline RaycastReport2D();
+            inline RaycastReport2D(Shape2D* shape, const Vector2& point, const Vector2& normal, float distance);
+            inline RaycastReport2D(const RaycastReport2D& original);
 
-                RaycastReport& operator = (const RaycastReport& original);
-                
-                bool operator == (const RaycastReport& right) const;
-                bool operator != (const RaycastReport& right) const;
-            };
+            inline RaycastReport2D& operator = (const RaycastReport2D& original);
+            
+            inline bool operator == (const RaycastReport2D& right) const;
+            inline bool operator != (const RaycastReport2D& right) const;
+        };
 
-            struct IRaycastCallback
-            {
+        class IRaycastCallback2D
+        {
+            public:
+                virtual ~IRaycastCallback2D() { }
+
                 virtual bool OnHit(float distanceSquared) = 0;
-            };
-        }
+        };
     }
+
+#   include <Halak/RaycastReport2D.inl>
 
 #endif

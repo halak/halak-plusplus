@@ -1,26 +1,23 @@
-#include <TH/Collision2D/PointShape.h>
+#include <Halak/PointShape2D.h>
 
-namespace TH
+namespace Halak
 {
-    namespace Collision2D
+    PointShape2D::PointShape2D()
+        : Shape2D(Shape2D::PointType)
     {
-        PointShape::PointShape()
-            : Shape(ShapeType::Point)
-        {
-        }
+    }
 
-        PointShape::~PointShape()
-        {
-        }
+    PointShape2D::~PointShape2D()
+    {
+    }
 
-        bool PointShape::Raycast(const Ray2D& /*ray*/, RaycastReport& /*outReport*/, IRaycastCallback* /*callback*/)
-        {
-            return false;
-        }
+    bool PointShape2D::Raycast(const Ray2D& /*ray*/, RaycastReport2D& /*outReport*/, IRaycastCallback2D* /*callback*/)
+    {
+        return false;
+    }
 
-        void PointShape::AppendTo(std::list<Vector2>& vertices)
-        {
-            vertices.push_back(GetPosition());
-        }
+    void PointShape2D::AppendTo(std::list<Vector2>& vertices)
+    {
+        vertices.push_back(GetPosition());
     }
 }

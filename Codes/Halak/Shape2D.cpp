@@ -1,53 +1,51 @@
-#include <TH/Collision2D/Shape.h>
-#include <TH/Collision2D/Algorithm/IntersectShapes.h>
+#include <Halak/PCH.h>
+#include <Halak/Shape2D.h>
+#include <Halak/Internal/IntersectShapes2D.h>
 
-namespace TH
+namespace Halak
 {
-    namespace Collision2D
+    Shape2D::Shape2D(Type type)
+        : type(type),
+          position(Vector2::Zero),
+          rotation(0.0f),
+          scale(1.0f),
+          revision(1)
     {
-        Shape::Shape(ShapeType::E type)
-            : type(type),
-              position(Vector2::Zero),
-              rotation(0.0f),
-              scale(1.0f),
-              revision(1)
-        {
-        }
+    }
 
-        Shape::~Shape()
-        {
-        }
+    Shape2D::~Shape2D()
+    {
+    }
 
-        void Shape::SetPosition(Vector2 value)
+    void Shape2D::SetPosition(Vector2 value)
+    {
+        if (GetPosition() != value)
         {
-            if (GetPosition() != value)
-            {
-                position = value;
-                revision++;
-            }
+            position = value;
+            revision++;
         }
+    }
 
-        void Shape::SetRotation(float value)
+    void Shape2D::SetRotation(float value)
+    {
+        if (GetRotation() != value)
         {
-            if (GetRotation() != value)
-            {
-                rotation = value;
-                revision++;
-            }
+            rotation = value;
+            revision++;
         }
+    }
 
-        void Shape::SetScale(float value)
+    void Shape2D::SetScale(float value)
+    {
+        if (GetScale() != value)
         {
-            if (GetScale() != value)
-            {
-                scale = value;
-                revision++;
-            }
+            scale = value;
+            revision++;
         }
+    }
 
-        bool Shape::Intersects(Shape* left, Shape* right)
-        {
-            return Algorithm::IntersectShapes(left, right);
-        }
+    bool Shape2D::Intersect(Shape2D* left, Shape2D* right)
+    {
+        return IntersectShapes2D::Test(left, right);
     }
 }

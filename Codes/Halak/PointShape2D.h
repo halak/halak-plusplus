@@ -1,26 +1,21 @@
 #pragma once
-#ifndef __TH_COLLISION2D_POINTSHAPE_H__
-#define __TH_COLLISION2D_POINTSHAPE_H__
+#ifndef __HALAK_POINTSHAPE2D__
+#define __HALAK_POINTSHAPE2D__
 
-#   include <TH/Collision2D/Shape.h>
+#   include <Halak/FWD.h>
+#   include <Halak/Shape2D.h>
 
-    namespace TH
+    namespace Halak
     {
-        namespace Collision2D
+        class PointShape2D : public Shape2D
         {
-            class PointShape : public Shape
-            {
-                public:
-                    PointShape();
-                    virtual ~PointShape();
+            public:
+                PointShape2D();
+                virtual ~PointShape2D();
 
-                    virtual bool Raycast(const Ray2D& ray, RaycastReport& outReport, IRaycastCallback* callback);
-                    virtual void AppendTo(std::list<Vector2>& vertices);
-
-                private:
-                    PointShape& operator = (const PointShape&);
-            };
-        }
+                virtual bool Raycast(const Ray2D& ray, RaycastReport2D& outReport, IRaycastCallback2D* callback);
+                virtual void AppendTo(std::list<Vector2>& vertices);
+        };
     }
 
 #endif

@@ -1,36 +1,27 @@
-#pragma once
-#ifndef __TH_COLLISION2D_SHAPE_INL__
-#define __TH_COLLISION2D_SHAPE_INL__
-
-    namespace TH
+namespace Halak
+{
+    Shape2D::Type Shape2D::GetType() const
     {
-        namespace Collision2D
-        {
-            ShapeType::E Shape::GetType() const
-            {
-                return type;
-            }
-
-            Vector2 Shape::GetPosition() const
-            {
-                return position;
-            }
-
-            float Shape::GetRotation() const
-            {
-                return rotation;
-            }
-
-            float Shape::GetScale() const
-            {
-                return scale;
-            }
-
-            unsigned int Shape::GetSpatialRevision() const
-            {
-                return revision;
-            }
-        }
+        return type;
     }
 
-#endif
+    Vector2 Shape2D::GetPosition() const
+    {
+        return position;
+    }
+
+    float Shape2D::GetRotation() const
+    {
+        return rotation;
+    }
+
+    float Shape2D::GetScale() const
+    {
+        return scale;
+    }
+
+    unsigned int Shape2D::GetSpatialRevision() const
+    {
+        return revision;
+    }
+}
