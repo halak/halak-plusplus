@@ -187,6 +187,17 @@
 #           include <Halak/IPickable.h>
 #           include <Halak/PickingContext.h>
         ////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Collision2D
+#           include <Halak/CollisionSpace2D.h>
+#           include <Halak/RaycastReport2D.h>
+#           include <Halak/Shape2D.h>
+#               include <Halak/AxisAlignedBoxShape2D.h>
+#               include <Halak/BoxShape2D.h>
+#               include <Halak/PointShape2D.h>
+#               include <Halak/SegmentShape2D.h>
+#               include <Halak/SphereShape2D.h>
+#               include <Halak/UserShape2D.h>
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
         // Command
 #           include <Halak/Command.h>
 #               include <Halak/RestorableCommand.h>

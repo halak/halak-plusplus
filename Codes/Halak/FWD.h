@@ -202,6 +202,17 @@
                 HKForwardDeclareSmartPointerClass(IPickable);
                 class PickingContext;
             ////////////////////////////////////////////////////////////////////////////////////////////////////
+            // Collision2D
+                class CollisionSpace2D;                
+                class RaycastReport2D;                
+                class Shape2D;
+                    class AxisAlignedBoxShape2D;
+                    class BoxShape2D;
+                    class PointShape2D;
+                    class SegmentShape2D;
+                    class SphereShape2D;
+                    class UserShape2D;
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
             // Command
                 class Command;
                     class RestorabelCommand;
