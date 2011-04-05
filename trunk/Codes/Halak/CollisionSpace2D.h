@@ -1,57 +1,55 @@
 #pragma once
-#ifndef __TH_COLLISION2D_COLLISIONSPACE_H__
-#define __TH_COLLISION2D_COLLISIONSPACE_H__
+#ifndef __HALAK_COLLISION2D_H__
+#define __HALAK_COLLISION2D_H__
 
-#   include <TH/Collision2D/FWD.h>
-#   include <TH/Object.h>
+#   include <Halak/FWD.h>
+#   include <Halak/GameComponent.h>
 #   include <Halak/Signal.h>
 #   include <vector>
 
-    namespace TH
+    namespace Halak
     {
-        namespace Collision2D
+        class CollisionSpace2D : public GameComponent
         {
-            class CollisionSpace : public Object
-            {
-                public:
-                    CollisionSpace();
-                    virtual ~CollisionSpace();
+            public:
+                CollisionSpace2D();
+                CollisionSpace2D(uint id);
+                virtual ~CollisionSpace2D();
 
-                    int Detect();
+                int Detect();
 
-                    bool Raycast(const Ray2D& ray, int group, __InOut RaycastReport report);
+                bool Raycast(const Ray2D& ray, int group, RaycastReport2D& outReport);
 
-                    void Add(ShapePtr shape, int group);
-                    void Remove(ShapePtr shape);
-                    void Clear();
-                    void Clear(int group);
-                    bool Find(ShapePtr shape, int* outGroup, int* outIndex) const;
+                void Add(Shape2DPtr shape, int group);
+                void Remove(Shape2DPtr shape);
+                void Clear();
+                void Clear(int group);
+                bool Find(Shape2DPtr shape, int* outGroup, int* outIndex) const;
 
-                    int  GetGroup(ShapePtr shape) const;
-                    void SetGroup(ShapePtr shape, int group);
+                int  GetGroup(Shape2DPtr shape) const;
+                void SetGroup(Shape2DPtr shape, int group);
 
-                    int  GetNumberOfGroups() const;
-                    void SetNumberOfGroups(int numberOfGroups);
+                int  GetNumberOfGroups() const;
+                void SetNumberOfGroups(int numberOfGroups);
 
-                    bool GetCollisionRelationship(int groupA, int groupB) const;
-                    void SetCollisionRelationship(int groupA, int groupB, bool detectable);
+                bool GetCollisionRelationship(int groupA, int groupB) const;
+                void SetCollisionRelationship(int groupA, int groupB, bool detectable);
 
-                    Halak::Signal<Shape*, Shape*, int, int>& Intersected();
+                Signal<Shape2D*, Shape2D*, int, int>& Intersected();
 
-                private:
-                    typedef std::vector<ShapePtr> ShapePtrCollection;
-                    typedef std::vector<bool>     BooleanCollection;
+            private:
+                typedef std::vector<Shape2DPtr> ShapeCollection;
+                typedef std::vector<bool>       BooleanCollection;
 
-                    int  Detect(ShapePtrCollection& groupA, ShapePtrCollection& groupB, int groupANumber, int groupBNumber);
-                    void Detect(ShapePtr& shapeA, ShapePtr& shapeB, int groupA, int groupB);
+                int  Detect(ShapeCollection& groupA, ShapeCollection& groupB, int groupANumber, int groupBNumber);
+                void Detect(Shape2DPtr& shapeA, Shape2DPtr& shapeB, int groupA, int groupB);
 
-                private:
-                    std::vector<ShapePtrCollection> shapes;
-                    std::vector<BooleanCollection>  collisionRelationships;
+            private:
+                std::vector<ShapeCollection>   shapes;
+                std::vector<BooleanCollection> collisionRelationships;
 
-                    Halak::Signal<Shape*, Shape*, int, int> intersected;
-            };
-        }
+                Signal<Shape2D*, Shape2D*, int, int> intersected;
+        };
     }
 
 #endif

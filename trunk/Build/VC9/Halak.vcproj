@@ -448,6 +448,18 @@
 				Name="Mathematics"
 				>
 				<File
+					RelativePath="..\..\Codes\Halak\Geom2D.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\Geom2D.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\Geom2D.inl"
+					>
+				</File>
+				<File
 					RelativePath="..\..\Codes\Halak\Math.cpp"
 					>
 				</File>
@@ -1768,11 +1780,11 @@
 					>
 				</File>
 				<File
-					RelativePath="..\..\Codes\Halak\RaycastReport2D.cpp"
+					RelativePath="..\..\Codes\Halak\RaycastReport2D.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Codes\Halak\RaycastReport2D.h"
+					RelativePath="..\..\Codes\Halak\RaycastReport2D.inl"
 					>
 				</File>
 				<File
@@ -1796,10 +1808,6 @@
 					>
 				</File>
 				<File
-					RelativePath="..\..\Codes\Halak\ShapeType2D.h"
-					>
-				</File>
-				<File
 					RelativePath="..\..\Codes\Halak\SphereShape2D.cpp"
 					>
 				</File>
@@ -1819,67 +1827,11 @@
 					Name="(Internal)"
 					>
 					<File
-						RelativePath="..\..\Codes\Halak\Internal\IntersectAxisAlignedBoxAxisAlignedBox2D.cpp"
+						RelativePath="..\..\Codes\Halak\Internal\IntersectShapes2D.cpp"
 						>
 					</File>
 					<File
-						RelativePath="..\..\Codes\Halak\Internal\IntersectBoxBox2D.cpp"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\Internal\IntersectMethods2D.h"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\Internal\IntersectPointAxisAlignedBox2D.cpp"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\Internal\IntersectPointBox2D.cpp"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\Internal\IntersectPointPolygon2D.cpp"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\Internal\IntersectPointSegment2D.cpp"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\Internal\IntersectSegmentAxisAlignedBox2D.cpp"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\Internal\IntersectSegmentSegment2D.cpp"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\Internal\IntersectShapes.cpp"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\Internal\IntersectShapes.h"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\Internal\RaycastAxisAlignedBox2D.cpp"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\Internal\RaycastBox2D.cpp"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\Internal\RaycastMethods2D.h"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\Internal\RaycastSegment2D.cpp"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\Internal\RaycastSphere2D.cpp"
+						RelativePath="..\..\Codes\Halak\Internal\IntersectShapes2D.h"
 						>
 					</File>
 				</Filter>

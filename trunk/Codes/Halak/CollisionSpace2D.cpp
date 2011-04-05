@@ -1,233 +1,235 @@
-#include <TH/Collision2D/CollisionSpace.h>
-#include <TH/Collision2D/Shape.h>
-#include <TH/Collision2D/RaycastReport.h>
+#include <Halak/CollisionSpace2D.h>
 #include <Halak/Assert.h>
+#include <Halak/Geom2D.h>
 #include <Halak/Math.h>
-#include <limits>
-using namespace Halak;
+#include <Halak/NumericLimits.h>
+#include <Halak/RaycastReport2D.h>
+#include <Halak/Shape2D.h>
 
-namespace TH
+namespace Halak
 {
-    namespace Collision2D
+    CollisionSpace2D::CollisionSpace2D()
     {
-        CollisionSpace::CollisionSpace()
-        {
-        }
+    }
 
-        CollisionSpace::~CollisionSpace()
-        {
-        }
+    CollisionSpace2D::CollisionSpace2D(uint id)
+        : GameComponent(id)
+    {
+    }
 
-        int CollisionSpace::Detect()
-        {
-            int result = 0;
+    CollisionSpace2D::~CollisionSpace2D()
+    {
+    }
 
-            const int numberOfGroups = GetNumberOfGroups();
-            for (int i = 0; i < numberOfGroups; i++)
+    int CollisionSpace2D::Detect()
+    {
+        int result = 0;
+
+        const int numberOfGroups = GetNumberOfGroups();
+        for (int i = 0; i < numberOfGroups; i++)
+        {
+            for (int k = i; k < numberOfGroups; k++)
             {
-                for (int k = i; k < numberOfGroups; k++)
-                {
-                    if (collisionRelationships[i][k])
-                        result += Detect(shapes[i], shapes[k], i, k);
-                }
+                if (collisionRelationships[i][k])
+                    result += Detect(shapes[i], shapes[k], i, k);
+            }
+        }
+
+        return result;
+    }
+
+    int CollisionSpace2D::Detect(ShapeCollection& groupA, ShapeCollection& groupB, int groupANumber, int groupBNumber)
+    {
+        int result = 0;
+        if (groupANumber != groupBNumber)
+        {
+            const int countA = static_cast<int>(groupA.size());
+            const int countB = static_cast<int>(groupB.size());
+
+            for (int i = 0; i < countA; i++)
+            {
+                for (int k = 0; k < countB; k++, result++)
+                    Detect(groupA[i], groupB[k], groupANumber, groupBNumber);
+            }
+        }
+        else
+        {
+            const int countA = static_cast<int>(groupA.size());
+            for (int i = 0; i < countA - 1; i++)
+            {
+                for (int k = i + 1; k < countA; k++, result++)
+                    Detect(groupA[i], groupA[k], groupANumber, groupANumber);
+            }
+        }
+
+        return result;
+    }
+
+    void CollisionSpace2D::Detect(Shape2DPtr& shapeA, Shape2DPtr& shapeB, int groupA, int groupB)
+    {
+        HKAssert(shapeA != shapeB);
+
+        if (Shape2D::Intersect(shapeA.GetPointee(), shapeB.GetPointee()))
+            intersected.Emit(shapeA.GetPointee(), shapeB.GetPointee(), groupA, groupB);
+    }
+
+    bool CollisionSpace2D::Raycast(const Ray2D& ray, int group, RaycastReport2D& outReport)
+    {
+        HKAssert(0 <= group && group < GetNumberOfGroups());
+
+        RaycastReport2D testReport;
+        float minimumDistanceSquared = NumericLimits::MaxFloat;
+
+        struct ClosestHit : public IRaycastCallback2D
+        {
+            float* minimumDistanceSquared;
+
+            ClosestHit(float& minimumDistanceSquared)
+                : minimumDistanceSquared(&minimumDistanceSquared)
+            {
             }
 
-            return result;
-        }
-
-        int CollisionSpace::Detect(ShapePtrCollection& groupA, ShapePtrCollection& groupB, int groupANumber, int groupBNumber)
-        {
-            int result = 0;
-            if (groupANumber != groupBNumber)
+            bool OnHit(float distanceSquared)
             {
-                const int countA = static_cast<int>(groupA.size());
-                const int countB = static_cast<int>(groupB.size());
-
-                for (int i = 0; i < countA; i++)
-                {
-                    for (int k = 0; k < countB; k++, result++)
-                        Detect(groupA[i], groupB[k], groupANumber, groupBNumber);
-                }
-            }
-            else
-            {
-                const int countA = static_cast<int>(groupA.size());
-                for (int i = 0; i < countA - 1; i++)
-                {
-                    for (int k = i + 1; k < countA; k++, result++)
-                        Detect(groupA[i], groupA[k], groupANumber, groupANumber);
-                }
+                return distanceSquared < *minimumDistanceSquared;
             }
 
-            return result;
-        }
+        } Callback(minimumDistanceSquared);
 
-        void CollisionSpace::Detect(ShapePtr& shapeA, ShapePtr& shapeB, int groupA, int groupB)
+        const int numberOfGroups = GetNumberOfGroups();
+        for (int i = 0; i < numberOfGroups; i++)
         {
-            HKAssert(shapeA != shapeB);
-
-            if (Shape::Intersects(shapeA.GetPointee(), shapeB.GetPointee()))
-                intersected.Emit(shapeA.GetPointee(), shapeB.GetPointee(), groupA, groupB);
-        }
-
-        bool CollisionSpace::Raycast(const Ray2D& ray, int group, __InOut RaycastReport report)
-        {
-            HKAssert(0 <= group && group < GetNumberOfGroups());
-
-            RaycastReport testReport;
-            float minimumDistanceSquared = std::numeric_limits<float>::max();
-
-            struct ClosestHit : public IRaycastCallback
+            if (collisionRelationships[group][i])
             {
-                float* minimumDistanceSquared;
-
-                ClosestHit(float& minimumDistanceSquared)
-                    : minimumDistanceSquared(&minimumDistanceSquared)
+                const int count = static_cast<int>(shapes[i].size());
+                for (int k = 0; k < count; k++)
                 {
-                }
-
-                bool OnHit(float distanceSquared)
-                {
-                    return distanceSquared < *minimumDistanceSquared;
-                }
-
-            } Callback(minimumDistanceSquared);
-
-            const int numberOfGroups = GetNumberOfGroups();
-            for (int i = 0; i < numberOfGroups; i++)
-            {
-                if (collisionRelationships[group][i])
-                {
-                    const int count = static_cast<int>(shapes[i].size());
-                    for (int k = 0; k < count; k++)
+                    if (shapes[i][k]->Raycast(ray, testReport, &Callback))
                     {
-                        if (shapes[i][k]->Raycast(ray, __InOut testReport, &Callback))
-                        {
-                            minimumDistanceSquared = testReport.ImpactDistance * testReport.ImpactDistance;
-                            report = testReport;
+                        minimumDistanceSquared = testReport.ImpactDistance * testReport.ImpactDistance;
+                        outReport = testReport;
 
-                            // 거리가 0이면 더 이상 가까운 Shape이 있을리가 없으므로 Raycast를 종료합니다.
-                            if (Math::Equals(minimumDistanceSquared, 0.0f))
-                                return true;
-                        }
+                        // 거리가 0이면 더 이상 가까운 Shape이 있을리가 없으므로 Raycast를 종료합니다.
+                        if (Math::Equals(minimumDistanceSquared, 0.0f))
+                            return true;
                     }
                 }
             }
-
-            return minimumDistanceSquared != std::numeric_limits<float>::max();
         }
 
-        void CollisionSpace::Add(ShapePtr shape, int group)
-        {
-            if (Find(shape, nullptr, nullptr))
-                throw std::invalid_argument("alreay exists shape.");
+        return minimumDistanceSquared != NumericLimits::MaxFloat;
+    }
 
+    void CollisionSpace2D::Add(Shape2DPtr shape, int group)
+    {
+        if (Find(shape, nullptr, nullptr))
+            throw std::invalid_argument("alreay exists shape.");
+
+        shapes.at(group).push_back(shape);
+    }
+
+    void CollisionSpace2D::Remove(Shape2DPtr shape)
+    {
+        int outGroup = 0;
+        int outIndex = 0;
+        if (Find(shape, &outGroup, &outIndex))
+            shapes[outGroup].erase(shapes[outGroup].begin() + outIndex);
+    }
+
+    void CollisionSpace2D::Clear()
+    {
+        shapes.clear();
+    }
+
+    void CollisionSpace2D::Clear(int group)
+    {
+        shapes.at(group).clear();
+    }
+
+    bool CollisionSpace2D::Find(Shape2DPtr shape, int* outGroup, int* outIndex) const
+    {
+        for (std::vector<ShapeCollection>::const_iterator itGroup = shapes.begin(); itGroup != shapes.end(); itGroup++)
+        {
+            const ShapeCollection& shapeGroup = (*itGroup);
+            for (ShapeCollection::const_iterator itShape = shapeGroup.begin(); itShape != shapeGroup.end(); itShape++)
+            {
+                if ((*itShape) == shape)
+                {
+                    if (outGroup)
+                        (*outGroup) = std::distance(shapes.begin(), itGroup);
+                    if (outIndex)
+                        (*outIndex) = std::distance(shapeGroup.begin(), itShape);
+
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    int CollisionSpace2D::GetGroup(Shape2DPtr shape) const
+    {
+        int group = 0;
+        if (Find(shape, &group, nullptr))
+            return group;
+        else
+            return -1;
+    }
+
+    void CollisionSpace2D::SetGroup(Shape2DPtr shape, int group)
+    {
+        int existingGroup = 0;
+        int existingIndex = 0;
+        if (Find(shape, &existingGroup, &existingIndex))
+        {
+            shapes[existingGroup].erase(shapes[existingGroup].begin() + existingIndex);
             shapes.at(group).push_back(shape);
         }
+    }
 
-        void CollisionSpace::Remove(ShapePtr shape)
+    int CollisionSpace2D::GetNumberOfGroups() const
+    {
+        return static_cast<int>(shapes.size());
+    }
+
+    void CollisionSpace2D::SetNumberOfGroups(int numberOfGroups)
+    {
+        std::vector<ShapeCollection> newShapes;
+        std::vector<BooleanCollection>  newCollisionRelationships;
+
+        // 새로운 공간을 잡습니다.
+        newShapes.resize(numberOfGroups);
+        newCollisionRelationships.resize(numberOfGroups);
+        for (std::vector<BooleanCollection>::iterator it = newCollisionRelationships.begin(); it != newCollisionRelationships.end(); it++)
+            (*it).resize(numberOfGroups);
+
+        // 기존 값을 새로운 공간에 대입합니다.
+        const int minimumSize = std::min<int>(numberOfGroups, GetNumberOfGroups());
+        for (int i = 0; i < minimumSize; i++)
         {
-            int outGroup = 0;
-            int outIndex = 0;
-            if (Find(shape, &outGroup, &outIndex))
-                shapes[outGroup].erase(shapes[outGroup].begin() + outIndex);
+            newShapes[i] = shapes[i];
+            for (int k = 0; k < minimumSize; k++)
+                newCollisionRelationships[i][k] = collisionRelationships[i][k];
         }
 
-        void CollisionSpace::Clear()
-        {
-            shapes.clear();
-        }
+        shapes = newShapes;
+        collisionRelationships = newCollisionRelationships;
+    }
 
-        void CollisionSpace::Clear(int group)
-        {
-            shapes.at(group).clear();
-        }
+    bool CollisionSpace2D::GetCollisionRelationship(int groupA, int groupB) const
+    {
+        return collisionRelationships.at(groupA).at(groupB);
+    }
 
-        bool CollisionSpace::Find(ShapePtr shape, int* outGroup, int* outIndex) const
-        {
-            for (std::vector<ShapePtrCollection>::const_iterator itGroup = shapes.begin(); itGroup != shapes.end(); itGroup++)
-            {
-                const ShapePtrCollection& shapeGroup = (*itGroup);
-                for (ShapePtrCollection::const_iterator itShape = shapeGroup.begin(); itShape != shapeGroup.end(); itShape++)
-                {
-                    if ((*itShape) == shape)
-                    {
-                        if (group)
-                            (*group) = std::distance(shapes.begin(), itGroup);
-                        if (index)
-                            (*index) = std::distance(shapeGroup.begin(), itShape);
+    void CollisionSpace2D::SetCollisionRelationship(int groupA, int groupB, bool detectable)
+    {
+        collisionRelationships.at(groupA).at(groupB) = detectable;
+        collisionRelationships.at(groupB).at(groupA) = detectable;
+    }
 
-                        return true;
-                    }
-                }
-            }
-
-            return false;
-        }
-
-        int CollisionSpace::GetGroup(ShapePtr shape) const
-        {
-            int outGroup = 0;
-            if (Find(shape, &outGroup, nullptr))
-                return group;
-            else
-                return -1;
-        }
-
-        void CollisionSpace::SetGroup(ShapePtr shape, int group)
-        {
-            int existingGroup = 0;
-            int existingIndex = 0;
-            if (Find(shape, &existingGroup, &existingIndex))
-            {
-                shapes[existingGroup].erase(shapes[existingGroup].begin() + existingIndex);
-                shapes.at(group).push_back(shape);
-            }
-        }
-
-        int CollisionSpace::GetNumberOfGroups() const
-        {
-            return static_cast<int>(shapes.size());
-        }
-
-        void CollisionSpace::SetNumberOfGroups(int numberOfGroups)
-        {
-            std::vector<ShapePtrCollection> newShapes;
-            std::vector<BooleanCollection>  newCollisionRelationships;
-
-            // 새로운 공간을 잡습니다.
-            newShapes.resize(numberOfGroups);
-            newCollisionRelationships.resize(numberOfGroups);
-            for (std::vector<BooleanCollection>::iterator it = newCollisionRelationships.begin(); it != newCollisionRelationships.end(); it++)
-                (*it).resize(numberOfGroups);
-
-            // 기존 값을 새로운 공간에 대입합니다.
-            const int minimumSize = std::min<int>(numberOfGroups, GetNumberOfGroups());
-            for (int i = 0; i < minimumSize; i++)
-            {
-                newShapes[i] = shapes[i];
-                for (int k = 0; k < minimumSize; k++)
-                    newCollisionRelationships[i][k] = collisionRelationships[i][k];
-            }
-
-            shapes = newShapes;
-            collisionRelationships = newCollisionRelationships;
-        }
-
-        bool CollisionSpace::GetCollisionRelationship(int groupA, int groupB) const
-        {
-            return collisionRelationships.at(groupA).at(groupB);
-        }
-
-        void CollisionSpace::SetCollisionRelationship(int groupA, int groupB, bool detectable)
-        {
-            collisionRelationships.at(groupA).at(groupB) = detectable;
-            collisionRelationships.at(groupB).at(groupA) = detectable;
-        }
-
-        Signal<Shape*, Shape*, int, int>& CollisionSpace::Intersected()
-        {
-            return intersected;
-        }
+    Signal<Shape2D*, Shape2D*, int, int>& CollisionSpace2D::Intersected()
+    {
+        return intersected;
     }
 }

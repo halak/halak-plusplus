@@ -1,46 +1,44 @@
-#include <TH/Collision2D/UserShape.h>
+#include <Halak/PCH.h>
+#include <Halak/UserShape2D.h>
 
-namespace TH
+namespace Halak
 {
-    namespace Collision2D
+    UserShape2D::UserShape2D()
+        : Shape2D(Shape2D::UserType)
     {
-        UserShape::UserShape()
-            : Shape(ShapeType::User)
-        {
-        }
+    }
 
-        UserShape::UserShape(IUserShapePtr userShape)
-            : Shape(ShapeType::User),
-              userShape(userShape)
-        {
-        }
+    UserShape2D::UserShape2D(IUserShape2DPtr UserShape2D)
+        : Shape2D(Shape2D::UserType),
+          userShape(UserShape2D)
+    {
+    }
 
-        UserShape::~UserShape()
-        {
-        }
+    UserShape2D::~UserShape2D()
+    {
+    }
 
-        IUserShapePtr UserShape::GetUserShape()
-        {
-            return userShape;
-        }
+    IUserShape2DPtr UserShape2D::GetUserShape()
+    {
+        return userShape;
+    }
 
-        void UserShape::SerUserShape(IUserShapePtr value)
-        {
-            userShape = value;
-        }
+    void UserShape2D::SerUserShape(IUserShape2DPtr value)
+    {
+        userShape = value;
+    }
 
-        bool UserShape::Raycast(const Ray2D& ray, RaycastReport& outReport, IRaycastCallback* callback)
-        {
-            if (GetUserShape())
-                return GetUserShape()->Raycast(this, ray, outReport, callback);
-            else
-                return false;
-        }
+    bool UserShape2D::Raycast(const Ray2D& ray, RaycastReport2D& outReport, IRaycastCallback2D* callback)
+    {
+        if (userShape)
+            return userShape->Raycast(this, ray, outReport, callback);
+        else
+            return false;
+    }
 
-        void UserShape::AppendTo(std::list<Vector2>& vertices)
-        {
-            if (GetUserShape())
-                GetUserShape()->AppendTo(this, vertices);
-        }
+    void UserShape2D::AppendTo(std::list<Vector2>& vertices)
+    {
+        if (userShape)
+            userShape->AppendTo(this, vertices);
     }
 }
