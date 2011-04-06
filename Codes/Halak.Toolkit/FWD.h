@@ -46,6 +46,19 @@
                         class ClassRegistrationContext;
                         class EnumRegistrationContext;
             ////////////////////////////////////////////////////////////////////////////////////////////////////
+            // 03. Asset
+                ////////////////////////////////////////////////////////////////////////////////////////////////////
+                // Adobe Photoshop
+                    HKForwardDeclareSmartPointerClass(PhotoshopDescriptor);
+                    HKForwardDeclareSmartPointerClass(PhotoshopDocument);
+                    HKForwardDeclareSmartPointerClass(PhotoshopDocumentReader);
+                    HKForwardDeclareSmartPointerClass(PhotoshopImageResource);
+                        HKForwardDeclareSmartPointerClass(PhotoshopAlphaChannelNames);
+                        HKForwardDeclareSmartPointerClass(PhotoshopResolutionInfo);
+                    HKForwardDeclareSmartPointerClass(PhotoshopLayer);
+                    HKForwardDeclareSmartPointerClass(PhotoshopChannel);
+                    HKForwardDeclareSmartPointerClass(PhotoshopMask);
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
             // 02. Design
                 ////////////////////////////////////////////////////////////////////////////////////////////////////
                 // Attributes

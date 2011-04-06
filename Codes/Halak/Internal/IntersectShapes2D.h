@@ -1,6 +1,6 @@
 #pragma once
-#ifndef __HALAK_INTERNAL_INTERSECTSHAPES2D_H__
-#define __HALAK_INTERNAL_INTERSECTSHAPES2D_H__
+#ifndef __HALAK_INTERSECTSHAPES2D_H__
+#define __HALAK_INTERSECTSHAPES2D_H__
 
 #   include <Halak/FWD.h>
 
