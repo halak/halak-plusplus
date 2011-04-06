@@ -1,97 +1,87 @@
 #pragma once
-#ifndef __TH_DOCUMENTS_ADOBE_PHOTOSHOPDOCUMENT_H__
-#define __TH_DOCUMENTS_ADOBE_PHOTOSHOPDOCUMENT_H__
+#ifndef __HALAK_TOOLKIT_PHOTOSHOPDOCUMENT_H__
+#define __HALAK_TOOLKIT_PHOTOSHOPDOCUMENT_H__
 
-#   include <TH/Documents/Adobe/FWD.h>
+#   include <Halak.Toolkit/FWD.h>
 #   include <Halak/Asset.h>
 #   include <Halak/IReloadable.h>
+#   include <Halak/String.h>
 #   include <vector>
 
-    namespace TH
+    namespace Halak
     {
-        namespace Documents
+        namespace Toolkit
         {
-            namespace Adobe
+            class PhotoshopDocument : public Asset, public IReloadable
             {
-                struct PhotoshopCompression
-                {
-                    enum E
+                public:
+                    enum CompressionMode
                     {
-                        RawData = 0,
+                        NoCompression = 0,
                         RLECompression = 1,
-                        ZIPWithoutPrediction = 2,
-                        ZIPWithPrediction = 3,
+                        ZIPWithoutPredictionCompression = 2,
+                        ZIPWithPredictionCompression = 3,
                     };
-                };
 
-                struct PhotoshopColorMode
-                {
-                    enum E
+                    enum ColorMode
                     {
-                        Grayscale = 1,
-                        Indexed = 2,
-                        RGB = 3,
-                        CMYK = 4,
-                        Duetone = 8,
-                        Lab = 9,
+                        GrayscaleColor = 1,
+                        IndexedColor = 2,
+                        RGBColor = 3,
+                        CMYKColor = 4,
+                        DuetoneColor = 8,
+                        LabColor = 9,
                     };
-                };
 
-                struct PhotoshopDocumentElements
-                {
-                    enum E
+                    enum Elements
                     {
-                        ColorModeData = (0x01 << 0),
-                        ImageResource = (0x01 << 1),
-                        Layer         = (0x01 << 2),
-                        MergedImage   = (0x01 << 3),
-                        All           = (0xFF),
+                        ColorModeDataElement = (0x01 << 0),
+                        ImageResourceElement = (0x01 << 1),
+                        LayerElement         = (0x01 << 2),
+                        MergedImageElement   = (0x01 << 3),
+                        AllElements          = (0xFF),
                     };
-                };
 
-                class PhotoshopDocument : public Halak::Asset, public Halak::IReloadable
-                {
-                    public:
-                        PhotoshopDocument(const Halak::String& filename);
-                        PhotoshopDocument(const Halak::String& filename, PhotoshopDocumentElements::E importingElements);
-                        virtual ~PhotoshopDocument();
+                public:
+                    PhotoshopDocument(const String& filename);
+                    PhotoshopDocument(const String& filename, Elements importingElements);
+                    virtual ~PhotoshopDocument();
 
-                        virtual void Reload();
+                    virtual void Reload();
 
-                        virtual const Halak::String& GetFilename() const;
+                    virtual const String& GetFilename() const;
 
-                        int GetNumberOfChannels() const;
-                        int GetWidth() const;
-                        int GetHeight() const;
-                        int GetBitsPerPixel() const;
-                        PhotoshopColorMode::E GetColorMode() const;
+                    int GetNumberOfChannels() const;
+                    int GetWidth() const;
+                    int GetHeight() const;
+                    int GetBitsPerPixel() const;
+                    ColorMode GetColorMode() const;
 
-                        const std::vector<PhotoshopImageResourcePtr> GetImageResources() const;
-                        const std::vector<PhotoshopLayerPtr> GetLayers() const;
+                    const std::vector<PhotoshopImageResourcePtr> GetImageResources() const;
+                    const std::vector<PhotoshopLayerPtr> GetLayers() const;
 
-                        PhotoshopDocumentElements::E GetImportingElements() const;
-                        void SetImportingElements(PhotoshopDocumentElements::E value);
+                    Elements GetImportingElements() const;
+                    void SetImportingElements(Elements value);
 
-                        Halak::Texture2DPtr ToTexture(Halak::GraphicsDevice* graphicsDevice) const;
+                    Texture2DPtr ToTexture(GraphicsDevice* graphicsDevice) const;
 
-                    private:
-                        typedef std::vector<byte> ByteVector;
+                private:
+                    typedef std::vector<byte> ByteVector;
 
-                    private:
-                        Halak::String filename;
-                        int channels;
-                        int width;
-                        int height;
-                        int bitsPerPixel;
-                        PhotoshopColorMode::E colorMode;
+                private:
+                    String filename;
+                    int channels;
+                    int width;
+                    int height;
+                    int bitsPerPixel;
+                    ColorMode colorMode;
 
-                        std::vector<PhotoshopImageResourcePtr> imageResources;
-                        std::vector<PhotoshopLayerPtr> layers;
-                        std::vector<ByteVector> mergedImage;
+                    std::vector<PhotoshopImageResourcePtr> imageResources;
+                    std::vector<PhotoshopLayerPtr> layers;
+                    std::vector<ByteVector> mergedImage;
 
-                        PhotoshopDocumentElements::E importingElements;
-                };
-            }
+                    Elements importingElements;
+            };
         }
     }
 

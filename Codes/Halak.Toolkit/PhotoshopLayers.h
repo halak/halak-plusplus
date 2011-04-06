@@ -5,16 +5,17 @@
 #   include <Halak.Toolkit/FWD.h>
 #   include <Halak/Asset.h>
 #   include <Halak/Rectangle.h>
+#   include <Halak/String.h>
 #   include <vector>
 
     namespace Halak
     {
         namespace Toolkit
         {
-            class PhotoshopChannel : public Halak::Asset
+            class PhotoshopChannel : public Asset
             {
                 public:
-                    enum ChannelType
+                    enum ID
                     {
                         RedChannel    = 0,
                         GreenChannel  = 1,
@@ -23,13 +24,14 @@
                         UserSuppliedLayerMask  = -2,
                         UserSuppliedVectorMask = -3,
                     };
+
                 public:
-                    PhotoshopChannel(PhotoshopChannelID::E id, unsigned int size);
+                    PhotoshopChannel(ID id, unsigned int size);
                     virtual ~PhotoshopChannel();
 
                     void ReadPixelData(int width, int height, int bitsPerPixel, PhotoshopDocumentReader& reader);
 
-                    PhotoshopChannelID::E GetID() const;
+                    ID GetID() const;
                     unsigned int GetSize() const;
                     int GetWidth() const;
                     int GetHeight() const;
@@ -37,7 +39,7 @@
                     const std::vector<byte>& GetBitmap() const;
 
                 private:
-                    PhotoshopChannelID::E id;
+                    ID id;
                     unsigned int size;
                     int width;
                     int height;
@@ -49,7 +51,7 @@
                     PhotoshopChannel& operator = (const PhotoshopChannel&);
             };
 
-            class PhotoshopLayer : public Halak::Asset
+            class PhotoshopLayer : public Asset
             {
                 public:
                     PhotoshopLayer(PhotoshopDocumentReader& reader);
@@ -57,20 +59,20 @@
 
                     void AddSubLayer(PhotoshopLayerPtr item);
                     bool RemoveSubLayer(PhotoshopLayerPtr item);
-                    PhotoshopLayerPtr FindSubLayer(const Halak::String& name) const;
+                    PhotoshopLayerPtr FindSubLayer(const String& name) const;
 
                     void ReadPixelData(int bitsPerPixel, PhotoshopDocumentReader& reader);
 
-                    const Halak::String& GetName() const;
+                    const String& GetName() const;
                     const Rectangle& GetRectangle() const;
-                    const Halak::String& GetBlendMode() const;
+                    const String& GetBlendMode() const;
                     byte GetOpacity() const;
                     bool GetClipping() const;
                     bool GetTransparencyProtected() const;
                     bool GetVisible() const;
                     bool IsGroup() const;
                     const std::vector<PhotoshopChannelPtr>& GetChannels() const;
-                    PhotoshopChannelPtr GetChannel(const PhotoshopChannelID::E id) const;
+                    PhotoshopChannelPtr GetChannel(const PhotoshopChannel::ID id) const;
                     PhotoshopMaskPtr GetMask() const;
 
                     Rectangle GetUnionRectangle() const;
@@ -78,12 +80,12 @@
                     PhotoshopLayerWeakPtr GetGroup() const;
                     const std::vector<PhotoshopLayerPtr>& GetSubLayers() const;
 
-                    Halak::Texture2DPtr ToTexture(Halak::GraphicsDevice* graphicsDevice) const;
+                    Texture2DPtr ToTexture(GraphicsDevice* graphicsDevice) const;
 
                 private:
-                    Halak::String name;
+                    String name;
                     Rectangle rectangle;
-                    Halak::String blendMode;
+                    String blendMode;
                     byte opacity;
                     bool clipping;
                     bool transparencyProtected;
@@ -95,7 +97,7 @@
                     std::vector<PhotoshopLayerPtr> subLayers;
             };
 
-            class PhotoshopMask : public Halak::Asset
+            class PhotoshopMask : public Asset
             {
                 public:
                     PhotoshopMask(const Rectangle& rectangle, byte defaultColor, bool positionRelativeToLayer, bool disabled, bool invertWhenBlending);

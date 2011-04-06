@@ -14,7 +14,7 @@
                 Rectangle Allocate(const void* buffer, int width, int height, int pitch);
                 void Deallocate(const Rectangle& rectangle);
 
-                const Halak::RectangleStorage& GetStorage() const;
+                const RectangleStorage& GetStorage() const;
                 DynamicTexture2DPtr GetTexture() const;
 
             private:
@@ -22,7 +22,7 @@
                 ~GlyphSurface();
 
             private:
-                Halak::RectangleStorage* storage;
+                RectangleStorage* storage;
                 DynamicTexture2DPtr texture;
         };
     }
