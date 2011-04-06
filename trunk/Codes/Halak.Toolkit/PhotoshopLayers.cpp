@@ -1,17 +1,16 @@
-#include <TH/Documents/Adobe/PhotoshopLayers.h>
-#include <TH/Documents/Adobe/PhotoshopDocument.h>
-#include <TH/Documents/Adobe/PhotoshopDocumentReader.h>
+#include <Halak.Toolkit/PhotoshopLayers.h>
+#include <Halak.Toolkit/PhotoshopDocument.h>
+#include <Halak.Toolkit/PhotoshopDocumentReader.h>
 #include <Halak/Assert.h>
-#include <Halak/FOURCC.h>
+#include <Halak/Exception.h>
 #include <Halak/MemoryTexture2D.h>
 #include <algorithm>
-#include <stdexcept>
 
 namespace Halak
 {
     namespace Toolkit
     {
-        PhotoshopChannel::PhotoshopChannel(PhotoshopChannelID::E id, unsigned int size)
+        PhotoshopChannel::PhotoshopChannel(ID id, unsigned int size)
             : id(id),
               size(size),
               width(0),
@@ -30,17 +29,17 @@ namespace Halak
             this->height       = height;
             this->bitsPerPixel = bitsPerPixel;
 
-            const PhotoshopCompression::E compression = (PhotoshopCompression::E)reader.ReadInt16();
+            const PhotoshopDocument::CompressionMode compression = (PhotoshopDocument::CompressionMode)reader.ReadInt16();
 
             if (width == 0 || height == 0)
                 return;
 
             switch (compression)
             {
-                case PhotoshopCompression::RawData:
+                case PhotoshopDocument::NoCompression:
                     bitmap = reader.ReadRawPixelData(width, height, bitsPerPixel);
                     break;
-                case PhotoshopCompression::RLECompression:
+                case PhotoshopDocument::RLECompression:
                     reader.Seek(height * 2);
                     bitmap = reader.ReadRLECompressedPixelData(width, height, bitsPerPixel);
                     break;
@@ -49,7 +48,7 @@ namespace Halak
             }
         }
 
-        PhotoshopChannelID::E PhotoshopChannel::GetID() const
+        PhotoshopChannel::ID PhotoshopChannel::GetID() const
         {
             return id;
         }
@@ -99,7 +98,7 @@ namespace Halak
                 channels.reserve(numberOfChannels);
                 for (unsigned short i = 0; i < numberOfChannels; i++)
                 {
-                    const PhotoshopChannelID::E id = (PhotoshopChannelID::E)reader.ReadInt16();
+                    const PhotoshopChannel::ID id = (PhotoshopChannel::ID)reader.ReadInt16();
                     const unsigned int size = reader.ReadUInt32();
                     channels.push_back(PhotoshopChannelPtr(new PhotoshopChannel(id, size)));
                 }
@@ -304,8 +303,8 @@ namespace Halak
             {
                 PhotoshopChannelPtr channel = (*it);
 
-                if( channel->GetID() == PhotoshopChannelID::UserSuppliedLayerMask ||
-                    channel->GetID() == PhotoshopChannelID::UserSuppliedVectorMask)
+                if( channel->GetID() == PhotoshopChannel::UserSuppliedLayerMask ||
+                    channel->GetID() == PhotoshopChannel::UserSuppliedVectorMask )
                     continue;
 
                 channel->ReadPixelData(rectangle.Width, rectangle.Height, bitsPerPixel, reader);
@@ -313,7 +312,7 @@ namespace Halak
 
             if (rectangle.Width != 0 && rectangle.Height != 0)
             {
-                if (GetChannel(PhotoshopChannelID::TransparencyMask))
+                if (GetChannel(PhotoshopChannel::TransparencyMask))
                 {
                     // Merge to transparency bitmap.
                 }
@@ -324,7 +323,7 @@ namespace Halak
             }
 
             if (mask)
-                mask->ReadPixelData(GetChannel(PhotoshopChannelID::UserSuppliedLayerMask), bitsPerPixel, reader);
+                mask->ReadPixelData(GetChannel(PhotoshopChannel::UserSuppliedLayerMask), bitsPerPixel, reader);
         }
 
         void PhotoshopLayer::AddSubLayer(PhotoshopLayerPtr item)
@@ -404,7 +403,7 @@ namespace Halak
             return channels;
         }
 
-        PhotoshopChannelPtr PhotoshopLayer::GetChannel(const PhotoshopChannelID::E id) const
+        PhotoshopChannelPtr PhotoshopLayer::GetChannel(const PhotoshopChannel::ID id) const
         {
             for (std::vector<PhotoshopChannelPtr>::const_iterator it = channels.begin(); it != channels.end(); it++)
             {
@@ -451,10 +450,10 @@ namespace Halak
             if (rectangle.IsEmpty())
                 return nullptr;
 
-            PhotoshopChannelPtr r = GetChannel(PhotoshopChannelID::Red);
-            PhotoshopChannelPtr g = GetChannel(PhotoshopChannelID::Green);
-            PhotoshopChannelPtr b = GetChannel(PhotoshopChannelID::Blue);
-            PhotoshopChannelPtr a = GetChannel(PhotoshopChannelID::TransparencyMask);
+            PhotoshopChannelPtr r = GetChannel(PhotoshopChannel::RedChannel);
+            PhotoshopChannelPtr g = GetChannel(PhotoshopChannel::GreenChannel);
+            PhotoshopChannelPtr b = GetChannel(PhotoshopChannel::BlueChannel);
+            PhotoshopChannelPtr a = GetChannel(PhotoshopChannel::TransparencyMask);
             if (r && g && b)
             {
                 if (a)
