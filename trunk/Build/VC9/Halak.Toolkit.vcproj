@@ -707,6 +707,62 @@
 			Name="03. GUI"
 			>
 		</Filter>
+		<Filter
+			Name="02. Asset"
+			>
+			<Filter
+				Name="Adobe Photoshop"
+				>
+				<File
+					RelativePath="..\..\Codes\Halak.Toolkit\PhotoshopDescriptor.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak.Toolkit\PhotoshopDescriptor.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak.Toolkit\PhotoshopDocument.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak.Toolkit\PhotoshopDocument.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak.Toolkit\PhotoshopDocumentImporter.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak.Toolkit\PhotoshopDocumentImporter.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak.Toolkit\PhotoshopDocumentReader.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak.Toolkit\PhotoshopDocumentReader.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak.Toolkit\PhotoshopImageResources.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak.Toolkit\PhotoshopImageResources.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak.Toolkit\PhotoshopLayers.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak.Toolkit\PhotoshopLayers.h"
+					>
+				</File>
+			</Filter>
+		</Filter>
 		<File
 			RelativePath="..\..\Codes\Halak.Toolkit\All.h"
 			>
