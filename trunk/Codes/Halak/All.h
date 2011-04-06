@@ -18,6 +18,7 @@
 #           include <Halak/Ray.h>
 #           include <Halak/Ray2D.h>
 #           include <Halak/Rectangle.h>
+#           include <Halak/RectangleF.h>
 #           include <Halak/String.h>
 #           include <Halak/UUID.h>
 #           include <Halak/Vector2.h>
@@ -26,6 +27,7 @@
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         // (SmartPointers)
 #           include <Halak/NullPointer.h>
+#           include <Halak/PointerCasts.h>
 #           include <Halak/SharedObject.h>
 #           include <Halak/SharedPointer.h>
 #           include <Halak/WeakPointer.h>
@@ -256,4 +258,40 @@
 #           include <Halak/FontString.h>
 #           include <Halak/FreeType.h>
         ////////////////////////////////////////////////////////////////////////////////////////////////////
+        // UI
+#           include <Halak/UIElement.h>
+#           include <Halak/UIMarkupText.h>
+#           include <Halak/UIMarkupTextLayout.h>
+#           include <Halak/UIRenderer.h>
+#           include <Halak/VisualVisitor.h>
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
+            // Frames
+#               include <Halak/UIFrame.h>
+#                   include <Halak/UIAlignedFrame.h>
+#                   include <Halak/UIAnchoredFrame.h>
+#                   include <Halak/UIFittedFrame.h>
+#                   include <Halak/UIFixedFrame.h>
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
+            // Effects
+#               include <Halak/UIEffect.h>
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
+            // EventDispatchers
+#               include <Halak/UIEventDispatcher.h>
+#                   include <Halak/UIGamePadEventDispatcher.h>
+#                   include <Halak/UIKeyboardEventDispatcher.h>
+#                   include <Halak/UIMouseEventDispatcher.h>
+#                   include <Halak/UITouchEventDispatcher.h>
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
+            // Windows
+#               include <Halak/UIWindowr.h>
+#                   include <Halak/UIButtonr.h>
+#                   include <Halak/UIEditBoxr.h>
+#                   include <Halak/UIListBoxr.h>
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
+            // Visuals
+#               include <Halak/UIVisualr.h>
+#                   include <Halak/UILabelr.h>
+#                   include <Halak/UIMarkupLabelr.h>
+#                   include <Halak/UISpriter.h>
+#                   include <Halak/UIVideor.h>
 #endif

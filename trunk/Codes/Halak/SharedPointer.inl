@@ -114,12 +114,6 @@ namespace Halak
         return *this;
     }
 
-    template <typename T> SharedPointer<T>& SharedPointer<T>::operator = (T* right)
-    {
-        Reset(right);
-        return *this;
-    }
-
     template <typename T> bool SharedPointer<T>::operator == (const SharedPointer<T>& right) const
     {
         return pointee == right.pointee;

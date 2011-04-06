@@ -152,7 +152,7 @@ namespace Halak
         if (lifespan != value)
         {
             lifespan = value;
-            updateableLifespan = lifespan.DynamicCast<IUpdateable>();
+            updateableLifespan = DynamicCast<IUpdateable>(lifespan);
         }
     }
 

@@ -8,6 +8,7 @@
 #   include <Halak/Point.h>
 #   include <Halak/Quaternion.h>
 #   include <Halak/Rectangle.h>
+#   include <Halak/RectangleF.h>
 #   include <Halak/String.h>
 #   include <Halak/UUID.h>
 #   include <Halak/Vector2.h>
@@ -43,6 +44,7 @@
                     PointType,
                     QuaternionType,
                     RectangleType,
+                    RectangleFType
                     StringType,
                     UUIDType,
                     Vector2Type,
@@ -72,6 +74,7 @@
                 inline Any(Point value);
                 inline Any(Quaternion value);
                 inline Any(Rectangle value);
+                inline Any(RectangleF value);
                 inline Any(const char* value);
                 inline Any(const String& value);
                 inline Any(UUID value);
@@ -102,6 +105,7 @@
                 inline Point GetPoint() const;
                 inline Quaternion GetQuaternion() const;
                 inline Rectangle GetRectangle() const;
+                inline RectangleF GetRectangleF() const;
                 inline const String& GetString() const;
                 inline UUID GetUUID() const;
                 inline Vector2 GetVector2() const;

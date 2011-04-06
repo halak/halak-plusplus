@@ -19,6 +19,7 @@ namespace Halak
             case PointType:
             case QuaternionType:
             case RectangleType:
+            case RectangleFType:
             case StringType:
             case UUIDType:
             case Vector2Type:
@@ -57,6 +58,7 @@ namespace Halak
             case PointType:
             case QuaternionType:
             case RectangleType:
+            case RectangleFType:
             case StringType:
             case UUIDType:
             case Vector2Type:
@@ -93,6 +95,7 @@ namespace Halak
             case PointType:
             case QuaternionType:
             case RectangleType:
+            case RectangleFType:
             case StringType:
             case UUIDType:
             case Vector2Type:
@@ -135,6 +138,7 @@ namespace Halak
             case PointType:
             case QuaternionType:
             case RectangleType:
+            case RectangleFType:
             case StringType:
             case UUIDType:
             case Vector2Type:

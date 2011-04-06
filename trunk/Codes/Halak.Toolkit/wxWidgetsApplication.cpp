@@ -34,9 +34,6 @@ namespace Halak
 
             structure = new GameStructure();
 
-            // --------------------------------------------------
-            // Basic Service Layer
-
             wxWidgetsWindow* adaptedMainWindow = new wxWidgetsWindow(GetMainWindow());
             structure->GetRoot()->AttachChild(adaptedMainWindow);
 
@@ -53,8 +50,6 @@ namespace Halak
             mainTimeline = new Timeline();
             structure->GetRoot()->AttachChild(mainTimeline);
 
-            // --------------------------------------------------
-            // Service Layer
 
             //services->Push();
 

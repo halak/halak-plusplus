@@ -16,7 +16,6 @@
             public:
                 inline SharedPointer();
                 inline SharedPointer(T* pointee);
-                inline SharedPointer(T* pointee, ReferenceCount* referenceCount);
                 inline SharedPointer(const SharedPointer<T>& original);
                 inline ~SharedPointer();
 
@@ -31,7 +30,6 @@
                 inline int GetWeakReferenceCount() const;
 
                 inline SharedPointer<T>& operator = (const SharedPointer<T>& right);
-                inline SharedPointer<T>& operator = (T* right);
 
                 inline bool operator == (const SharedPointer<T>& right) const;
                 inline bool operator == (T* right) const;
@@ -47,19 +45,9 @@
                     return SharedPointer<U>(static_cast<U*>(pointee), referenceCount);
                 }
 
-                template <typename U> SharedPointer<U> StaticCast() const
-                {
-                    return SharedPointer<U>(static_cast<U*>(pointee), referenceCount);
-                }
-
-#               if (defined(HALAK_RTTI))
-                    template <typename U> SharedPointer<U> DynamicCast() const
-                    {
-                        return SharedPointer<U>(dynamic_cast<U*>(pointee), referenceCount);
-                    }
-#               endif
-
             private:
+                inline SharedPointer(T* pointee, ReferenceCount* referenceCount);
+
                 template <typename U>
                 inline ReferenceCount* AcquireReferenceCount(U* instance) { return instance ? new ReferenceCount() : 0; }
                 inline ReferenceCount* AcquireReferenceCount(SharedObject* instance);
@@ -68,7 +56,11 @@
                 T* pointee;
                 ReferenceCount* referenceCount;
 
+                template <typename U> friend class SharedPointer;
                 template <typename T> friend class WeakPointer;
+                template <typename To, typename From> friend SharedPointer<To> StaticCast(const SharedPointer<From>& from);
+                template <typename To, typename From> friend SharedPointer<To> DynamicCast(const SharedPointer<From>& from);
+                friend class SharedObject;
         };
     }
 

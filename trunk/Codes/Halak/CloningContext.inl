@@ -28,16 +28,16 @@ namespace Halak
         if (original == nullptr)
             return nullptr;
 
-        if (ICloneablePtr cloneableOriginal = original.DynamicCast<ICloneable>())
+        if (ICloneablePtr cloneableOriginal = DynamicCast<ICloneable>(original))
         {
             std::map<ICloneablePtr, ICloneablePtr>::iterator it = sharedClones.find(cloneableOriginal);
             if (it != sharedClones.end())
-                return (*it).second.DynamicCast<T>();
+                return DynamicCast<T>((*it).second);
             else
             {
                 ICloneablePtr clone = cloneableOriginal->Clone();
                 sharedClones.insert(std::map<ICloneablePtr, ICloneablePtr>::value_type(cloneableOriginal, clone));
-                return clone.DynamicCast<T>();
+                return DynamicCast<T>(clone);
             }
         }
         else

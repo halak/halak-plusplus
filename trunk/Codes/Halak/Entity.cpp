@@ -50,7 +50,7 @@ namespace Halak
 
         if (parent.IsAlive())
         {
-            parent.Lock()->RemoveChild(CastTo<Entity>());
+            parent.Lock()->RemoveChild(This<Entity>());
             parent.Reset();
         }
     }
@@ -64,7 +64,7 @@ namespace Halak
                 item->parent.Lock()->RemoveChild(item);
 
             children.push_back(item);
-            item->parent = CastTo<Entity>();
+            item->parent = This<Entity>();
 
             childAdded.Emit(this, item);
             OnChildAdded(item);
