@@ -123,6 +123,12 @@ namespace Halak
     {
     }
 
+    Any::Any(RectangleF value)
+        : type(RectangleFType),
+          value(reinterpret_cast<void*>(new SmallStorage<RectangleF>(value)))
+    {
+    }
+
     Any::Any(const char* value)
         : type(value ? StringType : NullType),
           value(value ? reinterpret_cast<void*>(new SmallStorage<String>(value)) : nullptr)
@@ -289,6 +295,12 @@ namespace Halak
     {
         HKAssertDebug(type == RectangleType);
         return reinterpret_cast<SmallStorage<Rectangle>*>(value)->Value;
+    }
+
+    RectangleF Any::GetRectangleF() const
+    {
+        HKAssertDebug(type == RectangleFType);
+        return reinterpret_cast<SmallStorage<RectangleF>*>(value)->Value;
     }
 
     const String& Any::GetString() const
@@ -474,6 +486,14 @@ namespace Halak
     {
         if (type == RectangleType)
             return GetRectangle();
+        else
+            HKThrow(BadCastException());
+    }
+
+    template <> inline RectangleF Any::CastTo<RectangleF>() const
+    {
+        if (type == RectangleFType)
+            return GetRectangleF();
         else
             HKThrow(BadCastException());
     }

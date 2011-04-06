@@ -8,7 +8,7 @@ namespace Halak
 
     template <typename T> WeakPointer<T>::WeakPointer(const SharedPointer<T>& pointer)
         : pointee(pointer),
-          referenceCount(pointee ? pointee.referenceCount : 0)
+          referenceCount(pointer ? pointer.referenceCount : 0)
     {
         if (referenceCount)
             referenceCount->IncreaseWeakCount();

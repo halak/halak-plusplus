@@ -4,6 +4,7 @@
 
 #   include <Halak/Foundation.h>
 #   include <Halak/NullPointer.h>
+#   include <Halak/PointerCasts.h>
 #   include <Halak/SharedPointer.h>
 #   include <Halak/WeakPointer.h>
 
@@ -25,6 +26,7 @@
                 struct Ray;
                 struct Ray2D;
                 struct Rectangle;
+                struct RectangleF;
                 class String;
                 struct UUID;
                 struct Vector2;
@@ -47,6 +49,7 @@
                 typedef Range<Point>      PointRange;
                 typedef Range<Quaternion> QuaternionRange;
                 typedef Range<Rectangle>  RectangleRange;
+                typedef Range<RectangleF>  RectangleFRange;
                 typedef Range<Vector2>    Vector2Range;
                 typedef Range<Vector3>    Vector3Range;
                 typedef Range<Vector4>    Vector4Range;
@@ -280,7 +283,43 @@
                     class Glyph;
                     class GlyphSurface;
                     class GlyphTable;
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
+            // UI
+                HKForwardDeclareSmartPointerClass(UIElement);
+                class UIMarkupText;
+                class UIMarkupTextLayout;
+                class UIRenderer;
+                class UIVisualVisitor;
                 ////////////////////////////////////////////////////////////////////////////////////////////////////
+                // Frames
+                    HKForwardDeclareSmartPointerClass(UIFrame);
+                        HKForwardDeclareSmartPointerClass(UIAlignedFrame);
+                        HKForwardDeclareSmartPointerClass(UIAnchoredFrame);
+                        HKForwardDeclareSmartPointerClass(UIFittedFrame);
+                        HKForwardDeclareSmartPointerClass(UIFixedFrame);
+                ////////////////////////////////////////////////////////////////////////////////////////////////////
+                // Effects
+                    HKForwardDeclareSmartPointerClass(UIEffect);
+                ////////////////////////////////////////////////////////////////////////////////////////////////////
+                // EventDispatchers
+                    class UIEventDispatcher;
+                        class UIGamePadEventDispatcher;
+                        class UIKeyboardEventDispatcher;
+                        class UIMouseEventDispatcher;
+                        class UITouchEventDispatcher;
+                ////////////////////////////////////////////////////////////////////////////////////////////////////
+                // Windows
+                    HKForwardDeclareSmartPointerClass(UIWindow);
+                        HKForwardDeclareSmartPointerClass(UIButton);
+                        HKForwardDeclareSmartPointerClass(UIEditBox);
+                        HKForwardDeclareSmartPointerClass(UIListBox);
+                ////////////////////////////////////////////////////////////////////////////////////////////////////
+                // Visuals
+                    HKForwardDeclareSmartPointerClass(UIVisual);
+                        HKForwardDeclareSmartPointerClass(UILabel);
+                        HKForwardDeclareSmartPointerClass(UIMarkupLabel);
+                        HKForwardDeclareSmartPointerClass(UISprite);
+                        HKForwardDeclareSmartPointerClass(UIVideo);
 
 #       undef HKForwardDeclareSmartPointerClass
     }

@@ -130,7 +130,7 @@ namespace Halak
             const Entity::EntityCollection& children = target->GetChildren();
             for (Entity::EntityCollection::const_iterator it = children.begin(); it != children.end(); it++)
             {
-                if (IDrawablePtr item = (*it).DynamicCast<IDrawable>())
+                if (IDrawablePtr item = DynamicCast<IDrawable>(*it))
                     item->Draw(context);
             }
             spriteRenderer->Pop();
@@ -146,7 +146,7 @@ namespace Halak
                 HKAssertDebug(context.GetResults().size() == 1);
 
                 const PickResult& result = context.GetResults().front();
-                EntityPtr pickedEntity = result.SharedObject.DynamicCast<Entity>();
+                EntityPtr pickedEntity = DynamicCast<Entity>(result.SharedObject);
                 HKAssertDebug(pickedEntity);
             }
         }

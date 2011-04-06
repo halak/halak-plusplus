@@ -66,7 +66,7 @@ namespace Halak
         HRESULT result = GetD3DTexture()->LockRect(0, &lockInfo, &d3dLockingRect, 0x00000000);
         if (result == D3D_OK)
         {
-            outLocker.SetData(CastTo<DynamicTexture2D>(), lockInfo.pBits, static_cast<int>(lockInfo.Pitch));
+            outLocker.SetData(This<DynamicTexture2D>(), lockInfo.pBits, static_cast<int>(lockInfo.Pitch));
             isLocked = true;
             return true;
         }

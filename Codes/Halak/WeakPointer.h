@@ -17,7 +17,6 @@
 
             public:
                 inline WeakPointer();
-                inline WeakPointer(T* pointee, ReferenceCount* referenceCount);
                 inline WeakPointer(const SharedPointer<T>& pointer);
                 inline WeakPointer(const WeakPointer<T>& original);
                 inline ~WeakPointer();
@@ -49,8 +48,15 @@
                 }
 
             private:
+                inline WeakPointer(T* pointee, ReferenceCount* referenceCount);
+
+            private:
                 T* pointee;
                 ReferenceCount* referenceCount;
+
+                template <typename U> friend class WeakPointer;
+                template <typename To, typename From> friend WeakPointer<To> StaticCast(const WeakPointer<From>& from);
+                template <typename To, typename From> friend WeakPointer<To> DynamicCast(const WeakPointer<From>& from);
         };
     }
 

@@ -202,6 +202,7 @@ namespace Halak
             case Any::PointType:
             case Any::QuaternionType:
             case Any::RectangleType:
+            case Any::RectangleFType:
                 throw;
             case Any::StringType:
                 lua_pushstring(m.state, value.GetString().CStr());

@@ -21,7 +21,7 @@ namespace Halak
           bitmapOffset(bitmapOffset),
           bitmapSize(bitmapSize),
           surface(surface),
-          texture(surface->GetTexture().StaticCast<Texture2D>()),
+          texture(StaticCast<Texture2D>(surface->GetTexture())),
           clippingRectangle(clippingRectangle)
     {
     }

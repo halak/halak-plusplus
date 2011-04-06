@@ -108,9 +108,9 @@ namespace Halak
                 static void PushValue(ReadingContext* context, const Any& value)
                 {
                     if (context->Key.IsEmpty())
-                        context->Nodes.top().StaticCast<JSONArray>()->Add(value);
+                        StaticCast<JSONArray>(context->Nodes.top())->Add(value);
                     else
-                        context->Nodes.top().StaticCast<JSONObject>()->Add(context->Key, value);
+                        StaticCast<JSONObject>(context->Nodes.top())->Add(context->Key, value);
                     
                     context->Key = String::Empty;
                 }

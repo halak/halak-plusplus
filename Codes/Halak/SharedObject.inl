@@ -1,14 +1,12 @@
 namespace Halak
 {
-    template <typename T> SharedPointer<T> SharedObject::CastTo()
+    template <typename To> SharedPointer<To> SharedObject::This()
     {
-        return SharedPointer<T>(static_cast<T*>(this), referenceCount);
+        return SharedPointer<To>(static_cast<To*>(this), referenceCount);
     }
 
-#   if (defined(HALAK_RTTI))
-        template <typename T> SharedPointer<T> SharedObject::DynamicCastTo()
-        {
-            return SharedPointer<T>(dynamic_cast<T*>(this), referenceCount);
-        }
-#   endif
+    template <typename To, typename ThisType> SharedPointer<To> SharedObject::This(ThisType* thisInstance)
+    {
+        return SharedPointer<To>(static_cast<To*>(thisInstance), referenceCount);
+    }
 }

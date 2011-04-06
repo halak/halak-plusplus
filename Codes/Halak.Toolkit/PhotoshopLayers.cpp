@@ -332,7 +332,7 @@ namespace Halak
             HKAssert(std::find(subLayers.begin(), subLayers.end(), item) == subLayers.end());
 
             subLayers.push_back(item);
-            item->group = CastTo<PhotoshopLayer>();
+            item->group = This<PhotoshopLayer>();
         }
 
         bool PhotoshopLayer::RemoveSubLayer(PhotoshopLayerPtr item)

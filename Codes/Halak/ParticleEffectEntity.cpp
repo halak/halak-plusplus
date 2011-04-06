@@ -50,7 +50,7 @@ namespace Halak
         const Vector3 p0 = emitter->GetOrigin()->GetPosition();
         const Vector3 p1 = context.GetRay().Origin;
         if (Vector3::GetDistanceSquared(p0, p1) < 8.0f * 8.0f)
-            return context.Push(PickResult(0.0f, p1, -context.GetRay().Direction, DynamicCastTo<IPickable>(), Any::Null));
+            return context.Push(PickResult(0.0f, p1, -context.GetRay().Direction, This<IPickable>(this), Any::Null));
         else
             return false;
     }

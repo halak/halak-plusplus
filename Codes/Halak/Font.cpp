@@ -52,7 +52,7 @@ namespace Halak
 
     Vector2 Font::Measure(const String& text, float boundary)
     {
-        return Measure(FontString(CastTo<Font>(), text), boundary);
+        return Measure(FontString(This<Font>(), text), boundary);
     }
 
     Vector2 Font::Measure(const FontString& fontString)

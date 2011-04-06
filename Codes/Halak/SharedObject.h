@@ -16,14 +16,11 @@
             public:
                 virtual ~SharedObject();
 
-                template <typename T> SharedPointer<T> CastTo();
-
-#               if (defined(HALAK_RTTI))
-                    template <typename T> SharedPointer<T> DynamicCastTo();
-#               endif
-
             protected:
                 SharedObject();
+
+                template <typename To> SharedPointer<To> This();
+                template <typename To, typename ThisType> SharedPointer<To> This(ThisType* thisInstance);
 
             private:
                 ReferenceCount* referenceCount;

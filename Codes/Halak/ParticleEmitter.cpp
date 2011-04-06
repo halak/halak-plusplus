@@ -68,7 +68,7 @@ namespace Halak
         if (spawnPeriod != value)
         {
             spawnPeriod = value;
-            updateableSpawnPeriod = value.DynamicCast<IUpdateable>();
+            updateableSpawnPeriod = DynamicCast<IUpdateable>(value);
         }
     }
 
