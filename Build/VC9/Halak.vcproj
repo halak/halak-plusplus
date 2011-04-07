@@ -619,6 +619,14 @@
 					RelativePath="..\..\Codes\Halak\StreamWriter.h"
 					>
 				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\StringReader.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\StringReader.h"
+					>
+				</File>
 				<Filter
 					Name="(Internal)"
 					>
@@ -2016,8 +2024,20 @@
 					</File>
 				</Filter>
 				<Filter
-					Name="EventDispatchers"
+					Name="Events"
 					>
+					<File
+						RelativePath="..\..\Codes\Halak\UIEventArgs.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UIEventArgs.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UIEventArgs.inl"
+						>
+					</File>
 					<File
 						RelativePath="..\..\Codes\Halak\UIEventDispatcher.cpp"
 						>
@@ -2028,6 +2048,18 @@
 					</File>
 					<File
 						RelativePath="..\..\Codes\Halak\UIEventDispatcher.inl"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UIGamePadEventArgs.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UIGamePadEventArgs.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UIGamePadEventArgs.inl"
 						>
 					</File>
 					<File
@@ -2043,6 +2075,18 @@
 						>
 					</File>
 					<File
+						RelativePath="..\..\Codes\Halak\UIKeyboardEventArgs.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UIKeyboardEventArgs.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UIKeyboardEventArgs.inl"
+						>
+					</File>
+					<File
 						RelativePath="..\..\Codes\Halak\UIKeyboardEventDispatcher.cpp"
 						>
 					</File>
@@ -2055,6 +2099,18 @@
 						>
 					</File>
 					<File
+						RelativePath="..\..\Codes\Halak\UIMouseEventArgs.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UIMouseEventArgs.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UIMouseEventArgs.inl"
+						>
+					</File>
+					<File
 						RelativePath="..\..\Codes\Halak\UIMouseEventDispatcher.cpp"
 						>
 					</File>
@@ -2064,6 +2120,18 @@
 					</File>
 					<File
 						RelativePath="..\..\Codes\Halak\UIMouseEventDispatcher.inl"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UITouchEventArgs.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UITouchEventArgs.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UITouchEventArgs.inl"
 						>
 					</File>
 					<File

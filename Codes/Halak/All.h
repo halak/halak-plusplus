@@ -47,6 +47,7 @@
         // IO
 #           include <Halak/BinaryStreamReader.h>
 #           include <Halak/BinaryStreamWriter.h>
+#           include <Halak/StringReader.h>
 #           include <Halak/DirectoryInfo.h>
 #           include <Halak/FileInfo.h>
 #           include <Halak/FileStream.h>
@@ -55,7 +56,9 @@
 #           include <Halak/StreamWriter.h>
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         // Mathemetics
+#           include <Halak/Geom2D.h>
 #           include <Halak/Math.h>
+#           include <Halak/NumericLimits.h>
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         // Memory
         ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -263,7 +266,7 @@
 #           include <Halak/UIMarkupText.h>
 #           include <Halak/UIMarkupTextLayout.h>
 #           include <Halak/UIRenderer.h>
-#           include <Halak/VisualVisitor.h>
+#           include <Halak/UIVisualVisitor.h>
             ////////////////////////////////////////////////////////////////////////////////////////////////////
             // Frames
 #               include <Halak/UIFrame.h>
@@ -275,7 +278,12 @@
             // Effects
 #               include <Halak/UIEffect.h>
             ////////////////////////////////////////////////////////////////////////////////////////////////////
-            // EventDispatchers
+            // Events
+#               include <Halak/UIEventArgs.h>
+#                   include <Halak/UIGamePadEventArgs.h>
+#                   include <Halak/UIKeyboardEventArgs.h>
+#                   include <Halak/UIMouseEventArgs.h>
+#                   include <Halak/UITouchEventArgs.h>
 #               include <Halak/UIEventDispatcher.h>
 #                   include <Halak/UIGamePadEventDispatcher.h>
 #                   include <Halak/UIKeyboardEventDispatcher.h>
@@ -283,15 +291,15 @@
 #                   include <Halak/UITouchEventDispatcher.h>
             ////////////////////////////////////////////////////////////////////////////////////////////////////
             // Windows
-#               include <Halak/UIWindowr.h>
-#                   include <Halak/UIButtonr.h>
-#                   include <Halak/UIEditBoxr.h>
-#                   include <Halak/UIListBoxr.h>
+#               include <Halak/UIWindow.h>
+#                   include <Halak/UIButton.h>
+#                   include <Halak/UIEditBox.h>
+#                   include <Halak/UIListBox.h>
             ////////////////////////////////////////////////////////////////////////////////////////////////////
             // Visuals
-#               include <Halak/UIVisualr.h>
-#                   include <Halak/UILabelr.h>
-#                   include <Halak/UIMarkupLabelr.h>
-#                   include <Halak/UISpriter.h>
-#                   include <Halak/UIVideor.h>
+#               include <Halak/UIVisual.h>
+#                   include <Halak/UILabel.h>
+#                   include <Halak/UIMarkupLabel.h>
+#                   include <Halak/UISprite.h>
+#                   include <Halak/UIVideo.h>
 #endif

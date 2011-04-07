@@ -26,5 +26,8 @@ namespace Halak
     const int64 NumericLimits::MinInt64 = std::numeric_limits<int64>::min();
     const int64 NumericLimits::MaxInt64 = std::numeric_limits<int64>::max();;
     const uint64 NumericLimits::MinUInt64 = std::numeric_limits<uint64>::min();
-    const uint64 NumericLimits::MaxUInt64 = std::numeric_limits<uint64>::max();;
+    const uint64 NumericLimits::MaxUInt64 = std::numeric_limits<uint64>::max();
+
+    const float NumericLimits::FloatNaN = std::numeric_limits<float>::quiet_NaN();
+    const double NumericLimits::DoubleNaN = std::numeric_limits<double>::quiet_NaN();
 }

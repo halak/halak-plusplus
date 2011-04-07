@@ -34,6 +34,9 @@
                 static const int64 MaxInt64;
                 static const uint64 MinUInt64;
                 static const uint64 MaxUInt64;
+
+                static const float  FloatNaN;
+                static const double DoubleNaN;
         };
     }
 
