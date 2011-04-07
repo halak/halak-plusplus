@@ -14,7 +14,7 @@
                 HKDeclareGameComponentClassFOURCC('P', 'R', 'T', 'L');
                 public:
                     ParallelTimeline();
-                    explicit ParallelTimeline(uint id);
+                    explicit ParallelTimeline(uint32 id);
                     virtual ~ParallelTimeline();
 
                 protected:

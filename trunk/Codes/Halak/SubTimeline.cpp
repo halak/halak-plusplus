@@ -8,7 +8,7 @@ namespace Halak
     {
     }
 
-    SubTimeline::SubTimeline(uint id)
+    SubTimeline::SubTimeline(uint32 id)
         : Timeline(id),
           parent(nullptr)
     {

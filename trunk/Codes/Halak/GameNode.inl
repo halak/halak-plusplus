@@ -1,5 +1,10 @@
 namespace Halak
 {
+    template <typename T> T* GameNode::FindChild(bool searchAllChildren) const
+    {
+        return static_cast<T*>(FindChildByClassID(T::ClassID, searchAllChildren));
+    }
+
     GameComponent* GameNode::GetComponent() const
     {
         return component;

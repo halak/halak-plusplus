@@ -1,6 +1,6 @@
 namespace Halak
 {
-    uint GameComponent::GetID() const
+    uint32 GameComponent::GetID() const
     {
         return id;
     }

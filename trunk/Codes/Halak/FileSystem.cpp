@@ -6,7 +6,7 @@ namespace Halak
     {
     }
 
-    FileSystem::FileSystem(uint id)
+    FileSystem::FileSystem(uint32 id)
         : GameComponent(id)
     {
     }

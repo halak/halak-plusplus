@@ -12,7 +12,7 @@ namespace Halak
     {
     }
 
-    CollisionSpace2D::CollisionSpace2D(uint id)
+    CollisionSpace2D::CollisionSpace2D(uint32 id)
         : GameComponent(id)
     {
     }

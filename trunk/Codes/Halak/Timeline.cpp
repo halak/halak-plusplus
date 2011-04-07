@@ -11,7 +11,7 @@ namespace Halak
     {
     }
 
-    Timeline::Timeline(uint id)
+    Timeline::Timeline(uint32 id)
         : GameComponent(id),
           speed(1.0f),
           lastTimestamp(0)

@@ -17,7 +17,7 @@
 
             public:
                 GarbageMan();
-                explicit GarbageMan(uint id);
+                explicit GarbageMan(uint32 id);
                 virtual ~GarbageMan();
 
                 void DisposeAll();

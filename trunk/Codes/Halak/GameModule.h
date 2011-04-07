@@ -14,7 +14,7 @@
             HKDeclareGameComponentClassFOURCC('G', 'M', 'D', 'L');
             public:
                 GameModule();
-                explicit GameModule(uint id);
+                explicit GameModule(uint32 id);
                 GameModule(const GameModule& original, CloningContext& context);
                 virtual ~GameModule();
 
