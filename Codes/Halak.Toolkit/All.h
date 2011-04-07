@@ -34,12 +34,12 @@
     // 02. Asset
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         // Adobe Photoshop
-#           include <PhotoshopDescriptor.h>
-#           include <PhotoshopDocument.h>
-#           include <PhotoshopDocumentImporter.h>
-#           include <PhotoshopDocumentReader.h>
-#           include <PhotoshopImageResources.h>
-#           include <PhotoshopLayers.h>
+#           include <Halak.Toolkit/PhotoshopDescriptor.h>
+#           include <Halak.Toolkit/PhotoshopDocument.h>
+#           include <Halak.Toolkit/PhotoshopDocumentImporter.h>
+#           include <Halak.Toolkit/PhotoshopDocumentReader.h>
+#           include <Halak.Toolkit/PhotoshopImageResources.h>
+#           include <Halak.Toolkit/PhotoshopLayers.h>
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     // 02. Design
         ////////////////////////////////////////////////////////////////////////////////////////////////////

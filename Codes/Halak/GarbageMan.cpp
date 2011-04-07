@@ -8,7 +8,7 @@ namespace Halak
     {
     }
 
-    GarbageMan::GarbageMan(uint id)
+    GarbageMan::GarbageMan(uint32 id)
         : GameComponent(id)
     {
     }

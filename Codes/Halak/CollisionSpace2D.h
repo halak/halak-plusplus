@@ -14,7 +14,7 @@
             HKDeclareGameComponentClassFOURCC('C', 'O', 'S', '2');
             public:
                 CollisionSpace2D();
-                CollisionSpace2D(uint id);
+                CollisionSpace2D(uint32 id);
                 virtual ~CollisionSpace2D();
 
                 int Detect();

@@ -9,7 +9,7 @@
         {
         }
 
-        ParallelTimeline::ParallelTimeline(uint id)
+        ParallelTimeline::ParallelTimeline(uint32 id)
             : Timeline(id)
         {
         }

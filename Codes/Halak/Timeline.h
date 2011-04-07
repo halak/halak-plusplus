@@ -32,7 +32,7 @@
 
             public:
                 Timeline();
-                explicit Timeline(uint id);
+                explicit Timeline(uint32 id);
                 virtual ~Timeline();
 
                 virtual void Update(float dt, uint timestamp);

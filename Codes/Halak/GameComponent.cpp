@@ -19,7 +19,7 @@ namespace Halak
     {
     }
 
-    GameComponent::GameComponent(uint id)
+    GameComponent::GameComponent(uint32 id)
         : node(nullptr),
           id(id),
           alive(true),
@@ -33,7 +33,7 @@ namespace Halak
             node->OnComponentDestructed();
     }
 
-    void GameComponent::SetID(uint value)
+    void GameComponent::SetID(uint32 value)
     {
         if (id != value)
         {

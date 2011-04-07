@@ -7,7 +7,7 @@ namespace Halak
     {
     }
 
-    GameModule::GameModule(uint id)
+    GameModule::GameModule(uint32 id)
         : GameComponent(id)
     {
     }

@@ -12,7 +12,7 @@
             HKDeclareGameComponentClassFOURCC('L', 'G', 'E', 'R');
             public:
                 Logger();
-                explicit Logger(uint id);
+                explicit Logger(uint32 id);
                 virtual ~Logger();
         };
     }

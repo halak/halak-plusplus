@@ -7,8 +7,8 @@
     namespace Halak
     {
 #       define HKDeclareGameComponentClass(id)  public: \
-                                                    static const uint ClassID = id; \
-                                                    virtual uint GetClassID() const { return ClassID; } \
+                                                    static const uint32 ClassID = id; \
+                                                    virtual uint32 GetClassID() const { return ClassID; } \
                                                 private:
 #       define HKDeclareGameComponentClassFOURCC(a, b, c, d) HKDeclareGameComponentClass(HKMakeFOURCC(a, b, c, d))
 
@@ -30,8 +30,8 @@
             public:
                 virtual ~GameComponent();
 
-                inline uint GetID() const;
-                       void SetID(uint value);
+                inline uint32 GetID() const;
+                       void SetID(uint32 value);
 
                 inline Status GetStatus() const;
 
@@ -50,13 +50,13 @@
 
             protected:
                 GameComponent();
-                GameComponent(uint id);
+                GameComponent(uint32 id);
 
                 virtual void OnStatusChanged(Status old);
 
             private:
                 GameNode* node;
-                uint id;
+                uint32 id;
                 bool alive;
                 bool active;
 

@@ -22,9 +22,13 @@
                 bool DetachChild(GameNode* item);
                 void DetachAllChildren();
 
-                GameComponent* FindChild(uint id, bool searchAllChildren) const;
-                GameNode* FindChildNode(uint id, bool searchAllChildren) const;
+                GameComponent* FindChild(uint32 id, bool searchAllChildren) const;
+                GameComponent* FindChildByClassID(uint32 id, bool searchAllChildren) const;
+                GameNode* FindChildNode(uint32 id, bool searchAllChildren) const;
                 GameNode* FindChildNode(GameComponent* item, bool searchAllChildren) const;
+                GameNode* FindChildNodeByClassID(uint32 id, bool searchAllChildren) const;
+
+                template <typename T> T* FindChild(bool searchAllChildren) const;
 
                 inline GameComponent* GetComponent() const;
                 inline GameNode* GetParnet() const;

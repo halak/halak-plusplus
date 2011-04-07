@@ -7,7 +7,7 @@ namespace Halak
     {
     }
 
-    Logger::Logger(uint id)
+    Logger::Logger(uint32 id)
         : GameComponent(id)
     {
     }

@@ -12,7 +12,7 @@
             HKDeclareGameComponentClassFOURCC('S', 'B', 'T', 'L');
             public:
                 SubTimeline();
-                explicit SubTimeline(uint id);
+                explicit SubTimeline(uint32 id);
                 virtual ~SubTimeline();
 
                 inline Timeline* GetParent() const;

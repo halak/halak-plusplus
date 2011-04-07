@@ -114,7 +114,7 @@ namespace Halak
         }
     }
 
-    GameComponent* GameNode::FindChild(uint id, bool searchAllChildren) const
+    GameComponent* GameNode::FindChild(uint32 id, bool searchAllChildren) const
     {
         if (GameNode* foundNode = FindChildNode(id, searchAllChildren))
             return foundNode->GetComponent();
@@ -122,7 +122,15 @@ namespace Halak
             return nullptr;
     }
 
-    GameNode* GameNode::FindChildNode(uint id, bool searchAllChildren) const
+    GameComponent* GameNode::FindChildByClassID(uint32 id, bool searchAllChildren) const
+    {
+        if (GameNode* foundNode = FindChildNodeByClassID(id, searchAllChildren))
+            return foundNode->GetComponent();
+        else
+            return nullptr;
+    }
+
+    GameNode* GameNode::FindChildNode(uint32 id, bool searchAllChildren) const
     {
         if (id == GameComponent::UnspecifiedID)
             return nullptr;
@@ -142,6 +150,30 @@ namespace Halak
             for (NodeCollection::const_iterator it = children.begin(); it != children.end(); it++)
             {
                 if ((*it)->GetComponent() && (*it)->GetComponent()->GetID() == id)
+                    return (*it);
+            }
+        }
+
+        return nullptr;
+    }
+
+    GameNode* GameNode::FindChildNodeByClassID(uint32 id, bool searchAllChildren) const
+    {
+        if (searchAllChildren)
+        {
+            for (NodeCollection::const_iterator it = children.begin(); it != children.end(); it++)
+            {
+                if ((*it)->GetComponent() && (*it)->GetComponent()->GetClassID() == id)
+                    return (*it);
+                if (GameNode* foundNode = (*it)->FindChildNodeByClassID(id, true))
+                    return foundNode;
+            }
+        }
+        else
+        {
+            for (NodeCollection::const_iterator it = children.begin(); it != children.end(); it++)
+            {
+                if ((*it)->GetComponent() && (*it)->GetComponent()->GetClassID() == id)
                     return (*it);
             }
         }

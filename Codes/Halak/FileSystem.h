@@ -12,7 +12,7 @@
             HKDeclareGameComponentClassFOURCC('F', 'S', 'Y', 'S');
             public:
                 FileSystem();
-                explicit FileSystem(uint id);
+                explicit FileSystem(uint32 id);
                 virtual ~FileSystem();
         };
     }
