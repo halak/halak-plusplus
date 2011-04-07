@@ -95,19 +95,39 @@ namespace Halak
         return buffer->length == 0;
     }
 
-    String& String::operator = (const char* original)
+    String& String::operator = (char right)
     {
-        if (original && original[0] != '\0')
-            buffer.Reset(new StringBuffer(original));
+        if (right != '\0')
+        {
+            const char s[] = { right, '\0' };
+            buffer.Reset(new StringBuffer(s, 1));
+        }
         else
             buffer = Empty.buffer;
 
         return *this;
     }
 
-    String& String::operator = (const String& original)
+    String& String::operator = (const char* right)
     {
-        buffer = original.buffer;
+        if (right && right[0] != '\0')
+            buffer.Reset(new StringBuffer(right));
+        else
+            buffer = Empty.buffer;
+
+        return *this;
+    }
+
+    String& String::operator = (const String& right)
+    {
+        buffer = right.buffer;
+        return *this;
+    }
+
+    String& String::operator += (char right)
+    {
+        const char s[] = { right, '\0' };
+        Append(s);
         return *this;
     }
 
@@ -121,6 +141,12 @@ namespace Halak
     {
         Append(right);
         return *this;
+    }
+
+    String String::operator + (char right) const
+    {
+        const char s[] = { right, '\0' };
+        return String(AppendTag(), buffer->s, buffer->length, s, 1);
     }
 
     String String::operator + (const char* right) const

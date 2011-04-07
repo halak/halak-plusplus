@@ -75,6 +75,7 @@
             // IO
                 class BinaryStreamReader;
                 class BinaryStreamWriter;
+                class StringReader;
                 class StreamReader;
                 class StreamWriter;
                 HKForwardDeclareSmartPointerClass(Stream);
@@ -301,7 +302,12 @@
                 // Effects
                     HKForwardDeclareSmartPointerClass(UIEffect);
                 ////////////////////////////////////////////////////////////////////////////////////////////////////
-                // EventDispatchers
+                // Events
+                    HKForwardDeclareSmartPointerClass(UIEventArgs);
+                        HKForwardDeclareSmartPointerClass(UIGamePadEventArgs);
+                        HKForwardDeclareSmartPointerClass(UIKeyboardEventArgs);
+                        HKForwardDeclareSmartPointerClass(UIMouseEventArgs);
+                        HKForwardDeclareSmartPointerClass(UITouchEventEventArgs);
                     class UIEventDispatcher;
                         class UIGamePadEventDispatcher;
                         class UIKeyboardEventDispatcher;

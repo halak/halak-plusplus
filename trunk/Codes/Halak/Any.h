@@ -44,7 +44,7 @@
                     PointType,
                     QuaternionType,
                     RectangleType,
-                    RectangleFType
+                    RectangleFType,
                     StringType,
                     UUIDType,
                     Vector2Type,

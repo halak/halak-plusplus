@@ -91,11 +91,14 @@
 
                 inline bool IsEmpty() const;
 
-                inline String& operator = (const char* original);
-                inline String& operator = (const String& original);
+                inline String& operator = (char right);
+                inline String& operator = (const char* right);
+                inline String& operator = (const String& right);
+                inline String& operator += (char right);
                 inline String& operator += (const char* right);
                 inline String& operator += (const String& right);
 
+                inline String operator + (char right) const;
                 inline String operator + (const char* right) const;
                 inline String operator + (const String& right) const;
 
