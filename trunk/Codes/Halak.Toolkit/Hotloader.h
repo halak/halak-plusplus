@@ -17,6 +17,7 @@
             ///   해당 File을 원본으로 하는 Asset에게 Reload를 통지하는 Component입니다.
             class Hotloader : public GameComponent, public IUpdateable
             {
+                HKDeclareGameComponentClassFOURCC('H', 'L', 'D', 'R');
                 public:
                     typedef std::set<IReloadableWeakPtr> ReloadableCollection;
 

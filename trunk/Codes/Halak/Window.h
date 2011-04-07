@@ -11,6 +11,7 @@
     {
         class Window : public GameComponent
         {
+            HKDeclareGameComponentClassFOURCC('W', 'I', 'N', 'D');
             public:
                 virtual ~Window();
 

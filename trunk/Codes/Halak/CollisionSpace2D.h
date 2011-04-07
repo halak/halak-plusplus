@@ -11,6 +11,7 @@
     {
         class CollisionSpace2D : public GameComponent
         {
+            HKDeclareGameComponentClassFOURCC('C', 'O', 'S', '2');
             public:
                 CollisionSpace2D();
                 CollisionSpace2D(uint id);
