@@ -1,7 +1,7 @@
 namespace Halak
 {
     RectangleF::RectangleF()
-        : X(0), Y(0), Width(0), Height(0)
+        : X(0.0f), Y(0.0f), Width(0.0f), Height(0.0f)
     {
     }
 
@@ -45,7 +45,7 @@ namespace Halak
 
     Vector2 RectangleF::GetCenter() const
     {
-        return Vector2(X + Width / 2, Y + Height / 2);
+        return Vector2(X + Width / 2.0f, Y + Height / 2.0f);
     }
 
     void RectangleF::SetLeft(float value)
@@ -82,7 +82,7 @@ namespace Halak
 
     bool RectangleF::IsEmpty() const
     {
-        return Width == 0 || Height == 0;
+        return Width == 0.0f || Height == 0.0f;
     }
 
     RectangleF& RectangleF::operator = (const RectangleF& original)

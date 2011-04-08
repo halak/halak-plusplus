@@ -11,9 +11,16 @@
         {
             public:
                 UIFixedFrame();
+                explicit UIFixedFrame(const RectangleF& rectangle);
                 virtual ~UIFixedFrame();
 
                 virtual RectangleF ComputeBounds(UIVisualVisitor& visitor);
+
+                inline const RectangleF& GetRectangle() const;
+                inline void SetRectangle(const RectangleF& value);                
+
+            private:
+                RectangleF rectangle;
         };
     }
 
