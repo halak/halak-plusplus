@@ -3,6 +3,14 @@
 namespace Halak
 {
     UIFixedFrame::UIFixedFrame()
+        : UIFrame(),
+          rectangle(RectangleF::Empty)
+    {
+    }
+
+    UIFixedFrame::UIFixedFrame(const RectangleF& rectangle)
+        : UIFrame(),
+          rectangle(rectangle)
     {
     }
 
@@ -12,6 +20,6 @@ namespace Halak
 
     RectangleF UIFixedFrame::ComputeBounds(UIVisualVisitor& visitor)
     {
-        return RectangleF::Empty;
+        return rectangle;
     }
 }
