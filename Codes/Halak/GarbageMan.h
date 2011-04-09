@@ -11,7 +11,7 @@
         /// see : IDisposable
         class GarbageMan : public GameComponent
         {
-            HKDeclareGameComponentClassFOURCC('G', 'B', 'G', 'M');
+            HKClassFOURCC('G', 'B', 'G', 'M');
             public:
                 typedef std::list<IDisposableWeakPtr> DisposableCollection;
 

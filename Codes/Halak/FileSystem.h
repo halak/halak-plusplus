@@ -9,7 +9,7 @@
     {
         class FileSystem : public GameComponent
         {
-            HKDeclareGameComponentClassFOURCC('F', 'S', 'Y', 'S');
+            HKClassFOURCC('F', 'S', 'Y', 'S');
             public:
                 FileSystem();
                 explicit FileSystem(uint32 id);

@@ -11,7 +11,7 @@
     {
         class CommandHistory : public GameComponent
         {
-            HKDeclareGameComponentClassFOURCC('C', 'M', 'D', 'H');
+            HKClassFOURCC('C', 'M', 'D', 'H');
             public:
                 typedef std::list<Command*> CommandCollection;
 

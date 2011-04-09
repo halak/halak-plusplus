@@ -8,7 +8,7 @@
     {
         class IPickable
         {
-            HKClassIDFOURCC('I', 'P', 'K', 'B');
+            HKInterfaceFOURCC('I', 'P', 'K', 'B');
             public:
                 virtual ~IPickable() { }
 

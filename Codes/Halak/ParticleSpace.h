@@ -11,7 +11,7 @@
     {
         class ParticleSpace : public GameComponent, public IUpdateable
         {
-            HKDeclareGameComponentClassFOURCC('P', 'T', 'S', 'P');
+            HKClassFOURCC('P', 'T', 'S', 'P');
             public:
                 typedef std::vector<ParticleEmitterPtr> EmitterCollection;
 

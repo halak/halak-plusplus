@@ -9,7 +9,7 @@
     {
         class Logger : public GameComponent
         {
-            HKDeclareGameComponentClassFOURCC('L', 'G', 'E', 'R');
+            HKClassFOURCC('L', 'G', 'E', 'R');
             public:
                 Logger();
                 explicit Logger(uint32 id);

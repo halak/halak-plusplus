@@ -10,7 +10,7 @@
     {
         class EntityWorld : public GameComponent
         {
-            HKDeclareGameComponentClassFOURCC('E', 'N', 'T', 'W');
+            HKClassFOURCC('E', 'N', 'T', 'W');
             public:
                 EntityWorld();
 

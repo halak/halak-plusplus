@@ -39,7 +39,7 @@ namespace Halak
     template <typename T> void SharedPointer<T>::Reset()
     {
         if (referenceCount && referenceCount->DecreaseStrongCount())
-            delete referenceCount;
+            delete pointee;
 
         pointee = nullptr;
         referenceCount = nullptr;
@@ -51,7 +51,7 @@ namespace Halak
             return;
 
         if (referenceCount && referenceCount->DecreaseStrongCount())
-            delete referenceCount;
+            delete pointee;
 
         pointee = right.pointee;
         referenceCount = right.referenceCount;

@@ -1,3 +1,4 @@
+#include <Halak/PCH.h>
 #include <Halak/UIEventDispatcher.h>
 
 namespace Halak

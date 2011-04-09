@@ -32,6 +32,13 @@
 
                 virtual RectangleF ComputeBounds(UIVisualVisitor& visitor);
 
+                virtual void Move(Vector2 displacement);
+                virtual bool IsMovable() const;
+
+                virtual void Resize(float left, float top, float right, float bottom);
+                virtual void ResizeTo(Vector2 size);
+                virtual bool IsResizable() const;
+
                 inline Alignment GetAlign() const;
                 void SetAlign(Alignment value);
                 

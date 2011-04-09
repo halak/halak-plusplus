@@ -8,7 +8,7 @@
     {
         class IUpdateable
         {
-            HKClassIDFOURCC('I', 'U', 'D', 'T');
+            HKInterfaceFOURCC('I', 'U', 'D', 'T');
             public:
                 virtual ~IUpdateable() { }
 

@@ -9,7 +9,7 @@
     {
         class UIGamePadEventDispatcher : public GameComponent
         {
-            HKDeclareGameComponentClassFOURCC('U', 'I', 'G', 'P');
+            HKClassFOURCC('U', 'I', 'G', 'P');
             public:
                 UIGamePadEventDispatcher();
                 virtual ~UIGamePadEventDispatcher();

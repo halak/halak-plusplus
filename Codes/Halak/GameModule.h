@@ -11,7 +11,7 @@
     {
         class GameModule : public GameComponent, public ICloneable
         {
-            HKDeclareGameComponentClassFOURCC('G', 'M', 'D', 'L');
+            HKClassFOURCC('G', 'M', 'D', 'L');
             public:
                 GameModule();
                 explicit GameModule(uint32 id);

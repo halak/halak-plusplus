@@ -9,7 +9,7 @@
     {
         class UITouchEventDispatcher : public GameComponent
         {
-            HKDeclareGameComponentClassFOURCC('U', 'I', 'T', 'H');
+            HKClassFOURCC('U', 'I', 'T', 'H');
             public:
                 UITouchEventDispatcher();
                 virtual ~UITouchEventDispatcher();

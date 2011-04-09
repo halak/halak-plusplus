@@ -9,7 +9,7 @@
     {
         class UIEventDispatcher : public GameComponent
         {
-            HKDeclareGameComponentClassFOURCC('U', 'I', 'E', 'D');
+            HKClassFOURCC('U', 'I', 'E', 'D');
             public:
                 UIEventDispatcher();
                 virtual ~UIEventDispatcher();

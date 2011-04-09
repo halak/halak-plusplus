@@ -4,6 +4,7 @@
 
 #   include <Halak/FWD.h>
 #   include <Halak/SharedObject.h>
+#   include <Halak/String.h>
 
     namespace Halak
     {
@@ -13,6 +14,12 @@
             public:
                 UIElement();
                 virtual ~UIElement();
+
+                inline const String& GetName() const;
+                inline void SetName(const String& value);
+
+            private:
+                String name;
         };
     }
 

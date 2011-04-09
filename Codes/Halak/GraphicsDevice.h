@@ -13,7 +13,7 @@ namespace Halak
 {
     class GraphicsDevice : public GameComponent
     {
-        HKDeclareGameComponentClassFOURCC('G', 'R', 'P', 'D');
+        HKClassFOURCC('G', 'R', 'P', 'D');
         public:
             GraphicsDevice();
             virtual ~GraphicsDevice();

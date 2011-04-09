@@ -90,7 +90,6 @@
             // Time
             ////////////////////////////////////////////////////////////////////////////////////////////////////
             // Utilities
-                class FrameUpdater;
                 HKForwardDeclareSmartPointerClass(IRevisable);
                 HKForwardDeclareSmartPointerClass(ISpatial);
                 HKForwardDeclareSmartPointerClass(ISpatial2D);
@@ -148,6 +147,10 @@
                 class Window;
             ////////////////////////////////////////////////////////////////////////////////////////////////////
             // Input
+                class IGamePad;
+                class IKeyboard;
+                class IMouse;
+                class ITouchPad;
                 class Mouse;
                 struct MouseState;
             ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -287,10 +290,12 @@
             ////////////////////////////////////////////////////////////////////////////////////////////////////
             // UI
                 HKForwardDeclareSmartPointerClass(UIElement);
+                HKForwardDeclareSmartPointerClass(UIImage);
                 class UIMarkupText;
                 class UIMarkupTextLayout;
                 class UIRenderer;
                 class UIVisualVisitor;
+                    class UIDrawingContext;
                 ////////////////////////////////////////////////////////////////////////////////////////////////////
                 // Frames
                     HKForwardDeclareSmartPointerClass(UIFrame);

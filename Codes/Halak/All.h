@@ -67,7 +67,6 @@
         // Utilities
 #           include <Halak/CheckedRelease.h>
 #           include <Halak/Delete.h>
-#           include <Halak/FrameUpdater.h>
 #           include <Halak/IRevisable.h>
 #           include <Halak/ISpatial.h>
 #           include <Halak/ISpatial2D.h>
@@ -263,10 +262,12 @@
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         // UI
 #           include <Halak/UIElement.h>
+#           include <Halak/UIImage.h>
 #           include <Halak/UIMarkupText.h>
 #           include <Halak/UIMarkupTextLayout.h>
 #           include <Halak/UIRenderer.h>
 #           include <Halak/UIVisualVisitor.h>
+#               include <Halak/UIDrawingContext.h>
             ////////////////////////////////////////////////////////////////////////////////////////////////////
             // Frames
 #               include <Halak/UIFrame.h>
