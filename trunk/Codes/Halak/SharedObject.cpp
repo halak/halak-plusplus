@@ -10,6 +10,11 @@ namespace Halak
     {
     }
 
+    //SharedObject::SharedObject(const SharedObject& /*original*/)
+    //    : referenceCount(new ReferenceCount())
+    //{
+    //}
+
     SharedObject::~SharedObject()
     {
     }

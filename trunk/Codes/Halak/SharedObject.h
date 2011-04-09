@@ -27,6 +27,10 @@
 
                 template <typename T> friend class SharedPointer;
                 template <typename T> friend class WeakPointer;
+
+            private:
+                SharedObject(const SharedObject&);
+                SharedObject& operator = (const SharedObject&);
         };
     }
 
