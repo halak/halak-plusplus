@@ -80,4 +80,21 @@ namespace Halak
         : Exception(original)
     {
     }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    NotSupportedException::NotSupportedException()
+        : Exception()
+    {
+    }
+
+    NotSupportedException::NotSupportedException(const char* message)
+        : Exception(message)
+    {
+    }
+
+    NotSupportedException::NotSupportedException(const NotSupportedException& original)
+        : Exception(original)
+    {
+    }
 }

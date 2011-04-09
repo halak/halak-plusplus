@@ -9,7 +9,7 @@
     {
         class DisplaySwapChain : public GameComponent
         {
-            HKDeclareGameComponentClassFOURCC('S', 'W', 'C', 'H');
+            HKClassFOURCC('S', 'W', 'C', 'H');
             public:
                 DisplaySwapChain(GraphicsDevice* graphicsDevice, Window* window);
                 DisplaySwapChain(GraphicsDevice* graphicsDevice, Window* window, Point size);

@@ -1,3 +1,4 @@
+#include <Halak/PCH.h>
 #include <Halak/UITouchEventDispatcher.h>
 
 namespace Halak

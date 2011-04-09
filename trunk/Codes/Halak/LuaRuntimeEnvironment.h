@@ -12,7 +12,7 @@
     {
         class LuaRuntimeEnvironment : public GameComponent
         {
-            HKDeclareGameComponentClassFOURCC('L', 'U', 'A', 'E');
+            HKClassFOURCC('L', 'U', 'A', 'E');
             public:
                 LuaRuntimeEnvironment();
                 virtual ~LuaRuntimeEnvironment();

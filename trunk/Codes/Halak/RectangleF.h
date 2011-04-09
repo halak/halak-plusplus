@@ -39,6 +39,7 @@
             inline bool operator == (const RectangleF& right) const;
             inline bool operator != (const RectangleF& right) const;
 
+            static RectangleF Intersect(const RectangleF& a, const RectangleF& b);
             static RectangleF Union(const RectangleF& a, const RectangleF& b);
 
             static const RectangleF Empty;

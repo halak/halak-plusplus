@@ -39,6 +39,7 @@
             inline bool operator == (const Rectangle& right) const;
             inline bool operator != (const Rectangle& right) const;
 
+            static Rectangle Intersect(const Rectangle& a, const Rectangle& b);
             static Rectangle Union(const Rectangle& a, const Rectangle& b);
 
             static const Rectangle Empty;

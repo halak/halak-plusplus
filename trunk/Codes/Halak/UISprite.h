@@ -13,7 +13,29 @@
                 UISprite();
                 virtual ~UISprite();
 
+                inline const UIImagePtr& GetImage() const;
+                void SetImage(const UIImagePtr& value);
+
+                inline bool GetAutoResize() const;
+                void SetAutoResize(bool value);
+
+                inline bool GetHorizontalFlip() const;
+                inline void SetHorizontalFlip(bool value);
+
+                inline bool GetVerticalFlip() const;
+                inline void SetVerticalFlip(bool value);
+
+            protected:
+                virtual void OnDraw(UIDrawingContext& context);
+
             private:
+                void ResizeToImageSize();
+
+            private:
+                UIImagePtr image;
+                bool autoResize;
+                bool horizontalFlip;
+                bool verticalFlip;
         };
     }
 

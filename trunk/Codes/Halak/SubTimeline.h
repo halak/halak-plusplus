@@ -9,7 +9,7 @@
     {
         class SubTimeline : public Timeline
         {
-            HKDeclareGameComponentClassFOURCC('S', 'B', 'T', 'L');
+            HKClassFOURCC('S', 'B', 'T', 'L');
             public:
                 SubTimeline();
                 explicit SubTimeline(uint32 id);

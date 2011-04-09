@@ -57,6 +57,16 @@
                 OutOfRangeException& operator = (const OutOfRangeException& right);
         };
 
+        class NotSupportedException : public Exception
+        {
+            public:
+                inline NotSupportedException();
+                inline NotSupportedException(const char* message);
+                inline NotSupportedException(const NotSupportedException& original);
+
+                NotSupportedException& operator = (const NotSupportedException& right);
+        };
+
 #       if (defined(HALAK_EXCEPTION))
 #           define HKThrow(exception) { throw exception; }
 #           define HKIfThrow(condition, exception) { if (condition) { throw exception; } }

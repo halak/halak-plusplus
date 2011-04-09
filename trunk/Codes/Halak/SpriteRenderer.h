@@ -17,7 +17,7 @@
     {
         class SpriteRenderer : public GameComponent
         {
-            HKDeclareGameComponentClassFOURCC('S', 'P', 'R', 'R');
+            HKClassFOURCC('S', 'P', 'R', 'R');
             public:
                 SpriteRenderer(GraphicsDevice* graphicsDevice);
                 virtual ~SpriteRenderer();

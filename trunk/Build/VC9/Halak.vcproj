@@ -508,14 +508,6 @@
 					>
 				</File>
 				<File
-					RelativePath="..\..\Codes\Halak\FrameUpdater.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\FrameUpdater.h"
-					>
-				</File>
-				<File
 					RelativePath="..\..\Codes\Halak\IRevisable.h"
 					>
 				</File>
@@ -1015,6 +1007,22 @@
 			<Filter
 				Name="Input"
 				>
+				<File
+					RelativePath="..\..\Codes\Halak\IGamePad.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\IKeyboard.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\IMouse.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\ITouchPad.h"
+					>
+				</File>
 				<File
 					RelativePath="..\..\Codes\Halak\Keys.h"
 					>
@@ -1768,6 +1776,18 @@
 				Name="UI"
 				>
 				<File
+					RelativePath="..\..\Codes\Halak\UIDrawingContext.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\UIDrawingContext.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\UIDrawingContext.inl"
+					>
+				</File>
+				<File
 					RelativePath="..\..\Codes\Halak\UIElement.cpp"
 					>
 				</File>
@@ -1777,6 +1797,18 @@
 				</File>
 				<File
 					RelativePath="..\..\Codes\Halak\UIElement.inl"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\UIImage.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\UIImage.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\UIImage.inl"
 					>
 				</File>
 				<File

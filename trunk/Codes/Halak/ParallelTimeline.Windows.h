@@ -11,7 +11,7 @@
         {
             class ParallelTimeline : public Timeline
             {
-                HKDeclareGameComponentClassFOURCC('P', 'R', 'T', 'L');
+                HKClassFOURCC('P', 'R', 'T', 'L');
                 public:
                     ParallelTimeline();
                     explicit ParallelTimeline(uint32 id);

@@ -25,7 +25,7 @@ namespace Halak
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
-    
+
     BadCastException& BadCastException::operator = (const BadCastException& right)
     {
         if (this == &right)
@@ -45,6 +45,17 @@ namespace Halak
         Exception::operator = (right);
         Index = right.Index;
         Count = right.Count;
+        return *this;
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    NotSupportedException& NotSupportedException::operator = (const NotSupportedException& right)
+    {
+        if (this == &right)
+            return *this;
+
+        Exception::operator = (right);
         return *this;
     }
 }

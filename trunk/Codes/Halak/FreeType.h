@@ -11,7 +11,7 @@
     {
         class FreeType : public GameComponent
         {
-            HKDeclareGameComponentClassFOURCC('F', 'R', 'T', 'P');
+            HKClassFOURCC('F', 'R', 'T', 'P');
             public:
                 typedef std::list<std::pair<unsigned int, FreeTypeFontRendererPtr> > RendererCollection;
 

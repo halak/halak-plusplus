@@ -9,7 +9,7 @@
     {
         class UIKeyboardEventDispatcher : public GameComponent
         {
-            HKDeclareGameComponentClassFOURCC('U', 'I', 'K', 'B');
+            HKClassFOURCC('U', 'I', 'K', 'B');
             public:
                 UIKeyboardEventDispatcher();
                 virtual ~UIKeyboardEventDispatcher();

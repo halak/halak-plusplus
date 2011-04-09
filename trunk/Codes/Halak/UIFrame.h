@@ -15,6 +15,13 @@
                 virtual ~UIFrame();
 
                 virtual RectangleF ComputeBounds(UIVisualVisitor& visitor) = 0;
+
+                virtual void Move(Vector2 displacement);
+                virtual bool IsMovable() const;
+
+                virtual void Resize(float left, float top, float right, float bottom);
+                virtual void ResizeTo(Vector2 size);
+                virtual bool IsResizable() const;
         };
     }
 

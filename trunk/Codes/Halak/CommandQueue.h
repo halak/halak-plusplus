@@ -9,7 +9,7 @@
     {
         class CommandQueue : public GameComponent
         {
-            HKDeclareGameComponentClassFOURCC('C', 'M', 'D', 'Q');
+            HKClassFOURCC('C', 'M', 'D', 'Q');
             public:
                 CommandQueue();
                 virtual ~CommandQueue();               

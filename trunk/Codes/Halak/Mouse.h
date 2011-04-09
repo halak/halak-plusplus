@@ -10,7 +10,7 @@
     {
         class Mouse : public GameComponent
         {
-            HKDeclareGameComponentClassFOURCC('M', 'O', 'U', 'S');
+            HKClassFOURCC('M', 'O', 'U', 'S');
             public:
                 Mouse();
                 Mouse(Window* window);

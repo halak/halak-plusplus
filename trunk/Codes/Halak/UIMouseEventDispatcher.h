@@ -9,7 +9,7 @@
     {
         class UIMouseEventDispatcher : public GameComponent
         {
-            HKDeclareGameComponentClassFOURCC('U', 'I', 'M', 'S');
+            HKClassFOURCC('U', 'I', 'M', 'S');
             public:
                 UIMouseEventDispatcher();
                 virtual ~UIMouseEventDispatcher();

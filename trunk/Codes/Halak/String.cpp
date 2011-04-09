@@ -606,7 +606,7 @@ namespace Halak
         return -1;
     }
 
-    int String::ReverseFindIgnoreCaseTemplate(const char* s, int length, int index) const
+    int String::ReverseFindIgnoreCaseTemplate(const char* /*s*/, int /*length*/, int /*index*/) const
     {
         throw;
     }

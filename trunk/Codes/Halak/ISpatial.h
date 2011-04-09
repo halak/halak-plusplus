@@ -10,7 +10,7 @@
     {
         class ISpatial
         {
-            HKClassIDFOURCC('I', 'S', 'P', 'L');
+            HKInterfaceFOURCC('I', 'S', 'P', 'L');
             public:
                 virtual ~ISpatial() {}
 

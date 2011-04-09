@@ -1,4 +1,6 @@
+#include <Halak/PCH.h>
 #include <Halak/UIAlignedFrame.h>
+#include <Halak/UIVisualVisitor.h>
 
 namespace Halak
 {
@@ -41,7 +43,7 @@ namespace Halak
 
     RectangleF UIAlignedFrame::ComputeBounds(UIVisualVisitor& visitor)
     {
-        const RectangleF referenceBounds = RectangleF::Empty;
+        const RectangleF referenceBounds = visitor.GetCurrentBounds();
         if (boundsChanged || lastReferenceBounds != referenceBounds)
         {
             RectangleF bounds = RectangleF(0.0f, 0.0f, size.X, size.Y);
@@ -90,6 +92,105 @@ namespace Halak
         }
 
         return lastBounds;
+    }
+
+    void UIAlignedFrame::Move(Vector2 displacement)
+    {
+        if (displacement == Vector2::Zero)
+            return;
+
+        switch (align)
+        {
+            case LeftTop:
+            case LeftMiddle:
+            case CenterTop:
+            case Center:
+                offset.X += displacement.X;
+                offset.Y += displacement.Y;
+                break;
+            case LeftBottom:
+            case CenterBottom:
+                offset.X += displacement.X;
+                offset.Y -= displacement.Y;
+                break;
+            case RightTop:
+            case RightMiddle:
+                offset.X -= displacement.X;
+                offset.Y += displacement.Y;
+                break;
+            case RightBottom:
+                offset.X -= displacement.X;
+                offset.Y -= displacement.Y;
+                break;
+        }
+
+        boundsChanged = true;
+    }
+
+    bool UIAlignedFrame::IsMovable() const
+    {
+        return true;
+    }
+
+    void UIAlignedFrame::Resize(float left, float top, float right, float bottom)
+    {
+        if (left == 0.0f && top == 0.0f && right == 0.0f && bottom == 0.0f)
+            return;
+
+        size.X += left + right;
+        size.Y += top + bottom;
+
+        switch(align)
+        {
+            case LeftTop:
+            case LeftBottom:
+            case LeftMiddle:
+                offset.X -= left;
+                break;
+            case RightTop:
+            case RightBottom:
+            case RightMiddle:
+                offset.X -= right;
+                break;
+            case CenterTop:
+            case CenterBottom:
+            case Center:
+                offset.X -= left * 0.5f;
+                offset.X += right * 0.5f;
+                break;
+        }
+
+        switch(align)
+        {
+            case LeftTop:
+            case RightTop:
+            case CenterTop:
+                offset.Y -= top;
+                break;
+            case LeftBottom:
+            case RightBottom:
+            case CenterBottom:
+                offset.Y -= bottom;
+                break;
+            case LeftMiddle:
+            case RightMiddle:
+            case Center:
+                offset.Y -= top * 0.5f;
+                offset.Y += bottom * 0.5f;
+                break;
+        }
+
+        boundsChanged = true;
+    }
+
+    void UIAlignedFrame::ResizeTo(Vector2 size)
+    {
+        SetSize(size);
+    }
+
+    bool UIAlignedFrame::IsResizable() const
+    {
+        return true;
     }
 
     void UIAlignedFrame::SetAlign(Alignment value)

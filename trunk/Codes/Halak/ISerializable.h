@@ -8,7 +8,7 @@
     {
         class ISerializable
         {
-            HKClassIDFOURCC('I', 'S', 'R', 'Z');
+            HKInterfaceFOURCC('I', 'S', 'R', 'Z');
             public:
                 virtual ~ISerializable() { }
 

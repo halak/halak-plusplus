@@ -1,3 +1,4 @@
+#include <Halak/PCH.h>
 #include <Halak/UIFittedFrame.h>
 
 namespace Halak

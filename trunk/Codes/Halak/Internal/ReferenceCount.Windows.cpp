@@ -16,7 +16,14 @@
         bool ReferenceCount::DecreaseStrongCount()
         {
             InterlockedDecrement(&strong);
-            return strong == 0;
+            if (strong == 0)
+            {
+                if (weak == 0)
+                    delete this;
+                return true;
+            }
+            else
+                return false;
         }
 
         void ReferenceCount::IncreaseWeakCount()
