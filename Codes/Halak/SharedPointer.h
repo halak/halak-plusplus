@@ -48,9 +48,8 @@
             private:
                 inline SharedPointer(T* pointee, ReferenceCount* referenceCount);
 
-                template <typename U>
-                inline ReferenceCount* AcquireReferenceCount(U* instance) { return instance ? new ReferenceCount() : 0; }
                 inline ReferenceCount* AcquireReferenceCount(SharedObject* instance);
+                inline ReferenceCount* AcquireReferenceCount(void* instance);
 
             private:
                 T* pointee;

@@ -153,4 +153,9 @@ namespace Halak
     {
         return instance ? instance->referenceCount : 0;
     }
+
+    template <typename T> ReferenceCount* SharedPointer<T>::AcquireReferenceCount(void* instance)
+    {
+        return instance ? new ReferenceCount() : 0;
+    }
 }

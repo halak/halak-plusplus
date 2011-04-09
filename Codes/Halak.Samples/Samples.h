@@ -17,6 +17,7 @@
             void SignalSample(const std::vector<const char*>& args);
             void JSONSample(const std::vector<const char*>& args);
             void LuaSample(const std::vector<const char*>& args);
+            void SharedPointerSample(const std::vector<const char*>& args);
 
             void SwapChainSample(const std::vector<const char*>& args);
             void ParticleSample(const std::vector<const char*>& args);

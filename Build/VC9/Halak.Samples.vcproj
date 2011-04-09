@@ -218,6 +218,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\..\Codes\Halak.Samples\SharedPointer.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\..\Codes\Halak.Samples\Signal.cpp"
 				>
 			</File>
