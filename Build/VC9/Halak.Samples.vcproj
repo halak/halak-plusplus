@@ -233,6 +233,10 @@
 				RelativePath="..\..\Codes\Halak.Samples\SwapChain.cpp"
 				>
 			</File>
+			<File
+				RelativePath="..\..\Codes\Halak.Samples\UI.cpp"
+				>
+			</File>
 		</Filter>
 	</Files>
 	<Globals>
