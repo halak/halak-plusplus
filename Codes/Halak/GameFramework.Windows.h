@@ -48,6 +48,11 @@
                     virtual void BeginDraw();
                     virtual void EndDraw();
 
+                    void ForceUpdateAllComponents(float dt, uint timestamp);
+
+                private:
+                    static void ForceUpdateComponent(GameNode* node, float dt, uint timestamp);
+
                 private:
                     GameStructure* structure;
                     GameWindow* window;
