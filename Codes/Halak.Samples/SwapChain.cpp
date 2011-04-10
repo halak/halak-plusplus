@@ -75,6 +75,11 @@ class SwapChainSampleApp : public GameFramework
                              Matrix4::Translation(Vector3(+textSize.X * 0.5f + 100.0f, +textSize.Y * 0.5f + 100.0f, 0.0f)));
         spriteRenderer->DrawString(Vector2(100.0f, 100.0f), font, "Hello");
         spriteRenderer->Pop();
+
+        char fpsString[32] = { '\0', };
+        _snprintf(fpsString, sizeof(fpsString), "%.4f", GetFPS());
+        spriteRenderer->DrawString(Vector2(10.0f, 10.0f), font, fpsString);
+
         spriteRenderer->End();
         GameFramework::Draw();
     }
