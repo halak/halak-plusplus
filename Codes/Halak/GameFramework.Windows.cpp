@@ -17,21 +17,20 @@
               window(new GameWindow()),
               graphicsDevice(new GraphicsDevice()),
               mainTimeline(nullptr),
-              desiredElapsedTime(0.0f),
-              fixedTimeStep(true)
+              fixedTimeStep(true),
+              fixedElapsedTime(1.0f / 60.0f),
+              maxTimeInOneFrame(1.0f)
         {
             structure->GetRoot()->AttachChild(window);
             structure->GetRoot()->AttachChild(graphicsDevice);
 
-            SYSTEM_INFO systemInfo = { 0, };
-            GetSystemInfo(&systemInfo);
-            HKAssert(systemInfo.dwNumberOfProcessors > 0);
-            if (systemInfo.dwNumberOfProcessors == 1)
-                sleepDuration = 1;
-            else
-                sleepDuration = 0;
-
-            SetDesiredElapsedTime(1.0f / 60.0f);
+            //SYSTEM_INFO systemInfo = { 0, };
+            //GetSystemInfo(&systemInfo);
+            //HKAssert(systemInfo.dwNumberOfProcessors > 0);
+            //if (systemInfo.dwNumberOfProcessors == 1)
+            //    sleepDuration = 1;
+            //else
+            //    sleepDuration = 0;
         }
 
         GameFramework::~GameFramework()
@@ -68,12 +67,20 @@
 
                     if (fixedTimeStep)
                     {
-                        for (/**/; currentTime - previousTime > desiredElapsedTime; previousTime += desiredElapsedTime)
-                            Update(desiredElapsedTime, ++timestamp);
+                        const float dt = fixedElapsedTime;
+                        float time = Math::Min(elapsedTime, maxTimeInOneFrame);
+                        if (time < dt)
+                        {
+                            Sleep(1);
+                            continue;
+                        }
+
+                        for (/**/; time >= dt; time -= dt, previousTime += dt)
+                            Update(dt, timestamp++);
                     }
                     else
                     {
-                        Update(currentTime - previousTime, ++timestamp);
+                        Update(currentTime - previousTime, timestamp++);
                         previousTime = currentTime;
                     }
 
@@ -81,8 +88,8 @@
                     Draw();
                     EndDraw();
 
-                    if (sleepDuration > 0)
-                        Sleep(sleepDuration);
+                    timestamps.push_back(currentTime);
+                    Sleep(1);
                 }
             }
         }
@@ -92,10 +99,14 @@
             fixedTimeStep = value;
         }
 
-        void GameFramework::SetDesiredElapsedTime(float value)
+        void GameFramework::SetFixedElapsedTime(float value)
         {
-            desiredElapsedTime = Math::Max(value, 0.0001f);
-            desiredFPS = static_cast<uint>(1.0f / desiredElapsedTime);
+            fixedElapsedTime = Math::Max(value, 0.0001f);
+        }
+
+        void GameFramework::SetMaxTimeInOneFrame(float value)
+        {
+            maxTimeInOneFrame = Math::Max(value, 0.0001f);
         }
 
         float GameFramework::GetFPS() const
