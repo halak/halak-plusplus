@@ -30,8 +30,13 @@ namespace Halak
         return fixedTimeStep;
     }
 
-    float GameFramework::GetDesiredElapsedTime() const
+    float GameFramework::GetFixedElapsedTime() const
     {
-        return desiredElapsedTime;
+        return fixedElapsedTime;
+    }
+
+    float GameFramework::GetMaxTimeInOneFrame() const
+    {
+        return maxTimeInOneFrame;
     }
 }

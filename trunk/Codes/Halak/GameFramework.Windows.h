@@ -28,8 +28,11 @@
                     inline bool GetFixedTimeStep() const;
                            void SetFixedTimeStep(bool value);
 
-                    inline float GetDesiredElapsedTime() const;
-                           void  SetDesiredElapsedTime(float value);
+                    inline float GetFixedElapsedTime() const;
+                           void  SetFixedElapsedTime(float value);
+
+                    inline float GetMaxTimeInOneFrame() const;
+                           void  SetMaxTimeInOneFrame(float value);
 
                     float GetFPS() const;
 
@@ -51,12 +54,10 @@
                     GraphicsDevice* graphicsDevice;
                     IUpdateable* mainTimeline;
 
-                    float desiredElapsedTime;
-                    uint  desiredFPS;
                     bool  fixedTimeStep;
+                    float fixedElapsedTime;
+                    float maxTimeInOneFrame;
                     std::deque<float> timestamps;
-
-                    unsigned long sleepDuration;
             };
         }
 

@@ -2,91 +2,103 @@
 #include <Halak/DisplaySwapChain.h>
 #include <Halak/Font.h>
 #include <Halak/FreeType.h>
+#include <Halak/GameFramework.h>
 #include <Halak/GameNode.h>
 #include <Halak/GameStructure.h>
-#include <Halak/GraphicsDevice.h>
-#include <Halak/SpriteRenderer.h>
 #include <Halak/GameWindow.h>
+#include <Halak/GraphicsDevice.h>
+#include <Halak/Math.h>
+#include <Halak/SpriteRenderer.h>
 using namespace Halak;
+
+class SwapChainSampleApp : public GameFramework
+{
+    GameWindow* otherWindow;
+    DisplaySwapChain* otherSwapChain;
+    FreeType* freeType;
+    SpriteRenderer* spriteRenderer;
+
+    FontPtr font;
+    float textRotation;
+    Vector2 textSize;
+
+    virtual void Initialize()
+    {
+        GetWindow()->SetSize(Point(800, 600));
+        GetWindow()->SetTitle("Mainwindow");
+        GetWindow()->MoveToScreenCenter();
+
+        GameFramework::Initialize();
+
+        otherWindow = new GameWindow();
+        otherWindow->SetSize(Point(200, 100));
+        otherWindow->SetTitle("SubWindow");
+        otherWindow->SetVisible(true);
+        otherWindow->SetPosition(Point::Zero);
+        GetStructure()->GetRoot()->AttachChild(otherWindow);
+
+        otherSwapChain = new DisplaySwapChain(GetGraphicsDevice(), otherWindow);
+        GetStructure()->GetRoot()->AttachChild(otherSwapChain);
+
+        freeType = new FreeType(GetGraphicsDevice());
+        spriteRenderer = new SpriteRenderer(GetGraphicsDevice());
+        GetStructure()->GetRoot()->AttachChild(freeType);
+        GetStructure()->GetRoot()->AttachChild(spriteRenderer);
+
+        font = new Font(freeType);
+        font->SetFace("malgun.ttf");
+        font->SetSize(20.0f);
+        font->SetColor(Color::Blue);
+
+        textRotation = 0.0f;
+        textSize = font->Measure("Hello");
+    }
+
+    virtual void Finalize()
+    {
+        font.Reset();
+        GameFramework::Finalize();
+    }
+
+    virtual void Update(float dt, uint timestamp)
+    {
+        GameFramework::Update(dt, timestamp);
+        textRotation += dt * Math::TwoPi;
+    }
+
+    virtual void Draw()
+    {
+        GetGraphicsDevice()->Clear();
+        spriteRenderer->Begin();
+        spriteRenderer->Push(Matrix4::Translation(Vector3(-textSize.X * 0.5f - 100.0f, -textSize.Y * 0.5f - 100.0f, 0.0f)) *
+                             Matrix4::RotationZ(textRotation) *
+                             Matrix4::Translation(Vector3(+textSize.X * 0.5f + 100.0f, +textSize.Y * 0.5f + 100.0f, 0.0f)));
+        spriteRenderer->DrawString(Vector2(100.0f, 100.0f), font, "Hello");
+        spriteRenderer->Pop();
+        spriteRenderer->End();
+        GameFramework::Draw();
+    }
+
+    virtual void EndDraw()
+    {
+        GameFramework::EndDraw();
+
+        otherSwapChain->BeginDraw();
+        GetGraphicsDevice()->Clear(Color::YellowGreen);
+        spriteRenderer->Begin();
+        spriteRenderer->Push(Matrix4::Translation(Vector3(-textSize.X * 0.5f - 10.0f, -textSize.Y * 0.5f - 10.0f, 0.0f)) *
+                             Matrix4::RotationZ(-textRotation) *
+                             Matrix4::Translation(Vector3(+textSize.X * 0.5f + 10.0f, +textSize.Y * 0.5f + 10.0f, 0.0f)));
+        spriteRenderer->DrawString(Vector2(10.0f, 10.0f), font, "Hello");
+        spriteRenderer->Pop();
+        spriteRenderer->End();
+        otherSwapChain->EndDraw();
+        otherSwapChain->Present();
+    }
+};
 
 void Halak::Samples::SwapChainSample(const std::vector<const char*>& /*args*/)
 {
-    GameStructure* componentMap = new GameStructure();
-    GameWindow* window1 = new GameWindow();
-    GameWindow* window2 = new GameWindow();
-    window1->SetSize(Point(800, 600));
-    window2->SetSize(Point(200, 100));
-    window1->SetTitle("Mainwindow");
-    window2->SetTitle("SubWindow");
-    window1->MoveToScreenCenter();
-    window2->SetPosition(Point::Zero);
-    componentMap->GetRoot()->AttachChild(window1);
-    componentMap->GetRoot()->AttachChild(window2);
-    GraphicsDevice* graphicsDevice = new GraphicsDevice();
-    graphicsDevice->SetFullscreen(false);
-    graphicsDevice->SetWindow(window1);
-    componentMap->GetRoot()->AttachChild(graphicsDevice);
-
-    DisplaySwapChain* swapChain = new DisplaySwapChain(graphicsDevice, window2);
-    componentMap->GetRoot()->AttachChild(swapChain);
-
-    FreeType* freeType = new FreeType(graphicsDevice);
-    SpriteRenderer* spriteRenderer = new SpriteRenderer(graphicsDevice);
-    componentMap->GetRoot()->AttachChild(freeType);
-    componentMap->GetRoot()->AttachChild(spriteRenderer);
-
-    FontPtr font(new Font(freeType));
-    font->SetFace("malgun.ttf");
-    font->SetSize(20.0f);
-    font->SetColor(Color::Blue);
-
-    window1->SetVisible(true);
-    window2->SetVisible(true);
-
-    float rotation = 0.0f;
-    Vector2 size = font->Measure("Hello");
-    MSG message;
-    for (;;)
-    {
-        if (PeekMessage(&message, NULL, 0, 0, PM_REMOVE))
-        {
-            TranslateMessage(&message);
-            DispatchMessage(&message);
-
-            if (message.message == WM_QUIT)
-                break;
-        }
-        else
-        {
-            rotation += 0.01f;
-
-            graphicsDevice->BeginDraw();
-            graphicsDevice->Clear();
-            spriteRenderer->Begin();
-            spriteRenderer->Push(Matrix4::Translation(Vector3(-size.X / 2.0f - 100.0f, -size.Y / 2.0f - 100.0f, 0.0f)) *
-                                 Matrix4::RotationZ(rotation) *
-                                 Matrix4::Translation(Vector3(+size.X / 2.0f + 100.0f, +size.Y / 2.0f + 100.0f, 0.0f)));
-            spriteRenderer->DrawString(Vector2(100.0f, 100.0f), font, "Hello");
-            spriteRenderer->Pop();
-            spriteRenderer->End();
-            graphicsDevice->EndDraw();
-            graphicsDevice->Present();
-
-            swapChain->BeginDraw();
-            graphicsDevice->Clear(Color::YellowGreen);
-            spriteRenderer->Begin();
-            spriteRenderer->Push(Matrix4::Translation(Vector3(-size.X / 2.0f - 10.0f, -size.Y / 2.0f - 10.0f, 0.0f)) *
-                                 Matrix4::RotationZ(-rotation) *
-                                 Matrix4::Translation(Vector3(+size.X / 2.0f + 10.0f, +size.Y / 2.0f + 10.0f, 0.0f)));
-            spriteRenderer->DrawString(Vector2(10.0f, 10.0f), font, "Hello");
-            spriteRenderer->Pop();
-            spriteRenderer->End();
-            swapChain->EndDraw();
-            swapChain->Present();
-            Sleep(1);
-        }
-    }
-
-    font.Reset();
-    delete componentMap;
+    SwapChainSampleApp app;
+    app.Run();
 }
