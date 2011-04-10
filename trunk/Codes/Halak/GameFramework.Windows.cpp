@@ -12,14 +12,17 @@
 
     namespace Halak
     {
+        static const uint GeneralFPS = 60;
+
         GameFramework::GameFramework()
             : structure(new GameStructure()),
               window(new GameWindow()),
               graphicsDevice(new GraphicsDevice()),
               mainTimeline(nullptr),
               fixedTimeStep(true),
-              fixedElapsedTime(1.0f / 60.0f),
-              maxTimeInOneFrame(1.0f)
+              fixedElapsedTime(1.0f / static_cast<float>(GeneralFPS)),
+              maxTimeInOneFrame(1.0f),
+              desiredFPS(GeneralFPS)
         {
             structure->GetRoot()->AttachChild(window);
             structure->GetRoot()->AttachChild(graphicsDevice);
@@ -89,6 +92,9 @@
                     EndDraw();
 
                     timestamps.push_back(currentTime);
+                    if (static_cast<uint>(timestamps.size()) > desiredFPS)
+                        timestamps.pop_front();
+
                     Sleep(1);
                 }
             }
@@ -102,6 +108,7 @@
         void GameFramework::SetFixedElapsedTime(float value)
         {
             fixedElapsedTime = Math::Max(value, 0.0001f);
+            desiredFPS = Math::Min(static_cast<uint>(1.0f / fixedElapsedTime), GeneralFPS);
         }
 
         void GameFramework::SetMaxTimeInOneFrame(float value)

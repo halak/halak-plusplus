@@ -57,6 +57,7 @@
                     bool  fixedTimeStep;
                     float fixedElapsedTime;
                     float maxTimeInOneFrame;
+                    uint  desiredFPS;
                     std::deque<float> timestamps;
             };
         }
