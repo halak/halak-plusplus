@@ -3,6 +3,8 @@
 #define __HALAK_UIMARKUPTEXT_H__
 
 #   include <Halak/FWD.h>
+#   include <Halak/Color.h>
+#   include <Halak/SequenceDictionary.h>
 #   include <Halak/String.h>
 #   include <vector>
 
@@ -11,21 +13,34 @@
         class UIMarkupText
         {
             public:
+                enum PhraseType
+                {
+                    TextPhraseType,
+                    NewLinePhraseType,
+                    ColorPhraseType,
+                    FontPhraseType,
+                    ContentPhraseType,
+                };
+
                 class Phrase
                 {
                     public:
-                        inline const String& GetText() const;
+                        inline PhraseType GetType() const;
+                        inline int GetIndex() const;
+                        inline int GetLegnth() const;
 
                     protected:
-                        Phrase();
-                        Phrase(const String& text);
+                        Phrase(PhraseType type);
+                        Phrase(PhraseType type, int index, int length);
                         Phrase(const Phrase& original);
                         virtual ~Phrase();
 
                         virtual Phrase* Clone() const = 0;
 
                     private:
-                        String text;
+                        PhraseType type;
+                        int index;
+                        int length;
 
                     private:
                         Phrase& operator = (const Phrase&);
@@ -36,7 +51,7 @@
                 class TextPhrase : public Phrase
                 {
                     private:
-                        TextPhrase(const String& text);
+                        TextPhrase(const String& originalText, int index, int length);
                         TextPhrase(const TextPhrase& original);
                         virtual ~TextPhrase();
 
@@ -60,17 +75,19 @@
                 class ColorPhrase : public Phrase
                 {
                     public:
-                        inline Color* GetColor() const;
+                        inline Color GetColor() const;
+                        inline bool  HasColor() const;
 
                     private:
-                        ColorPhrase(const String& text);
+                        ColorPhrase(const String& originalText, int index, int length);
                         ColorPhrase(const ColorPhrase& original);
                         virtual ~ColorPhrase();
 
                         virtual ColorPhrase* Clone() const;
 
                     private:
-                        Color* color;
+                        Color color;
+                        bool hasColor;
 
                         friend class UIMarkupText;
                 };
@@ -78,29 +95,23 @@
                 class ContentPhrase : public Phrase
                 {
                     public:
-                        typedef std::pair<String, String> KeyValuePair;
-                        typedef std::vector<KeyValuePair> Dictionary;
-
-                    public:
-                        inline const String& GetType() const;
-                        inline const String& GetName() const;
-                        inline const Dictionary& GetAttributes() const;
-
-                        const String& FindAttribute(const String& key) const;
+                        inline const String& GetContentType() const;
+                        inline const String& GetContentName() const;
+                        inline const SequenceDictionary& GetAttributes() const;
 
                     private:
-                        ContentPhrase(const String& text);
+                        ContentPhrase(const String& originalText, int index, int length);
                         ContentPhrase(const ContentPhrase& original);
                         virtual ~ContentPhrase();
 
                         virtual ContentPhrase* Clone() const;
 
-                        void ParseAttributes(const String& text);
+                        void ParseAttributes(const String& originalText, int index, int length);
 
                     private:
-                        String type;
-                        String name;
-                        Dictionary attributes;
+                        String contentType;
+                        String contentName;
+                        SequenceDictionary attributes;
                         
                         friend class UIMarkupText;
                 };
@@ -126,8 +137,8 @@
                 static const UIMarkupText Empty;
 
             private:
-                void AddSubText(const String& subText);
-                template <typename T> int AddSpecialPhrase(int index, char open, char close, String& inoutSubText);
+                void AddSubText(int index, int length);
+                template <typename T> int AddSpecialPhrase(int index, char open, char close, int subTextIndex, int subTextLength);
 
                 void Parse();
 

@@ -7,148 +7,159 @@
 //#   include <Halak/UIMarkupText.h>
 //
 //    namespace Halak
-//    {
-//        class UIMarkupTextLayout
-//        {
-//            class MarkupTextLayout
-//            {
-//                public:
-//                    MarkupTextLayout();
-//                    MarkupTextLayout(const Halak::String& text);
-//                    MarkupTextLayout(const MarkupTextLayout& original);
-//                    ~MarkupTextLayout();
+//         
+//         class UIMarkupTextLayout
+//         {
+//            public:
+//                enum Alignment
+//                {
+//                    LeftTopPoint,
+//                    LeftBottomPoint,
+//                    LeftMiddlePoint,
+//                    RightTopPoint,
+//                    RightBottomPoint,
+//                    RightMiddlePoint,
+//                    CenterTopPoint,
+//                    CenterBottomPoint,
+//                    CenterPoint,
+//                };
 //
-//                    void Draw(Halak::DrawingContext& context);
+//             public:
+//                 UIMarkupTextLayout();
+//                 UIMarkupTextLayout(const String& text);
+//                 UIMarkupTextLayout(const MarkupTextLayout& original);
+//                 ~UIMarkupTextLayout();
 //
-//                    const Halak::String& GetText() const;
-//                    void SetText(const Halak::String& value);
+//                 void Draw(DrawingContext& context);
 //
-//                    const MarkupText& GetMarkupText() const;
-//                    Vector2 GetSize();
+//                 const String& GetText() const;
+//                 void SetText(const String& value);
 //
-//                    Alignment::E GetAlign() const;
-//                    void SetAlign(Alignment::E value);
+//                 const MarkupText& GetMarkupText() const;
+//                 Vector2 GetSize();
 //
-//                    float GetBoundary() const;
-//                    void  SetBoundary(float value);
+//                 Alignment GetAlign() const;
+//                 void SetAlign(Alignment value);
 //
-//                    Halak::FontPtr GetFont() const;
-//                    void SetFont(Halak::FontPtr value);
+//                 float GetBoundary() const;
+//                 void  SetBoundary(float value);
 //
-//                    int GetNumberOfContents();
+//                 FontPtr GetFont() const;
+//                 void SetFont(FontPtr value);
 //
-//                    float GetDisplayContentLength();
-//                    void  SetDisplayContentLength(float value);
+//                 int GetNumberOfContents();
 //
-//                    MarkupTextLayout& operator = (const MarkupTextLayout& original);
-//                    bool operator == (const MarkupTextLayout& right) const;
-//                    bool operator != (const MarkupTextLayout& right) const;
+//                 float GetDisplayContentLength();
+//                 void  SetDisplayContentLength(float value);
 //
-//                private:
-//                    class Block;
-//                    class TextBlock;
-//                    class Line;
-//                    class LayoutContext;
+//                 MarkupTextLayout& operator = (const MarkupTextLayout& original);
+//                 bool operator == (const MarkupTextLayout& right) const;
+//                 bool operator != (const MarkupTextLayout& right) const;
 //
-//                    typedef std::vector<Block*> BlockCollection;
-//                    typedef std::vector<Line*>  LineCollection;
+//             private:
+//                 class Block;
+//                 class TextBlock;
+//                 class Line;
+//                 class LayoutContext;
 //
-//                private:
-//                    void UpdateLayout();
-//                    void DeleteAllLines();
+//                 typedef std::vector<Block*> BlockCollection;
+//                 typedef std::vector<Line*>  LineCollection;
 //
-//                    static void Copy(LineCollection& target, const LineCollection& original);
+//             private:
+//                 void UpdateLayout();
+//                 void DeleteAllLines();
 //
-//                private:
-//                    MarkupText* markupText;
-//                    Alignment::E alignment;
-//                    float boundary;
-//                    Halak::FontPtr font; 
-//                    int numberOfContents;
-//                    float displayContentLength;
-//                    bool layoutChanged;
+//                 static void Copy(LineCollection& target, const LineCollection& original);
 //
-//                    LineCollection lines;
-//                    Vector2 size;
+//             private:
+//                 MarkupText* markupText;
+//                 Alignment align;
+//                 float boundary;
+//                 FontPtr font; 
+//                 int numberOfContents;
+//                 float displayContentLength;
+//                 bool layoutChanged;
 //
-//                private:
-//                    class Block
-//                    {
-//                        public:
-//                            virtual ~Block();
+//                 LineCollection lines;
+//                 Vector2 size;
 //
-//                            virtual Block* Clone() const = 0;
-//                            virtual void Draw(Halak::SpriteRenderer* renderer, float& outLength) = 0;
+//             private:
+//                 class Block
+//                 {
+//                     public:
+//                         virtual ~Block();
 //
-//                            // Summary:
-//                            // Block을 배치하다가 경계를 넘어갔을 때,
-//                            // Block의 일부분만 다음 줄에 배치하고 싶을 때 override하여 사용합니다.
-//                            // Return:
-//                            // 다음 줄에 배치할 Block을 반환합니다.
-//                            // 만약 nullptr을 반환하면 Block 전체를 다음 줄에 배치합니다.
-//                            virtual Block* Divide(float cutWidth);
+//                         virtual Block* Clone() const = 0;
+//                         virtual void Draw(SpriteRenderer* renderer, float& outLength) = 0;
 //
-//                        public:
-//                            Vector2 Position;
-//                            Vector2 Offset;
-//                            Vector2 Size;
-//                            Color Tint;
-//                    };
+//                         // Summary:
+//                         // Block을 배치하다가 경계를 넘어갔을 때,
+//                         // Block의 일부분만 다음 줄에 배치하고 싶을 때 override하여 사용합니다.
+//                         // Return:
+//                         // 다음 줄에 배치할 Block을 반환합니다.
+//                         // 만약 nullptr을 반환하면 Block 전체를 다음 줄에 배치합니다.
+//                         virtual Block* Divide(float cutWidth);
 //
-//                    class TextBlock : public Block
-//                    {
-//                        public:
-//                            TextBlock(const Halak::String& text, Halak::FontPtr font);
-//                            virtual ~TextBlock();
+//                     public:
+//                         Vector2 Position;
+//                         Vector2 Offset;
+//                         Vector2 Size;
+//                         Color Tint;
+//                 };
 //
-//                            virtual TextBlock* Clone() const;
-//                            virtual void Draw(Halak::SpriteRenderer* renderer, float& outLength);
+//                 class TextBlock : public Block
+//                 {
+//                     public:
+//                         TextBlock(const String& text, FontPtr font);
+//                         virtual ~TextBlock();
 //
-//                            virtual TextBlock* Divide(float cutWidth);
+//                         virtual TextBlock* Clone() const;
+//                         virtual void Draw(SpriteRenderer* renderer, float& outLength);
 //
-//                            int GetNumberOfGlyphs() const;
+//                         virtual TextBlock* Divide(float cutWidth);
 //
-//                        private:
-//                            Halak::String text;
-//                            Halak::FontPtr font;
-//                            Halak::FontString* fontString;
-//                    };
+//                         int GetNumberOfGlyphs() const;
 //
-//                    class Line
-//                    {
-//                        public:
-//                            Line();
-//                            Line(const Line& original);
-//                            ~Line();
+//                     private:
+//                         String text;
+//                         FontPtr font;
+//                         FontString* fontString;
+//                 };
 //
-//                            void UpdateSize(float defaultHeight);
-//                            void AdjustBlocks(float y, float boundary, Alignment::E alignment);
+//                 class Line
+//                 {
+//                     public:
+//                         Line();
+//                         Line(const Line& original);
+//                         ~Line();
 //
-//                        public:
-//                            BlockCollection Blocks;
-//                            Vector2 Size;
-//                    };
+//                         void UpdateSize(float defaultHeight);
+//                         void AdjustBlocks(float y, float boundary, Alignment alignment);
 //
-//                    class LayoutContext
-//                    {
-//                        public:
-//                            explicit LayoutContext(MarkupTextLayout* layout);
-//                            ~LayoutContext();
+//                     public:
+//                         BlockCollection Blocks;
+//                         Vector2 Size;
+//                 };
 //
-//                            void Push(Block* item);
-//                            void Wrap();
+//                 class LayoutContext
+//                 {
+//                     public:
+//                         explicit LayoutContext(MarkupTextLayout* layout);
+//                         ~LayoutContext();
 //
-//                            Halak::FontPtr GetFont() const;
-//                            void SetFont(Halak::FontPtr value);
+//                         void Push(Block* item);
+//                         void Wrap();
 //
-//                        private:
-//                            MarkupTextLayout* layout;
-//                            Line*   line;
-//                            Vector2 position;
-//                            Halak::FontPtr font;
-//                    };
-//            };
-//        };
+//                         FontPtr GetFont() const;
+//                         void SetFont(FontPtr value);
+//
+//                     private:
+//                         MarkupTextLayout* layout;
+//                         Line*   line;
+//                         Vector2 position;
+//                         FontPtr font;
+//                 };
+//         };
 //    }
 //
 //#endif

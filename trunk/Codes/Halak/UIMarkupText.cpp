@@ -1,7 +1,7 @@
 #include <Halak/PCH.h>
 #include <Halak/UIMarkupText.h>
 #include <Halak/Assert.h>
-#include <Halak/Color.h>
+#include <Halak/Math.h>
 #include <algorithm>
 
 namespace Halak
@@ -52,16 +52,16 @@ namespace Halak
         return operator == (right);
     }
 
-    void UIMarkupText::AddSubText(const String& subText)
+    void UIMarkupText::AddSubText(int index, int length)
     {
-        if (subText.IsEmpty())
+        if (index < 0 || length <= 0)
             return;
 
-        phrases.push_back(new TextPhrase(subText));
-        displayText += subText;
+        phrases.push_back(new TextPhrase(originalText, index, length));
+        displayText.Append(&originalText.CStr()[index], length);
     }
 
-    template <typename T> int UIMarkupText::AddSpecialPhrase(int index, char open, char close, String& inoutSubText)
+    template <typename T> int UIMarkupText::AddSpecialPhrase(int index, char open, char close, int subTextIndex, int subTextLength)
     {
         if (index + 1 < originalText.GetLength())
         {
@@ -69,7 +69,7 @@ namespace Halak
             {
                 // 여는 문자가 연속적으로 써져 있을 때
                 // 여는 문자 하나를 추가합니다.
-                inoutSubText += open;
+                AddSubText(subTextIndex, subTextLength + 1);
                 index += 2;
             }
             else
@@ -79,26 +79,28 @@ namespace Halak
                 if (closeIndex != -1)
                 {
                     // 그전까지 쌓아둔 문자열을 그대로 추가합니다.
-                    AddSubText(inoutSubText);
+                    AddSubText(subTextIndex, subTextLength);
 
-                    const String content = originalText.Substring(index + 1, closeIndex - index - 1);
-                    if (content.IsEmpty() == false)
-                        phrases.push_back(new T(content));
+                    const int contentIndex  = index + 1;
+                    const int contentLength = closeIndex - index - 1;
+                    if (contentLength > 0)
+                        phrases.push_back(new T(originalText, contentIndex, contentLength));
 
-                    inoutSubText = String::Empty;
                     index = closeIndex + 1;
                 }
                 else
                 {
                     // 열렸는데 안 닫혀있을 때는 추가합니다.
-                    inoutSubText += originalText[index++];
+                    AddSubText(subTextIndex, subTextLength + 1);
+                    index++;
                 }
             }
         }
         else
         {
             // 마지막 문자였을 때는 추가합니다.
-            inoutSubText += originalText[index++];
+            AddSubText(subTextIndex, subTextLength + 1);
+            index++;
         }
 
         return index;
@@ -109,17 +111,21 @@ namespace Halak
         if (originalText.IsEmpty())
             return;
 
-        String subText;
-
+        int subTextIndex  = 0;
+        int subTextLength = 0;
         for (int i = 0; i < originalText.GetLength();)
         {
             switch (originalText[i])
             {
                 case '|':
-                    i = AddSpecialPhrase<ColorPhrase>(i, '|', '|', subText);
+                    i = AddSpecialPhrase<ColorPhrase>(i, '|', '|', subTextIndex, subTextLength);
+                    subTextIndex = i;
+                    subTextLength = 0;
                     break;
                 case '[':
-                    i = AddSpecialPhrase<ContentPhrase>(i, '[', ']', subText);
+                    i = AddSpecialPhrase<ContentPhrase>(i, '[', ']', subTextIndex, subTextLength);
+                    subTextIndex = i;
+                    subTextLength = 0;
                     break;
                 case ']':
                     if (i + 1 < originalText.GetLength())
@@ -128,42 +134,49 @@ namespace Halak
                         {
                             // ']]' 일 때
                             // ==> ']'를 추가합니다.
-                            subText += originalText[i];
+                            AddSubText(i, 1);
                             i += 2;
+                            subTextIndex = i;
+                            subTextLength = 0;
                         }
                     }
                     else
                     {
                         // ']'로 끝났을 때
-                        subText += originalText[i++];
+                        i++;
+                        subTextLength++;
                     }
                     break;
                 case '\r': // 개행문자 처리 (Text Phrase 나눔)
-                    AddSubText(subText);
+                    AddSubText(subTextIndex, subTextLength);
                     phrases.push_back(new NewLinePhrase());
 
-                    subText = String::Empty;
                     i++;
 
                     // '\r' 다음에 '\n'이 이어진다면 '\n'을 무시합니다.
                     if (i < originalText.GetLength() && originalText[i] == '\n')
                         i++;
 
+                    subTextIndex = i;
+                    subTextLength = 0;
+
                     break;
                 case '\n': // 개행문자 처리 (Text Phrase 나눔)
-                    AddSubText(subText);
+                    AddSubText(subTextIndex, subTextLength);
                     phrases.push_back(new NewLinePhrase());
 
-                    subText = String::Empty;
                     i++;
+                    subTextIndex = i;
+                    subTextLength = 0;
                     break;
                 default:
-                    subText += originalText[i++];
+                    i++;
+                    subTextLength++;
                     break;
             }
         }
 
-        AddSubText(subText);
+        AddSubText(subTextIndex, subTextLength);
     }
 
     void UIMarkupText::Copy(PhraseCollection& outTarget, const PhraseCollection& original)
@@ -177,17 +190,23 @@ namespace Halak
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    UIMarkupText::Phrase::Phrase()
+    UIMarkupText::Phrase::Phrase(PhraseType type)
+        : type(type),
+          index(-1),
+          length(-1)
     {
     }
 
-    UIMarkupText::Phrase::Phrase(const String& text)
-        : text(text)
+    UIMarkupText::Phrase::Phrase(PhraseType type, int index, int length)
+        : type(type),
+          index(index),
+          length(length)
     {
     }
 
     UIMarkupText::Phrase::Phrase(const Phrase& original)
-        : text(original.text)
+        : index(original.index),
+          length(original.length)
     {
     }
 
@@ -197,8 +216,8 @@ namespace Halak
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    UIMarkupText::TextPhrase::TextPhrase(const String& text)
-        : Phrase(text)
+    UIMarkupText::TextPhrase::TextPhrase(const String& /*originalText*/, int index, int length)
+        : Phrase(TextPhraseType, index, length)
     {
     }
 
@@ -219,6 +238,7 @@ namespace Halak
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
     UIMarkupText::NewLinePhrase::NewLinePhrase()
+        : Phrase(NewLinePhraseType)
     {
     }
 
@@ -238,24 +258,30 @@ namespace Halak
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    UIMarkupText::ColorPhrase::ColorPhrase(const String& text)
-        : Phrase(text),
-          color(nullptr)
+    UIMarkupText::ColorPhrase::ColorPhrase(const String& originalText, int index, int length)
+        : Phrase(ColorPhraseType, index, length),
+          color(Color::TransparentWhite),
+          hasColor(false)
     {
         Color convertedColor = Color::Black;
-        if (Color::CanParse(text.Substring(2)))
-            color = new Color(Color::Parse(text.Substring(2)));
+        if (length >= 2 && Color::CanParse(originalText.Substring(index, 2)))
+        {
+            color = Color::Parse(originalText.Substring(index, 2));
+            hasColor = true;
+        }
+        else
+            hasColor = false;
     }
 
     UIMarkupText::ColorPhrase::ColorPhrase(const ColorPhrase& original)
-        : Phrase(original.text),
-          color(original.color ? new Color(*original.color) : nullptr)
+        : Phrase(original),
+          color(original.color),
+          hasColor(original.hasColor)
     {
     }
 
     UIMarkupText::ColorPhrase::~ColorPhrase()
     {
-        delete color;
     }
 
     UIMarkupText::ColorPhrase* UIMarkupText::ColorPhrase::Clone() const
@@ -265,30 +291,35 @@ namespace Halak
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    UIMarkupText::ContentPhrase::ContentPhrase(const String& text)
-        : Phrase(text)
+    UIMarkupText::ContentPhrase::ContentPhrase(const String& originalText, int index, int length)
+        : Phrase(ContentPhraseType, index, length)
     {
-        int colonIndex    = text.Find(':');
-        int questionIndex = text.Find('?');
+        int colonIndex    = originalText.Find(':', index);
+        int questionIndex = originalText.Find('?', index);
         if (colonIndex != -1)
         {
-            type = text.Substring(0, colonIndex);
-            type.Trim();
+            contentType = originalText.Substring(index, Math::Min(colonIndex - index, length));
+            contentType.Trim();
         }
 
         if (questionIndex != -1)
         {
-            name = text.Substring(colonIndex + 1, questionIndex - colonIndex - 1);
-            ParseAttributes(text.Substring(questionIndex + 1));
+            contentName = originalText.Substring(colonIndex + 1, Math::Min(questionIndex - colonIndex - 1, length));
+
+            const int offset = questionIndex + 1;
+            ParseAttributes(originalText, offset, index + length - offset);
         }
         else
-            name = text.Substring(colonIndex + 1);
+        {
+            const int offset = colonIndex + 1;
+            contentName = originalText.Substring(offset, index + length - offset);
+        }
     }
 
     UIMarkupText::ContentPhrase::ContentPhrase(const ContentPhrase& original)
         : Phrase(original),
-          type(original.type),
-          name(original.name),
+          contentType(original.contentType),
+          contentName(original.contentName),
           attributes(original.attributes)
     {
     }
@@ -302,50 +333,28 @@ namespace Halak
         return new ContentPhrase(*this);
     }
 
-    const String& UIMarkupText::ContentPhrase::FindAttribute(const String& key) const
+    void UIMarkupText::ContentPhrase::ParseAttributes(const String& originalText, int index, int length)
     {
-        //struct Comparer
-        //{
-        //    bool operator () (const KeyValuePair& current)
-        //    {
-        //        return false;
-        //    }
-        //};
-
-        //std::binary_search(attributes.begin(), attributes.end(), key, Comparer());
-
-        return String::Empty;
-    }
-
-    void UIMarkupText::ContentPhrase::ParseAttributes(const String& text)
-    {
-        for (int i = 0; i < text.GetLength();)
+        const int end = index + length;
+        for (int i = index; i < end;)
         {
-            const int equalSignIndex = text.Find('=', i);
-            const int ampersandIndex = text.Find('&', i);
-            if (i == -1)
+            const int equalSignIndex = originalText.Find('=', i);
+            if (equalSignIndex == -1)
                 break;
-            if (i == -1)
-                i = text.GetLength();
+
+            int ampersandIndex = originalText.Find('&', i);
+            if (ampersandIndex == -1)
+                ampersandIndex = end;
 
             if (equalSignIndex < ampersandIndex)
             {
-                String key = text.Substring(i, equalSignIndex - i);
-                key.ToLower();
-                attributes.push_back(KeyValuePair(name, text.Substring(equalSignIndex + 1, ampersandIndex - equalSignIndex - 1)));
+                String key = originalText.Substring(i, equalSignIndex - i);
+                attributes.Add(key, originalText.Substring(equalSignIndex + 1, ampersandIndex - equalSignIndex - 1));
             }
 
             i = ampersandIndex + 1;
         }
 
-        struct Compare
-        {
-            bool operator () (const KeyValuePair& a, const KeyValuePair& b) const
-            {
-                return a.first < b.first;
-            }
-        };
-
-        std::sort(attributes.begin(), attributes.end(), Compare());
+        attributes.Optimize();
     }
 }

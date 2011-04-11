@@ -17,31 +17,46 @@ namespace Halak
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    const String& UIMarkupText::Phrase::GetText() const
-    {
-        return text;
-    }
-
-    ////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    Color* UIMarkupText::ColorPhrase::GetColor() const
-    {
-        return color;
-    }
-
-    ////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    const String& UIMarkupText::ContentPhrase::GetType() const
+    UIMarkupText::PhraseType UIMarkupText::GetType() const
     {
         return type;
     }
 
-    const String& UIMarkupText::ContentPhrase::GetName() const
+    int UIMarkupText::Phrase::GetIndex() const
     {
-        return name;
+        return index;
     }
 
-    const UIMarkupText::ContentPhrase::Dictionary UIMarkupText::ContentPhrase::GetAttributes() const
+    int UIMarkupText::Phrase::GetLength() const
+    {
+        return length;
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    Color UIMarkupText::ColorPhrase::GetColor() const
+    {
+        return color;
+    }
+
+    bool UIMarkupText::ColorPhrase::HasColor() const
+    {
+        return hasColor;
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    const String& UIMarkupText::ContentPhrase::GetContentType() const
+    {
+        return contentType;
+    }
+
+    const String& UIMarkupText::ContentPhrase::GetContentName() const
+    {
+        return contentName;
+    }
+
+    const SequenceDictionary UIMarkupText::ContentPhrase::GetAttributes() const
     {
         return attributes;
     }

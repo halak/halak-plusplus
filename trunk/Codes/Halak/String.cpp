@@ -57,6 +57,12 @@ namespace Halak
             Insert(buffer->length, s, strlen(s));
     }
 
+    void String::Append(const char* s, int length)
+    {
+        if (s && s[0] != '\0')
+            Insert(buffer->length, s, length);
+    }
+
     void String::Append(const String& s)
     {
         if (s.buffer->length > 0)
