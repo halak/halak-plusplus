@@ -23,6 +23,7 @@
                 inline ~String();
 
                 void Append(const char* s);
+                void Append(const char* s, int length);
                 void Append(const String& s);
 
                 void Insert(int index, const char* s);
