@@ -6,7 +6,6 @@
 #include <Halak/IFloatRangeEvaluable.h>
 #include <Halak/Math.h>
 #include <Halak/SpriteSequence.h>
-#include <Halak/Texture2D.h>
 #include <Halak/Vector2RangeSequence.h>
 #include <Halak/Vector3RangeSequence.h>
 

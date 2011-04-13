@@ -12,7 +12,7 @@
         {
             public:
                 ParticleEmitter();
-                ParticleEmitter(const ParticleEmitter& original, CloningContext& context);
+                ///^ParticleEmitter(const ParticleEmitter& original, CloningContext& context);
                 virtual ~ParticleEmitter();
 
                 virtual void Update(float dt, uint timestamp);

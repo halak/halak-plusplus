@@ -1,5 +1,6 @@
 #include <Halak/PCH.h>
-#include <Halak/Internal/ReferenceCount.h>
+#include <Halak/Internal/SharedObjectLife.h>
+#include <Halak/SharedObject.h>
 
 #if (defined(HALAK_PLATFORM_WINDOWS))
 
@@ -8,30 +9,33 @@
 
     namespace Halak
     {
-        void ReferenceCount::IncreaseStrongCount()
+        void SharedObjectLife::IncreaseStrongCount()
         {
             InterlockedIncrement(&strong);
         }
 
-        bool ReferenceCount::DecreaseStrongCount()
+        bool SharedObjectLife::DecreaseStrongCount()
         {
             InterlockedDecrement(&strong);
             if (strong == 0)
             {
+                delete pointee;
+
                 if (weak == 0)
                     delete this;
+
                 return true;
             }
             else
                 return false;
         }
 
-        void ReferenceCount::IncreaseWeakCount()
+        void SharedObjectLife::IncreaseWeakCount()
         {
             InterlockedIncrement(&weak);
         }
 
-        void ReferenceCount::DecreaseWeakCount()
+        void SharedObjectLife::DecreaseWeakCount()
         {
             InterlockedDecrement(&weak);
             if (strong == 0 && weak == 0)

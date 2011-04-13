@@ -6,7 +6,6 @@
 #include <Halak/Font.h>
 #include <Halak/FontString.h>
 #include <Halak/String.h>
-#include <Halak/Texture2D.h>
 #include <windows.h>
 
 namespace Halak

@@ -1,6 +1,5 @@
 #include <Halak.Toolkit/PCH.h>
 #include <Halak/SimpleParticleEmitter.h>
-#include <Halak/Texture2D.h>
 #include <Halak.Toolkit/Attributes.h>
 #include <Halak.Toolkit/RegistrationContexts.h>
 using namespace Halak::Toolkit;

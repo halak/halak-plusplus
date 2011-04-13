@@ -1,6 +1,5 @@
 #include <Halak/PCH.h>
 #include <Halak/EvaluableSpriteConstant.h>
-#include <Halak/Texture2D.h>
 
 namespace Halak
 {

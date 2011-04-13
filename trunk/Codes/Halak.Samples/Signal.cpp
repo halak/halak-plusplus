@@ -1,8 +1,9 @@
 #include <Halak.Samples/Samples.h>
+#include <Halak/SharedObject.h>
 #include <Halak/Signal.h>
 #include <iostream>
 
-class A
+class A : public Halak::SharedObject
 {
     public:
         void TEST1(int v, int, int, int, int)

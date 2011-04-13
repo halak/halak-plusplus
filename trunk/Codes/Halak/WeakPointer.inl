@@ -2,84 +2,84 @@ namespace Halak
 {
     template <typename T> WeakPointer<T>::WeakPointer()
         : pointee(0),
-          referenceCount(0)
+          life(0)
     {
     }
 
     template <typename T> WeakPointer<T>::WeakPointer(const SharedPointer<T>& pointer)
         : pointee(pointer),
-          referenceCount(pointer ? pointer.referenceCount : 0)
+          life(pointer ? pointer.life : 0)
     {
-        if (referenceCount)
-            referenceCount->IncreaseWeakCount();
+        if (life)
+            life->IncreaseWeakCount();
     }
 
-    template <typename T> WeakPointer<T>::WeakPointer(T* pointee, ReferenceCount* referenceCount)
+    template <typename T> WeakPointer<T>::WeakPointer(T* pointee, SharedObjectLife* life)
         : pointee(pointee),
-          referenceCount(referenceCount)
+          life(life)
     {
-        if (referenceCount)
-            referenceCount->IncreaseWeakCount();
+        if (life)
+            life->IncreaseWeakCount();
     }
 
     template <typename T> WeakPointer<T>::WeakPointer(const WeakPointer<T>& original)
         : pointee(original.pointee),
-          referenceCount(original.referenceCount)
+          life(original.life)
     {
-        if (referenceCount)
-            referenceCount->IncreaseWeakCount();
+        if (life)
+            life->IncreaseWeakCount();
     }
 
     template <typename T> WeakPointer<T>::~WeakPointer()
     {
-        if (referenceCount)
-            referenceCount->DecreaseWeakCount();
+        if (life)
+            life->DecreaseWeakCount();
     }
 
     template <typename T> void WeakPointer<T>::Reset()
     {
-        if (referenceCount)
-            referenceCount->DecreaseWeakCount();
+        if (life)
+            life->DecreaseWeakCount();
 
         pointee = 0;
-        referenceCount = 0;
+        life = 0;
     }
 
     template <typename T> void WeakPointer<T>::Reset(const WeakPointer<T>& right)
     {
-        if (referenceCount)
-            referenceCount->DecreaseWeakCount();
+        if (life)
+            life->DecreaseWeakCount();
 
         pointee = right.pointee;
-        referenceCount = right.referenceCount;
+        life = right.life;
 
-        if (referenceCount)
-            referenceCount->IncreaseWeakCount();
+        if (life)
+            life->IncreaseWeakCount();
     }
 
     template <typename T> void WeakPointer<T>::Reset(const SharedPointer<T>& right)
     {
-        if (referenceCount)
-            referenceCount->DecreaseWeakCount();
+        if (life)
+            life->DecreaseWeakCount();
 
         pointee = right.pointee;
-        referenceCount = right.referenceCount;
+        life = right.life;
 
-        if (referenceCount)
-            referenceCount->IncreaseWeakCount();
+        if (life)
+            life->IncreaseWeakCount();
     }
 
     template <typename T> SharedPointer<T> WeakPointer<T>::Lock() const
     {
-        if (referenceCount && referenceCount->IsAlive())
-            return SharedPointer<T>(pointee);
+        if (life && life->IsAlive())
+            return SharedPointer<T>(pointee, life);
         else
-            return 0;
+            return SharedPointer<T>(0, 0);
     }
 
     template <typename T> bool WeakPointer<T>::IsAlive() const
     {
-        return referenceCount && referenceCount->IsAlive();
+        return life && life->IsAlive();
     }
 
     template <typename T> WeakPointer<T>& WeakPointer<T>::operator = (const WeakPointer<T>& right)

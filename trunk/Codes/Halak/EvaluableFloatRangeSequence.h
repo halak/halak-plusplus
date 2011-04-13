@@ -3,12 +3,13 @@
 #define __HALAK_EVALUABLEFLOATRANGESEQUENCE_H__
 
 #   include <Halak/FWD.h>
+#   include <Halak/SharedObject.h>
 #   include <Halak/IFloatRangeEvaluable.h>
 #   include <Halak/IUpdateable.h>
 
     namespace Halak
     {
-        class EvaluableFloatRangeSequence : public IFloatRangeEvaluable, public IUpdateable
+        class EvaluableFloatRangeSequence : public SharedObject, public IFloatRangeEvaluable, public IUpdateable
         {
             typedef FloatRangeSequencePtr SharedSequencePointerType;
             public:

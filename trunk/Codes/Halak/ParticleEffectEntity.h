@@ -13,7 +13,7 @@
             public:
                 ParticleEffectEntity();
                 ParticleEffectEntity(const String& name);
-                ParticleEffectEntity(const ParticleEffectEntity& original, CloningContext& context);
+                ///^ParticleEffectEntity(const ParticleEffectEntity& original, CloningContext& context);
                 virtual ~ParticleEffectEntity();
 
                 virtual ParticleEffectEntity* Clone() const;

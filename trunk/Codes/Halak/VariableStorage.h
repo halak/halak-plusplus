@@ -3,13 +3,14 @@
 #define __HALAK_WORKFLOW_VARIABLESTORAGE_H__
 
 #   include <Halak/FWD.h>
+#   include <Halak/SharedObject.h>
 #   include <Halak/Any.h>
 #   include <map>
 #   include <vector>
 
     namespace Halak
     {
-        class VariableStorage
+        class VariableStorage : public SharedObject
         {
             typedef std::map<String, Any> AnyDictionary;
             typedef std::vector<Any> AnyCollection;

@@ -7,7 +7,7 @@
     namespace Halak
     {
         class SharedObject;
-        class ReferenceCount;
+        class SharedObjectLife;
         template <typename T> class SharedPointer;
         template <typename T> class WeakPointer;
 
@@ -23,7 +23,7 @@
                 template <typename To, typename ThisType> SharedPointer<To> This(ThisType* thisInstance);
 
             private:
-                ReferenceCount* referenceCount;
+                SharedObjectLife* life;
 
                 template <typename T> friend class SharedPointer;
                 template <typename T> friend class WeakPointer;

@@ -12,12 +12,12 @@ namespace Halak
     {
     }
 
-    RootEntity::RootEntity(const RootEntity& original, CloningContext& context)
-        : Entity(original, context),
-          author(original.author),
-          comment(original.comment)
-    {
-    }
+    ///^RootEntity::RootEntity(const RootEntity& original, CloningContext& context)
+    ///^    : Entity(original, context),
+    ///^      author(original.author),
+    ///^      comment(original.comment)
+    ///^{
+    ///^}
 
     RootEntity::~RootEntity()
     {
@@ -30,7 +30,7 @@ namespace Halak
 
     RootEntity* RootEntity::CloneWith(CloningContext& context) const
     {
-        return new RootEntity(*this, context);
+        return nullptr;//new RootEntity(*this, context);
     }
 
     const String& RootEntity::GetAuthor() const

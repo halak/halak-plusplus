@@ -14,7 +14,7 @@
             public:
                 EffectEntity();
                 EffectEntity(const String& name);
-                EffectEntity(const EffectEntity& original, CloningContext& context);
+                ///^EffectEntity(const EffectEntity& original, CloningContext& context);
                 virtual ~EffectEntity();
 
                 virtual void Dispose();

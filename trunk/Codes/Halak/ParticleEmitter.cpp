@@ -15,13 +15,13 @@ namespace Halak
     {
     }
 
-    ParticleEmitter::ParticleEmitter(const ParticleEmitter& original, CloningContext& context)
-        : origin(context.Clone(original.origin)),
-          spawnPeriod(context.Clone(original.spawnPeriod)),
-          spawnPoint(original.spawnPoint ? original.spawnPoint->Clone() : nullptr),
-          spawnTime(original.spawnTime)
-    {
-    }
+    ///^ParticleEmitter::ParticleEmitter(const ParticleEmitter& original, CloningContext& context)
+    ///^    : origin(context.Clone(original.origin)),
+    ///^      spawnPeriod(context.Clone(original.spawnPeriod)),
+    ///^      spawnPoint(original.spawnPoint ? original.spawnPoint->Clone() : nullptr),
+    ///^      spawnTime(original.spawnTime)
+    ///^{
+    ///^}
     
     ParticleEmitter::~ParticleEmitter()
     {

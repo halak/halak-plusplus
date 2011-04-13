@@ -13,10 +13,10 @@ namespace Halak
     {
     }
 
-    EffectEntity::EffectEntity(const EffectEntity& original, CloningContext& context)
-        : Entity(original, context)
-    {
-    }
+    ///^EffectEntity::EffectEntity(const EffectEntity& original, CloningContext& context)
+    ///^    : Entity(original, context)
+    ///^{
+    ///^}
 
     EffectEntity::~EffectEntity()
     {
