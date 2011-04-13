@@ -19,7 +19,7 @@
             public:
                 Entity();
                 Entity(const String& name);
-                Entity(const Entity& original, CloningContext& context);
+                ///^Entity(const Entity& original, CloningContext& context);
                 virtual ~Entity();
 
                 virtual Entity* Clone() const;

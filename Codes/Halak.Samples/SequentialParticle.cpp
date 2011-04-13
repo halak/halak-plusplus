@@ -24,7 +24,7 @@ class SequentialParticleApp : public GameFramework
 {
     SpriteRenderer* spriteRenderer;
     Texture2DPtr texture;
-    SequentialParticleEmitterPtr emitter;
+    SequentialParticleEmitter* emitter;
 
     virtual void Initialize()
     {
@@ -89,7 +89,7 @@ class SequentialParticleApp : public GameFramework
 
     virtual void Finalize()
     {
-        emitter.Reset();
+        delete emitter;
         texture.Reset();
 
         GameFramework::Finalize();

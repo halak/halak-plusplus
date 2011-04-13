@@ -3,6 +3,7 @@
 #define __HALAK_STRING_H__
 
 #   include <Halak/Foundation.h>
+#   include <Halak/SharedObject.h>
 #   include <Halak/SharedPointer.h>
 
     namespace Halak
@@ -198,14 +199,14 @@
                 inline int ReverseFindIgnoreCaseTemplate(const char* s, int length, int index) const;
 
             private:
-                struct StringBuffer
+                struct StringBuffer : public SharedObject
                 {
                     StringBuffer(const char* s);
                     inline StringBuffer(const char* s, int length);
                     inline StringBuffer(const StringBuffer& original);
                     StringBuffer(EmptyStringTag);
                     StringBuffer(InsertTag, const char* s1, int length1, int index, const char* s2, int length2);
-                    inline ~StringBuffer();
+                    inline virtual ~StringBuffer();
 
                     inline StringBuffer& operator = (const StringBuffer& original);
 

@@ -17,7 +17,7 @@ using namespace Halak;
 class ParticleSampleApp : public GameFramework
 {
     SpriteRenderer* spriteRenderer;
-    SimpleParticleEmitterPtr emitter;
+    SimpleParticleEmitter* emitter;
     Texture2DPtr texture;
 
     virtual void Initialize()
@@ -55,7 +55,7 @@ class ParticleSampleApp : public GameFramework
 
     virtual void Finalize()
     {
-        emitter.Reset();
+        delete emitter;
         texture.Reset();
         GameFramework::Finalize();
     }

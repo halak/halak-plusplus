@@ -4,7 +4,7 @@
 
 #   include <Halak/Foundation.h>
 #   include <Halak/SharedObject.h>
-#   include <Halak/Internal/ReferenceCount.h>
+#   include <Halak/Internal/SharedObjectLife.h>
 
     namespace Halak
     {
@@ -15,13 +15,64 @@
 
             public:
                 inline SharedPointer();
-                inline SharedPointer(T* pointee);
                 inline SharedPointer(const SharedPointer<T>& original);
+                template <typename U> inline SharedPointer(U* pointee)
+                    : pointee(static_cast<T*>(pointee)),
+                      life(pointee->life)
+                {
+                    if (pointee)
+                    {
+                        if (life == nullptr)
+                        {
+                            life = new SharedObjectLife(pointee);
+                            pointee->life = life;
+                        }
+
+                        life->IncreaseStrongCount();
+                    }
+    //template <typename T> SharedPointer<T>::SharedPointer(T* pointee)
+    //    : pointee(pointee),
+    //      referenceCount(AcquireReferenceCount(pointee))
+    //{
+    //    if (referenceCount)
+    //        referenceCount->IncreaseStrongCount();
+    //}
+                }
                 inline ~SharedPointer();
 
                 inline void Reset();
                 inline void Reset(const SharedPointer<T>& right);
-                inline void Reset(T* right);
+                template <typename U> inline void Reset(U* right)
+                {
+                    if (pointee != right)
+                    {
+                        if (life)
+                            life->DecreaseStrongCount();
+                        
+                        if (right && right->life == nullptr)
+                            right->life = new SharedObjectLife(right);
+
+                        pointee = static_cast<T*>(right);
+                        life = right->life;
+
+                        if (life)
+                            life->IncreaseStrongCount();
+                    }
+    //template <typename T> void SharedPointer<T>::Reset(T* right)
+    //{
+    //    if (pointee != right)
+    //    {
+    //        if (referenceCount && referenceCount->DecreaseStrongCount())
+    //            delete pointee;
+
+    //        pointee = right;
+    //        referenceCount = AcquireReferenceCount(right);
+
+    //        if (referenceCount)
+    //            referenceCount->IncreaseStrongCount();
+    //    }
+    //}
+                }
 
                 inline void Swap(SharedPointer<T>& right);
 
@@ -32,9 +83,15 @@
                 inline SharedPointer<T>& operator = (const SharedPointer<T>& right);
 
                 inline bool operator == (const SharedPointer<T>& right) const;
-                inline bool operator == (T* right) const;
                 inline bool operator != (const SharedPointer<T>& right) const;
-                inline bool operator != (T* right) const;
+                template <typename U> bool operator == (U* right) const
+                {
+                    return pointee == right;
+                }
+                template <typename U> bool operator != (U* right) const
+                {
+                    return pointee != right;
+                }
 
                 inline operator T* () const;
                 inline T& operator * () const;
@@ -42,18 +99,15 @@
 
                 template <typename U> operator SharedPointer<U>() const
                 {
-                    return SharedPointer<U>(static_cast<U*>(pointee), referenceCount);
+                    return SharedPointer<U>(static_cast<U*>(pointee), life);
                 }
 
             private:
-                inline SharedPointer(T* pointee, ReferenceCount* referenceCount);
-
-                inline ReferenceCount* AcquireReferenceCount(SharedObject* instance);
-                inline ReferenceCount* AcquireReferenceCount(void* instance);
+                inline SharedPointer(T* pointee, SharedObjectLife* life);
 
             private:
                 T* pointee;
-                ReferenceCount* referenceCount;
+                SharedObjectLife* life;
 
                 template <typename U> friend class SharedPointer;
                 template <typename T> friend class WeakPointer;

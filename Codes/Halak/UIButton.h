@@ -13,6 +13,12 @@
                 UIButton();
                 virtual ~UIButton();
 
+            protected:
+                virtual bool OnMouseEnter(const UIMouseEventArgs& args);
+                virtual bool OnMouseLeave(const UIMouseEventArgs& args);
+                virtual bool OnMouseLeftDown(const UIMouseEventArgs& args);
+                virtual bool OnMouseLeftUp(const UIMouseEventArgs& args);
+
             private:
         };
     }

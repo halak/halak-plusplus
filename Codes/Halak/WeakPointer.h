@@ -44,15 +44,15 @@
 
                 template <typename U> operator WeakPointer<U>() const
                 {
-                    return WeakPointer<U>(static_cast<U*>(pointee), referenceCount);
+                    return WeakPointer<U>(static_cast<U*>(pointee), life);
                 }
 
             private:
-                inline WeakPointer(T* pointee, ReferenceCount* referenceCount);
+                inline WeakPointer(T* pointee, SharedObjectLife* life);
 
             private:
                 T* pointee;
-                ReferenceCount* referenceCount;
+                SharedObjectLife* life;
 
                 template <typename U> friend class WeakPointer;
                 template <typename To, typename From> friend WeakPointer<To> StaticCast(const WeakPointer<From>& from);

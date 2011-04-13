@@ -3,12 +3,13 @@
 #define __HALAK_SPATIALOBJECT_H__
 
 #   include <Halak/FWD.h>
+#   include <Halak/SharedObject.h>
 #   include <Halak/ISpatial.h>
 #   include <Halak/IRevisable.h>
 
     namespace Halak
     {
-        class SpatialObject : public ISpatial, public IRevisable
+        class SpatialObject : public SharedObject, public ISpatial, public IRevisable
         {
             public:
                 SpatialObject();

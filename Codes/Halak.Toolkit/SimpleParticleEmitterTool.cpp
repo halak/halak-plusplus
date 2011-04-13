@@ -2,7 +2,6 @@
 #include <Halak.Toolkit/SimpleParticleEmitterTool.h>
 #include <Halak/DrawingContext.h>
 #include <Halak/SimpleParticleEmitter.h>
-#include <Halak/Texture2D.h>
 
 namespace Halak
 {

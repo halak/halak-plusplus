@@ -12,7 +12,7 @@
             public:
                 RootEntity();
                 RootEntity(const String& name);
-                RootEntity(const RootEntity& original, CloningContext& context);
+                ///^RootEntity(const RootEntity& original, CloningContext& context);
                 virtual ~RootEntity();
 
                 virtual RootEntity* Clone() const;

@@ -7,7 +7,6 @@
 #include <Halak/Math.h>
 #include <Halak/NumericLimits.h>
 #include <Halak/SpriteRenderer.h>
-#include <Halak/Texture2D.h>
 #include <Halak/UIMarkupText.h>
 #include <Halak/Internal/Glyph.h>
 

@@ -4,7 +4,6 @@
 #include <Halak/DrawingContext.h>
 #include <Halak/SimpleParticleEmitter.h>
 #include <Halak/SpriteRenderer.h>
-#include <Halak/Texture2D.h>
 #include <stdexcept>
 
 namespace Halak

@@ -16,12 +16,12 @@
 
         template <typename To, typename From> inline SharedPointer<To> StaticCast(const SharedPointer<From>& from)
         {
-            return SharedPointer<To>(static_cast<To*>(from.pointee), from.referenceCount);
+            return SharedPointer<To>(static_cast<To*>(from.pointee), from.life);
         }
 
         template <typename To, typename From> inline WeakPointer<To> StaticCast(const WeakPointer<From>& from)
         {
-            return WeakPointer<To>(static_cast<To*>(from.pointee), from.referenceCount);
+            return WeakPointer<To>(static_cast<To*>(from.pointee), from.life);
         }
 
         template <typename To, typename From> inline To* DynamicCast(From* from)
@@ -31,12 +31,12 @@
 
         template <typename To, typename From> inline SharedPointer<To> DynamicCast(const SharedPointer<From>& from)
         {
-            return SharedPointer<To>(dynamic_cast<To*>(from.pointee), from.referenceCount);
+            return SharedPointer<To>(dynamic_cast<To*>(from.pointee), from.life);
         }
 
         template <typename To, typename From> inline WeakPointer<To> DynamicCast(const WeakPointer<From>& from)
         {
-            return WeakPointer<To>(dynamic_cast<To*>(from.pointee), from.referenceCount);
+            return WeakPointer<To>(dynamic_cast<To*>(from.pointee), from.life);
         }
     }
 

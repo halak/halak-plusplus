@@ -16,10 +16,10 @@ namespace Halak
     {
     }
 
-    ParticleEffectEntity::ParticleEffectEntity(const ParticleEffectEntity& original, CloningContext& context)
-        : EffectEntity(original, context)
-    {
-    }
+    ///^ParticleEffectEntity::ParticleEffectEntity(const ParticleEffectEntity& original, CloningContext& context)
+    ///^    : EffectEntity(original, context)
+    ///^{
+    ///^}
 
     ParticleEffectEntity::~ParticleEffectEntity()
     {
@@ -32,7 +32,7 @@ namespace Halak
 
     ParticleEffectEntity* ParticleEffectEntity::CloneWith(CloningContext& context) const
     {
-        return new ParticleEffectEntity(*this, context);
+        return nullptr;//new ParticleEffectEntity(*this, context);
     }
 
     void ParticleEffectEntity::Dispose()

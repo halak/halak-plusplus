@@ -431,15 +431,15 @@
 					Name="(Internal)"
 					>
 					<File
-						RelativePath="..\..\Codes\Halak\Internal\ReferenceCount.h"
+						RelativePath="..\..\Codes\Halak\Internal\SharedObjectLife.h"
 						>
 					</File>
 					<File
-						RelativePath="..\..\Codes\Halak\Internal\ReferenceCount.inl"
+						RelativePath="..\..\Codes\Halak\Internal\SharedObjectLife.inl"
 						>
 					</File>
 					<File
-						RelativePath="..\..\Codes\Halak\Internal\ReferenceCount.Windows.cpp"
+						RelativePath="..\..\Codes\Halak\Internal\SharedObjectLife.Windows.cpp"
 						>
 					</File>
 				</Filter>

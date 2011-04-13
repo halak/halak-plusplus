@@ -153,4 +153,166 @@ namespace Halak
     void UIWindow::OnChildrenRemoved(const VisualCollection& /*children*/)
     {
     }
+
+    bool UIWindow::OnKeyDown(const UIKeyboardEventArgs& /*args*/)
+    {
+        return false;
+    }
+
+    bool UIWindow::OnKeyUp(const UIKeyboardEventArgs& /*args*/)
+    {
+        return false;
+    }
+
+    bool UIWindow::OnMouseEnter(const UIMouseEventArgs& /*args*/)
+    {
+        return false;
+    }
+
+    bool UIWindow::OnMouseLeave(const UIMouseEventArgs& /*args*/)
+    {
+        return false;
+    }
+
+    bool UIWindow::OnMouseMove(const UIMouseEventArgs& /*args*/)
+    {
+        return false;
+    }
+
+    bool UIWindow::OnMouseLeftDown(const UIMouseEventArgs& /*args*/)
+    {
+        return false;
+    }
+
+    bool UIWindow::OnMouseLeftUp(const UIMouseEventArgs& /*args*/)
+    {
+        return false;
+    }
+
+    bool UIWindow::OnMouseRightDown(const UIMouseEventArgs& /*args*/)
+    {
+        return false;
+    }
+
+    bool UIWindow::OnMouseRightUp(const UIMouseEventArgs& /*args*/)
+    {
+        return false;
+    }
+
+    bool UIWindow::OnMouseMiddleDown(const UIMouseEventArgs& /*args*/)
+    {
+        return false;
+    }
+
+    bool UIWindow::OnMouseMiddleUp(const UIMouseEventArgs& /*args*/)
+    {
+        return false;
+    }
+
+    bool UIWindow::OnMouseWheel(const UIMouseEventArgs& /*args*/)
+    {
+        return false;
+    }
+
+    bool UIWindow::OnMouseClick(const UIMouseEventArgs& /*args*/)
+    {
+        return false;
+    }
+
+    bool UIWindow::OnButtonDown(const UIGamePadEventArgs& /*args*/)
+    {
+        return false;
+    }
+
+    bool UIWindow::OnButtonUp(const UIGamePadEventArgs& /*args*/)
+    {
+        return false;
+    }
+
+#   define RaiseRoutedEvent(onCallbackMethod, raiseEventMethod, eventSignal, args) \
+               bool handled = onCallbackMethod(args); \
+               eventSignal.Emit(args, handled); \
+               \
+               if (handled == false) \
+               { \
+                   if (UIWindow* parent = GetParent()) \
+                       parent->raiseEventMethod(args); \
+               } \
+
+    void UIWindow::RaiseKeyDownEvent(const UIKeyboardEventArgs& args)
+    {
+        RaiseRoutedEvent(OnKeyDown, RaiseKeyDownEvent, keyDownEvent, args);
+    }
+
+    void UIWindow::RaiseKeyUpEvent(const UIKeyboardEventArgs& args)
+    {
+        RaiseRoutedEvent(OnKeyUp, RaiseKeyUpEvent, keyUpEvent, args);
+    }
+
+    void UIWindow::RaiseMouseEnterEvent(const UIMouseEventArgs& args)
+    {
+        RaiseRoutedEvent(OnMouseEnter, RaiseMouseEnterEvent, mouseEnterEvent, args);
+    }
+
+    void UIWindow::RaiseMouseLeaveEvent(const UIMouseEventArgs& args)
+    {
+        RaiseRoutedEvent(OnMouseLeave, RaiseMouseLeaveEvent, mouseLeaveEvent, args);
+    }
+
+    void UIWindow::RaiseMouseMoveEvent(const UIMouseEventArgs& args)
+    {
+        RaiseRoutedEvent(OnMouseMove, RaiseMouseMoveEvent, mouseMoveEvent, args);
+    }
+
+    void UIWindow::RaiseMouseLeftDownEvent(const UIMouseEventArgs& args)
+    {
+        RaiseRoutedEvent(OnMouseLeftDown, RaiseMouseLeftDownEvent, mouseLeftDownEvent, args);
+    }
+
+    void UIWindow::RaiseMouseLeftUpEvent(const UIMouseEventArgs& args)
+    {
+        RaiseRoutedEvent(OnMouseLeftUp, RaiseMouseLeftUpEvent, mouseLeftUpEvent, args);
+    }
+
+    void UIWindow::RaiseMouseRightDownEvent(const UIMouseEventArgs& args)
+    {
+        RaiseRoutedEvent(OnMouseRightDown, RaiseMouseRightDownEvent, mouseRightDownEvent, args);
+    }
+
+    void UIWindow::RaiseMouseRightUpEvent(const UIMouseEventArgs& args)
+    {
+        RaiseRoutedEvent(OnMouseRightUp, RaiseMouseRightUpEvent, mouseRightUpEvent, args);
+    }
+
+    void UIWindow::RaiseMouseMiddleDownEvent(const UIMouseEventArgs& args)
+    {
+        RaiseRoutedEvent(OnMouseMiddleDown, RaiseMouseMiddleDownEvent, mouseMiddleDownEvent, args);
+    }
+
+    void UIWindow::RaiseMouseMiddleUpEvent(const UIMouseEventArgs& args)
+    {
+        RaiseRoutedEvent(OnMouseMiddleUp, RaiseMouseMiddleUpEvent, mouseMiddleUpEvent, args);
+    }
+
+    void UIWindow::RaiseMouseWheelEvent(const UIMouseEventArgs& args)
+    {
+        RaiseRoutedEvent(OnMouseWheel, RaiseMouseWheelEvent, mouseWheelEvent, args);
+    }
+
+    void UIWindow::RaiseMouseClickEvent(const UIMouseEventArgs& args)
+    {
+        RaiseRoutedEvent(OnMouseClick, RaiseMouseClickEvent, mouseClickEvent, args);
+    }
+
+    void UIWindow::RaiseButtonDownEvent(const UIGamePadEventArgs& args)
+    {
+        RaiseRoutedEvent(OnButtonDown, RaiseButtonDownEvent, buttonDownEvent, args);
+    }
+
+    void UIWindow::RaiseButtonUpEvent(const UIGamePadEventArgs& args)
+    {
+        RaiseRoutedEvent(OnButtonUp, RaiseButtonUpEvent, buttonUpEvent, args);
+    }
+
+#   undef RaiseRoutedEvent
 }

@@ -13,15 +13,15 @@ namespace Halak
     {
     }
 
-    Entity::Entity(const Entity& original, CloningContext& context)
-        : ICloneable(context),
-          name(original.name)
-    {
-        for (EntityCollection::const_iterator it = original.children.begin(); it != original.children.end(); it++)
-        {
-            children.push_back(context.Clone(*it));
-        }
-    }
+    ///^Entity::Entity(const Entity& original, CloningContext& context)
+    ///^    : ICloneable(context),
+    ///^      name(original.name)
+    ///^{
+    ///^    for (EntityCollection::const_iterator it = original.children.begin(); it != original.children.end(); it++)
+    ///^    {
+    ///^        children.push_back(context.Clone(*it));
+    ///^    }
+    ///^}
 
     Entity::~Entity()
     {
@@ -34,7 +34,7 @@ namespace Halak
 
     Entity* Entity::CloneWith(CloningContext& context) const
     {
-        return new Entity(*this, context);
+        return nullptr;//new Entity(*this, context);
     }
 
     void Entity::Dispose()

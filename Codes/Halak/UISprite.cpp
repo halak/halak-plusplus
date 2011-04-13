@@ -1,7 +1,6 @@
 #include <Halak/PCH.h>
 #include <Halak/UISprite.h>
 #include <Halak/Assert.h>
-#include <Halak/Texture2D.h>
 #include <Halak/UIDrawingContext.h>
 #include <Halak/UIFrame.h>
 #include <Halak/UIImage.h>

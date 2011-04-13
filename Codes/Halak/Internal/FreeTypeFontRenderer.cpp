@@ -3,7 +3,6 @@
 #include <Halak/Internal/GlyphTable.h>
 #include <Halak/Internal/Glyph.h>
 #include <Halak/FreeType.h>
-#include <Halak/Texture2D.h>
 
 namespace Halak
 {
