@@ -3,13 +3,14 @@
 #define __HALAK_SHAPE2D_H__
 
 #   include <Halak/FWD.h>
-#   include <Halak/Vector2.h>
+#   include <Halak/SharedObject.h>
 #   include <Halak/Ray2D.h>
+#   include <Halak/Vector2.h>
 #   include <list>
 
     namespace Halak
     {
-        class Shape2D
+        class Shape2D : public SharedObject
         {
             public:
                 enum Type

@@ -18,6 +18,8 @@
                 virtual bool CanUndo() const;
                 virtual bool CanRedo() const;
 
+                virtual bool IsRestorable() const;
+
             protected:
                 RestorableCommand();
 

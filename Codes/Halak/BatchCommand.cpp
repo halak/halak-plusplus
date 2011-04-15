@@ -92,8 +92,8 @@ namespace Halak
 
         for (CommandCollection::iterator it = commands.begin(); it != commands.end(); it++)
         {
-            if (RestorableCommand* item = dynamic_cast<RestorableCommand*>(*it))
-                this->restorableCommands.push_back(item);
+            if ((*it)->IsRestorable())
+                restorableCommands.push_back(static_cast<RestorableCommand*>(*it));
         }
     }
 }
