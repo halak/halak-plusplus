@@ -13,6 +13,8 @@
 
                 virtual void Execute() = 0;
 
+                virtual bool IsRestorable() const;
+
             protected:
                 Command();
 

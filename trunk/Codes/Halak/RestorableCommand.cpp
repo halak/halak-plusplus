@@ -25,4 +25,9 @@ namespace Halak
     {
         return true;
     }
+
+    bool RestorableCommand::IsRestorable() const
+    {
+        return true;
+    }
 }

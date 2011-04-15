@@ -46,19 +46,19 @@ namespace Halak
 
         for (CommandCollection::reverse_iterator it = commands.rbegin(); it != commands.rend() && level > 0; level--)
         {
-            if (RestorableCommand* command = dynamic_cast<RestorableCommand*>(*it))
-            {
-                command->Undo();
-                cancelledCommands.push_front(command);
+            if ((*it)->IsRestorable() == false)
+                continue;
 
-                commands.pop_back();
-                it = commands.rbegin();
+            RestorableCommand* command = dynamic_cast<RestorableCommand*>(*it);
 
-                if (signalAlive)
-                    undoneCommands.push_back(command);
-            }
-            else
-                break;
+            command->Undo();
+            cancelledCommands.push_front(command);
+
+            commands.pop_back();
+            it = commands.rbegin();
+
+            if (signalAlive)
+                undoneCommands.push_back(command);
         }
 
         if (signalAlive && undoneCommands.empty() == false)
@@ -80,7 +80,7 @@ namespace Halak
 
         for (CommandCollection::iterator it = cancelledCommands.begin(); it != cancelledCommands.end() && level > 0; level--)
         {
-            HKAssertDebug(dynamic_cast<RestorableCommand*>(*it));
+            HKAssertDebug((*it)->IsRestorable());
 
             RestorableCommand* command = static_cast<RestorableCommand*>(*it);
             command->Redo();
@@ -139,8 +139,7 @@ namespace Halak
 
         for (CommandCollection::const_reverse_iterator it = commands.rbegin(); it != commands.rend() && level > 0; it++, level--)
         {
-            RestorableCommand* command = dynamic_cast<RestorableCommand*>(*it);
-            if (command && command->CanUndo() == false)
+            if ((*it)->IsRestorable() && static_cast<RestorableCommand*>(*it)->CanUndo() == false)
                 return false;
         }
 
@@ -159,8 +158,7 @@ namespace Halak
 
         for (CommandCollection::const_iterator it = cancelledCommands.begin(); it != cancelledCommands.end() && level > 0; it++, level--)
         {
-            RestorableCommand* command = dynamic_cast<RestorableCommand*>(*it);
-            if (command && command->CanRedo() == false)
+            if ((*it)->IsRestorable() && static_cast<RestorableCommand*>(*it)->CanRedo() == false)
                 return false;
         }
 

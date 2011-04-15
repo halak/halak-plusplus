@@ -10,4 +10,9 @@ namespace Halak
     Command::~Command()
     {
     }
+
+    bool Command::IsRestorable() const
+    {
+        return false;
+    }
 }
