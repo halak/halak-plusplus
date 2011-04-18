@@ -10,12 +10,12 @@ namespace Halak
         return shown;
     }
 
-    const UIFramePtr& UIVisual::GetFrame() const
+    UIFrame* UIVisual::GetFrame() const
     {
         return frame;
     }
 
-    const UIWindowWeakPtr& UIVisual::GetParent() const
+    UIWindow* UIVisual::GetParent() const
     {
         return parent;
     }

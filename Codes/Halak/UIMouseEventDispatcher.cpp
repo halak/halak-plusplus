@@ -42,7 +42,7 @@ namespace Halak
         }
     }
 
-    IUpdateable* UIMouseEventDispatcher::AcquireUpdateableInterface()
+    IUpdateable* UIMouseEventDispatcher::QueryUpdateableInterface()
     {
         return this;
     }

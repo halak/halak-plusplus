@@ -49,7 +49,7 @@
                 float GetSpeed() const;
                 void  SetSpeed(float value);
 
-                virtual IUpdateable* AcquireUpdateableInterface();
+                virtual IUpdateable* QueryUpdateableInterface();
 
             private:
                 ItemCollection items;

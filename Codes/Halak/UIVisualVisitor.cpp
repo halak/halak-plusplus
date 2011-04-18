@@ -21,7 +21,7 @@ namespace Halak
     {
     }
 
-    void UIVisualVisitor::Visit(const UIVisualPtr& target)
+    void UIVisualVisitor::Visit(UIVisual* target)
     {
         HKAssert(target != nullptr);
 
@@ -44,7 +44,7 @@ namespace Halak
         currentClippedBounds = RectangleF::Intersect(currentClippedBounds, currentBounds);
         currentTransform = Matrix4::Identity;
 
-        OnWork(target);
+        OnVisit(target);
 
         currentVisual = oldVisual;
         currentOpacity = oldOpacity;

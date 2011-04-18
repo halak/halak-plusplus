@@ -19,24 +19,25 @@
                 inline bool GetShown() const;
                 void SetShown(bool value);
 
-                inline const UIFramePtr& GetFrame() const;
-                void SetFrame(const UIFramePtr& value);
+                inline UIFrame* GetFrame() const;
+                void SetFrame(UIFrame* value);
 
-                inline const UIWindowWeakPtr& GetParent() const;
+                inline UIWindow* GetParent() const;
 
                 inline bool IsVisible() const;
                 virtual bool IsWindow() const;
 
             protected:
                 virtual void OnDraw(UIDrawingContext& context);
+                virtual void OnPick(UIPickingContext& context);
 
                 virtual void OnOpacityChanged(float old);
                 virtual void OnShownChanged();
-                virtual void OnFrameChanged(const UIFramePtr& old);
-                virtual void OnParentChanged(const UIWindowWeakPtr& old);
+                virtual void OnFrameChanged(UIFrame* old);
+                virtual void OnParentChanged(UIWindow* old);
 
             private:
-                void SetParent(const UIWindowWeakPtr& value);
+                void SetParent(UIWindow* value);
 
             private:
                 float opacity;
@@ -45,6 +46,7 @@
                 UIWindowWeakPtr parent;
 
                 friend class UIDrawingContext;
+                friend class UIPickingContext;
                 friend class UIWindow;
         };
     }

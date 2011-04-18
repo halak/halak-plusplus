@@ -3,11 +3,12 @@
 #define __HALAK_EVALUABLESPRITECONSTANT_H__
 
 #   include <Halak/FWD.h>
+#   include <Halak/SharedObject.h>
 #   include <Halak/ISpriteEvaluable.h>
 
     namespace Halak
     {
-        class EvaluableSpriteConstant : public ISpriteEvaluable
+        class EvaluableSpriteConstant : public SharedObject, public ISpriteEvaluable
         {
             typedef Sprite ValueType;
             public:

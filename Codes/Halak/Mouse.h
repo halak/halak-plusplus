@@ -22,10 +22,7 @@
 
                 Window* GetWindow();
                 void SetWindow(Window* value);
-
-            protected:
                 
-
             private:
                 void OnMouseWheel(int delta);
 

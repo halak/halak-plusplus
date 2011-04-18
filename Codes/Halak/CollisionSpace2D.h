@@ -43,7 +43,7 @@
                 typedef std::vector<bool>       BooleanCollection;
 
                 int  Detect(ShapeCollection& groupA, ShapeCollection& groupB, int groupANumber, int groupBNumber);
-                void Detect(Shape2DPtr& shapeA, Shape2DPtr& shapeB, int groupA, int groupB);
+                void Detect(Shape2D* shapeA, Shape2D* shapeB, int groupA, int groupB);
 
             private:
                 std::vector<ShapeCollection>   shapes;

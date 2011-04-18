@@ -22,22 +22,22 @@ namespace Halak
     {
     }
 
-    void UIWindow::AddChild(const UIVisualPtr& item)
+    void UIWindow::AddChild(UIVisual* item)
     {
         InsertChild(children.size(), item);
     }
 
-    void UIWindow::InsertChild(int index, const UIVisualPtr& item)
+    void UIWindow::InsertChild(int index, UIVisual* item)
     {
         index = Math::Clamp(index, 0, static_cast<int>(children.size()));
 
         if (index < 0 || static_cast<int>(children.size()) < index)
             return;
 
-        if (item->GetParent().IsAlive())
-            item->GetParent().Lock()->RemoveChild(item);
+        if (item->GetParent())
+            item->GetParent()->RemoveChild(item);
 
-        HKAssert(item->GetParent().IsAlive() == false);
+        HKAssert(item->GetParent() == nullptr);
 
         item->SetParent(nullptr);
 
@@ -49,7 +49,7 @@ namespace Halak
         OnChildAdded(item);
     }
 
-    bool UIWindow::RemoveChild(const UIVisualPtr& item)
+    bool UIWindow::RemoveChild(UIVisual* item)
     {
         VisualCollection::iterator it = std::find(children.begin(), children.end(), item);
         if (it != children.end())
@@ -138,11 +138,11 @@ namespace Halak
         DrawChildren(context);
     }
 
-    void UIWindow::OnChildAdded(const UIVisualPtr& /*child*/)
+    void UIWindow::OnChildAdded(UIVisual* /*child*/)
     {
     }
 
-    void UIWindow::OnChildRemoved(const UIVisualPtr& /*child*/)
+    void UIWindow::OnChildRemoved(UIVisual* /*child*/)
     {
     }
 

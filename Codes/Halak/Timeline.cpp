@@ -116,7 +116,7 @@ namespace Halak
         speed = std::max(value, 0.0f);
     }
 
-    IUpdateable* Timeline::AcquireUpdateableInterface()
+    IUpdateable* Timeline::QueryUpdateableInterface()
     {
         return this;
     }

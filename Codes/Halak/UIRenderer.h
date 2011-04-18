@@ -23,4 +23,6 @@
         };
     }
 
+#   include <Halak/UIRenderer.inl>
+
 #endif

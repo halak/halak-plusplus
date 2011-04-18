@@ -10,7 +10,7 @@ namespace Halak
         visibleOnly = value;
     }
 
-    const UIVisualPtr& UIVisualVisitor::GetCurrentVisual() const
+    UIVisual* UIVisualVisitor::GetCurrentVisual() const
     {
         return currentVisual;
     }

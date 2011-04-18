@@ -18,7 +18,7 @@
                 inline SharedPointer(const SharedPointer<T>& original);
                 template <typename U> inline SharedPointer(U* pointee)
                     : pointee(static_cast<T*>(pointee)),
-                      life(pointee->life)
+                      life(pointee ? pointee->life : 0)
                 {
                     if (pointee)
                     {
@@ -30,13 +30,6 @@
 
                         life->IncreaseStrongCount();
                     }
-    //template <typename T> SharedPointer<T>::SharedPointer(T* pointee)
-    //    : pointee(pointee),
-    //      referenceCount(AcquireReferenceCount(pointee))
-    //{
-    //    if (referenceCount)
-    //        referenceCount->IncreaseStrongCount();
-    //}
                 }
                 inline ~SharedPointer();
 
@@ -58,20 +51,6 @@
                         if (life)
                             life->IncreaseStrongCount();
                     }
-    //template <typename T> void SharedPointer<T>::Reset(T* right)
-    //{
-    //    if (pointee != right)
-    //    {
-    //        if (referenceCount && referenceCount->DecreaseStrongCount())
-    //            delete pointee;
-
-    //        pointee = right;
-    //        referenceCount = AcquireReferenceCount(right);
-
-    //        if (referenceCount)
-    //            referenceCount->IncreaseStrongCount();
-    //    }
-    //}
                 }
 
                 inline void Swap(SharedPointer<T>& right);

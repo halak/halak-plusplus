@@ -27,7 +27,7 @@
                 inline const String& GetDescription() const;
                 inline void SetDescription(const String& value);
 
-                virtual ICloneable* AcquireCloneableInterface();
+                virtual ICloneable* QueryCloneableInterface();
 
             private:
                 String name;

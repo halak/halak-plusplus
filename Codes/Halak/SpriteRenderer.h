@@ -6,6 +6,8 @@
 #   include <Halak/Color.h>
 #   include <Halak/GameComponent.h>
 #   include <Halak/Matrix4.h>
+#   include <Halak/Rectangle.h>
+#   include <Halak/RectangleF.h>
 #   include <Halak/Vector2.h>
 #   include <Halak/Vector3.h>
 #   include <list>
@@ -37,6 +39,7 @@
                 void DrawLines(const std::vector<Vector3>& points, Color color);
                 void DrawLines(const std::list<Vector3>&   points, Color color);
                 void DrawRectangle(const Rectangle& rectangle, Color color);
+                void DrawRectangle(const RectangleF& rectangle, Color color);
 
                 void DrawString(Vector2 position, FontPtr font, const String& text);
                 void DrawString(Vector2 position, FontPtr font, const String& text, float length, float boundary);

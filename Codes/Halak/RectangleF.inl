@@ -10,6 +10,11 @@ namespace Halak
     {
     }
 
+    RectangleF::RectangleF(int x, int y, int width, int height)
+        : X(static_cast<float>(x)), Y(static_cast<float>(y)), Width(static_cast<float>(width)), Height(static_cast<float>(height))
+    {
+    }
+
     RectangleF::RectangleF(Vector2 leftTop, Vector2 rightBottom)
         : X(leftTop.X),
           Y(leftTop.Y),

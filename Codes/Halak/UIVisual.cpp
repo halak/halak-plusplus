@@ -2,10 +2,15 @@
 #include <Halak/UIVisual.h>
 #include <Halak/Math.h>
 #include <Halak/UIFrame.h>
+#include <Halak/UIWindow.h>
 
 namespace Halak
 {
     UIVisual::UIVisual()
+        : opacity(1.0f),
+          shown(true),
+          frame(nullptr),
+          parent(nullptr)
     {
     }
 
@@ -37,7 +42,7 @@ namespace Halak
         }
     }
 
-    void UIVisual::SetFrame(const UIFramePtr& value)
+    void UIVisual::SetFrame(UIFrame* value)
     {
         if (frame != value)
         {
@@ -46,6 +51,18 @@ namespace Halak
             frame = value;
 
             OnFrameChanged(old);
+        }
+    }
+
+    void UIVisual::SetParent(UIWindow* value)
+    {
+        if (parent != value)
+        {
+            UIWindowWeakPtr old = parent;
+
+            parent = value;
+
+            OnParentChanged(old);
         }
     }
 
@@ -58,6 +75,10 @@ namespace Halak
     {
     }
 
+    void UIVisual::OnPick(UIPickingContext& /*context*/)
+    {
+    }
+
     void UIVisual::OnOpacityChanged(float /*old*/)
     {
     }
@@ -66,11 +87,11 @@ namespace Halak
     {
     }
 
-    void UIVisual::OnFrameChanged(const UIFramePtr& /*old*/)
+    void UIVisual::OnFrameChanged(UIFrame* /*old*/)
     {
     }
 
-    void UIVisual::OnParentChanged(const UIWindowWeakPtr& /*old*/)
+    void UIVisual::OnParentChanged(UIWindow* /*old*/)
     {
     }
 }

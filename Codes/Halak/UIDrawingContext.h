@@ -13,10 +13,11 @@
                 UIDrawingContext(UIRenderer* renderer);
                 virtual ~UIDrawingContext();
 
-                void Draw(const RectangleF& bounds, const UIImagePtr& image, const RectangleF& clippingRectangle);
+                void Draw(const RectangleF& bounds, UIImage* image, const RectangleF& clippingRectangle);
+                void DrawRectangle(const RectangleF& bounds, Color color);
 
             protected:
-                virtual void OnVisit(const UIVisualPtr& target);
+                virtual void OnVisit(UIVisual* target);
 
             private:
                 UIRenderer* renderer;

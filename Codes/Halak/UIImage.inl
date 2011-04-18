@@ -10,7 +10,7 @@ namespace Halak
         return clippingRectangle;
     }
 
-    const Texture2DPtr& UIImage::GetRealTexture() const
+    Texture2D* UIImage::GetRealTexture() const
     {
         return realTexture;
     }

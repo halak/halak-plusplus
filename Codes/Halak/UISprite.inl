@@ -1,6 +1,6 @@
 namespace Halak
 {
-    const UIImagePtr& UISprite::GetImage() const
+    UIImage* UISprite::GetImage() const
     {
         return image;
     }

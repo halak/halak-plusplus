@@ -16,6 +16,7 @@
 
             inline RectangleF();
             inline RectangleF(float x, float y, float width, float height);
+            inline RectangleF(int x, int y, int width, int height);
             inline RectangleF(Vector2 leftTop, Vector2 rightBottom);
             inline RectangleF(const RectangleF& original);
 

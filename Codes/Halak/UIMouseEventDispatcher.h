@@ -20,7 +20,7 @@
                 Mouse* GetDevice() const;
                 void SetDevice(Mouse* value);
 
-                virtual IUpdateable* AcquireUpdateableInterface();
+                virtual IUpdateable* QueryUpdateableInterface();
 
             private:
                 Mouse* device;

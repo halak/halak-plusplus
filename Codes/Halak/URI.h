@@ -3,6 +3,7 @@
 #define __HALAK_URI_H__
 
 #   include <Halak/Foundation.h>
+#   include <Halak/String.h>
 
     namespace Halak
     {
@@ -11,21 +12,22 @@
             public:
                 enum Source
                 {
-                    Resource,
                     FileSystem,
                     Http,
+                    Resource,
                 };
 
             public:
-                URI();
-                URI(const URI& original);
-                ~URI();
+                inline URI();
+                inline URI(const URI& original);
+                inline ~URI();
 
-                URI& operator = (const URI& right);
-                bool operator == (const URI& right) const;
-                bool operator != (const URI& right) const;
+                inline URI& operator = (const URI& right);
+                inline bool operator == (const URI& right) const;
+                inline bool operator != (const URI& right) const;
 
             private:
+                Source source;
         };
     }
 

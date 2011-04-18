@@ -30,7 +30,7 @@ namespace Halak
         return new GameModule(*this, context);
     }
 
-    ICloneable* GameModule::AcquireCloneableInterface()
+    ICloneable* GameModule::QueryCloneableInterface()
     {
         return this;
     }

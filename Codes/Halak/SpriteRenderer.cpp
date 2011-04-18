@@ -448,6 +448,17 @@ namespace Halak
         DrawLinesTemplate(&p[0], &p[sizeof(p) / sizeof(p[0])], color);
     }
 
+    void SpriteRenderer::DrawRectangle(const RectangleF& rectangle, Color color)
+    {
+        const Vector3 p[] = { Vector3(rectangle.GetLeft(),  rectangle.GetTop(), 0.0f),
+                              Vector3(rectangle.GetRight(), rectangle.GetTop(), 0.0f),
+                              Vector3(rectangle.GetRight(), rectangle.GetBottom(), 0.0f),
+                              Vector3(rectangle.GetLeft(),  rectangle.GetBottom(), 0.0f),
+                              Vector3(rectangle.GetLeft(),  rectangle.GetTop(), 0.0f) };
+
+        DrawLinesTemplate(&p[0], &p[sizeof(p) / sizeof(p[0])], color);
+    }
+
     void SpriteRenderer::DrawString(Vector2 position, FontPtr font, const String& text)
     {
         DrawString(position, FontString(font, text));

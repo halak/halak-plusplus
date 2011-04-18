@@ -168,7 +168,7 @@
         {
             if (node->GetComponent())
             {
-                if (IUpdateable* updateableComponent = node->GetComponent()->AcquireUpdateableInterface())
+                if (IUpdateable* updateableComponent = node->GetComponent()->QueryUpdateableInterface())
                     updateableComponent->Update(dt, timestamp);
             }
 

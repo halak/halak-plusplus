@@ -19,9 +19,9 @@
                 explicit UIWindow(int childrenCapacity);
                 virtual ~UIWindow();
 
-                void AddChild(const UIVisualPtr& item);
-                void InsertChild(int index, const UIVisualPtr& item);
-                bool RemoveChild(const UIVisualPtr& item);
+                void AddChild(UIVisual* item);
+                void InsertChild(int index, UIVisual* item);
+                bool RemoveChild(UIVisual* item);
                 bool RemoveChildAt(int index);
                 void RemoveAllChildren();
 
@@ -51,8 +51,8 @@
                 void DrawChildren(UIDrawingContext& context);
 
                 virtual void OnDraw(UIDrawingContext& context);
-                virtual void OnChildAdded(const UIVisualPtr& child);
-                virtual void OnChildRemoved(const UIVisualPtr& child);
+                virtual void OnChildAdded(UIVisual* child);
+                virtual void OnChildRemoved(UIVisual* child);
                 virtual void OnChildrenAdded(const VisualCollection& children);
                 virtual void OnChildrenRemoved(const VisualCollection& children);
 
