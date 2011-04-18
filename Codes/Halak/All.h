@@ -20,6 +20,7 @@
 #           include <Halak/Rectangle.h>
 #           include <Halak/RectangleF.h>
 #           include <Halak/String.h>
+#           include <Halak/URI.h>
 #           include <Halak/UUID.h>
 #           include <Halak/Vector2.h>
 #           include <Halak/Vector3.h>

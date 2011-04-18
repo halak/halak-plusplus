@@ -11,7 +11,7 @@ namespace Halak
     {
     }
 
-    RectangleF UIAnchoredFrame::ComputeBounds(UIVisualVisitor& visitor)
+    RectangleF UIAnchoredFrame::ComputeBounds(UIVisualVisitor& /*visitor*/)
     {
         return RectangleF::Empty;
     }

@@ -10,6 +10,7 @@
 #   include <Halak/Rectangle.h>
 #   include <Halak/RectangleF.h>
 #   include <Halak/String.h>
+#   include <Halak/URI.h>
 #   include <Halak/UUID.h>
 #   include <Halak/Vector2.h>
 #   include <Halak/Vector3.h>
@@ -46,6 +47,7 @@
                     RectangleType,
                     RectangleFType,
                     StringType,
+                    URIType,
                     UUIDType,
                     Vector2Type,
                     Vector3Type,
@@ -77,6 +79,7 @@
                 inline Any(RectangleF value);
                 inline Any(const char* value);
                 inline Any(const String& value);
+                inline Any(const URI& value);
                 inline Any(UUID value);
                 inline Any(Vector2 value);
                 inline Any(Vector3 value);
@@ -107,6 +110,7 @@
                 inline Rectangle GetRectangle() const;
                 inline RectangleF GetRectangleF() const;
                 inline const String& GetString() const;
+                inline const URI& GetURI() const;
                 inline UUID GetUUID() const;
                 inline Vector2 GetVector2() const;
                 inline Vector3 GetVector3() const;

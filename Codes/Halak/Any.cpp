@@ -21,6 +21,7 @@ namespace Halak
             case RectangleType:
             case RectangleFType:
             case StringType:
+            case URIType:
             case UUIDType:
             case Vector2Type:
             case Vector3Type:
@@ -60,6 +61,7 @@ namespace Halak
             case RectangleType:
             case RectangleFType:
             case StringType:
+            case URIType:
             case UUIDType:
             case Vector2Type:
             case Vector3Type:
@@ -97,6 +99,7 @@ namespace Halak
             case RectangleType:
             case RectangleFType:
             case StringType:
+            case URIType:
             case UUIDType:
             case Vector2Type:
             case Vector3Type:
@@ -140,6 +143,7 @@ namespace Halak
             case RectangleType:
             case RectangleFType:
             case StringType:
+            case URIType:
             case UUIDType:
             case Vector2Type:
             case Vector3Type:
