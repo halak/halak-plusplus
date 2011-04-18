@@ -3,12 +3,13 @@
 #define __HALAK_EvaluableSpriteSequence_H__
 
 #   include <Halak/FWD.h>
+#   include <Halak/SharedObject.h>
 #   include <Halak/ISpriteEvaluable.h>
 #   include <Halak/IUpdateable.h>
 
     namespace Halak
     {
-        class EvaluableSpriteSequence : public ISpriteEvaluable, public IUpdateable
+        class EvaluableSpriteSequence : public SharedObject, public ISpriteEvaluable, public IUpdateable
         {
             typedef SpriteSequencePtr SharedSequencePointerType;
             public:

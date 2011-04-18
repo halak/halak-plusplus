@@ -1052,7 +1052,39 @@
 					>
 				</File>
 				<File
-					RelativePath="..\..\Codes\Halak\Keys.h"
+					RelativePath="..\..\Codes\Halak\Key.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\Key.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\Keyboard.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\Keyboard.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\Keyboard.inl"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\Keyboard.Windows.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\KeyboardState.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\KeyboardState.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\KeyboardState.inl"
 					>
 				</File>
 				<File
@@ -1068,11 +1100,11 @@
 					>
 				</File>
 				<File
-					RelativePath="..\..\Codes\Halak\MouseState.cpp"
+					RelativePath="..\..\Codes\Halak\MouseState.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Codes\Halak\MouseState.h"
+					RelativePath="..\..\Codes\Halak\MouseState.inl"
 					>
 				</File>
 			</Filter>
@@ -1804,6 +1836,10 @@
 				Name="UI"
 				>
 				<File
+					RelativePath="..\..\Codes\Halak\ITargetWindow.h"
+					>
+				</File>
+				<File
 					RelativePath="..\..\Codes\Halak\UIDrawingContext.cpp"
 					>
 				</File>
@@ -1825,6 +1861,14 @@
 				</File>
 				<File
 					RelativePath="..\..\Codes\Halak\UIElement.inl"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\UIFixedTargetWindow.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\UIFixedTargetWindow.h"
 					>
 				</File>
 				<File
@@ -1861,6 +1905,18 @@
 				</File>
 				<File
 					RelativePath="..\..\Codes\Halak\UIMarkupTextLayout.inl"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\UIPickingContext.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\UIPickingContext.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\UIPickingContext.inl"
 					>
 				</File>
 				<File

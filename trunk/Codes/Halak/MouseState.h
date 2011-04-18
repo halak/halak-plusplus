@@ -21,9 +21,11 @@
             ButtonState RightButton;
             ButtonState MiddleButton;
 
-            MouseState();
-            MouseState(Point position, int wheel, ButtonState leftButton, ButtonState rightButton, ButtonState middleButton);
+            inline MouseState();
+            inline MouseState(Point position, int wheel, ButtonState leftButton, ButtonState rightButton, ButtonState middleButton);
         };
     }
+
+#   include <Halak/MouseState.inl>
 
 #endif

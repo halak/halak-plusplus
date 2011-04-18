@@ -65,12 +65,12 @@ namespace Halak
         return result;
     }
 
-    void CollisionSpace2D::Detect(Shape2DPtr& shapeA, Shape2DPtr& shapeB, int groupA, int groupB)
+    void CollisionSpace2D::Detect(Shape2D* shapeA, Shape2D* shapeB, int groupA, int groupB)
     {
         HKAssert(shapeA != shapeB);
 
-        if (Shape2D::Intersect(shapeA.GetPointee(), shapeB.GetPointee()))
-            intersected.Emit(shapeA.GetPointee(), shapeB.GetPointee(), groupA, groupB);
+        if (Shape2D::Intersect(shapeA, shapeB))
+            intersected.Emit(shapeA, shapeB, groupA, groupB);
     }
 
     bool CollisionSpace2D::Raycast(const Ray2D& ray, int group, RaycastReport2D& outReport)

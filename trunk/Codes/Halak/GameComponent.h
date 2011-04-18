@@ -35,12 +35,12 @@
                 inline bool GetActive() const;
                        void SetActive(bool value);
 
-                virtual       ICloneable*  AcquireCloneableInterface();
-                virtual const ICloneable*  AcquireCloneableInterface() const;
-                virtual       IUpdateable* AcquireUpdateableInterface();
-                virtual const IUpdateable* AcquireUpdateableInterface() const;
-                virtual       void* AcquireInterface(uint classID);
-                virtual const void* AcquireInterface(uint classID) const;
+                virtual       ICloneable*  QueryCloneableInterface();
+                virtual const ICloneable*  QueryCloneableInterface() const;
+                virtual       IUpdateable* QueryUpdateableInterface();
+                virtual const IUpdateable* QueryUpdateableInterface() const;
+                virtual       void* QueryInterface(uint classID);
+                virtual const void* QueryInterface(uint classID) const;
 
             protected:
                 GameComponent();

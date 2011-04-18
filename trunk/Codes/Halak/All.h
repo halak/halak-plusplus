@@ -136,7 +136,9 @@
 #           include <Halak/Window.h>
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         // Input
-#           include <Halak/Keys.h>
+#           include <Halak/Key.h>
+#           include <Halak/Keyboard.h>
+#           include <Halak/KeyboardState.h>
 #           include <Halak/Mouse.h>
 #           include <Halak/MouseState.h>
         ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -265,13 +267,16 @@
 #           include <Halak/FreeType.h>
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         // UI
+#           include <Halak/ITargetWindow.h>
 #           include <Halak/UIElement.h>
+#           include <Halak/UIFixedTargetWindow.h>
 #           include <Halak/UIImage.h>
 #           include <Halak/UIMarkupText.h>
 #           include <Halak/UIMarkupTextLayout.h>
 #           include <Halak/UIRenderer.h>
 #           include <Halak/UIVisualVisitor.h>
 #               include <Halak/UIDrawingContext.h>
+#               include <Halak/UIPickingContext.h>
             ////////////////////////////////////////////////////////////////////////////////////////////////////
             // Frames
 #               include <Halak/UIFrame.h>

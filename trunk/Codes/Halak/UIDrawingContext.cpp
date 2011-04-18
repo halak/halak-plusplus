@@ -15,11 +15,17 @@ namespace Halak
     {
     }
 
-    void UIDrawingContext::Draw(const RectangleF& bounds, const UIImagePtr& image, const RectangleF& clippingRectangle)
+    void UIDrawingContext::Draw(const RectangleF& bounds, UIImage* image, const RectangleF& clippingRectangle)
     {
     }
 
-    void UIDrawingContext::OnVisit(const UIVisualPtr& target)
+    void UIDrawingContext::DrawRectangle(const RectangleF& bounds, Color color)
+    {
+        color.A = static_cast<byte>(static_cast<float>(color.A) * GetCurrentOpacity());
+        renderer->GetSpriteRenderer()->DrawRectangle(bounds, color);
+    }
+
+    void UIDrawingContext::OnVisit(UIVisual* target)
     {
         target->OnDraw(*this);
     }

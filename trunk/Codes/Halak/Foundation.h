@@ -48,6 +48,8 @@
                                                     classname(const classname&); \
                                                     classname& operator = (const classname&); \
                                                     ~classname();
+#       define HKThisIsStaticStruct(classname)  HKThisIsStaticClass(classname) \
+                                                public:
 #       define HKThisIsNoncopyableClass(classname)  private: \
                                                         classname(const classname&); \
                                                         classname& operator = (const classname&);

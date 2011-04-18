@@ -11,4 +11,8 @@ namespace Halak
         : spriteRenderer(spriteRenderer)
     {
     }
+
+    UIRenderer::~UIRenderer()
+    {
+    }
 }

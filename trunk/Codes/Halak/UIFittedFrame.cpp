@@ -1,5 +1,6 @@
 #include <Halak/PCH.h>
 #include <Halak/UIFittedFrame.h>
+#include <Halak/UIVisualVisitor.h>
 
 namespace Halak
 {
@@ -13,6 +14,6 @@ namespace Halak
 
     RectangleF UIFittedFrame::ComputeBounds(UIVisualVisitor& visitor)
     {
-        return RectangleF::Empty;
+        return visitor.GetCurrentBounds();
     }
 }

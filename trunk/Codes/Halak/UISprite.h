@@ -13,8 +13,8 @@
                 UISprite();
                 virtual ~UISprite();
 
-                inline const UIImagePtr& GetImage() const;
-                void SetImage(const UIImagePtr& value);
+                inline UIImage* GetImage() const;
+                void SetImage(UIImage* value);
 
                 inline bool GetAutoResize() const;
                 void SetAutoResize(bool value);

@@ -1,6 +1,7 @@
 #include <Halak/PCH.h>
 #include <Halak/UISprite.h>
 #include <Halak/Assert.h>
+#include <Halak/Color.h>
 #include <Halak/UIDrawingContext.h>
 #include <Halak/UIFrame.h>
 #include <Halak/UIImage.h>
@@ -19,7 +20,7 @@ namespace Halak
     {
     }
 
-    void UISprite::SetImage(const UIImagePtr& value)
+    void UISprite::SetImage(UIImage* value)
     {
         if (GetImage() != value)
         {
@@ -44,6 +45,9 @@ namespace Halak
     void UISprite::OnDraw(UIDrawingContext& context)
     {
         UIVisual::OnDraw(context);
+
+        context.DrawRectangle(context.GetCurrentBounds(), Color::White);
+        context.DrawRectangle(context.GetCurrentClippedBounds(), Color::Yellow);
 
         if (GetImage() == nullptr || GetImage()->GetRealTexture() == nullptr)
             return;
@@ -78,8 +82,9 @@ namespace Halak
             GetFrame()->ResizeTo(Vector2(clippingRectangle.Width, clippingRectangle.Height));
         else
         {
-            const Rectangle& realClippingRectangle = GetImage()->GetClippingRectangle();
-            GetFrame()->ResizeTo(Vector2(realClippingRectangle.Width, realClippingRectangle.Height));
+            const Rectangle& realClippingRectangle = GetImage()->GetRealClippingRectangle();
+            if (realClippingRectangle.IsEmpty() == false)
+                GetFrame()->ResizeTo(Vector2(realClippingRectangle.Width, realClippingRectangle.Height));
         }
     }
 }

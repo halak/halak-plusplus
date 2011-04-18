@@ -82,42 +82,42 @@ namespace Halak
         }
     }
 
-    ICloneable* GameComponent::AcquireCloneableInterface()
+    ICloneable* GameComponent::QueryCloneableInterface()
     {
         return nullptr;
     }
 
-    const ICloneable* GameComponent::AcquireCloneableInterface() const
+    const ICloneable* GameComponent::QueryCloneableInterface() const
     {
-        return const_cast<GameComponent*>(this)->AcquireCloneableInterface();
+        return const_cast<GameComponent*>(this)->QueryCloneableInterface();
     }
 
-    IUpdateable* GameComponent::AcquireUpdateableInterface()
+    IUpdateable* GameComponent::QueryUpdateableInterface()
     {
         return nullptr;
     }
 
-    const IUpdateable* GameComponent::AcquireUpdateableInterface() const
+    const IUpdateable* GameComponent::QueryUpdateableInterface() const
     {
-        return const_cast<GameComponent*>(this)->AcquireUpdateableInterface();
+        return const_cast<GameComponent*>(this)->QueryUpdateableInterface();
     }
 
-    void* GameComponent::AcquireInterface(uint classID)
+    void* GameComponent::QueryInterface(uint classID)
     {
         switch (classID)
         {
             case ICloneable::ClassID:
-                return AcquireCloneableInterface();
+                return QueryCloneableInterface();
             case IUpdateable::ClassID:
-                return AcquireUpdateableInterface();
+                return QueryUpdateableInterface();
             default:
                 return nullptr;
         }
     }
 
-    const void* GameComponent::AcquireInterface(uint classID) const
+    const void* GameComponent::QueryInterface(uint classID) const
     {
-        return const_cast<GameComponent*>(this)->AcquireInterface(classID);
+        return const_cast<GameComponent*>(this)->QueryInterface(classID);
     }
 
     void GameComponent::OnStatusChanged(Status /*old*/)

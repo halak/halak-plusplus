@@ -155,6 +155,8 @@
                 class IKeyboard;
                 class IMouse;
                 class ITouchPad;
+                class Keyboard;
+                struct KeyboardState;
                 class Mouse;
                 struct MouseState;
             ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -293,13 +295,16 @@
                     class GlyphTable;
             ////////////////////////////////////////////////////////////////////////////////////////////////////
             // UI
+                class ITargetWindow;
                 HKForwardDeclareSmartPointerClass(UIElement);
+                class UIFixedTargetWindow;
                 HKForwardDeclareSmartPointerClass(UIImage);
                 class UIMarkupText;
                 class UIMarkupTextLayout;
                 class UIRenderer;
                 class UIVisualVisitor;
                     class UIDrawingContext;
+                    class UIPickingContext;
                 ////////////////////////////////////////////////////////////////////////////////////////////////////
                 // Frames
                     HKForwardDeclareSmartPointerClass(UIFrame);
