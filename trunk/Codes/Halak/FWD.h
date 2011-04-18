@@ -28,6 +28,7 @@
                 struct Rectangle;
                 struct RectangleF;
                 class String;
+                class URI;
                 struct UUID;
                 struct Vector2;
                 struct Vector3;

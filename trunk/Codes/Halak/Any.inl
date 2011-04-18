@@ -141,6 +141,12 @@ namespace Halak
     {
     }
 
+    Any::Any(const URI& value)
+        : type(URIType),
+          value(reinterpret_cast<void*>(new SmallStorage<URI>(value)))
+    {
+    }
+
     Any::Any(UUID value)
         : type(UUIDType),
           value(reinterpret_cast<void*>(new SmallStorage<UUID>(value)))
@@ -307,6 +313,12 @@ namespace Halak
     {
         HKAssertDebug(type == StringType);
         return reinterpret_cast<SmallStorage<String>*>(value)->Value;
+    }
+
+    const URI& Any::GetURI() const
+    {
+        HKAssertDebug(type == URIType);
+        return reinterpret_cast<SmallStorage<URI>*>(value)->Value;
     }
 
     UUID Any::GetUUID() const
@@ -502,6 +514,14 @@ namespace Halak
     {
         if (type == StringType)
             return GetString();
+        else
+            HKThrow(BadCastException());
+    }
+
+    template <> inline URI Any::CastTo<URI>() const
+    {
+        if (type == URIType)
+            return GetURI();
         else
             HKThrow(BadCastException());
     }

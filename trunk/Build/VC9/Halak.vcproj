@@ -304,6 +304,18 @@
 					>
 				</File>
 				<File
+					RelativePath="..\..\Codes\Halak\URI.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\URI.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\URI.inl"
+					>
+				</File>
+				<File
 					RelativePath="..\..\Codes\Halak\UUID.cpp"
 					>
 				</File>
