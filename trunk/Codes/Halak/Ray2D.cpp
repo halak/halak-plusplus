@@ -3,4 +3,9 @@
 
 namespace Halak
 {
+    void Ray2D::Normalize()
+    {
+        if (Direction != Vector2::Zero)
+            Length *= Direction.Normalize();
+    }
 }

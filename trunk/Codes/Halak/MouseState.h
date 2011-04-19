@@ -23,6 +23,13 @@
 
             inline MouseState();
             inline MouseState(Point position, int wheel, ButtonState leftButton, ButtonState rightButton, ButtonState middleButton);
+            inline MouseState(const MouseState& original);
+
+            inline MouseState& operator = (const MouseState& right);
+            inline bool operator == (const MouseState& right) const;
+            inline bool operator != (const MouseState& right) const;
+
+            static const MouseState Empty;
         };
     }
 

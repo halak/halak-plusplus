@@ -13,6 +13,8 @@
                 UIDrawingContext(UIRenderer* renderer);
                 virtual ~UIDrawingContext();
 
+                inline void Draw(UIVisual* target);
+
                 void Draw(const RectangleF& bounds, UIImage* image, const RectangleF& clippingRectangle);
                 void DrawRectangle(const RectangleF& bounds, Color color);
 

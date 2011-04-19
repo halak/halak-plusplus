@@ -1,3 +1,4 @@
+#include <Halak/PCH.h>
 #include <Halak/CollisionSpace2D.h>
 #include <Halak/Assert.h>
 #include <Halak/Geom2D.h>
@@ -205,7 +206,7 @@ namespace Halak
             (*it).resize(numberOfGroups);
 
         // 기존 값을 새로운 공간에 대입합니다.
-        const int minimumSize = std::min<int>(numberOfGroups, GetNumberOfGroups());
+        const int minimumSize = Math::Min(numberOfGroups, GetNumberOfGroups());
         for (int i = 0; i < minimumSize; i++)
         {
             newShapes[i] = shapes[i];

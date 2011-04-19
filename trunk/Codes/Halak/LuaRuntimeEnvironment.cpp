@@ -1,3 +1,4 @@
+#include <Halak/PCH.h>
 #include <Halak/LuaRuntimeEnvironment.h>
 #include <Halak/Any.h>
 #include <Halak/Assert.h>

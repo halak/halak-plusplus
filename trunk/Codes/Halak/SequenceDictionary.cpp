@@ -1,3 +1,4 @@
+#include <Halak/PCH.h>
 #include <Halak/SequenceDictionary.h>
 #include <Halak/Assert.h>
 #include <algorithm>

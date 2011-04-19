@@ -3,6 +3,7 @@
 #include <Halak/Assert.h>
 #include <Halak/FontString.h>
 #include <Halak/FreeType.h>
+#include <Halak/Math.h>
 #include <Halak/NumericLimits.h>
 #include <Halak/String.h>
 #include <Halak/Internal/FreeTypeFontRenderer.h>
@@ -69,8 +70,8 @@ namespace Halak
         while (context.MoveNext())
         {
             const Vector2 current = context.GetPosition();
-            result.X = std::max<float>(result.X, current.X + context.GetRegularGlyph()->GetAdvance().X);
-            result.Y = std::max<float>(result.Y, current.Y + GetLineHeight());
+            result.X = Math::Max(result.X, current.X + context.GetRegularGlyph()->GetAdvance().X);
+            result.Y = Math::Max(result.Y, current.Y + GetLineHeight());
         }
 
         return result;
@@ -98,7 +99,7 @@ namespace Halak
 
     void Font::SetSize(float value)
     {
-        value = std::max<float>(value, 0.0f);
+        value = Math::Max(value, 0.0f);
         if (parameters.FontSize != value)
         {
             parameters.FontSize = value;
@@ -114,7 +115,7 @@ namespace Halak
 
     void Font::SetStrokeSize(float value)
     {
-        value = std::max<float>(value, 0.0f);
+        value = Math::Max(value, 0.0f);
         if (parameters.StrokeSize != value)
         {
             parameters.StrokeSize = value;
@@ -130,7 +131,7 @@ namespace Halak
 
     void Font::SetWeights(float value)
     {
-        value = std::max<float>(value, 0.0f);
+        value = Math::Max(value, 0.0f);
         if (parameters.Weights != value)
         {
             parameters.Weights = value;
@@ -161,7 +162,7 @@ namespace Halak
 
     void Font::SetShear(float value)
     {
-        value = std::max<float>(value, 0.0f);
+        value = Math::Max(value, 0.0f);
         if (parameters.Shear != value)
         {
             parameters.Shear = value;
@@ -192,7 +193,7 @@ namespace Halak
 
     void Font::SetScale(float value)
     {
-        value = std::max<float>(value, 0.0f);
+        value = Math::Max(value, 0.0f);
         if (parameters.Scale != value)
         {
             parameters.Scale = value;
@@ -266,7 +267,7 @@ namespace Halak
 
     void Font::SetSpacing(float value)
     {
-        value = std::max<float>(value, 0.0f);
+        value = Math::Max(value, 0.0f);
         if (spacing != value)
         {
             spacing = value;

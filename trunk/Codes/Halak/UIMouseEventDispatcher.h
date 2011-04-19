@@ -5,6 +5,7 @@
 #   include <Halak/FWD.h>
 #   include <Halak/GameComponent.h>
 #   include <Halak/IUpdateable.h>
+#   include <Halak/MouseState.h>
 
     namespace Halak
     {
@@ -17,14 +18,21 @@
 
                 virtual void Update(float dt, uint timestamp);
 
-                Mouse* GetDevice() const;
+                inline IWindowTarget* GetWindowTarget() const;
+                void SetWindowTarget(IWindowTarget* value);
+
+                inline Mouse* GetDevice() const;
                 void SetDevice(Mouse* value);
 
                 virtual IUpdateable* QueryUpdateableInterface();
 
             private:
-                Mouse* device;
                 uint lastTimestamp;
+                IWindowTarget* windowTarget;
+                Mouse* device;
+                UIWindowPtr capturedWindow;
+                UIWindowPtr lastWindow;
+                MouseState lastState;
         };
     }
 

@@ -1,3 +1,4 @@
+#include <Halak/PCH.h>
 #include <Halak/SpatialObject2D.h>
 
 namespace Halak

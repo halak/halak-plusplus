@@ -1,3 +1,4 @@
+#include <Halak/PCH.h>
 #include <Halak/EntityExtension.h>
 #include <Halak/Assert.h>
 #include <Halak/Entity.h>

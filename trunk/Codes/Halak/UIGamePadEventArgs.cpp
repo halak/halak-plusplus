@@ -3,4 +3,11 @@
 
 namespace Halak
 {
+    UIGamePadEventArgs::UIGamePadEventArgs()
+    {
+    }
+
+    UIGamePadEventArgs::~UIGamePadEventArgs()
+    {
+    }
 }

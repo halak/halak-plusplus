@@ -1,3 +1,4 @@
+#include <Halak/PCH.h>
 #include <Halak/Math.h>
 #include <Halak/Assert.h>
 #include <Halak/Clock.h>
@@ -125,13 +126,13 @@ namespace Halak
 
     int Math::Random(int a, int b)
     {
-        std::tr1::uniform_int<int> u(std::min(a, b), std::max(a, b));
+        std::tr1::uniform_int<int> u(Math::Min(a, b), Math::Max(a, b));
         return u(globalRandomEngine);
     }
 
     float Math::Random(float a, float b)
     {
-        std::tr1::uniform_real<float> u(std::min(a, b), std::max(a, b));
+        std::tr1::uniform_real<float> u(Math::Min(a, b), Math::Max(a, b));
         return u(globalRandomEngine);
     }
 

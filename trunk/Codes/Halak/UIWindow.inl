@@ -15,6 +15,11 @@ namespace Halak
         return keyUpEvent;
     }
 
+    Signal<const UIKeyboardEventArgs&, bool&>& UIWindow::KeyPressingEvent()
+    {
+        return keyPressingEvent;
+    }
+
     Signal<const UIMouseEventArgs&, bool&>& UIWindow::MouseEnterEvent()
     {
         return mouseEnterEvent;

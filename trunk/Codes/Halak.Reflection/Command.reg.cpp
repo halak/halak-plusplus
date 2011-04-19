@@ -1,4 +1,4 @@
-#include <Halak/PCH.h>
+#include <Halak.Toolkit/PCH.h>
 #include <Halak/Command.h>
 #include <Halak.Toolkit/Attributes.h>
 #include <Halak.Toolkit/RegistrationContexts.h>

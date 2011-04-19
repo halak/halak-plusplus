@@ -1,6 +1,6 @@
 #include <Halak/PCH.h>
 #include <Halak/UIKeyboardEventDispatcher.h>
-#include <Halak/ITargetWindow.h>
+#include <Halak/IWindowTarget.h>
 #include <Halak/Keyboard.h>
 #include <Halak/KeyboardState.h>
 #include <Halak/UIKeyboardEventArgs.h>
@@ -9,9 +9,10 @@
 namespace Halak
 {
     UIKeyboardEventDispatcher::UIKeyboardEventDispatcher()
-        : lastTimestamp(0),
-          targetWindow(nullptr),
-          device(nullptr)
+        : lastTimestamp(0xFFFFFFFF),
+          windowTarget(nullptr),
+          device(nullptr),
+          lastState(KeyboardState::Empty)
     {
     }
 
@@ -22,41 +23,52 @@ namespace Halak
     void UIKeyboardEventDispatcher::Update(float /*dt*/, uint timestamp)
     {
         if (lastTimestamp == timestamp ||
-            targetWindow == nullptr ||
+            windowTarget == nullptr ||
             device == nullptr ||
             GetStatus() != ActiveStatus)
             return;
 
         lastTimestamp = timestamp;
 
+        UIWindow* target = windowTarget->GetTarget();
+        if (target == nullptr)
+            return;
+
         const KeyboardState& state = device->GetState();
 
-        UIWindow* target = targetWindow->GetTarget();
         uint code = 0;
         for (int i = 0; i < sizeof(state.Keys) / sizeof(state.Keys[0]); i++)
         {
             const dword lastField    = state.Keys[i];
             const dword currentField = lastState.Keys[i];
-            for (int k = 0x80000000; k != 0x00000000; k >>= 1, code++)
+            for (dword k = 0x80000000; k != 0x00000000; k >>= 1, code++)
             {
                 const bool lastDown    = (lastField & k) != 0x00000000;
                 const bool currentDown = (currentField & k) != 0x00000000;
 
-                if (lastDown == false && currentDown)
-                    target->RaiseKeyDownEvent(UIKeyboardEventArgs(target, static_cast<Key::Code>(code)));
-                else if (lastDown && currentDown == false)
-                    target->RaiseKeyUpEvent(UIKeyboardEventArgs(target, static_cast<Key::Code>(code)));
+                if (currentDown)
+                {
+                    if (lastDown == false)
+                        target->RaiseKeyDownEvent(UIKeyboardEventArgs(target, static_cast<Key::Code>(code)));
+
+                    target->RaiseKeyPressingEvent(UIKeyboardEventArgs(target, static_cast<Key::Code>(code)));
+                }
+                else
+                {
+                    if (lastDown)
+                        target->RaiseKeyUpEvent(UIKeyboardEventArgs(target, static_cast<Key::Code>(code)));
+                }
             }
         }
 
         lastState = state;
     }
 
-    void UIKeyboardEventDispatcher::SetTargetWindow(ITargetWindow* value)
+    void UIKeyboardEventDispatcher::SetWindowTarget(IWindowTarget* value)
     {
-        if (targetWindow != value)
+        if (windowTarget != value)
         {
-            targetWindow = value;
+            windowTarget = value;
             lastState = KeyboardState::Empty;
         }
     }

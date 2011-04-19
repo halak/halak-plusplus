@@ -1,4 +1,4 @@
-//#include <Halak.Toolkit/PCH.h>
+#include <Halak.Toolkit/PCH.h>
 //#include <Halak.Toolkit/EntityTreeWindow.h>
 //#include <Halak.Toolkit/ClassInfo.h>
 //#include <Halak.Toolkit/DocumentFolder.h>

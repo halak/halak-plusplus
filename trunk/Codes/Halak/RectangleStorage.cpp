@@ -1,3 +1,4 @@
+#include <Halak/PCH.h>
 #include <Halak/RectangleStorage.h>
 #include <Halak/Assert.h>
 #include <algorithm>

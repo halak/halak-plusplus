@@ -4,6 +4,7 @@
 #include <Halak/Math.h>
 #include <Halak/UIDrawingContext.h>
 #include <Halak/UIFrame.h>
+#include <Halak/UIPickingContext.h>
 #include <Halak/UIVisual.h>
 #include <algorithm>
 
@@ -128,8 +129,8 @@ namespace Halak
 
     void UIWindow::DrawChildren(UIDrawingContext& context)
     {
-        for (VisualCollection::iterator it = children.begin(); it != children.end(); ++it)
-            context.Visit(*it);
+        for (VisualCollection::iterator it = children.begin(); it != children.end(); it++)
+            context.Draw(*it);
     }
 
     void UIWindow::OnDraw(UIDrawingContext& context)
@@ -138,8 +139,18 @@ namespace Halak
         DrawChildren(context);
     }
 
-    void UIWindow::OnPick(UIPickingContext& /*context*/)
+    void UIWindow::OnPick(UIPickingContext& context)
     {
+        if (context.GetCurrentClippedBounds().Contains(context.GetPoint()))
+        {
+            for (VisualCollection::reverse_iterator it = children.rbegin(); it != children.rend(); it++)
+            {
+                if (context.Pick(*it))
+                    return;
+            }
+
+            context.SetResult(this);
+        }
     }
 
     void UIWindow::OnChildAdded(UIVisual* /*child*/)
@@ -164,6 +175,11 @@ namespace Halak
     }
 
     bool UIWindow::OnKeyUp(const UIKeyboardEventArgs& /*args*/)
+    {
+        return false;
+    }
+
+    bool UIWindow::OnKeyPressing(const UIKeyboardEventArgs& /*args*/)
     {
         return false;
     }
@@ -251,6 +267,11 @@ namespace Halak
     void UIWindow::RaiseKeyUpEvent(const UIKeyboardEventArgs& args)
     {
         RaiseRoutedEvent(OnKeyUp, RaiseKeyUpEvent, keyUpEvent, args);
+    }
+
+    void UIWindow::RaiseKeyPressingEvent(const UIKeyboardEventArgs& args)
+    {
+        RaiseRoutedEvent(OnKeyPressing, RaiseKeyPressingEvent, keyPressingEvent, args);
     }
 
     void UIWindow::RaiseMouseEnterEvent(const UIMouseEventArgs& args)

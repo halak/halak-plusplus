@@ -2,6 +2,7 @@
 #include <Halak/UIVisual.h>
 #include <Halak/Math.h>
 #include <Halak/UIFrame.h>
+#include <Halak/UIPickingContext.h>
 #include <Halak/UIWindow.h>
 
 namespace Halak
@@ -75,8 +76,10 @@ namespace Halak
     {
     }
 
-    void UIVisual::OnPick(UIPickingContext& /*context*/)
+    void UIVisual::OnPick(UIPickingContext& context)
     {
+        if (context.GetCurrentClippedBounds().Contains(context.GetPoint()))
+            context.SetResult(this);
     }
 
     void UIVisual::OnOpacityChanged(float /*old*/)

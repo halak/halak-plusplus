@@ -188,7 +188,7 @@ namespace Halak
         const float discriminant = (b * b) - c;
         if (discriminant >= 0.0f)
         {
-            outDistance = std::max((-b) - static_cast<float>(Math::Sqrt(discriminant)), 0.0f);
+            outDistance = Math::Max((-b) - static_cast<float>(Math::Sqrt(discriminant)), 0.0f);
             return true;
         }
         else
@@ -221,7 +221,7 @@ namespace Halak
                     outNormal.X = -1.0f;
                     outNormal.Y = +0.0f;
                 }
-                tMax = std::min(tMax, t2);
+                tMax = Math::Min(tMax, t2);
             }
             else
             {
@@ -231,7 +231,7 @@ namespace Halak
                     outNormal.X = +1.0f;
                     outNormal.Y = +0.0f;
                 }
-                tMax = std::min(tMax, t1);
+                tMax = Math::Min(tMax, t1);
             }
 
             if (tMin > tMax)
@@ -257,7 +257,7 @@ namespace Halak
                     outNormal.X = +0.0f;
                     outNormal.Y = -1.0f;
                 }
-                tMax = std::min(tMax, t2);
+                tMax = Math::Min(tMax, t2);
             }
             else
             {
@@ -267,7 +267,7 @@ namespace Halak
                     outNormal.X = +0.0f;
                     outNormal.Y = +1.0f;
                 }
-                tMax = std::min(tMax, t1);
+                tMax = Math::Min(tMax, t1);
             }
 
             if (tMin > tMax)

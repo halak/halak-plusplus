@@ -18,6 +18,8 @@
             inline Ray2D(Vector2 start, Vector2 end);
             inline Ray2D(const Ray2D& original);
 
+            void Normalize();
+
             inline Ray2D& operator = (const Ray2D& original);
 
             inline bool operator == (const Ray2D& right) const;

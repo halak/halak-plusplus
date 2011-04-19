@@ -3,4 +3,5 @@
 
 namespace Halak
 {
+    const UUID UUID::Empty;
 }

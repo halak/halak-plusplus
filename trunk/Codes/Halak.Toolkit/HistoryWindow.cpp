@@ -3,6 +3,7 @@
 #include <Halak.Toolkit/TypeLibrary.h>
 #include <Halak/BatchCommand.h>
 #include <Halak/CommandHistory.h>
+#include <Halak/Math.h>
 
 namespace Halak
 {
@@ -271,7 +272,7 @@ namespace Halak
         void HistoryWindow::Fields::DeleteItems(int numberOfItems)
         {
             const wxTreeItemId& rootID = tree->GetRootItem();
-            numberOfItems = std::min(numberOfItems, static_cast<int>(tree->GetChildrenCount(rootID, false)));
+            numberOfItems = Math::Min(numberOfItems, static_cast<int>(tree->GetChildrenCount(rootID, false)));
 
             if (numberOfItems <= 0)
                 return;

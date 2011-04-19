@@ -4,17 +4,17 @@
 
 #   include <Halak/FWD.h>
 #   include <Halak/GameComponent.h>
-#   include <Halak/ITargetWindow.h>
+#   include <Halak/IWindowTarget.h>
 
     namespace Halak
     {
-        class UIFixedTargetWindow : public GameComponent, public ITargetWindow
+        class UISimpleWindowTarget : public GameComponent, public IWindowTarget
         {
-            HKClassFOURCC('U', 'I', 'F', 'T');
+            HKClassFOURCC('U', 'I', 'S', 'T');
             public:
-                UIFixedTargetWindow();
-                UIFixedTargetWindow(UIWindow* target);
-                virtual ~UIFixedTargetWindow();
+                UISimpleWindowTarget();
+                UISimpleWindowTarget(UIWindow* target);
+                virtual ~UISimpleWindowTarget();
 
                 virtual UIWindow* GetTarget() const;
                 virtual void SetTarget(UIWindow* value);

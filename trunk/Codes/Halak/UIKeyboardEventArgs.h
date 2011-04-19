@@ -13,12 +13,22 @@
             public:
                 UIKeyboardEventArgs();
                 UIKeyboardEventArgs(UIVisual* target, Key::Code keyCode);
+                UIKeyboardEventArgs(UIVisual* target, Key::Code keyCode0, Key::Code keyCode1, Key::Code keyCode2, Key::Code keyCode3);
+                UIKeyboardEventArgs(const UIKeyboardEventArgs& original);
                 virtual ~UIKeyboardEventArgs();
 
-                inline Key::Code GetKeyCode() const;
+                inline bool Contains(Key::Code keyCode) const;
+                inline Key::Code GetKeyCode0() const;
+                inline Key::Code GetKeyCode1() const;
+                inline Key::Code GetKeyCode2() const;
+                inline Key::Code GetKeyCode3() const;
+                inline Key::Code GetKeyCodeAt(int index) const;
 
             private:
-                Key::Code keyCode;
+                Key::Code keyCode0;
+                Key::Code keyCode1;
+                Key::Code keyCode2;
+                Key::Code keyCode3;
         };
     }
 
