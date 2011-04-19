@@ -10,6 +10,8 @@
         class UIGamePadEventArgs : public UIEventArgs
         {
             public:
+                UIGamePadEventArgs();
+                virtual ~UIGamePadEventArgs();
 
             private:
         };

@@ -1,3 +1,4 @@
+#include <Halak.Toolkit/PCH.h>
 #include <Halak.Toolkit/PhotoshopLayers.h>
 #include <Halak.Toolkit/PhotoshopDocument.h>
 #include <Halak.Toolkit/PhotoshopDocumentReader.h>

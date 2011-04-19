@@ -1,3 +1,4 @@
+#include <Halak/PCH.h>
 #include <Halak/StringReader.h>
 
 namespace Halak

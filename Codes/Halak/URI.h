@@ -18,6 +18,9 @@
                 };
 
             public:
+                static const URI Empty;
+
+            public:
                 inline URI();
                 inline URI(const URI& original);
                 inline ~URI();

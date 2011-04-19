@@ -1,3 +1,4 @@
+#include <Halak.Toolkit/PCH.h>
 #include <Halak.Toolkit/EntityDocument.h>
 #include <Halak/Assert.h>
 #include <Halak/CommandHistory.h>

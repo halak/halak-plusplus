@@ -14,6 +14,11 @@ namespace Halak
     {
     }
 
+    UIEventArgs::UIEventArgs(const UIEventArgs& original)
+        : target(original.target)
+    {
+    }
+
     UIEventArgs::~UIEventArgs()
     {
     }

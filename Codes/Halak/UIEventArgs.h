@@ -9,10 +9,10 @@
     {
         class UIEventArgs : public SharedObject
         {
-            HKThisIsNoncopyableClass(UIEventArgs);
             public:
                 UIEventArgs();
                 UIEventArgs(UIVisual* target);
+                UIEventArgs(const UIEventArgs& original);
                 virtual ~UIEventArgs();
 
                 inline UIVisual* GetTarget() const;

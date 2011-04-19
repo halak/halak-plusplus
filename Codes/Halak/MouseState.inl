@@ -17,4 +17,40 @@ namespace Halak
           MiddleButton(middleButton)
     {
     }
+
+    MouseState::MouseState(const MouseState& original)
+        : Position(original.Position),
+          Wheel(original.Wheel),
+          LeftButton(original.LeftButton),
+          RightButton(original.RightButton),
+          MiddleButton(original.MiddleButton)
+    {
+    }
+
+    MouseState& MouseState::operator = (const MouseState& right)
+    {
+        if (this == &right)
+            return *this;
+
+        Position = right.Position;
+        Wheel = right.Wheel;
+        LeftButton = right.LeftButton;
+        RightButton = right.RightButton;
+        MiddleButton = right.MiddleButton;
+        return *this;
+    }
+
+    bool MouseState::operator == (const MouseState& right) const
+    {
+        return Position == right.Position &&
+               Wheel == right.Wheel &&
+               LeftButton == right.LeftButton &&
+               RightButton == right.RightButton &&
+               MiddleButton == right.MiddleButton;
+    }
+
+    bool MouseState::operator != (const MouseState& right) const
+    {
+        return !operator == (right);
+    }
 }

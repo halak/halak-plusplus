@@ -1,3 +1,4 @@
+#include <Halak/PCH.h>
 #include <Halak/PointShape2D.h>
 
 namespace Halak

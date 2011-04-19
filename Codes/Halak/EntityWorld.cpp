@@ -1,3 +1,4 @@
+#include <Halak/PCH.h>
 #include <Halak/EntityWorld.h>
 #include <Halak/Entity.h>
 

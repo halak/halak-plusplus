@@ -10,11 +10,22 @@
         class UIPickingContext : public UIVisualVisitor
         {
             public:
-                UIPickingContext();
+                UIPickingContext(Vector2 point);
                 virtual ~UIPickingContext();
+
+                bool Pick(UIVisual* target);
+
+                inline Vector2 GetPoint() const;
+
+                inline UIVisual* GetResult() const;
+                void SetResult(UIVisual* value);
 
             protected:
                 virtual void OnVisit(UIVisual* target);
+
+            private:
+                Vector2 point;
+                UIVisual* result;
         };
     }
 

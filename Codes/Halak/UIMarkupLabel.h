@@ -1,6 +1,6 @@
 #pragma once
-#ifndef __HALAK_UIMARKUPTEXT_H__
-#define __HALAK_UIMARKUPTEXT_H__
+#ifndef __HALAK_UIMARKUPLABEL_H__
+#define __HALAK_UIMARKUPLABEL_H__
 
 #   include <Halak/FWD.h>
 #   include <Halak/UIVisual.h>

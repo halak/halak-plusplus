@@ -6,7 +6,7 @@
 
 namespace Halak
 {
-    static const float BigFloat = -10000.0f;
+    static const float BigFloat = 10000.0f;
 
     UIVisualVisitor::UIVisualVisitor()
         : visibleOnly(true),

@@ -1,3 +1,4 @@
+#include <Halak.Toolkit/PCH.h>
 #include <Halak.Toolkit/wxWidgetsApplication.h>
 #include <Halak.Toolkit/MainWindow.h>
 #include <Halak.Toolkit/wxWidgetsWindow.h>

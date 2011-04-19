@@ -1,3 +1,4 @@
+#include <Halak/PCH.h>
 #include <Halak/GameWindow.Windows.h>
 
 #if (defined(HALAK_PLATFORM_WINDOWS))

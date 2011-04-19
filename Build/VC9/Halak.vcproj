@@ -42,12 +42,12 @@
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				AdditionalIncludeDirectories="..\..\Codes;&quot;..\..\Codes\References\lua-5.1.4\src&quot;;&quot;..\..\Codes\References\freetype-2.4.4\include&quot;"
-				PreprocessorDefinitions="WIN32;_DEBUG;_LIB"
+				PreprocessorDefinitions="WIN32;_DEBUG;_LIB;NOMINMAX"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
 				UsePrecompiledHeader="0"
-				PrecompiledHeaderThrough="..\..\Codes\Halak\PCH.h"
+				PrecompiledHeaderThrough="Halak/PCH.h"
 				WarningLevel="4"
 				DebugInformationFormat="4"
 			/>
@@ -108,11 +108,11 @@
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
 				AdditionalIncludeDirectories="..\..\Codes;&quot;..\..\Codes\References\lua-5.1.4\src&quot;;&quot;..\..\Codes\References\freetype-2.4.4\include&quot;"
-				PreprocessorDefinitions="WIN32;NDEBUG;_LIB"
+				PreprocessorDefinitions="WIN32;NDEBUG;_LIB;NOMINMAX"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
 				UsePrecompiledHeader="0"
-				PrecompiledHeaderThrough="..\..\Codes\Halak\PCH.h"
+				PrecompiledHeaderThrough="Halak/PCH.h"
 				WarningLevel="4"
 				DebugInformationFormat="3"
 			/>
@@ -1100,6 +1100,10 @@
 					>
 				</File>
 				<File
+					RelativePath="..\..\Codes\Halak\MouseState.cpp"
+					>
+				</File>
+				<File
 					RelativePath="..\..\Codes\Halak\MouseState.h"
 					>
 				</File>
@@ -1836,7 +1840,7 @@
 				Name="UI"
 				>
 				<File
-					RelativePath="..\..\Codes\Halak\ITargetWindow.h"
+					RelativePath="..\..\Codes\Halak\IWindowTarget.h"
 					>
 				</File>
 				<File
@@ -1861,14 +1865,6 @@
 				</File>
 				<File
 					RelativePath="..\..\Codes\Halak\UIElement.inl"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\UIFixedTargetWindow.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak\UIFixedTargetWindow.h"
 					>
 				</File>
 				<File
@@ -1929,6 +1925,14 @@
 				</File>
 				<File
 					RelativePath="..\..\Codes\Halak\UIRenderer.inl"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\UISimpleWindowTarget.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\UISimpleWindowTarget.h"
 					>
 				</File>
 				<File

@@ -1,3 +1,4 @@
+#include <Halak/PCH.h>
 #include <Halak/Entity.h>
 #include <Halak/CloningContext.h>
 #include <algorithm>

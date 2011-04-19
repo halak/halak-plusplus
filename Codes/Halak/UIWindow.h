@@ -33,6 +33,7 @@
 
                 inline Signal<const UIKeyboardEventArgs&, bool&>& KeyDownEvent();
                 inline Signal<const UIKeyboardEventArgs&, bool&>& KeyUpEvent();
+                inline Signal<const UIKeyboardEventArgs&, bool&>& KeyPressingEvent();
                 inline Signal<const UIMouseEventArgs&, bool&>& MouseEnterEvent();
                 inline Signal<const UIMouseEventArgs&, bool&>& MouseLeaveEvent();
                 inline Signal<const UIMouseEventArgs&, bool&>& MouseMoveEvent();
@@ -59,6 +60,7 @@
 
                 virtual bool OnKeyDown(const UIKeyboardEventArgs& args);
                 virtual bool OnKeyUp(const UIKeyboardEventArgs& args);
+                virtual bool OnKeyPressing(const UIKeyboardEventArgs& args);
                 virtual bool OnMouseEnter(const UIMouseEventArgs& args);
                 virtual bool OnMouseLeave(const UIMouseEventArgs& args);
                 virtual bool OnMouseMove(const UIMouseEventArgs& args);
@@ -78,6 +80,7 @@
 
                 void RaiseKeyDownEvent(const UIKeyboardEventArgs& args);
                 void RaiseKeyUpEvent(const UIKeyboardEventArgs& args);
+                void RaiseKeyPressingEvent(const UIKeyboardEventArgs& args);
                 void RaiseMouseEnterEvent(const UIMouseEventArgs& args);
                 void RaiseMouseLeaveEvent(const UIMouseEventArgs& args);
                 void RaiseMouseMoveEvent(const UIMouseEventArgs& args);
@@ -97,6 +100,7 @@
 
                 Signal<const UIKeyboardEventArgs&, bool&> keyDownEvent;
                 Signal<const UIKeyboardEventArgs&, bool&> keyUpEvent;
+                Signal<const UIKeyboardEventArgs&, bool&> keyPressingEvent;
                 Signal<const UIMouseEventArgs&, bool&> mouseEnterEvent;
                 Signal<const UIMouseEventArgs&, bool&> mouseLeaveEvent;
                 Signal<const UIMouseEventArgs&, bool&> mouseMoveEvent;

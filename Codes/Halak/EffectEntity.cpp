@@ -1,3 +1,4 @@
+#include <Halak/PCH.h>
 #include <Halak/EffectEntity.h>
 #include <Halak/ISpatial.h>
 

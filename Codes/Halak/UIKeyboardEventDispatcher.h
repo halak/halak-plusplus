@@ -18,8 +18,8 @@
 
                 virtual void Update(float dt, uint timestamp);
 
-                inline ITargetWindow* GetTargetWindow() const;
-                void SetTargetWindow(ITargetWindow* value);
+                inline IWindowTarget* GetWindowTarget() const;
+                void SetWindowTarget(IWindowTarget* value);
 
                 inline Keyboard* GetDevice() const;
                 void SetDevice(Keyboard* value);
@@ -28,7 +28,7 @@
 
             private:
                 uint lastTimestamp;
-                ITargetWindow* targetWindow;
+                IWindowTarget* windowTarget;
                 Keyboard* device;
                 KeyboardState lastState;
         };

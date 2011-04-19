@@ -1,3 +1,4 @@
+#include <Halak.Toolkit/PCH.h>
 #include <Halak.Toolkit/RegistrationContexts.h>
 #include <Halak.Toolkit/ClassInfo.h>
 #include <Halak.Toolkit/ConstructorInfo.h>

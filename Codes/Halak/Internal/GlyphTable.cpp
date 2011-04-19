@@ -3,6 +3,7 @@
 #include <Halak/Internal/GlyphSurface.h>
 #include <Halak/Internal/Glyph.h>
 #include <Halak/Assert.h>
+#include <Halak/Math.h>
 
 namespace Halak
 {
@@ -132,7 +133,7 @@ namespace Halak
         };
         static const int lastTextureSizeIndex = sizeof(textureSizes) / sizeof(textureSizes[0]) - 1;
 
-        const int   index = std::min<int>(numberOfExisting, lastTextureSizeIndex);
+        const int   index = Math::Min(numberOfExisting, lastTextureSizeIndex);
         const Point selectedSize = textureSizes[index];
         if (selectedSize.X >= width && selectedSize.Y >= height)
             return selectedSize;

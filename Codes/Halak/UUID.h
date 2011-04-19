@@ -8,7 +8,7 @@
     {
         struct UUID
         {
-            dword values[4];
+            dword Values[4];
 
             inline UUID();
             inline UUID(const UUID& original);
@@ -18,6 +18,8 @@
             inline bool operator != (const UUID& right) const;
 
             inline bool operator < (const UUID& right) const;
+
+            static const UUID Empty;
         };
     }
 

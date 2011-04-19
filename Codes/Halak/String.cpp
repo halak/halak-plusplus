@@ -1,5 +1,6 @@
 #include <Halak/PCH.h>
 #include <Halak/String.h>
+#include <Halak/Math.h>
 #include <ctype.h>
 
 namespace Halak
@@ -72,13 +73,13 @@ namespace Halak
     void String::Insert(int index, const char* s)
     {
         if (s && s[0] != '\0')
-            Insert(std::min(std::max(index, 0), buffer->length), s);
+            Insert(Math::Min(Math::Max(index, 0), buffer->length), s);
     }
 
     void String::Insert(int index, const String& s)
     {
         if (s.buffer->length > 0)
-            Insert(std::min(std::max(index, 0), buffer->length), s.buffer->s, s.buffer->length);
+            Insert(Math::Min(Math::Max(index, 0), buffer->length), s.buffer->s, s.buffer->length);
     }
 
     void String::Replace(char oldValue, char newValue)

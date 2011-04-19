@@ -295,9 +295,9 @@
                     class GlyphTable;
             ////////////////////////////////////////////////////////////////////////////////////////////////////
             // UI
-                class ITargetWindow;
+                class IWindowTarget;
                 HKForwardDeclareSmartPointerClass(UIElement);
-                class UIFixedTargetWindow;
+                class UISimpleWindowTarget;
                 HKForwardDeclareSmartPointerClass(UIImage);
                 class UIMarkupText;
                 class UIMarkupTextLayout;

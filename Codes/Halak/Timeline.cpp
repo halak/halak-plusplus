@@ -1,6 +1,7 @@
 #include <Halak/PCH.h>
 #include <Halak/Timeline.h>
 #include <Halak/Exception.h>
+#include <Halak/Math.h>
 #include <algorithm>
 
 namespace Halak
@@ -113,7 +114,7 @@ namespace Halak
     
     void Timeline::SetSpeed(float value)
     {
-        speed = std::max(value, 0.0f);
+        speed = Math::Max(value, 0.0f);
     }
 
     IUpdateable* Timeline::QueryUpdateableInterface()

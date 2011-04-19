@@ -10,6 +10,7 @@
 #       define HALAK_EXCEPTION
 #       define HALAK_RTTI
 #       define HALAK_DEBUG
+//#     define HALAK_USE_PRECOMPILEDHEADER
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         // PrimitiveTypes

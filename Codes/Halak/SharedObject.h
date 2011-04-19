@@ -18,6 +18,7 @@
 
             protected:
                 SharedObject();
+                SharedObject(const SharedObject& original);
 
                 template <typename To> SharedPointer<To> This();
                 template <typename To, typename ThisType> SharedPointer<To> This(ThisType* thisInstance);
@@ -29,7 +30,6 @@
                 template <typename T> friend class WeakPointer;
 
             private:
-                SharedObject(const SharedObject&);
                 SharedObject& operator = (const SharedObject&);
         };
     }

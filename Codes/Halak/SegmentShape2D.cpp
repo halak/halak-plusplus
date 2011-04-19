@@ -46,7 +46,7 @@ namespace Halak
 
     void SegmentShape2D::SetFrontLength(float value)
     {
-        value = std::max(value, 0.0f);
+        value = Math::Max(value, 0.0f);
 
         if (GetFrontLength() != value)
         {
@@ -62,7 +62,7 @@ namespace Halak
 
     void SegmentShape2D::SetBackLength(float value)
     {
-        value = std::max(value, 0.0f);
+        value = Math::Max(value, 0.0f);
 
         if (GetBackLength() != value)
         {

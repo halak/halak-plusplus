@@ -15,8 +15,6 @@
                 UIVisualVisitor();
                 virtual ~UIVisualVisitor();
 
-                void Visit(UIVisual* target);
-
                 inline bool GetVisibleOnly() const;
                 inline void SetVisibleOnly(bool value);
 
@@ -27,6 +25,8 @@
                 inline const Matrix4& GetCurrentTransform() const;
 
             protected:
+                void Visit(UIVisual* target);
+
                 virtual void OnVisit(UIVisual* target) = 0;
 
             private:
