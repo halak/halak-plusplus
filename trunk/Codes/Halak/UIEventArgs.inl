@@ -1,10 +1,7 @@
 namespace Halak
 {
-    UIEventArgs::UIEventArgs()
+    UIVisual* UIEventArgs::GetTarget() const
     {
-    }
-
-    UIEventArgs::~UIEventArgs()
-    {
+        return target;
     }
 }

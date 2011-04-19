@@ -9,11 +9,16 @@
     {
         class UIEventArgs : public SharedObject
         {
+            HKThisIsNoncopyableClass(UIEventArgs);
             public:
-                inline UIEventArgs();
-                inline virtual ~UIEventArgs();
+                UIEventArgs();
+                UIEventArgs(UIVisual* target);
+                virtual ~UIEventArgs();
+
+                inline UIVisual* GetTarget() const;
 
             private:
+                UIVisualPtr target;
         };
     }
 

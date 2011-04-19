@@ -51,6 +51,7 @@
                 void DrawChildren(UIDrawingContext& context);
 
                 virtual void OnDraw(UIDrawingContext& context);
+                virtual void OnPick(UIPickingContext& context);
                 virtual void OnChildAdded(UIVisual* child);
                 virtual void OnChildRemoved(UIVisual* child);
                 virtual void OnChildrenAdded(const VisualCollection& children);

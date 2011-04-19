@@ -10,6 +10,8 @@
         class UITouchEventArgs : public UIEventArgs
         {
             public:
+                UITouchEventArgs();
+                virtual ~UITouchEventArgs();
 
             private:
         };
