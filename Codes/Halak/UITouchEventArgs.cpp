@@ -3,4 +3,12 @@
 
 namespace Halak
 {
+    UITouchEventArgs::UITouchEventArgs()
+        : UIEventArgs(nullptr)
+    {
+    }
+
+    UITouchEventArgs::~UITouchEventArgs()
+    {
+    }
 }

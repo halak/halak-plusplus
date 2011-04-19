@@ -3,6 +3,8 @@
 #include <Halak/ITargetWindow.h>
 #include <Halak/Keyboard.h>
 #include <Halak/KeyboardState.h>
+#include <Halak/UIKeyboardEventArgs.h>
+#include <Halak/UIWindow.h>
 
 namespace Halak
 {
@@ -40,18 +42,10 @@ namespace Halak
                 const bool lastDown    = (lastField & k) != 0x00000000;
                 const bool currentDown = (currentField & k) != 0x00000000;
 
-                if (lastDown == false && currentDown == false)
-                {
-                }
-                else if (lastDown == false && currentDown)
-                {
-                }
+                if (lastDown == false && currentDown)
+                    target->RaiseKeyDownEvent(UIKeyboardEventArgs(target, static_cast<Key::Code>(code)));
                 else if (lastDown && currentDown == false)
-                {
-                }
-                else if (lastDown && currentDown)
-                {
-                }
+                    target->RaiseKeyUpEvent(UIKeyboardEventArgs(target, static_cast<Key::Code>(code)));
             }
         }
 

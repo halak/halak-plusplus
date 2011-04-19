@@ -138,6 +138,10 @@ namespace Halak
         DrawChildren(context);
     }
 
+    void UIWindow::OnPick(UIPickingContext& /*context*/)
+    {
+    }
+
     void UIWindow::OnChildAdded(UIVisual* /*child*/)
     {
     }

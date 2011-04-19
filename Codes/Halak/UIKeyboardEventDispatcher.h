@@ -18,7 +18,7 @@
 
                 virtual void Update(float dt, uint timestamp);
 
-                ITargetWindow* GetTargetWindow() const;
+                inline ITargetWindow* GetTargetWindow() const;
                 void SetTargetWindow(ITargetWindow* value);
 
                 inline Keyboard* GetDevice() const;
