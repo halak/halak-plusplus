@@ -225,10 +225,6 @@
             ////////////////////////////////////////////////////////////////////////////////////////////////////
             // Entity System
 #               include <Halak/Entity.h>
-#                   include <Halak/EffectEntity.h>
-#                       include <Halak/ParticleEffectEntity.h>
-#                   include <Halak/RootEntity.h>
-#               include <Halak/EntityExtension.h>
 #               include <Halak/EntityWorld.h>
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         // Lua

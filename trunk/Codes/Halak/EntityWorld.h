@@ -4,7 +4,7 @@
 
 #   include <Halak/FWD.h>
 #   include <Halak/GameComponent.h>
-#   include <list>
+#   include <set>
 
     namespace Halak
     {
@@ -12,7 +12,7 @@
         {
             HKClassFOURCC('E', 'N', 'T', 'W');
             public:
-                typedef std::list<EntityPtr> EntityCollection;
+                typedef std::set<EntityPtr> EntityCollection;
 
             public:
                 EntityWorld();

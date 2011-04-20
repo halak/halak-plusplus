@@ -245,10 +245,6 @@
                 ////////////////////////////////////////////////////////////////////////////////////////////////////
                 // Entity System
                     HKForwardDeclareSmartPointerClass(Entity);
-                        HKForwardDeclareSmartPointerClass(EffectEntity);
-                        HKForwardDeclareSmartPointerClass(ParticleEffectEntity);
-                    HKForwardDeclareSmartPointerClass(RootEntity);
-                    class EntityExtension;
                     class EntityWorld;
             ////////////////////////////////////////////////////////////////////////////////////////////////////
             // JSON
