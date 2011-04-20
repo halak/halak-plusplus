@@ -240,6 +240,8 @@
                 class GameWindow;
             ////////////////////////////////////////////////////////////////////////////////////////////////////
             // Gameplay
+                HKForwardDeclareSmartPointerClass(SpatialObject);
+                HKForwardDeclareSmartPointerClass(SpatialObject2D);
                 ////////////////////////////////////////////////////////////////////////////////////////////////////
                 // Entity System
                     HKForwardDeclareSmartPointerClass(Entity);
@@ -248,9 +250,6 @@
                     HKForwardDeclareSmartPointerClass(RootEntity);
                     class EntityExtension;
                     class EntityWorld;
-                    HKForwardDeclareSmartPointerClass(SpatialNode);
-                    HKForwardDeclareSmartPointerClass(SpatialObject);
-                    HKForwardDeclareSmartPointerClass(SpatialObject2D);
             ////////////////////////////////////////////////////////////////////////////////////////////////////
             // JSON
             ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -315,6 +314,7 @@
                 ////////////////////////////////////////////////////////////////////////////////////////////////////
                 // Effects
                     HKForwardDeclareSmartPointerClass(UIEffect);
+                        HKForwardDeclareSmartPointerClass(UITintEffect);
                 ////////////////////////////////////////////////////////////////////////////////////////////////////
                 // Events
                     HKForwardDeclareSmartPointerClass(UIEventArgs);

@@ -3,16 +3,4 @@
 
 namespace Halak
 {
-    UIRenderer::UIRenderer()
-    {
-    }
-
-    UIRenderer::UIRenderer(SpriteRenderer* spriteRenderer)
-        : spriteRenderer(spriteRenderer)
-    {
-    }
-
-    UIRenderer::~UIRenderer()
-    {
-    }
 }

@@ -5,18 +5,30 @@
 namespace Halak
 {
     EntityWorld::EntityWorld()
-        : root(new Entity("ROOT"))
     {
     }
 
     EntityWorld::~EntityWorld()
     {
-        root->Dispose();
-        root.Reset();
     }
 
-    EntityPtr EntityWorld::GetRoot() const
+    void EntityWorld::Add(Entity* entity)
     {
-        return root;
+        if (entity == nullptr)
+            return;
+
+        entities.push_back(entity);
+    }
+
+    bool EntityWorld::Remove(Entity* entity)
+    {
+        if (entity == nullptr)
+            return;
+
+    }
+
+    void EntityWorld::Clear()
+    {
+        entities.clear();
     }
 }

@@ -43,8 +43,8 @@ class UISampleApp : public GameFramework
 
         spriteRenderer = new SpriteRenderer(GetGraphicsDevice());
         GetStructure()->GetRoot()->AttachChild(spriteRenderer);
-        uiRenderer = new UIRenderer(spriteRenderer);
-        GetStructure()->GetRoot()->AttachChild(uiRenderer);
+        //uiRenderer = new UIRenderer(spriteRenderer);
+        //GetStructure()->GetRoot()->AttachChild(uiRenderer);
 
         //UIMarkupText t1 = "My name is shin";
         //UIMarkupText t2 = "My name \n is shin";
@@ -94,7 +94,7 @@ class UISampleApp : public GameFramework
         GetGraphicsDevice()->Clear();
 
         spriteRenderer->Begin();
-        UIDrawingContext context(uiRenderer);
+        UIDrawingContext context(spriteRenderer);
         context.Draw(root);
         spriteRenderer->End();
     }

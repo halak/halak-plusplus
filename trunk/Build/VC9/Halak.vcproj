@@ -1515,17 +1515,25 @@
 			<Filter
 				Name="Gameplay"
 				>
+				<File
+					RelativePath="..\..\Codes\Halak\SpatialObject.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\SpatialObject.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\SpatialObject2D.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\SpatialObject2D.h"
+					>
+				</File>
 				<Filter
 					Name="Entity System"
 					>
-					<File
-						RelativePath="..\..\Codes\Halak\EffectEntity.cpp"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\EffectEntity.h"
-						>
-					</File>
 					<File
 						RelativePath="..\..\Codes\Halak\Entity.cpp"
 						>
@@ -1539,14 +1547,6 @@
 						>
 					</File>
 					<File
-						RelativePath="..\..\Codes\Halak\EntityExtension.cpp"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\EntityExtension.h"
-						>
-					</File>
-					<File
 						RelativePath="..\..\Codes\Halak\EntityWorld.cpp"
 						>
 					</File>
@@ -1555,43 +1555,7 @@
 						>
 					</File>
 					<File
-						RelativePath="..\..\Codes\Halak\ParticleEffectEntity.cpp"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\ParticleEffectEntity.h"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\RootEntity.cpp"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\RootEntity.h"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\SpatialNode.cpp"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\SpatialNode.h"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\SpatialObject.cpp"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\SpatialObject.h"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\SpatialObject2D.cpp"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\SpatialObject2D.h"
+						RelativePath="..\..\Codes\Halak\EntityWorld.inl"
 						>
 					</File>
 				</Filter>
@@ -2140,6 +2104,18 @@
 					</File>
 					<File
 						RelativePath="..\..\Codes\Halak\UIEffect.inl"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UITintEffect.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UITintEffect.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UITintEffect.inl"
 						>
 					</File>
 				</Filter>

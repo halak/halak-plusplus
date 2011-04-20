@@ -6,6 +6,14 @@
 
     namespace Halak
     {
+        class UIEffect
+        {
+            public:
+                UIEffect();
+                virtual ~UIEffect();
+
+            private:
+        };
     }
 
 #   include <Halak/UIEffect.inl>

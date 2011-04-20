@@ -12,15 +12,20 @@
         {
             HKClassFOURCC('E', 'N', 'T', 'W');
             public:
+                typedef std::list<EntityPtr> EntityCollection;
+
+            public:
                 EntityWorld();
-
-                EntityPtr GetRoot() const;
-
-            protected:
                 virtual ~EntityWorld();
 
+                void Add(Entity* entity);
+                bool Remove(Entity* entity);
+                void Clear();
+
+                inline EntityCollection& GetEntities() const;
+
             private:
-                EntityPtr root;
+                EntityCollection entities;
         };
     }
 
