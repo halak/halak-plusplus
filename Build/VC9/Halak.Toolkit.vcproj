@@ -305,15 +305,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\Codes\Halak.Reflection\EffectEntity.reg.cpp"
-				>
-			</File>
-			<File
 				RelativePath="..\..\Codes\Halak.Reflection\Entity.reg.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak.Reflection\ParticleEffectEntity.reg.cpp"
 				>
 			</File>
 			<File
@@ -322,10 +314,6 @@
 			</File>
 			<File
 				RelativePath="..\..\Codes\Halak.Reflection\RestorableCommand.reg.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Codes\Halak.Reflection\RootEntity.reg.cpp"
 				>
 			</File>
 			<File

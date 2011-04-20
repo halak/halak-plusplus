@@ -5,6 +5,7 @@
 #   include <Halak/FWD.h>
 #   include <Halak/IDisposable.h>
 #   include <Halak/Signal.h>
+#   include <Halak/String.h>
 #   include <list>
 
     namespace Halak

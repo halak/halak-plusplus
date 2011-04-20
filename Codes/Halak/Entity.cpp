@@ -28,16 +28,6 @@ namespace Halak
     {
     }
 
-    Entity* Entity::Clone() const
-    {
-        return static_cast<Entity*>(ICloneable::Clone());
-    }
-
-    Entity* Entity::CloneWith(CloningContext& context) const
-    {
-        return nullptr;//new Entity(*this, context);
-    }
-
     void Entity::Dispose()
     {
         EntityCollection temporaryChildren;
