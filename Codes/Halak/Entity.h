@@ -3,15 +3,13 @@
 #define __HALAK_ENTITY_H__
 
 #   include <Halak/FWD.h>
-#   include <Halak/ICloneable.h>
 #   include <Halak/IDisposable.h>
 #   include <Halak/Signal.h>
-#   include <Halak/String.h>
 #   include <list>
 
     namespace Halak
     {
-        class Entity : public SharedObject, public ICloneable, public IDisposable
+        class Entity : public SharedObject, public IDisposable
         {
             public:
                 typedef std::list<EntityPtr> EntityCollection;

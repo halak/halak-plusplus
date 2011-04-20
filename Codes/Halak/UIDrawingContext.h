@@ -10,7 +10,7 @@
         class UIDrawingContext : public UIVisualVisitor
         {
             public:
-                UIDrawingContext(UIRenderer* renderer);
+                UIDrawingContext(SpriteRenderer* renderer);
                 virtual ~UIDrawingContext();
 
                 inline void Draw(UIVisual* target);
@@ -22,7 +22,7 @@
                 virtual void OnVisit(UIVisual* target);
 
             private:
-                UIRenderer* renderer;
+                SpriteRenderer* renderer;
         };
     }
 

@@ -220,6 +220,8 @@
 #           include <Halak/GameWindow.h>
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         // Gameplay
+#           include <Halak/SpatialObject.h>
+#           include <Halak/SpatialObject2D.h>
             ////////////////////////////////////////////////////////////////////////////////////////////////////
             // Entity System
 #               include <Halak/Entity.h>
@@ -228,9 +230,6 @@
 #                   include <Halak/RootEntity.h>
 #               include <Halak/EntityExtension.h>
 #               include <Halak/EntityWorld.h>
-#               include <Halak/SpatialNode.h>
-#               include <Halak/SpatialObject.h>
-#               include <Halak/SpatialObject2D.h>
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         // Lua
 #           include <Halak/LuaRuntimeEnvironment.h>
@@ -287,6 +286,7 @@
             ////////////////////////////////////////////////////////////////////////////////////////////////////
             // Effects
 #               include <Halak/UIEffect.h>
+#                   include <Halak/UITintEffect.h>
             ////////////////////////////////////////////////////////////////////////////////////////////////////
             // Events
 #               include <Halak/UIEventArgs.h>
