@@ -4,7 +4,6 @@
 
 #   include <Halak.Toolkit/EditorAttribute.h>
 #   include <Halak.Toolkit/EntityComponentAttribute.h>
-#   include <Halak.Toolkit/StringFormatterAttribute.h>
 #   include <Halak.Toolkit/RangeAttribute.h>
 #   include <Halak.Toolkit/UnitAttribute.h>
 

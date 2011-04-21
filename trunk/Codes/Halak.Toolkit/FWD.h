@@ -65,19 +65,10 @@
                     class EditorAttribute;
                     class EntityComponentAttribute;
                     class RangeAttribute;
-                    class StringFormatterAttribute;
                     class UnitAttribute;
                 ////////////////////////////////////////////////////////////////////////////////////////////////////
                 // Command
                     class ChangePropertyCommand;
-                ////////////////////////////////////////////////////////////////////////////////////////////////////
-                // Document
-                    class Document;
-                        class EntityDocument;
-                ////////////////////////////////////////////////////////////////////////////////////////////////////
-                // StringFormatters
-                    class StringFormatter;
-                        class BatchCommandStringFormatter;
                 ////////////////////////////////////////////////////////////////////////////////////////////////////
                 // Tools
                     HKForwardDeclareSmartPointerClass(Tool);
@@ -110,7 +101,7 @@
                     class PaletteWindow;
                     class PropertiesWindow;
                     class RenderPanel;
-                        class EntityRenderPanel;
+                        class UILayoutRenderPanel;
 
 #           undef HKForwardDeclareSmartPointerClass
         }

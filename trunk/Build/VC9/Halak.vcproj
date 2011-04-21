@@ -520,6 +520,14 @@
 					>
 				</File>
 				<File
+					RelativePath="..\..\Codes\Halak\IClassQueryable.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\IClassQueryable.h"
+					>
+				</File>
+				<File
 					RelativePath="..\..\Codes\Halak\IRevisable.h"
 					>
 				</File>

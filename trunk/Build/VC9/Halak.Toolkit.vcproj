@@ -165,26 +165,6 @@
 				</File>
 			</Filter>
 			<Filter
-				Name="StringFormatters"
-				>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\CommandStringFormatters.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\CommandStringFormatters.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\StringFormatter.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\StringFormatter.h"
-					>
-				</File>
-			</Filter>
-			<Filter
 				Name="Attributes"
 				>
 				<File
@@ -213,14 +193,6 @@
 				</File>
 				<File
 					RelativePath="..\..\Codes\Halak.Toolkit\RangeAttribute.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\StringFormatterAttribute.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\StringFormatterAttribute.h"
 					>
 				</File>
 				<File
@@ -257,26 +229,6 @@
 				</File>
 				<File
 					RelativePath="..\..\Codes\Halak.Toolkit\Tool.h"
-					>
-				</File>
-			</Filter>
-			<Filter
-				Name="Document"
-				>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\Document.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\Document.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\EntityDocument.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\EntityDocument.h"
 					>
 				</File>
 			</Filter>
@@ -612,14 +564,6 @@
 				Name="wxWindows"
 				>
 				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\EntityRenderPanel.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\EntityRenderPanel.h"
-					>
-				</File>
-				<File
 					RelativePath="..\..\Codes\Halak.Toolkit\EntityTreeWindow.cpp"
 					>
 				</File>
@@ -671,9 +615,17 @@
 					RelativePath="..\..\Codes\Halak.Toolkit\RenderPanel.h"
 					>
 				</File>
+				<File
+					RelativePath="..\..\Codes\Halak.Toolkit\UILayoutRenderPanel.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak.Toolkit\UILayoutRenderPanel.h"
+					>
+				</File>
 			</Filter>
 			<Filter
-				Name="(Integration)"
+				Name="Core"
 				>
 				<File
 					RelativePath="..\..\Codes\Halak.Toolkit\wxWidgetsApplication.cpp"

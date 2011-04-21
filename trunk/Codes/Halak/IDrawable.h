@@ -9,7 +9,7 @@
         class IDrawable
         {
             public:
-                static const uint ClassID = 0x00000003;
+                static const uint32 classID = 0x00000003;
 
             public:
                 virtual ~IDrawable() { }

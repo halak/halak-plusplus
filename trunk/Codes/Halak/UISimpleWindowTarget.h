@@ -19,7 +19,7 @@
                 virtual UIWindow* GetTarget() const;
                 virtual void SetTarget(UIWindow* value);
 
-                virtual void* QueryInterface(uint classID);
+                virtual void* QueryClass(uint32 classID);
 
             private:
                 UIWindow* target;

@@ -102,7 +102,7 @@ namespace Halak
         return const_cast<GameComponent*>(this)->QueryUpdateableInterface();
     }
 
-    void* GameComponent::QueryInterface(uint classID)
+    void* GameComponent::QueryClass(uint32 classID)
     {
         switch (classID)
         {
@@ -113,11 +113,6 @@ namespace Halak
             default:
                 return nullptr;
         }
-    }
-
-    const void* GameComponent::QueryInterface(uint classID) const
-    {
-        return const_cast<GameComponent*>(this)->QueryInterface(classID);
     }
 
     void GameComponent::OnStatusChanged(Status /*old*/)

@@ -49,18 +49,10 @@
         // Command
 #           include <Halak.Toolkit/ChangePropertyCommand.h>
         ////////////////////////////////////////////////////////////////////////////////////////////////////
-        // Document
-#           include <Halak.Toolkit/Document.h>
-#               include <Halak.Toolkit/EntityDocument.h>
-        ////////////////////////////////////////////////////////////////////////////////////////////////////
-        // StringFormatters
+        // Tools
 #           include <Halak.Toolkit/Tool.h>
 #               include <Halak.Toolkit/ParticleEmitterTool.h>
 #                   include <Halak.Toolkit/SimpleParticleEmitterTool.h>
-        ////////////////////////////////////////////////////////////////////////////////////////////////////
-        // Tools
-#           include <Halak.Toolkit/StringFormatter.h>
-#               include <Halak.Toolkit/CommandStringFormatters.h>
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     // 03. GUI (wxWidgets)
         ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -88,6 +80,6 @@
 #           include <Halak.Toolkit/PaletteWindow.h>
 #           include <Halak.Toolkit/PropertiesWindow.h>
 #           include <Halak.Toolkit/RenderPanel.h>
-#               include <Halak.Toolkit/EntityRenderPanel.h>
+#               include <Halak.Toolkit/UILayoutRenderPanel.h>
 
 #endif
