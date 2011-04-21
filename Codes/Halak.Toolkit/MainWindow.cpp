@@ -1,6 +1,6 @@
 #include <Halak.Toolkit/PCH.h>
 #include <Halak.Toolkit/MainWindow.h>
-#include <Halak.Toolkit/EntityRenderPanel.h>
+#include <Halak.Toolkit/UILayoutRenderPanel.h>
 #include <Halak.Toolkit/HistoryWindow.h>
 #include <Halak.Toolkit/PaletteWindow.h>
 #include <Halak.Toolkit/PropertiesWindow.h>
