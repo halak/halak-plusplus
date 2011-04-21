@@ -71,6 +71,7 @@
         // Utilities
 #           include <Halak/CheckedRelease.h>
 #           include <Halak/Delete.h>
+#           include <Halak/IClassQueryable.h>
 #           include <Halak/IRevisable.h>
 #           include <Halak/ISpatial.h>
 #           include <Halak/ISpatial2D.h>

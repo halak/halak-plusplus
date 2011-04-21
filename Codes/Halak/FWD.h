@@ -94,6 +94,7 @@
             // Time
             ////////////////////////////////////////////////////////////////////////////////////////////////////
             // Utilities
+                HKForwardDeclareSmartPointerClass(IClassQueryable);
                 HKForwardDeclareSmartPointerClass(IRevisable);
                 HKForwardDeclareSmartPointerClass(ISpatial);
                 HKForwardDeclareSmartPointerClass(ISpatial2D);

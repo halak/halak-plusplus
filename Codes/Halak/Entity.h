@@ -13,44 +13,36 @@
         class Entity : public SharedObject, public IDisposable
         {
             public:
-                typedef std::list<EntityPtr> EntityCollection;
+                struct Component
+                {
+                    String Name;
+                    SharedObjectPtr Object;
+                    ICloneable*  CloneableInterface;
+                    IDisposable* DisposableInterface;
+                    IClassQueryable* QueryableInterface;
+                };
+                typedef std::list<Component*> ComponentCollection;
 
             public:
                 Entity();
                 Entity(const String& name);
-                ///^Entity(const Entity& original, CloningContext& context);
                 virtual ~Entity();
 
-                virtual Entity* Clone() const;
-                virtual Entity* CloneWith(CloningContext& context) const;
                 virtual void Dispose();
-
-                void AddChild(EntityPtr item);
-                void RemoveChild(EntityPtr item);
-
-                inline EntityPtr GetParent() const;
-                inline const EntityCollection& GetChildren() const;
 
                 inline const String& GetName() const;
                 void SetName(const String& value);
 
-                inline Signal<Entity*, EntityPtr>& ChildAdded();
-                inline Signal<Entity*, EntityPtr>& ChildRemoved();
-                inline Signal<Entity*, const String&>& NameChanged();
+                inline Signal<Entity*, const String&>& NameChangedEvent();
 
             protected:
-                virtual void OnChildAdded(EntityPtr child);
-                virtual void OnChildRemoved(EntityPtr child);
                 virtual void OnNameChanged(const String& old);
 
             private:
                 String name;
-                EntityWeakPtr parent;
-                EntityCollection children;
+                ComponentCollection components;
 
-                Signal<Entity*, EntityPtr> childAdded;
-                Signal<Entity*, EntityPtr> childRemoved;
-                Signal<Entity*, const String&> nameChanged;
+                Signal<Entity*, const String&> nameChangedEvent;
 
             private:
                 Entity(const Entity&);

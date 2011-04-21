@@ -16,6 +16,7 @@
         /// Dispose에서 강제로 공유 소유권을 파기해야합니다.
         class IDisposable
         {
+            HKInterfaceFOURCC('I', 'D', 'I', 'S');
             public:
                 virtual ~IDisposable() { }
 

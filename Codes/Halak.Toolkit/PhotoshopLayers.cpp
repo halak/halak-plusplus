@@ -190,7 +190,7 @@ namespace Halak
                                         const uint32 objectBasedEffectversion = reader.ReadUInt32();
                                         const uint32 descriptorVersion = reader.ReadUInt32();
                                         const String name = reader.ReadUnicodeString();
-                                        const uint classIDLength = reader.ReadUInt32();
+                                        const uint32 classIDLength = reader.ReadUInt32();
                                         if (classIDLength == 0)
                                         {
                                             String c = reader.ReadChars(4);

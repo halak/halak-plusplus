@@ -56,8 +56,6 @@
                 void  SetRadius(float value);
 
             private:
-                struct Fields;
-                Fields* m;
                 float radius;
         };
     }

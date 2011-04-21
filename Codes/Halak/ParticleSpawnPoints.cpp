@@ -1,7 +1,6 @@
 #include <Halak/PCH.h>
 #include <Halak/ParticleSpawnPoints.h>
 #include <Halak/Math.h>
-#include <random>
 
 namespace Halak
 {
@@ -42,7 +41,7 @@ namespace Halak
     {
     }
 
-    Vector3 ParticleSpawnSegment::Spawn(Vector3 position, Quaternion rotation, float scale) const
+    Vector3 ParticleSpawnSegment::Spawn(Vector3 /*position*/, Quaternion /*rotation*/, float /*scale*/) const
     {
         return Vector3::Zero;
     }
@@ -57,47 +56,27 @@ namespace Halak
     {
     }
 
-    Vector3 ParticleSpawnBox::Spawn(Vector3 position, Quaternion rotation, float scale) const
+    Vector3 ParticleSpawnBox::Spawn(Vector3 /*position*/, Quaternion /*rotation*/, float /*scale*/) const
     {
         return Vector3::Zero;
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    struct ParticleSpawnSphere::Fields
-    {
-        std::tr1::mt19937 engine;
-        std::tr1::uniform_real<float> generator;
-
-        Fields()
-            : generator(0.0f, 1.0f)
-        {
-        }
-
-        Fields(const Fields& original)
-            : engine(original.engine),
-              generator(original.generator)
-        {
-        }
-    };
-
     ParticleSpawnSphere::ParticleSpawnSphere()
         : ParticleSpawnPoint(),
-          radius(0.0f),
-          m(new Fields())
+          radius(0.0f)
     {
     }
 
     ParticleSpawnSphere::ParticleSpawnSphere(const ParticleSpawnSphere& original)
         : ParticleSpawnPoint(original),
-          radius(original.radius),
-          m(new Fields(*original.m))
+          radius(original.radius)
     {
     }
 
     ParticleSpawnSphere::~ParticleSpawnSphere()
     {
-        delete m;
     }
 
     ParticleSpawnSphere* ParticleSpawnSphere::Clone() const
@@ -112,11 +91,15 @@ namespace Halak
 
     Vector3 ParticleSpawnSphere::Spawn(Vector3 position, Quaternion /*rotation*/, float scale) const
     {
-        const float yaw   = m->generator(m->engine) * Math::TwoPi;
-        const float pitch = m->generator(m->engine) * Math::TwoPi;
+        const float yaw   = Math::Random(0.0f, Math::TwoPi);
+        const float pitch = Math::Random(0.0f, Math::TwoPi);
+
+        //Vector2 direction2D = Vector2::UnitX;
+        //Vector2 direction2D = 
+        //direction2D.Rotate(yaw);
 
         const Vector3 direction = Vector3::Zero;
-        return position + (direction * radius * scale * m->generator(m->engine));
+        return position + (direction * radius * scale * Math::Random(0.0f, 1.0f));
     }
 
     float ParticleSpawnSphere::GetRadius() const

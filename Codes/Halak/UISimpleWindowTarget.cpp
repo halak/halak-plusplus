@@ -27,11 +27,11 @@ namespace Halak
         target = value;
     }
 
-    void* UISimpleWindowTarget::QueryInterface(uint classID)
+    void* UISimpleWindowTarget::QueryClass(uint32 classID)
     {
         if (classID == IWindowTarget::ClassID)
             return static_cast<IWindowTarget*>(this);
         else
-            return GameComponent::QueryInterface(classID);
+            return GameComponent::QueryClass(classID);
     }
 }

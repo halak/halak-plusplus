@@ -55,12 +55,12 @@
                                                         classname(const classname&); \
                                                         classname& operator = (const classname&);
 #       define HKClassID(id)    public: \
-                                    static const uint ClassID = id; \
+                                    static const uint32 ClassID = id; \
                                     virtual uint32 GetClassID() const { return ClassID; } \
                                 private:
 #       define HKClassFOURCC(a, b, c, d) HKClassID(HKMakeFOURCC(a, b, c, d))
 #       define HKInterfaceID(id)    public: \
-                                        static const uint ClassID = id; \
+                                        static const uint32 ClassID = id; \
                                     private:
 #       define HKInterfaceFOURCC(a, b, c, d) HKInterfaceID(HKMakeFOURCC(a, b, c, d))
     }

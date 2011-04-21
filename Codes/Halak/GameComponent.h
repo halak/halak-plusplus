@@ -3,13 +3,14 @@
 #define __HALAK_GAMECOMPONENT_H__
 
 #   include <Halak/FWD.h>
+#   include <Halak/IClassQueryable.h>
 
     namespace Halak
     {
         /// Game이란 Application을 구성하는 요소의 기반 class.
-        class GameComponent
+        class GameComponent : public IClassQueryable
         {
-            HKClassFOURCC('G', 'A', 'C', 'P')
+            HKClassFOURCC('G', 'C', 'O', 'M');
             public:
                 enum Status
                 {
@@ -39,8 +40,7 @@
                 virtual const ICloneable*  QueryCloneableInterface() const;
                 virtual       IUpdateable* QueryUpdateableInterface();
                 virtual const IUpdateable* QueryUpdateableInterface() const;
-                virtual       void* QueryInterface(uint classID);
-                virtual const void* QueryInterface(uint classID) const;
+                virtual       void* QueryClass(uint32 classID);
 
             protected:
                 GameComponent();
