@@ -12,23 +12,21 @@
         {
             public:
                 UIMouseEventArgs();
-                UIMouseEventArgs(UIVisual* target, Point position, int wheelDelta);
-                UIMouseEventArgs(UIVisual* target, Point position, int wheelDelta, bool leftButton, bool rightButton, bool middleButton);
+                UIMouseEventArgs(UIWindow* target, Point position);
+                UIMouseEventArgs(UIWindow* target, Point position, bool isLeftButtonPressed, bool isRightButtonPressed, bool isMiddleButtonPressed);
                 UIMouseEventArgs(const UIMouseEventArgs& original);
                 virtual ~UIMouseEventArgs();
 
                 inline Point GetPosition() const;
-                inline int GetWheelDelta() const;
-                inline bool GetLeftButton() const;
-                inline bool GetRightButton() const;
-                inline bool GetMiddleButton() const;
+                inline bool IsLeftButtonPressed() const;
+                inline bool IsRightButtonPressed() const;
+                inline bool IsMiddleButtonPressed() const;
 
             private:
                 Point position;
-                int wheelDelta;
-                bool leftButton;
-                bool rightButton;
-                bool middleButton;
+                bool isLeftButtonPressed;
+                bool isRightButtonPressed;
+                bool isMiddleButtonPressed;
         };
     }
 

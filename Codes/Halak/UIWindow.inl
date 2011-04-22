@@ -35,29 +35,29 @@ namespace Halak
         return mouseMoveEvent;
     }
 
-    Signal<const UIMouseEventArgs&, bool&>& UIWindow::MouseButtonDownEvent()
+    Signal<const UIMouseEventArgs&, bool&>& UIWindow::MouseClickEvent()
+    {
+        return mouseClickEvent;
+    }
+
+    Signal<const UIMouseButtonEventArgs&, bool&>& UIWindow::MouseButtonDownEvent()
     {
         return mouseButtonDownEvent;
     }
 
-    Signal<const UIMouseEventArgs&, bool&>& UIWindow::MouseButtonUpEvent()
+    Signal<const UIMouseButtonEventArgs&, bool&>& UIWindow::MouseButtonUpEvent()
     {
         return mouseButtonUpEvent;
     }
 
-    Signal<const UIMouseEventArgs&, bool&>& UIWindow::MouseButtonPressingEvent()
+    Signal<const UIMouseButtonEventArgs&, bool&>& UIWindow::MouseButtonPressingEvent()
     {
         return mouseButtonPressingEvent;
     }
 
-    Signal<const UIMouseEventArgs&, bool&>& UIWindow::MouseWheelEvent()
+    Signal<const UIMouseWheelEventArgs&, bool&>& UIWindow::MouseWheelEvent()
     {
         return mouseWheelEvent;
-    }
-
-    Signal<const UIMouseEventArgs&, bool&>& UIWindow::MouseClickEvent()
-    {
-        return mouseClickEvent;
     }
 
     Signal<const UIGamePadEventArgs&, bool&>& UIWindow::GamePadButtonDownEvent()
@@ -80,8 +80,8 @@ namespace Halak
         return gamePadTriggerEvent;
     }
 
-    Signal<const UIGamePadEventArgs&, bool&>& UIWindow::GamePadStickEvent()
+    Signal<const UIGamePadEventArgs&, bool&>& UIWindow::GamePadThumbstickEvent()
     {
-        return gamePadStickEvent;
+        return gamePadThumbstickEvent;
     }
 }

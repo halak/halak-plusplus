@@ -20,7 +20,7 @@ namespace Halak
         "GamePadButtonUp",
         "GamePadButtonPressing",
         "GamePadTrigger",
-        "GamePadStick",
+        "GamePadThumbstick",
    };
 
     const UIEventID UIEventID::KeyDown(KeyDownType);
@@ -38,7 +38,7 @@ namespace Halak
     const UIEventID UIEventID::GamePadButtonUp(GamePadButtonUpType);
     const UIEventID UIEventID::GamePadButtonPressing(GamePadButtonPressingType);
     const UIEventID UIEventID::GamePadTrigger(GamePadTriggerType);
-    const UIEventID UIEventID::GamePadStick(GamePadStickType);
+    const UIEventID UIEventID::GamePadThumbstick(GamePadThumbstickType);
     const UIEventID UIEventID::Other(OtherType);
 
     const String& UIEventID::ConvertFromTypeToName(Type type)

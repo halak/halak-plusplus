@@ -12,7 +12,7 @@ namespace Halak
     {
     }
 
-    UIKeyboardEventArgs::UIKeyboardEventArgs(UIVisual* target, Key::Code keyCode)
+    UIKeyboardEventArgs::UIKeyboardEventArgs(UIWindow* target, Key::Code keyCode)
         : UIEventArgs(target),
           keyCode0(keyCode),
           keyCode1(Key::None),
@@ -21,7 +21,7 @@ namespace Halak
     {
     }
 
-    UIKeyboardEventArgs::UIKeyboardEventArgs(UIVisual* target, Key::Code keyCode0, Key::Code keyCode1, Key::Code keyCode2, Key::Code keyCode3)
+    UIKeyboardEventArgs::UIKeyboardEventArgs(UIWindow* target, Key::Code keyCode0, Key::Code keyCode1, Key::Code keyCode2, Key::Code keyCode3)
         : UIEventArgs(target),
           keyCode0(keyCode0),
           keyCode1(keyCode1),

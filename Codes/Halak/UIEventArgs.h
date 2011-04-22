@@ -11,14 +11,14 @@
         {
             public:
                 UIEventArgs();
-                UIEventArgs(UIVisual* target);
+                UIEventArgs(UIWindow* target);
                 UIEventArgs(const UIEventArgs& original);
                 virtual ~UIEventArgs();
 
-                inline UIVisual* GetTarget() const;
+                inline UIWindow* GetTarget() const;
 
             private:
-                UIVisualPtr target;
+                UIWindowPtr target;
         };
     }
 

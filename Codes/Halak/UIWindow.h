@@ -37,16 +37,16 @@
                 inline Signal<const UIMouseEventArgs&, bool&>& MouseEnterEvent();
                 inline Signal<const UIMouseEventArgs&, bool&>& MouseLeaveEvent();
                 inline Signal<const UIMouseEventArgs&, bool&>& MouseMoveEvent();
-                inline Signal<const UIMouseEventArgs&, bool&>& MouseButtonDownEvent();
-                inline Signal<const UIMouseEventArgs&, bool&>& MouseButtonUpEvent();
-                inline Signal<const UIMouseEventArgs&, bool&>& MouseButtonPressingEvent();
-                inline Signal<const UIMouseEventArgs&, bool&>& MouseWheelEvent();
                 inline Signal<const UIMouseEventArgs&, bool&>& MouseClickEvent();
+                inline Signal<const UIMouseButtonEventArgs&, bool&>& MouseButtonDownEvent();
+                inline Signal<const UIMouseButtonEventArgs&, bool&>& MouseButtonUpEvent();
+                inline Signal<const UIMouseButtonEventArgs&, bool&>& MouseButtonPressingEvent();
+                inline Signal<const UIMouseWheelEventArgs&, bool&>& MouseWheelEvent();
                 inline Signal<const UIGamePadEventArgs&, bool&>& GamePadButtonDownEvent();
                 inline Signal<const UIGamePadEventArgs&, bool&>& GamePadButtonUpEvent();
                 inline Signal<const UIGamePadEventArgs&, bool&>& GamePadButtonPressingEvent();
                 inline Signal<const UIGamePadEventArgs&, bool&>& GamePadTriggerEvent();
-                inline Signal<const UIGamePadEventArgs&, bool&>& GamePadStickEvent();
+                inline Signal<const UIGamePadEventArgs&, bool&>& GamePadThumbstickEvent();
 
             protected:
                 void DrawChildren(UIDrawingContext& context);
@@ -64,16 +64,16 @@
                 virtual bool OnMouseEnter(const UIMouseEventArgs& args);
                 virtual bool OnMouseLeave(const UIMouseEventArgs& args);
                 virtual bool OnMouseMove(const UIMouseEventArgs& args);
-                virtual bool OnMouseButtonDown(const UIMouseEventArgs& args);
-                virtual bool OnMouseButtonUp(const UIMouseEventArgs& args);
-                virtual bool OnMouseButtonPressing(const UIMouseEventArgs& args);
-                virtual bool OnMouseWheel(const UIMouseEventArgs& args);
                 virtual bool OnMouseClick(const UIMouseEventArgs& args);
+                virtual bool OnMouseButtonDown(const UIMouseButtonEventArgs& args);
+                virtual bool OnMouseButtonUp(const UIMouseButtonEventArgs& args);
+                virtual bool OnMouseButtonPressing(const UIMouseButtonEventArgs& args);
+                virtual bool OnMouseWheel(const UIMouseWheelEventArgs& args);
                 virtual bool OnGamePadButtonDown(const UIGamePadEventArgs& args);
                 virtual bool OnGamePadButtonUp(const UIGamePadEventArgs& args);
                 virtual bool OnGamePadButtonPressing(const UIGamePadEventArgs& args);
                 virtual bool OnGamePadTrigger(const UIGamePadEventArgs& args);
-                virtual bool OnGamePadStick(const UIGamePadEventArgs& args);
+                virtual bool OnGamePadThumbstick(const UIGamePadEventArgs& args);
 
             private:
                 void RemoveChildByIterator(VisualCollection::iterator it);
@@ -84,16 +84,16 @@
                 void RaiseMouseEnterEvent(const UIMouseEventArgs& args);
                 void RaiseMouseLeaveEvent(const UIMouseEventArgs& args);
                 void RaiseMouseMoveEvent(const UIMouseEventArgs& args);
-                void RaiseMouseButtonDownEvent(const UIMouseEventArgs& args);
-                void RaiseMouseButtonUpEvent(const UIMouseEventArgs& args);
-                void RaiseMouseButtonPressingEvent(const UIMouseEventArgs& args);
-                void RaiseMouseWheelEvent(const UIMouseEventArgs& args);
                 void RaiseMouseClickEvent(const UIMouseEventArgs& args);
+                void RaiseMouseButtonDownEvent(const UIMouseButtonEventArgs& args);
+                void RaiseMouseButtonUpEvent(const UIMouseButtonEventArgs& args);
+                void RaiseMouseButtonPressingEvent(const UIMouseButtonEventArgs& args);
+                void RaiseMouseWheelEvent(const UIMouseWheelEventArgs& args);
                 void RaiseGamePadButtonDownEvent(const UIGamePadEventArgs& args);
                 void RaiseGamePadButtonUpEvent(const UIGamePadEventArgs& args);
                 void RaiseGamePadButtonPressingEvent(const UIGamePadEventArgs& args);
                 void RaiseGamePadTriggerEvent(const UIGamePadEventArgs& args);
-                void RaiseGamePadStickEvent(const UIGamePadEventArgs& args);
+                void RaiseGamePadThumbstickEvent(const UIGamePadEventArgs& args);
 
             private:
                 VisualCollection children;
@@ -104,16 +104,16 @@
                 Signal<const UIMouseEventArgs&, bool&> mouseEnterEvent;
                 Signal<const UIMouseEventArgs&, bool&> mouseLeaveEvent;
                 Signal<const UIMouseEventArgs&, bool&> mouseMoveEvent;
-                Signal<const UIMouseEventArgs&, bool&> mouseButtonDownEvent;
-                Signal<const UIMouseEventArgs&, bool&> mouseButtonUpEvent;
-                Signal<const UIMouseEventArgs&, bool&> mouseButtonPressingEvent;
-                Signal<const UIMouseEventArgs&, bool&> mouseWheelEvent;
                 Signal<const UIMouseEventArgs&, bool&> mouseClickEvent;
+                Signal<const UIMouseButtonEventArgs&, bool&> mouseButtonDownEvent;
+                Signal<const UIMouseButtonEventArgs&, bool&> mouseButtonUpEvent;
+                Signal<const UIMouseButtonEventArgs&, bool&> mouseButtonPressingEvent;
+                Signal<const UIMouseWheelEventArgs&, bool&> mouseWheelEvent;
                 Signal<const UIGamePadEventArgs&, bool&> gamePadButtonDownEvent;
                 Signal<const UIGamePadEventArgs&, bool&> gamePadButtonUpEvent;
                 Signal<const UIGamePadEventArgs&, bool&> gamePadButtonPressingEvent;
                 Signal<const UIGamePadEventArgs&, bool&> gamePadTriggerEvent;
-                Signal<const UIGamePadEventArgs&, bool&> gamePadStickEvent;
+                Signal<const UIGamePadEventArgs&, bool&> gamePadThumbstickEvent;
 
                 friend class UIKeyboardEventDispatcher;
                 friend class UIMouseEventDispatcher;

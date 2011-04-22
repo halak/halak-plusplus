@@ -12,8 +12,8 @@
         {
             public:
                 UIKeyboardEventArgs();
-                UIKeyboardEventArgs(UIVisual* target, Key::Code keyCode);
-                UIKeyboardEventArgs(UIVisual* target, Key::Code keyCode0, Key::Code keyCode1, Key::Code keyCode2, Key::Code keyCode3);
+                UIKeyboardEventArgs(UIWindow* target, Key::Code keyCode);
+                UIKeyboardEventArgs(UIWindow* target, Key::Code keyCode0, Key::Code keyCode1, Key::Code keyCode2, Key::Code keyCode3);
                 UIKeyboardEventArgs(const UIKeyboardEventArgs& original);
                 virtual ~UIKeyboardEventArgs();
 

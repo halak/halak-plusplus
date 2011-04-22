@@ -32,117 +32,117 @@ namespace Halak
 
         lastTimestamp = timestamp;
 
-        UIWindowPtr targetWindow = windowTarget->GetTarget();
-        if (targetWindow == nullptr)
-            return;
+        //UIWindowPtr targetWindow = windowTarget->GetTarget();
+        //if (targetWindow == nullptr)
+        //    return;
 
-        const MouseState& state = device->GetState();
+        //const MouseState& state = device->GetState();
 
-        UIPickingContext picker(Vector2(state.Position.X, state.Position.Y));
+        //UIPickingContext picker(Vector2(state.Position.X, state.Position.Y));
 
-        UIWindowPtr pickedWindow; // PICK
-        UIWindowPtr currentWindow;
+        //UIWindowPtr pickedWindow; // PICK
+        //UIWindowPtr currentWindow;
 
-        if (capturedWindow)
-            currentWindow = capturedWindow;
-        else
-        {
-            if (picker.Pick(targetWindow))
-                pickedWindow = picker.GetResult()->GetParent();
-            else
-                pickedWindow = targetWindow;
+        //if (capturedWindow)
+        //    currentWindow = capturedWindow;
+        //else
+        //{
+        //    if (picker.Pick(targetWindow))
+        //        pickedWindow = picker.GetResult()->GetParent();
+        //    else
+        //        pickedWindow = targetWindow;
 
-            currentWindow = pickedWindow;
-        }
+        //    currentWindow = pickedWindow;
+        //}
 
-        const int wheelDelta = state.Wheel - lastState.Wheel;
-        const bool leftButtonPressed   = state.LeftButton == MouseState::PressedButton;
-        const bool rightButtonPressed  = state.RightButton == MouseState::PressedButton;
-        const bool middleButtonPressed = state.MiddleButton == MouseState::PressedButton;
+        //const int wheelDelta = state.Wheel - lastState.Wheel;
+        //const bool leftButtonPressed   = state.LeftButton == MouseState::PressedButton;
+        //const bool rightButtonPressed  = state.RightButton == MouseState::PressedButton;
+        //const bool middleButtonPressed = state.MiddleButton == MouseState::PressedButton;
 
-        UIMouseEventArgs mouseEventArgs = UIMouseEventArgs(currentWindow, state.Position, wheelDelta, leftButtonPressed, rightButtonPressed, middleButtonPressed);
+        //UIMouseEventArgs mouseEventArgs = UIMouseEventArgs(currentWindow, state.Position, wheelDelta, leftButtonPressed, rightButtonPressed, middleButtonPressed);
 
-        if (currentWindow && lastState.Position != state.Position)
-        {
-            currentWindow->RaiseMouseMoveEvent(mouseEventArgs);
-        }
+        //if (currentWindow && lastState.Position != state.Position)
+        //{
+        //    currentWindow->RaiseMouseMoveEvent(mouseEventArgs);
+        //}
 
-        if (lastWindow != currentWindow)
-        {
-            if (lastWindow)
-            {
-                lastWindow->RaiseMouseLeaveEvent(UIMouseEventArgs(lastWindow,
-                                                                  state.Position,
-                                                                  wheelDelta,
-                                                                  leftButtonPressed, rightButtonPressed, middleButtonPressed));
-            }
+        //if (lastWindow != currentWindow)
+        //{
+        //    if (lastWindow)
+        //    {
+        //        lastWindow->RaiseMouseLeaveEvent(UIMouseEventArgs(lastWindow,
+        //                                                          state.Position,
+        //                                                          wheelDelta,
+        //                                                          leftButtonPressed, rightButtonPressed, middleButtonPressed));
+        //    }
 
-            if (currentWindow)
-                currentWindow->RaiseMouseEnterEvent(mouseEventArgs);
-        }
+        //    if (currentWindow)
+        //        currentWindow->RaiseMouseEnterEvent(mouseEventArgs);
+        //}
 
-        if (currentWindow)
-        {
-            if (wheelDelta != 0)
-            {
-                currentWindow->RaiseMouseWheelEvent(mouseEventArgs);
-            }
+        //if (currentWindow)
+        //{
+        //    if (wheelDelta != 0)
+        //    {
+        //        currentWindow->RaiseMouseWheelEvent(mouseEventArgs);
+        //    }
 
-            if (state.LeftButton == MouseState::PressedButton)
-            {
-                if (lastState.LeftButton == MouseState::ReleasedButton)
-                {
-                    currentWindow->RaiseMouseLeftDownEvent(mouseEventArgs);
-                    capturedWindow = currentWindow;
-                    windowTarget->SetTarget(currentWindow);
-                }
-            }
-            else
-            {
-                if (lastState.LeftButton == MouseState::PressedButton)
-                {
-                    currentWindow->RaiseMouseLeftUpEvent(mouseEventArgs);
+        //    if (state.LeftButton == MouseState::PressedButton)
+        //    {
+        //        if (lastState.LeftButton == MouseState::ReleasedButton)
+        //        {
+        //            currentWindow->RaiseMouseLeftDownEvent(mouseEventArgs);
+        //            capturedWindow = currentWindow;
+        //            windowTarget->SetTarget(currentWindow);
+        //        }
+        //    }
+        //    else
+        //    {
+        //        if (lastState.LeftButton == MouseState::PressedButton)
+        //        {
+        //            currentWindow->RaiseMouseLeftUpEvent(mouseEventArgs);
 
-                    if (pickedWindow == nullptr)
-                    {
-                        if (picker.Pick(targetWindow))
-                            pickedWindow = picker.GetResult()->GetParent();
-                        else
-                            pickedWindow = targetWindow;
-                    }
+        //            if (pickedWindow == nullptr)
+        //            {
+        //                if (picker.Pick(targetWindow))
+        //                    pickedWindow = picker.GetResult()->GetParent();
+        //                else
+        //                    pickedWindow = targetWindow;
+        //            }
 
-                    if (currentWindow == pickedWindow)
-                        currentWindow->RaiseMouseClickEvent(mouseEventArgs);
+        //            if (currentWindow == pickedWindow)
+        //                currentWindow->RaiseMouseClickEvent(mouseEventArgs);
 
-                    capturedWindow = nullptr;
-                }
-            }
+        //            capturedWindow = nullptr;
+        //        }
+        //    }
 
-            if (state.RightButton == MouseState::PressedButton)
-            {
-                if (lastState.RightButton == MouseState::ReleasedButton)
-                    currentWindow->RaiseMouseRightDownEvent(mouseEventArgs);
-            }
-            else
-            {
-                if (lastState.RightButton == MouseState::PressedButton)
-                    currentWindow->RaiseMouseRightUpEvent(mouseEventArgs);
-            }
+        //    if (state.RightButton == MouseState::PressedButton)
+        //    {
+        //        if (lastState.RightButton == MouseState::ReleasedButton)
+        //            currentWindow->RaiseMouseRightDownEvent(mouseEventArgs);
+        //    }
+        //    else
+        //    {
+        //        if (lastState.RightButton == MouseState::PressedButton)
+        //            currentWindow->RaiseMouseRightUpEvent(mouseEventArgs);
+        //    }
 
-            if (state.MiddleButton == MouseState::PressedButton)
-            {
-                if (lastState.MiddleButton == MouseState::ReleasedButton)
-                    currentWindow->RaiseMouseMiddleDownEvent(mouseEventArgs);
-            }
-            else
-            {
-                if (lastState.MiddleButton == MouseState::PressedButton)
-                    currentWindow->RaiseMouseMiddleUpEvent(mouseEventArgs);
-            }
-        }
+        //    if (state.MiddleButton == MouseState::PressedButton)
+        //    {
+        //        if (lastState.MiddleButton == MouseState::ReleasedButton)
+        //            currentWindow->RaiseMouseMiddleDownEvent(mouseEventArgs);
+        //    }
+        //    else
+        //    {
+        //        if (lastState.MiddleButton == MouseState::PressedButton)
+        //            currentWindow->RaiseMouseMiddleUpEvent(mouseEventArgs);
+        //    }
+        //}
 
-        lastWindow = currentWindow;
-        lastState = state;
+        //lastWindow = currentWindow;
+        //lastState = state;
     }
 
     void UIMouseEventDispatcher::SetWindowTarget(IWindowTarget* value)

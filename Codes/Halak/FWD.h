@@ -319,7 +319,9 @@
                         HKForwardDeclareSmartPointerClass(UIGamePadEventArgs);
                         HKForwardDeclareSmartPointerClass(UIKeyboardEventArgs);
                         HKForwardDeclareSmartPointerClass(UIMouseEventArgs);
-                        HKForwardDeclareSmartPointerClass(UITouchEventEventArgs);
+                            HKForwardDeclareSmartPointerClass(UIMouseButtonEventArgs);
+                            HKForwardDeclareSmartPointerClass(UIMouseWheelEventArgs);
+                        HKForwardDeclareSmartPointerClass(UITouchEventArgs);
                     class UIEventDispatcher;
                         class UIGamePadEventDispatcher;
                         class UIKeyboardEventDispatcher;

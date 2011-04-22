@@ -9,20 +9,14 @@
     {
         struct MouseState
         {
-            enum ButtonState
-            {
-                ReleasedButton,
-                PressedButton,
-            };
-
             Point Position;
             int Wheel;
-            ButtonState LeftButton;
-            ButtonState RightButton;
-            ButtonState MiddleButton;
+            bool IsLeftButtonPressed;
+            bool IsRightButtonPressed;
+            bool IsMiddleButtonPressed;
 
             inline MouseState();
-            inline MouseState(Point position, int wheel, ButtonState leftButton, ButtonState rightButton, ButtonState middleButton);
+            inline MouseState(Point position, int wheel, bool isLeftButtonPressed, bool isRightButtonPressed, bool isMiddleButtonPressed);
             inline MouseState(const MouseState& original);
 
             inline MouseState& operator = (const MouseState& right);

@@ -27,7 +27,7 @@
                     GamePadButtonUpType,
                     GamePadButtonPressingType,
                     GamePadTriggerType,
-                    GamePadStickType,
+                    GamePadThumbstickType,
                     OtherType,
                 };
 
@@ -46,7 +46,7 @@
                 static const UIEventID GamePadButtonUp;
                 static const UIEventID GamePadButtonPressing;
                 static const UIEventID GamePadTrigger;
-                static const UIEventID GamePadStick;
+                static const UIEventID GamePadThumbstick;
                 static const UIEventID Other;
 
             public:

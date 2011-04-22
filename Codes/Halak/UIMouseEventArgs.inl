@@ -5,23 +5,18 @@ namespace Halak
         return position;
     }
 
-    int UIMouseEventArgs::GetWheelDelta() const
+    bool UIMouseEventArgs::IsLeftButtonPressed() const
     {
-        return wheelDelta;
+        return isLeftButtonPressed;
     }
 
-    bool UIMouseEventArgs::GetLeftButton() const
+    bool UIMouseEventArgs::IsRightButtonPressed() const
     {
-        return leftButton;
+        return isRightButtonPressed;
     }
 
-    bool UIMouseEventArgs::GetRightButton() const
+    bool UIMouseEventArgs::IsMiddleButtonPressed() const
     {
-        return rightButton;
-    }
-
-    bool UIMouseEventArgs::GetMiddleButton() const
-    {
-        return middleButton;
+        return isMiddleButtonPressed;
     }
 }
