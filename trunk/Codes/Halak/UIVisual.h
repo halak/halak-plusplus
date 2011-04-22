@@ -10,6 +10,10 @@
         class UIVisual : public UIElement
         {
             public:
+                static const Property<float> OpacityProperty;
+                static const Property<bool>  ShownProperty;
+
+            public:
                 UIVisual();
                 virtual ~UIVisual();
 

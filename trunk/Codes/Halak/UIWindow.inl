@@ -35,34 +35,19 @@ namespace Halak
         return mouseMoveEvent;
     }
 
-    Signal<const UIMouseEventArgs&, bool&>& UIWindow::MouseLeftDownEvent()
+    Signal<const UIMouseEventArgs&, bool&>& UIWindow::MouseButtonDownEvent()
     {
-        return mouseLeftDownEvent;
+        return mouseButtonDownEvent;
     }
 
-    Signal<const UIMouseEventArgs&, bool&>& UIWindow::MouseLeftUpEvent()
+    Signal<const UIMouseEventArgs&, bool&>& UIWindow::MouseButtonUpEvent()
     {
-        return mouseLeftUpEvent;
+        return mouseButtonUpEvent;
     }
 
-    Signal<const UIMouseEventArgs&, bool&>& UIWindow::MouseRightDownEvent()
+    Signal<const UIMouseEventArgs&, bool&>& UIWindow::MouseButtonPressingEvent()
     {
-        return mouseRightDownEvent;
-    }
-
-    Signal<const UIMouseEventArgs&, bool&>& UIWindow::MouseRightUpEvent()
-    {
-        return mouseRightUpEvent;
-    }
-
-    Signal<const UIMouseEventArgs&, bool&>& UIWindow::MouseMiddleDownEvent()
-    {
-        return mouseMiddleDownEvent;
-    }
-
-    Signal<const UIMouseEventArgs&, bool&>& UIWindow::MouseMiddleUpEvent()
-    {
-        return mouseMiddleUpEvent;
+        return mouseButtonPressingEvent;
     }
 
     Signal<const UIMouseEventArgs&, bool&>& UIWindow::MouseWheelEvent()
@@ -75,13 +60,28 @@ namespace Halak
         return mouseClickEvent;
     }
 
-    Signal<const UIGamePadEventArgs&, bool&>& UIWindow::ButtonDownEvent()
+    Signal<const UIGamePadEventArgs&, bool&>& UIWindow::GamePadButtonDownEvent()
     {
-        return buttonDownEvent;
+        return gamePadButtonDownEvent;
     }
 
-    Signal<const UIGamePadEventArgs&, bool&>& UIWindow::ButtonUpEvent()
+    Signal<const UIGamePadEventArgs&, bool&>& UIWindow::GamePadButtonUpEvent()
     {
-        return buttonUpEvent;
+        return gamePadButtonUpEvent;
+    }
+
+    Signal<const UIGamePadEventArgs&, bool&>& UIWindow::GamePadButtonPressingEvent()
+    {
+        return gamePadButtonPressingEvent;
+    }
+
+    Signal<const UIGamePadEventArgs&, bool&>& UIWindow::GamePadTriggerEvent()
+    {
+        return gamePadTriggerEvent;
+    }
+
+    Signal<const UIGamePadEventArgs&, bool&>& UIWindow::GamePadStickEvent()
+    {
+        return gamePadStickEvent;
     }
 }

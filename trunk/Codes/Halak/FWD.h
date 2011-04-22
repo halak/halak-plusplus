@@ -98,6 +98,7 @@
                 HKForwardDeclareSmartPointerClass(IRevisable);
                 HKForwardDeclareSmartPointerClass(ISpatial);
                 HKForwardDeclareSmartPointerClass(ISpatial2D);
+                template <typename T> class Property;
                 class RectangleStorage;
             ////////////////////////////////////////////////////////////////////////////////////////////////////
         // 02. GameComponent
@@ -324,6 +325,7 @@
                         class UIKeyboardEventDispatcher;
                         class UIMouseEventDispatcher;
                         class UITouchEventDispatcher;
+                    class UIEventID;
                 ////////////////////////////////////////////////////////////////////////////////////////////////////
                 // Windows
                     HKForwardDeclareSmartPointerClass(UIWindow);
