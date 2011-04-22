@@ -7,6 +7,9 @@
 
 namespace Halak
 {
+    const Property<float> UIVisual::OpacityProperty(HKMakeFOURCC('O', 'P', 'A', 'C'), &UIVisual::GetOpacity, &UIVisual::SetOpacity);
+    const Property<bool>  UIVisual::ShownProperty(HKMakeFOURCC('S', 'H', 'O', 'W'), &UIVisual::GetShown, &UIVisual::SetShown);
+    
     UIVisual::UIVisual()
         : opacity(1.0f),
           shown(true),

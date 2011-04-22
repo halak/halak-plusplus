@@ -76,6 +76,7 @@
 #           include <Halak/ISpatial.h>
 #           include <Halak/ISpatial2D.h>
 #           include <Halak/MPL.h>
+#           include <Halak/Property.h>
 #           include <Halak/RectangleStorage.h>
 #           include <Halak/Signal.h>
     ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -296,6 +297,7 @@
 #                   include <Halak/UIKeyboardEventDispatcher.h>
 #                   include <Halak/UIMouseEventDispatcher.h>
 #                   include <Halak/UITouchEventDispatcher.h>
+#               include <Halak/UIEventID.h>
             ////////////////////////////////////////////////////////////////////////////////////////////////////
             // Windows
 #               include <Halak/UIWindow.h>

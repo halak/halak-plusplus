@@ -276,6 +276,14 @@
 				RelativePath="..\..\Codes\Halak.Reflection\SimpleParticleEmitter.reg.cpp"
 				>
 			</File>
+			<Filter
+				Name="UI"
+				>
+				<Filter
+					Name="Visuals"
+					>
+				</Filter>
+			</Filter>
 		</Filter>
 		<Filter
 			Name="01. Foundation"

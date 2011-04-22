@@ -544,6 +544,14 @@
 					>
 				</File>
 				<File
+					RelativePath="..\..\Codes\Halak\Property.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\Property.inl"
+					>
+				</File>
+				<File
 					RelativePath="..\..\Codes\Halak\RectangleStorage.cpp"
 					>
 				</File>
@@ -2152,6 +2160,18 @@
 					</File>
 					<File
 						RelativePath="..\..\Codes\Halak\UIEventDispatcher.inl"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UIEventID.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UIEventID.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UIEventID.inl"
 						>
 					</File>
 					<File

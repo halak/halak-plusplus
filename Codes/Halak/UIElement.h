@@ -4,6 +4,7 @@
 
 #   include <Halak/FWD.h>
 #   include <Halak/SharedObject.h>
+#   include <Halak/Property.h>
 #   include <Halak/String.h>
 
     namespace Halak
