@@ -6,40 +6,36 @@ namespace Halak
     UIMouseEventArgs::UIMouseEventArgs()
         : UIEventArgs(),
           position(Point::Zero),
-          wheelDelta(0),
-          leftButton(false),
-          rightButton(false),
-          middleButton(false)
+          isLeftButtonPressed(false),
+          isRightButtonPressed(false),
+          isMiddleButtonPressed(false)
     {
     }
 
-    UIMouseEventArgs::UIMouseEventArgs(UIVisual* target, Point position, int wheelDelta)
+    UIMouseEventArgs::UIMouseEventArgs(UIWindow* target, Point position)
         : UIEventArgs(target),
           position(position),
-          wheelDelta(wheelDelta),
-          leftButton(false),
-          rightButton(false),
-          middleButton(false)
+          isLeftButtonPressed(false),
+          isRightButtonPressed(false),
+          isMiddleButtonPressed(false)
     {
     }
 
-    UIMouseEventArgs::UIMouseEventArgs(UIVisual* target, Point position, int wheelDelta, bool leftButton, bool rightButton, bool middleButton)
+    UIMouseEventArgs::UIMouseEventArgs(UIWindow* target, Point position, bool isLeftButtonPressed, bool isRightButtonPressed, bool isMiddleButtonPressed)
         : UIEventArgs(target),
           position(position),
-          wheelDelta(wheelDelta),
-          leftButton(leftButton),
-          rightButton(rightButton),
-          middleButton(middleButton)
+          isLeftButtonPressed(isLeftButtonPressed),
+          isRightButtonPressed(isRightButtonPressed),
+          isMiddleButtonPressed(isMiddleButtonPressed)
     {
     }
 
     UIMouseEventArgs::UIMouseEventArgs(const UIMouseEventArgs& original)
         : UIEventArgs(original),
           position(original.position),
-          wheelDelta(original.wheelDelta),
-          leftButton(original.leftButton),
-          rightButton(original.rightButton),
-          middleButton(original.middleButton)
+          isLeftButtonPressed(original.isLeftButtonPressed),
+          isRightButtonPressed(original.isRightButtonPressed),
+          isMiddleButtonPressed(original.isMiddleButtonPressed)
     {
     }
 

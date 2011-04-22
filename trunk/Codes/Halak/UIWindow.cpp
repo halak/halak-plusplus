@@ -199,27 +199,27 @@ namespace Halak
         return false;
     }
 
-    bool UIWindow::OnMouseButtonDown(const UIMouseEventArgs& /*args*/)
-    {
-        return false;
-    }
-
-    bool UIWindow::OnMouseButtonUp(const UIMouseEventArgs& /*args*/)
-    {
-        return false;
-    }
-
-    bool UIWindow::OnMouseButtonPressing(const UIMouseEventArgs& /*args*/)
-    {
-        return false;
-    }
-
-    bool UIWindow::OnMouseWheel(const UIMouseEventArgs& /*args*/)
-    {
-        return false;
-    }
-
     bool UIWindow::OnMouseClick(const UIMouseEventArgs& /*args*/)
+    {
+        return false;
+    }
+
+    bool UIWindow::OnMouseButtonDown(const UIMouseButtonEventArgs& /*args*/)
+    {
+        return false;
+    }
+
+    bool UIWindow::OnMouseButtonUp(const UIMouseButtonEventArgs& /*args*/)
+    {
+        return false;
+    }
+
+    bool UIWindow::OnMouseButtonPressing(const UIMouseButtonEventArgs& /*args*/)
+    {
+        return false;
+    }
+
+    bool UIWindow::OnMouseWheel(const UIMouseWheelEventArgs& /*args*/)
     {
         return false;
     }
@@ -244,7 +244,7 @@ namespace Halak
         return false;
     }
 
-    bool UIWindow::OnGamePadStick(const UIGamePadEventArgs& /*args*/)
+    bool UIWindow::OnGamePadThumbstick(const UIGamePadEventArgs& /*args*/)
     {
         return false;
     }
@@ -289,29 +289,29 @@ namespace Halak
         RaiseRoutedEvent(OnMouseMove, RaiseMouseMoveEvent, mouseMoveEvent, args);
     }
 
-    void UIWindow::RaiseMouseButtonDownEvent(const UIMouseEventArgs& args)
+    void UIWindow::RaiseMouseClickEvent(const UIMouseEventArgs& args)
+    {
+        RaiseRoutedEvent(OnMouseClick, RaiseMouseClickEvent, mouseClickEvent, args);
+    }
+
+    void UIWindow::RaiseMouseButtonDownEvent(const UIMouseButtonEventArgs& args)
     {
         RaiseRoutedEvent(OnMouseButtonDown, RaiseMouseButtonDownEvent, mouseButtonDownEvent, args);
     }
 
-    void UIWindow::RaiseMouseButtonUpEvent(const UIMouseEventArgs& args)
+    void UIWindow::RaiseMouseButtonUpEvent(const UIMouseButtonEventArgs& args)
     {
         RaiseRoutedEvent(OnMouseButtonUp, RaiseMouseButtonUpEvent, mouseButtonUpEvent, args);
     }
 
-    void UIWindow::RaiseMouseButtonPressingEvent(const UIMouseEventArgs& args)
+    void UIWindow::RaiseMouseButtonPressingEvent(const UIMouseButtonEventArgs& args)
     {
         RaiseRoutedEvent(OnMouseButtonPressing, RaiseMouseButtonPressingEvent, mouseButtonPressingEvent, args);
     }
 
-    void UIWindow::RaiseMouseWheelEvent(const UIMouseEventArgs& args)
+    void UIWindow::RaiseMouseWheelEvent(const UIMouseWheelEventArgs& args)
     {
         RaiseRoutedEvent(OnMouseWheel, RaiseMouseWheelEvent, mouseWheelEvent, args);
-    }
-
-    void UIWindow::RaiseMouseClickEvent(const UIMouseEventArgs& args)
-    {
-        RaiseRoutedEvent(OnMouseClick, RaiseMouseClickEvent, mouseClickEvent, args);
     }
 
     void UIWindow::RaiseGamePadButtonDownEvent(const UIGamePadEventArgs& args)
@@ -334,9 +334,9 @@ namespace Halak
         RaiseRoutedEvent(OnGamePadTrigger, RaiseGamePadTriggerEvent, gamePadTriggerEvent, args);
     }
 
-    void UIWindow::RaiseGamePadStickEvent(const UIGamePadEventArgs& args)
+    void UIWindow::RaiseGamePadThumbstickEvent(const UIGamePadEventArgs& args)
     {
-        RaiseRoutedEvent(OnGamePadStick, RaiseGamePadStickEvent, gamePadStickEvent, args);
+        RaiseRoutedEvent(OnGamePadThumbstick, RaiseGamePadThumbstickEvent, gamePadThumbstickEvent, args);
     }
 
 #   undef RaiseRoutedEvent

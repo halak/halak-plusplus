@@ -52,6 +52,9 @@
                 friend class UIDrawingContext;
                 friend class UIPickingContext;
                 friend class UIWindow;
+
+                friend void __Startup__();
+                static void __Startup__();
         };
     }
 

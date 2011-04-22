@@ -66,6 +66,30 @@
                 F10 = 0x79,
                 F11 = 0x7A,
                 F12 = 0x7B,
+
+                /*
+                MouseLeftButton = 0x01,
+                MouseRightButton = 0x02,
+                MouseMiddleButton = 0x04,
+                */
+
+                /*
+                GamePadA = 0xF0,
+                GamePadB = 0xF1,
+                GamePadX = 0xF2,
+                GamePadY = 0xF3,
+                GamePadUp = 0xF4,
+                GamePadDown = 0xF5,
+                GamePadLeft = 0xF6,
+                GamePadRight = 0xF7,
+                GamePadStart = 0xF8,
+                GamePadBack = 0xF9,
+                GamePadSelect = 0xFA,
+                GamePadLeftThumb = 0xFB,
+                GamePadRightThumb = 0xFC,
+                GamePadLeftShoulder = 0xFD,
+                GamePadRightShoulder = 0xFE,
+                */
             };
 
             static const int Count = 256;

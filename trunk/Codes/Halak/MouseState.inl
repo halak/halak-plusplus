@@ -3,27 +3,27 @@ namespace Halak
     MouseState::MouseState()
         : Position(Point::Zero),
           Wheel(0),
-          LeftButton(MouseState::ReleasedButton),
-          RightButton(MouseState::ReleasedButton),
-          MiddleButton(MouseState::ReleasedButton)
+          IsLeftButtonPressed(false),
+          IsRightButtonPressed(false),
+          IsMiddleButtonPressed(false)
     {
     }
 
-    MouseState::MouseState(Point position, int wheel, ButtonState leftButton, ButtonState rightButton, ButtonState middleButton)
+    MouseState::MouseState(Point position, int wheel, bool isLeftButtonPressed, bool isRightButtonPressed, bool isMiddleButtonPressed)
         : Position(position),
           Wheel(wheel),
-          LeftButton(leftButton),
-          RightButton(rightButton),
-          MiddleButton(middleButton)
+          IsLeftButtonPressed(isLeftButtonPressed),
+          IsRightButtonPressed(isRightButtonPressed),
+          IsMiddleButtonPressed(isMiddleButtonPressed)
     {
     }
 
     MouseState::MouseState(const MouseState& original)
         : Position(original.Position),
           Wheel(original.Wheel),
-          LeftButton(original.LeftButton),
-          RightButton(original.RightButton),
-          MiddleButton(original.MiddleButton)
+          IsLeftButtonPressed(original.IsLeftButtonPressed),
+          IsRightButtonPressed(original.IsRightButtonPressed),
+          IsMiddleButtonPressed(original.IsMiddleButtonPressed)
     {
     }
 
@@ -34,9 +34,9 @@ namespace Halak
 
         Position = right.Position;
         Wheel = right.Wheel;
-        LeftButton = right.LeftButton;
-        RightButton = right.RightButton;
-        MiddleButton = right.MiddleButton;
+        IsLeftButtonPressed = right.IsLeftButtonPressed;
+        IsRightButtonPressed = right.IsRightButtonPressed;
+        IsMiddleButtonPressed = right.IsMiddleButtonPressed;
         return *this;
     }
 
@@ -44,9 +44,9 @@ namespace Halak
     {
         return Position == right.Position &&
                Wheel == right.Wheel &&
-               LeftButton == right.LeftButton &&
-               RightButton == right.RightButton &&
-               MiddleButton == right.MiddleButton;
+               IsLeftButtonPressed == right.IsLeftButtonPressed &&
+               IsRightButtonPressed == right.IsRightButtonPressed &&
+               IsMiddleButtonPressed == right.IsMiddleButtonPressed;
     }
 
     bool MouseState::operator != (const MouseState& right) const

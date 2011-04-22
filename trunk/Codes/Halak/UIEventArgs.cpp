@@ -1,6 +1,6 @@
 #include <Halak/PCH.h>
 #include <Halak/UIEventArgs.h>
-#include <Halak/UIVisual.h>
+#include <Halak/UIWindow.h>
 
 namespace Halak
 {
@@ -9,7 +9,7 @@ namespace Halak
     {
     }
 
-    UIEventArgs::UIEventArgs(UIVisual* target)
+    UIEventArgs::UIEventArgs(UIWindow* target)
         : target(target)
     {
     }

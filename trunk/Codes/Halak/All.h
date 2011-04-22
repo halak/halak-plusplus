@@ -291,6 +291,8 @@
 #                   include <Halak/UIGamePadEventArgs.h>
 #                   include <Halak/UIKeyboardEventArgs.h>
 #                   include <Halak/UIMouseEventArgs.h>
+#                       include <Halak/UIMouseButtonEventArgs.h>
+#                       include <Halak/UIMouseWheelEventArgs.h>
 #                   include <Halak/UITouchEventArgs.h>
 #               include <Halak/UIEventDispatcher.h>
 #                   include <Halak/UIGamePadEventDispatcher.h>

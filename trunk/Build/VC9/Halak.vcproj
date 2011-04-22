@@ -2223,6 +2223,18 @@
 						>
 					</File>
 					<File
+						RelativePath="..\..\Codes\Halak\UIMouseButtonEventArgs.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UIMouseButtonEventArgs.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UIMouseButtonEventArgs.inl"
+						>
+					</File>
+					<File
 						RelativePath="..\..\Codes\Halak\UIMouseEventArgs.cpp"
 						>
 					</File>
@@ -2244,6 +2256,18 @@
 					</File>
 					<File
 						RelativePath="..\..\Codes\Halak\UIMouseEventDispatcher.inl"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UIMouseWheelEventArgs.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UIMouseWheelEventArgs.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UIMouseWheelEventArgs.inl"
 						>
 					</File>
 					<File
