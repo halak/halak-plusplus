@@ -18,8 +18,8 @@
 
                 virtual void Update(float dt, uint timestamp);
 
-                inline IWindowTarget* GetWindowTarget() const;
-                void SetWindowTarget(IWindowTarget* value);
+                inline UIDomain* GetDomain() const;
+                void SetDomain(UIDomain* value);
 
                 inline Mouse* GetDevice() const;
                 void SetDevice(Mouse* value);
@@ -28,11 +28,12 @@
 
             private:
                 uint lastTimestamp;
-                IWindowTarget* windowTarget;
+                UIDomain* domain;
                 Mouse* device;
+
                 UIWindowPtr capturedWindow;
-                UIWindowPtr lastWindow;
-                MouseState lastState;
+                UIWindowPtr lastTargetWindow;
+                MouseState  lastMouseState;
         };
     }
 

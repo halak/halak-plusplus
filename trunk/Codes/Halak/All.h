@@ -264,9 +264,9 @@
 #           include <Halak/FreeType.h>
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         // UI
-#           include <Halak/IWindowTarget.h>
+#           include <Halak/UIDomain.h>
+#               include <Halak/UISimpleDomain.h>
 #           include <Halak/UIElement.h>
-#           include <Halak/UISimpleWindowTarget.h>
 #           include <Halak/UIImage.h>
 #           include <Halak/UIMarkupText.h>
 #           include <Halak/UIMarkupTextLayout.h>

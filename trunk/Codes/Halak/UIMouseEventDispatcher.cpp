@@ -1,6 +1,6 @@
 #include <Halak/PCH.h>
 #include <Halak/UIMouseEventDispatcher.h>
-#include <Halak/IWindowTarget.h>
+#include <Halak/UIDomain.h>
 #include <Halak/Mouse.h>
 #include <Halak/UIMouseEventArgs.h>
 #include <Halak/UIPickingContext.h>
@@ -10,11 +10,11 @@ namespace Halak
 {
     UIMouseEventDispatcher::UIMouseEventDispatcher()
         : lastTimestamp(0xFFFFFFFF),
-          windowTarget(nullptr),
+          domain(nullptr),
           device(nullptr),
           capturedWindow(nullptr),
-          lastWindow(nullptr),
-          lastState(MouseState::Empty)
+          lastTargetWindow(nullptr),
+          lastMouseState(MouseState::Empty)
     {
     }
 
@@ -25,7 +25,7 @@ namespace Halak
     void UIMouseEventDispatcher::Update(float /*dt*/, uint timestamp)
     {
         if (lastTimestamp == timestamp ||
-            windowTarget == nullptr ||
+            domain == nullptr ||
             device == nullptr ||
             GetStatus() != ActiveStatus)
             return;
@@ -145,12 +145,13 @@ namespace Halak
         //lastState = state;
     }
 
-    void UIMouseEventDispatcher::SetWindowTarget(IWindowTarget* value)
+    void UIMouseEventDispatcher::SetDomain(UIDomain* value)
     {
-        if (windowTarget != value)
+        if (domain != value)
         {
-            windowTarget = value;
-            lastState = MouseState::Empty;
+            domain = value;
+            lastTargetWindow.Reset();
+            lastMouseState = MouseState::Empty;
         }
     }
 
@@ -159,7 +160,8 @@ namespace Halak
         if (device != value)
         {
             device = value;
-            lastState = MouseState::Empty;
+            lastTargetWindow.Reset();
+            lastMouseState = MouseState::Empty;
         }
     }
 
