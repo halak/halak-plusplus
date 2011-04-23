@@ -52,14 +52,14 @@ class UISampleApp : public GameFramework
         //UIMarkupText t4 = "Character [tex:1111111?sss=30] ffff";
         //UIMarkupText t5 = "Character [tex:1111111?sss=30&fff=50]";
 
-        UISimpleWindowTarget* uiWindowTarget = new UISimpleWindowTarget();
-        GetStructure()->GetRoot()->AttachChild(uiWindowTarget);
+        UISimpleDomain* uiDomain = new UISimpleDomain();
+        GetStructure()->GetRoot()->AttachChild(uiDomain);
         UIKeyboardEventDispatcher* uiKeyboard = new UIKeyboardEventDispatcher();
-        uiKeyboard->SetWindowTarget(uiWindowTarget);
+        uiKeyboard->SetDomain(uiDomain);
         uiKeyboard->SetDevice(keyboard);
         GetStructure()->GetRoot()->AttachChild(uiKeyboard);
         UIMouseEventDispatcher* uiMouse = new UIMouseEventDispatcher();
-        uiMouse->SetWindowTarget(uiWindowTarget);
+        uiMouse->SetDomain(uiDomain);
         uiMouse->SetDevice(mouse);
         GetStructure()->GetRoot()->AttachChild(uiMouse);
 
@@ -73,7 +73,7 @@ class UISampleApp : public GameFramework
         sprite->GetImage()->SetRealTextureData(texture, Halak::Rectangle(0, 0, 256, 256));
         root->AddChild(sprite);
 
-        uiWindowTarget->SetTarget(root);
+        uiDomain->SetRoot(root);
     }
 
     virtual void Finalize()

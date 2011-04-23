@@ -1820,7 +1820,11 @@
 				Name="UI"
 				>
 				<File
-					RelativePath="..\..\Codes\Halak\IWindowTarget.h"
+					RelativePath="..\..\Codes\Halak\UIDomain.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\UIDomain.h"
 					>
 				</File>
 				<File
@@ -1908,11 +1912,11 @@
 					>
 				</File>
 				<File
-					RelativePath="..\..\Codes\Halak\UISimpleWindowTarget.cpp"
+					RelativePath="..\..\Codes\Halak\UISimpleDomain.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Codes\Halak\UISimpleWindowTarget.h"
+					RelativePath="..\..\Codes\Halak\UISimpleDomain.h"
 					>
 				</File>
 				<File

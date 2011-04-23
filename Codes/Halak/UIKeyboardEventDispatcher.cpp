@@ -1,8 +1,8 @@
 #include <Halak/PCH.h>
 #include <Halak/UIKeyboardEventDispatcher.h>
-#include <Halak/IWindowTarget.h>
 #include <Halak/Keyboard.h>
 #include <Halak/KeyboardState.h>
+#include <Halak/UIDomain.h>
 #include <Halak/UIKeyboardEventArgs.h>
 #include <Halak/UIWindow.h>
 
@@ -10,7 +10,7 @@ namespace Halak
 {
     UIKeyboardEventDispatcher::UIKeyboardEventDispatcher()
         : lastTimestamp(0xFFFFFFFF),
-          windowTarget(nullptr),
+          domain(nullptr),
           device(nullptr),
           lastState(KeyboardState::Empty)
     {
@@ -23,14 +23,16 @@ namespace Halak
     void UIKeyboardEventDispatcher::Update(float /*dt*/, uint timestamp)
     {
         if (lastTimestamp == timestamp ||
-            windowTarget == nullptr ||
+            domain == nullptr ||
             device == nullptr ||
             GetStatus() != ActiveStatus)
             return;
 
         lastTimestamp = timestamp;
 
-        UIWindow* target = windowTarget->GetTarget();
+        UIWindow* target = domain->GetFocus();
+        if (target == nullptr)
+            target = domain->GetRoot();
         if (target == nullptr)
             return;
 
@@ -64,11 +66,11 @@ namespace Halak
         lastState = state;
     }
 
-    void UIKeyboardEventDispatcher::SetWindowTarget(IWindowTarget* value)
+    void UIKeyboardEventDispatcher::SetDomain(UIDomain* value)
     {
-        if (windowTarget != value)
+        if (domain != value)
         {
-            windowTarget = value;
+            domain = value;
             lastState = KeyboardState::Empty;
         }
     }

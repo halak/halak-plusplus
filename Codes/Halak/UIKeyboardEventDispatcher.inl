@@ -1,8 +1,8 @@
 namespace Halak
 {
-    IWindowTarget* UIKeyboardEventDispatcher::GetWindowTarget() const
+    UIDomain* UIKeyboardEventDispatcher::GetDomain() const
     {
-        return windowTarget;
+        return domain;
     }
 
     Keyboard* UIKeyboardEventDispatcher::GetDevice() const

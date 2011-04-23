@@ -1,8 +1,8 @@
 namespace Halak
 {
-    IWindowTarget* UIMouseEventDispatcher::GetWindowTarget() const
+    UIDomain* UIMouseEventDispatcher::GetDomain() const
     {
-        return windowTarget;
+        return domain;
     }
 
     Mouse* UIMouseEventDispatcher::GetDevice() const
