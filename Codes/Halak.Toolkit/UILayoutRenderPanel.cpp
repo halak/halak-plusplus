@@ -5,6 +5,10 @@
 #include <Halak/DisplaySwapChain.h>
 #include <Halak/GameStructure.h>
 #include <Halak/GraphicsDevice.h>
+#include <Halak/SpriteRenderer.h>
+#include <Halak/UIDomain.h>
+#include <Halak/UIDrawingContext.h>
+#include <Halak/UIWindow.h>
 
 namespace Halak
 {
@@ -22,16 +26,18 @@ namespace Halak
 
         UILayoutRenderPanel::UILayoutRenderPanel(wxWindow* parent)
             : RenderPanel(parent),
+              domain(nullptr),
+              renderer(nullptr),
               clearColor(Color::CornflowerBlue)
         {
             GameStructure* gameStructure = wxWidgetsApplication::GetInstance()->GetStructure();
 
-            wxWidgetsWindow* adaptedWindow = new wxWidgetsWindow(this);
-            DisplaySwapChain* swapChain = new DisplaySwapChain(wxWidgetsApplication::GetInstance()->GetGraphicsDevice(), adaptedWindow, Point(800, 600));
+            //wxWidgetsWindow* adaptedWindow = new wxWidgetsWindow(this);
+            //DisplaySwapChain* swapChain = new DisplaySwapChain(wxWidgetsApplication::GetInstance()->GetGraphicsDevice(), adaptedWindow, Point(800, 600));
             //document->GetLocalServices()->Add(adaptedWindow);
             //document->GetLocalServices()->Add(swapChain);
             //spriteRenderer = wxWidgetsApplication::GetInstance()->GetSpriteRenderer();
-            SetSwapChain(swapChain);
+            //SetSwapChain(swapChain);
             //document->GetTimeline()->SetSpeed(1.0f);
 
                 //MainWindow* mainWindow = wxWidgetsApplication::GetInstance()->GetMainWindow();
@@ -72,6 +78,26 @@ namespace Halak
            // }
         }
 
+        UIDomain* UILayoutRenderPanel::GetDomain() const
+        {
+            return domain;
+        }
+
+        void UILayoutRenderPanel::SetDomain(UIDomain* value)
+        {
+            domain = value;
+        }
+
+        SpriteRenderer* UILayoutRenderPanel::GetRenderer() const
+        {
+            return renderer;
+        }
+
+        void UILayoutRenderPanel::SetRenderer(SpriteRenderer* value)
+        {
+            renderer = value;
+        }
+
         Color UILayoutRenderPanel::GetClearColor() const
         {
             return clearColor;
@@ -107,7 +133,17 @@ namespace Halak
 
         void UILayoutRenderPanel::Draw()
         {
-            //GetSwapChain()->GetGraphicsDevice()->Clear(clearColor);
+            if (domain == nullptr ||
+                domain->GetRoot() == nullptr ||
+                renderer == nullptr)
+                return;
+
+            GetSwapChain()->GetGraphicsDevice()->Clear(clearColor);
+
+            renderer->Begin();
+            UIDrawingContext context(renderer);
+            context.Draw(domain->GetRoot());
+            renderer->End();
 
             //if (spriteRenderer == nullptr || target == nullptr)
             //    return;

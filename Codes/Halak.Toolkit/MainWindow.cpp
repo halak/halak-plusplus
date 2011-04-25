@@ -82,16 +82,11 @@ namespace Halak
                 auiManager.Update();
         }
 
-        void MainWindow::AddNotebookPage(wxWindow* window, const wxString& caption)
-        {
-            notebook->AddPage(window, caption);
-            if (layoutSuspended == false)
-                auiManager.Update();
-        }
-
         void MainWindow::AddNotebookPage(wxWindow* window, const String& caption)
         {
-            AddNotebookPage(window, wxString(caption.CStr(), caption.GetLength()));
+            notebook->AddPage(window, wxString(caption.CStr(), caption.GetLength()));
+            if (layoutSuspended == false)
+                auiManager.Update();
         }
 
         int MainWindow::GetNumberOfNotebookPages() const

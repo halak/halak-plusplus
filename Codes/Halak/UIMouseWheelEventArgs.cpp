@@ -21,8 +21,8 @@ namespace Halak
     {
     }
 
-    UIMouseWheelEventArgs::UIMouseWheelEventArgs(const UIMouseEventArgs& original, int wheelDelta)
-        : UIMouseEventArgs(original),
+    UIMouseWheelEventArgs::UIMouseWheelEventArgs(const UIMouseEventArgs& base, int wheelDelta)
+        : UIMouseEventArgs(base),
           wheelDelta(wheelDelta)
     {
     }

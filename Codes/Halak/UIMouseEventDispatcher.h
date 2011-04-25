@@ -6,6 +6,7 @@
 #   include <Halak/GameComponent.h>
 #   include <Halak/IUpdateable.h>
 #   include <Halak/MouseState.h>
+#   include <vector>
 
     namespace Halak
     {
@@ -30,10 +31,13 @@
                 uint lastTimestamp;
                 UIDomain* domain;
                 Mouse* device;
-
                 UIWindowPtr capturedWindow;
                 UIWindowPtr lastTargetWindow;
                 MouseState  lastMouseState;
+
+                typedef std::vector<UIWindow*> WindowVector;
+                WindowVector cachedEnterWindows;
+                WindowVector cachedLeaveWindows;
         };
     }
 

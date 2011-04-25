@@ -10,16 +10,41 @@
         class UIButton : public UIWindow
         {
             public:
+                enum State
+                {
+                    NormalState,
+                    PushedState,
+                    HoveringState,
+                };
+
+            public:
                 UIButton();
                 virtual ~UIButton();
 
+                inline State GetCurrentState() const;
+                inline UIWindow* GetCurrentWindow() const;
+                inline UIWindow* GetNormalWindow() const;
+                inline UIWindow* GetPushedWindow() const;
+                inline UIWindow* GetHoveringWindow() const;
+
+                inline bool GetHideInactives() const;
+                void SetHideInactives(bool value);
+
             protected:
-                virtual bool OnMouseEnter(const UIMouseEventArgs& args);
-                virtual bool OnMouseLeave(const UIMouseEventArgs& args);
-                virtual bool OnMouseLeftDown(const UIMouseEventArgs& args);
-                virtual bool OnMouseLeftUp(const UIMouseEventArgs& args);
+                virtual void OnMouseEnter(const UIMouseEventArgs& args);
+                virtual void OnMouseLeave(const UIMouseEventArgs& args);
+                virtual bool OnMouseButtonDown(const UIMouseButtonEventArgs& args);
+                virtual bool OnMouseButtonUp(const UIMouseButtonEventArgs& args);
 
             private:
+                void SetCurrentState(State value);
+
+            private:
+                State currentState;
+                UIWindowPtr normalWindow;
+                UIWindowPtr pushedWindow;
+                UIWindowPtr hoveringWindow;
+                bool hideInactives;
         };
     }
 
