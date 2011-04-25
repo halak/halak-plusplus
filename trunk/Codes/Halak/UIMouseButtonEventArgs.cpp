@@ -21,8 +21,8 @@ namespace Halak
     {
     }
 
-    UIMouseButtonEventArgs::UIMouseButtonEventArgs(const UIMouseEventArgs& original, Key::Code buttonCode)
-        : UIMouseEventArgs(original),
+    UIMouseButtonEventArgs::UIMouseButtonEventArgs(const UIMouseEventArgs& base, Key::Code buttonCode)
+        : UIMouseEventArgs(base),
           buttonCode(buttonCode)
     {
     }

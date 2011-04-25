@@ -20,12 +20,12 @@ namespace Halak
         return keyPressingEvent;
     }
 
-    Signal<const UIMouseEventArgs&, bool&>& UIWindow::MouseEnterEvent()
+    Signal<const UIMouseEventArgs&>& UIWindow::MouseEnterEvent()
     {
         return mouseEnterEvent;
     }
 
-    Signal<const UIMouseEventArgs&, bool&>& UIWindow::MouseLeaveEvent()
+    Signal<const UIMouseEventArgs&>& UIWindow::MouseLeaveEvent()
     {
         return mouseLeaveEvent;
     }

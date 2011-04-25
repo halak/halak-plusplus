@@ -17,6 +17,12 @@
                 UIVisual();
                 virtual ~UIVisual();
 
+                inline void Show();
+                inline void Hide();
+
+                void BringToFront();
+                void SendToBack();
+
                 inline float GetOpacity() const;
                 void SetOpacity(float value);
 
@@ -47,7 +53,7 @@
                 float opacity;
                 bool shown;
                 UIFramePtr frame;
-                UIWindowWeakPtr parent;
+                UIWindow* parent;
 
                 friend class UIDrawingContext;
                 friend class UIPickingContext;

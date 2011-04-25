@@ -16,6 +16,7 @@
                 UIImage(const String& textureURI, const Rectangle& clippingRectangle);
                 virtual ~UIImage();
 
+                void SetRealTextureData(Texture2D* texture);
                 void SetRealTextureData(Texture2D* texture, const Rectangle& clippingRectangle);
 
                 inline const String& GetTextureURI() const;

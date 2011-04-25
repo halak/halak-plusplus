@@ -1828,6 +1828,10 @@
 					>
 				</File>
 				<File
+					RelativePath="..\..\Codes\Halak\UIDomain.inl"
+					>
+				</File>
+				<File
 					RelativePath="..\..\Codes\Halak\UIDrawingContext.cpp"
 					>
 				</File>

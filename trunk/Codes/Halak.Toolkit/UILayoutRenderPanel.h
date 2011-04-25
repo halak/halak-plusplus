@@ -15,6 +15,12 @@
                 public:
                     UILayoutRenderPanel(wxWindow* parent);
 
+                    UIDomain* GetDomain() const;
+                    void SetDomain(UIDomain* value);
+
+                    SpriteRenderer* GetRenderer() const;
+                    void SetRenderer(SpriteRenderer* value);
+
                     Color GetClearColor() const;
                     void SetClearColor(Color value);
 
@@ -26,6 +32,8 @@
                     virtual void Draw();
 
                 private:
+                    UIDomain* domain;
+                    SpriteRenderer* renderer;
                     Color clearColor;
 
                 private:

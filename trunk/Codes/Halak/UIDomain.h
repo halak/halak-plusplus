@@ -26,4 +26,6 @@
         };
     }
 
+#   include <Halak/UIDomain.inl>
+
 #endif

@@ -18,11 +18,6 @@ namespace Halak
     {
     }
 
-    UIWindow* UIDomain::GetRoot() const
-    {
-        return root;
-    }
-
     void UIDomain::SetRoot(UIWindow* value)
     {
         root = value;

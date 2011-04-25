@@ -10,14 +10,16 @@
 #include <Halak/SourceTexture2D.h>
 #include <Halak/SpriteRenderer.h>
 #include <Halak/UIAlignedFrame.h>
+#include <Halak/UIButton.h>
 #include <Halak/UIDrawingContext.h>
 #include <Halak/UIFixedFrame.h>
+#include <Halak/UIFittedFrame.h>
 #include <Halak/UIImage.h>
 #include <Halak/UIKeyboardEventDispatcher.h>
 #include <Halak/UIMarkupText.h>
 #include <Halak/UIMouseEventDispatcher.h>
 #include <Halak/UIRenderer.h>
-#include <Halak/UISimpleWindowTarget.h>
+#include <Halak/UISimpleDomain.h>
 #include <Halak/UISprite.h>
 #include <Halak/UIWindow.h>
 using namespace Halak;
@@ -28,7 +30,6 @@ class UISampleApp : public GameFramework
     SpriteRenderer* spriteRenderer;
     UIRenderer* uiRenderer;
     UIWindowPtr root;
-    UISpritePtr sprite;
 
     virtual void Initialize()
     {
@@ -66,19 +67,53 @@ class UISampleApp : public GameFramework
         root = new UIWindow();
         const Point window = GetGraphicsDevice()->GetWindow()->GetSize();
         root->SetFrame(new UIFixedFrame(RectangleF(0, 0, window.X, window.Y)));
-        sprite = new UISprite();
-        sprite->SetFrame(new UIAlignedFrame(UIAlignedFrame::Center, Vector2::Zero, Vector2(100.0f, 100.0f)));
-        sprite->SetImage(new UIImage("", Rectangle::Empty));
-        Texture2DPtr texture = new SourceTexture2D(GetGraphicsDevice(), "RSS.png");
-        sprite->GetImage()->SetRealTextureData(texture, Halak::Rectangle(0, 0, 256, 256));
-        root->AddChild(sprite);
+
+        {
+        UIButtonPtr button = new UIButton();
+        button->SetFrame(new UIAlignedFrame(UIAlignedFrame::Center, Vector2::Zero, Vector2(100.0f, 100.0f)));
+        UISpritePtr sprite1 = new UISprite();
+        sprite1->SetFrame(new UIFittedFrame());
+        sprite1->SetImage(new UIImage("", Rectangle::Empty));
+        sprite1->GetImage()->SetRealTextureData(new SourceTexture2D(GetGraphicsDevice(), "RSS.png"), Halak::Rectangle(0, 0, 256, 256));
+        UISpritePtr sprite2 = new UISprite();
+        sprite2->SetFrame(new UIFittedFrame());
+        sprite2->SetImage(new UIImage("", Rectangle::Empty));
+        sprite2->GetImage()->SetRealTextureData(new SourceTexture2D(GetGraphicsDevice(), "RSS_b.png"), Halak::Rectangle(0, 0, 256, 256));
+        UISpritePtr sprite3 = new UISprite();
+        sprite3->SetFrame(new UIFittedFrame());
+        sprite3->SetImage(new UIImage("", Rectangle::Empty));
+        sprite3->GetImage()->SetRealTextureData(new SourceTexture2D(GetGraphicsDevice(), "RSS_a.png"), Halak::Rectangle(0, 0, 256, 256));
+        button->GetNormalWindow()->AddChild(sprite1);
+        button->GetPushedWindow()->AddChild(sprite2);
+        button->GetHoveringWindow()->AddChild(sprite3);
+        root->AddChild(button);
+        }
+        {
+        UIButtonPtr button = new UIButton();
+        button->SetFrame(new UIAlignedFrame(UIAlignedFrame::Center, Vector2(50.0f, 50.0f), Vector2(100.0f, 100.0f)));
+        UISpritePtr sprite1 = new UISprite();
+        sprite1->SetFrame(new UIFittedFrame());
+        sprite1->SetImage(new UIImage("", Rectangle::Empty));
+        sprite1->GetImage()->SetRealTextureData(new SourceTexture2D(GetGraphicsDevice(), "RSS.png"), Halak::Rectangle(0, 0, 256, 256));
+        UISpritePtr sprite2 = new UISprite();
+        sprite2->SetFrame(new UIFittedFrame());
+        sprite2->SetImage(new UIImage("", Rectangle::Empty));
+        sprite2->GetImage()->SetRealTextureData(new SourceTexture2D(GetGraphicsDevice(), "RSS_b.png"), Halak::Rectangle(0, 0, 256, 256));
+        UISpritePtr sprite3 = new UISprite();
+        sprite3->SetFrame(new UIFittedFrame());
+        sprite3->SetImage(new UIImage("", Rectangle::Empty));
+        sprite3->GetImage()->SetRealTextureData(new SourceTexture2D(GetGraphicsDevice(), "RSS_a.png"), Halak::Rectangle(0, 0, 256, 256));
+        button->GetNormalWindow()->AddChild(sprite1);
+        button->GetPushedWindow()->AddChild(sprite2);
+        button->GetHoveringWindow()->AddChild(sprite3);
+        root->AddChild(button);
+        }
 
         uiDomain->SetRoot(root);
     }
 
     virtual void Finalize()
     {
-        sprite.Reset();
         root.Reset();
         GameFramework::Finalize();
     }

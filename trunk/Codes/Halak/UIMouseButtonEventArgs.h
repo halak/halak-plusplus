@@ -14,7 +14,7 @@
                 UIMouseButtonEventArgs();
                 UIMouseButtonEventArgs(UIWindow* target, Point position, Key::Code buttonCode);
                 UIMouseButtonEventArgs(UIWindow* target, Point position, bool isLeftButtonPressed, bool isRightButtonPressed, bool isMiddleButtonPressed, Key::Code buttonCode);
-                UIMouseButtonEventArgs(const UIMouseEventArgs& original, Key::Code buttonCode);
+                UIMouseButtonEventArgs(const UIMouseEventArgs& base, Key::Code buttonCode);
                 UIMouseButtonEventArgs(const UIMouseButtonEventArgs& original);
                 virtual ~UIMouseButtonEventArgs();
 

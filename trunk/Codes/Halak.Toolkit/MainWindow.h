@@ -18,7 +18,6 @@
                     virtual ~MainWindow();
 
                     void AddDockablePane(wxWindow* window, wxAuiPaneInfo& paneInfo);
-                    void AddNotebookPage(wxWindow* window, const wxString& caption);
                     void AddNotebookPage(wxWindow* window, const String& caption);
 
                     int GetNumberOfNotebookPages() const;

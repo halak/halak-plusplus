@@ -1,5 +1,15 @@
 namespace Halak
 {
+    void UIVisual::Show()
+    {
+        SetShown(true);
+    }
+
+    void UIVisual::Hide()
+    {
+        SetShown(false);
+    }
+
     float UIVisual::GetOpacity() const
     {
         return opacity;

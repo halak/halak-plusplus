@@ -15,6 +15,27 @@ namespace Halak
     {
     }
 
+    void UIImage::SetRealTextureData(Texture2D* texture)
+    {
+        if (realTexture != texture || realClippingRectangle != clippingRectangle)
+        {
+            realTexture = texture;
+            
+            if (texture)
+            {
+                realClippingRectangle = Rectangle(0, 0, texture->GetWidth(), texture->GetHeight());
+                normalizedRealClippingRectangle = RectangleF(0.0f, 0.0f, 1.0f, 1.0f);
+            }
+            else
+            {
+                realClippingRectangle = Rectangle::Empty;
+                normalizedRealClippingRectangle = RectangleF::Empty;
+            }
+
+            revision++;
+        }
+    }
+
     void UIImage::SetRealTextureData(Texture2D* texture, const Rectangle& clippingRectangle)
     {
         if (realTexture != texture || realClippingRectangle != clippingRectangle)

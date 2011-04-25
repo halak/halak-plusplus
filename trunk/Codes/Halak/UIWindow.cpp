@@ -40,7 +40,7 @@ namespace Halak
 
         HKAssert(item->GetParent() == nullptr);
 
-        item->SetParent(nullptr);
+        item->SetParent(this);
 
         if (index < static_cast<int>(children.size()))
             children.insert(children.begin() + index, item);
@@ -184,14 +184,12 @@ namespace Halak
         return false;
     }
 
-    bool UIWindow::OnMouseEnter(const UIMouseEventArgs& /*args*/)
+    void UIWindow::OnMouseEnter(const UIMouseEventArgs& /*args*/)
     {
-        return false;
     }
 
-    bool UIWindow::OnMouseLeave(const UIMouseEventArgs& /*args*/)
+    void UIWindow::OnMouseLeave(const UIMouseEventArgs& /*args*/)
     {
-        return false;
     }
 
     bool UIWindow::OnMouseMove(const UIMouseEventArgs& /*args*/)
@@ -249,6 +247,29 @@ namespace Halak
         return false;
     }
 
+    void UIWindow::BringChildToFront(UIVisual* child)
+    {
+        VisualCollection::iterator it = std::find(children.begin(), children.end(), child);
+        HKAssert(it != children.end());
+        if (it == children.end() - 1)
+        {
+            children.erase(it);
+            children.push_back(child);
+        }
+    }
+
+    void UIWindow::SendChildToBack(UIVisual* child)
+    {
+        VisualCollection::iterator it = std::find(children.begin(), children.end(), child);
+        HKAssert(it != children.end());
+
+        if (it != children.begin())
+        {
+            children.erase(it);
+            children.insert(children.begin(), child);
+        }
+    }
+
 #   define RaiseRoutedEvent(onCallbackMethod, raiseEventMethod, eventSignal, args) \
                bool handled = onCallbackMethod(args); \
                eventSignal.Emit(args, handled); \
@@ -276,12 +297,14 @@ namespace Halak
 
     void UIWindow::RaiseMouseEnterEvent(const UIMouseEventArgs& args)
     {
-        RaiseRoutedEvent(OnMouseEnter, RaiseMouseEnterEvent, mouseEnterEvent, args);
+        OnMouseEnter(args);
+        mouseEnterEvent.Emit(args);
     }
 
     void UIWindow::RaiseMouseLeaveEvent(const UIMouseEventArgs& args)
     {
-        RaiseRoutedEvent(OnMouseLeave, RaiseMouseLeaveEvent, mouseLeaveEvent, args);
+        OnMouseLeave(args);
+        mouseLeaveEvent.Emit(args);
     }
 
     void UIWindow::RaiseMouseMoveEvent(const UIMouseEventArgs& args)

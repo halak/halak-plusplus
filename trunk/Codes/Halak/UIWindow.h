@@ -34,8 +34,8 @@
                 inline Signal<const UIKeyboardEventArgs&, bool&>& KeyDownEvent();
                 inline Signal<const UIKeyboardEventArgs&, bool&>& KeyUpEvent();
                 inline Signal<const UIKeyboardEventArgs&, bool&>& KeyPressingEvent();
-                inline Signal<const UIMouseEventArgs&, bool&>& MouseEnterEvent();
-                inline Signal<const UIMouseEventArgs&, bool&>& MouseLeaveEvent();
+                inline Signal<const UIMouseEventArgs&>& MouseEnterEvent();
+                inline Signal<const UIMouseEventArgs&>& MouseLeaveEvent();
                 inline Signal<const UIMouseEventArgs&, bool&>& MouseMoveEvent();
                 inline Signal<const UIMouseEventArgs&, bool&>& MouseClickEvent();
                 inline Signal<const UIMouseButtonEventArgs&, bool&>& MouseButtonDownEvent();
@@ -61,8 +61,8 @@
                 virtual bool OnKeyDown(const UIKeyboardEventArgs& args);
                 virtual bool OnKeyUp(const UIKeyboardEventArgs& args);
                 virtual bool OnKeyPressing(const UIKeyboardEventArgs& args);
-                virtual bool OnMouseEnter(const UIMouseEventArgs& args);
-                virtual bool OnMouseLeave(const UIMouseEventArgs& args);
+                virtual void OnMouseEnter(const UIMouseEventArgs& args);
+                virtual void OnMouseLeave(const UIMouseEventArgs& args);
                 virtual bool OnMouseMove(const UIMouseEventArgs& args);
                 virtual bool OnMouseClick(const UIMouseEventArgs& args);
                 virtual bool OnMouseButtonDown(const UIMouseButtonEventArgs& args);
@@ -77,6 +77,9 @@
 
             private:
                 void RemoveChildByIterator(VisualCollection::iterator it);
+
+                void BringChildToFront(UIVisual* child);
+                void SendChildToBack(UIVisual* child);
 
                 void RaiseKeyDownEvent(const UIKeyboardEventArgs& args);
                 void RaiseKeyUpEvent(const UIKeyboardEventArgs& args);
@@ -101,8 +104,8 @@
                 Signal<const UIKeyboardEventArgs&, bool&> keyDownEvent;
                 Signal<const UIKeyboardEventArgs&, bool&> keyUpEvent;
                 Signal<const UIKeyboardEventArgs&, bool&> keyPressingEvent;
-                Signal<const UIMouseEventArgs&, bool&> mouseEnterEvent;
-                Signal<const UIMouseEventArgs&, bool&> mouseLeaveEvent;
+                Signal<const UIMouseEventArgs&> mouseEnterEvent;
+                Signal<const UIMouseEventArgs&> mouseLeaveEvent;
                 Signal<const UIMouseEventArgs&, bool&> mouseMoveEvent;
                 Signal<const UIMouseEventArgs&, bool&> mouseClickEvent;
                 Signal<const UIMouseButtonEventArgs&, bool&> mouseButtonDownEvent;
@@ -119,6 +122,7 @@
                 friend class UIMouseEventDispatcher;
                 friend class UIGamdPadEventDispatcher;
                 friend class UITouchEventDispatcher;
+                friend class UIVisual;
         };
     }
 

@@ -67,11 +67,9 @@
                 F11 = 0x7A,
                 F12 = 0x7B,
 
-                /*
                 MouseLeftButton = 0x01,
                 MouseRightButton = 0x02,
                 MouseMiddleButton = 0x04,
-                */
 
                 /*
                 GamePadA = 0xF0,

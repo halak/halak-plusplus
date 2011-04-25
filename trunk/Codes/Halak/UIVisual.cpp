@@ -22,6 +22,18 @@ namespace Halak
     {
     }
 
+    void UIVisual::BringToFront()
+    {
+        if (parent)
+            parent->BringChildToFront(this);
+    }
+
+    void UIVisual::SendToBack()
+    {
+        if (parent)
+            parent->SendChildToBack(this);
+    }
+
     void UIVisual::SetOpacity(float value)
     {
         value = Math::Clamp(value, 0.0f, 1.0f);
