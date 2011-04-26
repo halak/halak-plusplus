@@ -3,11 +3,11 @@
 #define __HALAK_UILISTBOX_H__
 
 #   include <Halak/FWD.h>
-#   include <Halak/UIWindow.h>
+#   include <Halak/UIFlowPanel.h>
 
     namespace Halak
     {
-        class UIListBox : public UIWindow
+        class UIListBox : public UIFlowPanel
         {
             public:
                 UIListBox();
