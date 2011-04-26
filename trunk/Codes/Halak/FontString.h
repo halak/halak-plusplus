@@ -14,8 +14,9 @@
                 typedef std::vector<const Glyph*> GlyphCollection;
 
             public:
-                FontString(FontPtr font, const char* text);
-                FontString(FontPtr font, const String& text);
+                FontString();
+                FontString(Font* font, const char* text);
+                FontString(Font* font, const String& text);
                 FontString(const FontString& original);
                 ~FontString();
 
@@ -25,13 +26,16 @@
                 int ConvertToOriginalIndex(int index) const;
 
                 const String& GetOriginal() const;
-                FontPtr GetFont() const;
+                Font* GetFont() const;
                 const GlyphCollection& GetRegularGlyphs() const;
                 const GlyphCollection& GetStrokedGlyphs() const;
 
                 FontString& operator = (const char* text);
                 FontString& operator = (const String& text);
                 FontString& operator = (const FontString& original);
+
+            public:
+                static const FontString Empty;
 
             private:
                 void FillGlyphs();

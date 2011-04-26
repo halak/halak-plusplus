@@ -41,23 +41,30 @@ namespace Halak
         const MouseState& mouseState = device->GetState();
         UIPickingContext picker(Vector2(mouseState.Position.X, mouseState.Position.Y));
 
-        UIWindowPtr pickedWindow;
-        UIWindowPtr targetWindow;
+        struct Pick
+        {
+            static UIWindow* Do(UIPickingContext& context, UIWindow* rootWindow)
+            {
+                if (context.Pick(rootWindow))
+                {
+                    if (context.GetResult()->IsWindow())
+                        return static_cast<UIWindow*>(context.GetResult());
+                    else
+                        return context.GetResult()->GetParent();
+                }
+                else
+                    return rootWindow;
+            }
+        };
+
+        UIWindowPtr pickedWindow = nullptr;
+        UIWindowPtr targetWindow = nullptr;
 
         if (capturedWindow)
             targetWindow = capturedWindow;
         else
         {
-            if (picker.Pick(rootWindow))
-            {
-                if (picker.GetResult()->IsWindow())
-                    pickedWindow = static_cast<UIWindow*>(picker.GetResult());
-                else
-                    pickedWindow = picker.GetResult()->GetParent();
-            }
-            else
-                pickedWindow = rootWindow;
-
+            pickedWindow = Pick::Do(picker, rootWindow);
             targetWindow = pickedWindow;
         }
 
@@ -120,6 +127,12 @@ namespace Halak
                 {
                     capturedWindow.Reset();
                     targetWindow->RaiseMouseButtonUpEvent(UIMouseButtonEventArgs(baseArgs, Key::MouseLeftButton));
+
+                    if (pickedWindow == nullptr)
+                        pickedWindow = Pick::Do(picker, rootWindow);
+
+                    if (targetWindow == pickedWindow)
+                        targetWindow->RaiseMouseClickEvent(baseArgs);
                 }
             }
 

@@ -24,7 +24,7 @@
                 virtual bool IsResizable() const;
 
                 inline const RectangleF& GetRectangle() const;
-                inline void SetRectangle(const RectangleF& value);                
+                inline void SetRectangle(const RectangleF& value);
 
             private:
                 RectangleF rectangle;

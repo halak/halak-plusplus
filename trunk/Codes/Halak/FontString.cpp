@@ -7,14 +7,22 @@
 
 namespace Halak
 {
-    FontString::FontString(FontPtr font, const char* text)
+    const FontString FontString::Empty;
+
+    FontString::FontString()
+        : text(String::Empty),
+          font(nullptr)
+    {
+    }
+
+    FontString::FontString(Font* font, const char* text)
         : text(text),
           font(font)
     {
         FillGlyphs();
     }
 
-    FontString::FontString(FontPtr font, const String& text)
+    FontString::FontString(Font* font, const String& text)
         : text(text),
           font(font)
     {
@@ -50,7 +58,7 @@ namespace Halak
         return text;
     }
 
-    FontPtr FontString::GetFont() const
+    Font* FontString::GetFont() const
     {
         return font;
     }

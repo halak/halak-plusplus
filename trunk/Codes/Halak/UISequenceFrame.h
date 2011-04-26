@@ -1,17 +1,17 @@
 #pragma once
-#ifndef __HALAK_UIANCHOREDFRAME_H__
-#define __HALAK_UIANCHOREDFRAME_H__
+#ifndef __HALAK_UISEQUENCEFRAME_H__
+#define __HALAK_UISEQUENCEFRAME_H__
 
 #   include <Halak/FWD.h>
 #   include <Halak/UIFrame.h>
 
     namespace Halak
     {
-        class UIAnchoredFrame : public UIFrame
+        class UISequenceFrame : public UIFrame
         {
             public:
-                UIAnchoredFrame();
-                virtual ~UIAnchoredFrame();
+                UISequenceFrame();
+                virtual ~UISequenceFrame();
 
                 virtual RectangleF ComputeBounds(UIVisualVisitor& visitor);
 
@@ -19,6 +19,6 @@
         };
     }
 
-#   include <Halak/UIAnchoredFrame.inl>
+#   include <Halak/UISequenceFrame.inl>
 
 #endif

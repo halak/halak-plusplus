@@ -22,15 +22,18 @@
                 virtual ~UIButton();
 
                 inline State GetCurrentState() const;
-                inline UIWindow* GetCurrentWindow() const;
                 inline UIWindow* GetNormalWindow() const;
                 inline UIWindow* GetPushedWindow() const;
                 inline UIWindow* GetHoveringWindow() const;
+                inline UIWindow* GetCurrentWindow() const;
 
                 inline bool GetHideInactives() const;
                 void SetHideInactives(bool value);
 
             protected:
+                void UpdateLayout();
+                virtual UIWindow* OnUpdateLayout();
+
                 virtual void OnMouseEnter(const UIMouseEventArgs& args);
                 virtual void OnMouseLeave(const UIMouseEventArgs& args);
                 virtual bool OnMouseButtonDown(const UIMouseButtonEventArgs& args);
@@ -44,6 +47,7 @@
                 UIWindowPtr normalWindow;
                 UIWindowPtr pushedWindow;
                 UIWindowPtr hoveringWindow;
+                UIWindowPtr currentWindow;
                 bool hideInactives;
         };
     }

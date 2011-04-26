@@ -281,6 +281,7 @@
 #                   include <Halak/UIAnchoredFrame.h>
 #                   include <Halak/UIFittedFrame.h>
 #                   include <Halak/UIFixedFrame.h>
+#                   include <Halak/UISequenceFrame.h>
             ////////////////////////////////////////////////////////////////////////////////////////////////////
             // Effects
 #               include <Halak/UIEffect.h>
@@ -304,13 +305,14 @@
             // Windows
 #               include <Halak/UIWindow.h>
 #                   include <Halak/UIButton.h>
+#                       include <Halak/UICheckBox.h>
 #                   include <Halak/UIEditBox.h>
 #                   include <Halak/UIListBox.h>
+#                   include <Halak/UIMarkupBox.h>
             ////////////////////////////////////////////////////////////////////////////////////////////////////
             // Visuals
 #               include <Halak/UIVisual.h>
 #                   include <Halak/UILabel.h>
-#                   include <Halak/UIMarkupLabel.h>
 #                   include <Halak/UISprite.h>
 #                   include <Halak/UIVideo.h>
 #endif
