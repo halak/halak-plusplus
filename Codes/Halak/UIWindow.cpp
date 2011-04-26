@@ -94,7 +94,7 @@ namespace Halak
         OnChildrenRemoved(removingChildren);
     }
 
-    UIVisualPtr UIWindow::Find(const String& name, bool searchAllChildren) const
+    UIVisual* UIWindow::FindChild(const String& name, bool searchAllChildren) const
     {
         if (searchAllChildren)
         {
@@ -105,7 +105,7 @@ namespace Halak
 
                 if ((*it)->IsWindow())
                 {
-                    if (UIVisualPtr found = static_cast<UIWindow*>((*it).GetPointee())->Find(name, true))
+                    if (UIVisualPtr found = static_cast<UIWindow*>((*it).GetPointee())->FindChild(name, true))
                         return found;
                 }
             }

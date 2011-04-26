@@ -25,7 +25,7 @@
                 bool RemoveChildAt(int index);
                 void RemoveAllChildren();
 
-                UIVisualPtr Find(const String& name, bool searchAllChildren) const;
+                UIVisual* FindChild(const String& name, bool searchAllChildren) const;
 
                 inline const VisualCollection& GetChildren() const;
 
