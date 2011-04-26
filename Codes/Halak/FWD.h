@@ -309,6 +309,7 @@
                         HKForwardDeclareSmartPointerClass(UIAnchoredFrame);
                         HKForwardDeclareSmartPointerClass(UIFittedFrame);
                         HKForwardDeclareSmartPointerClass(UIFixedFrame);
+                        HKForwardDeclareSmartPointerClass(UISequenceFrame);
                 ////////////////////////////////////////////////////////////////////////////////////////////////////
                 // Effects
                     HKForwardDeclareSmartPointerClass(UIEffect);
@@ -332,13 +333,14 @@
                 // Windows
                     HKForwardDeclareSmartPointerClass(UIWindow);
                         HKForwardDeclareSmartPointerClass(UIButton);
+                            HKForwardDeclareSmartPointerClass(UICheckBox);
                         HKForwardDeclareSmartPointerClass(UIEditBox);
                         HKForwardDeclareSmartPointerClass(UIListBox);
+                        HKForwardDeclareSmartPointerClass(UIMarkupBox);
                 ////////////////////////////////////////////////////////////////////////////////////////////////////
                 // Visuals
                     HKForwardDeclareSmartPointerClass(UIVisual);
                         HKForwardDeclareSmartPointerClass(UILabel);
-                        HKForwardDeclareSmartPointerClass(UIMarkupLabel);
                         HKForwardDeclareSmartPointerClass(UISprite);
                         HKForwardDeclareSmartPointerClass(UIVideo);
 

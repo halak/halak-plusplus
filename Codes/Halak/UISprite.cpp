@@ -52,25 +52,7 @@ namespace Halak
         if (GetImage() == nullptr || GetImage()->GetRealTexture() == nullptr)
             return;
 
-        const RectangleF bounds = context.GetCurrentBounds();
-        const RectangleF clippedBounds = context.GetCurrentClippedBounds();
-        const float boundsClippedLeft   = (clippedBounds.GetLeft() - bounds.GetLeft()) / bounds.Width;
-        const float boundsClippedTop    = (clippedBounds.GetTop() - bounds.GetTop()) / bounds.Height;
-        const float boundsClippedRight  = (bounds.GetRight() - clippedBounds.GetRight()) / bounds.Width;
-        const float boundsClippedBottom = (bounds.GetBottom() - clippedBounds.GetBottom()) / bounds.Height;
-
-        RectangleF clippingRectangle = GetImage()->GetNormalizedRealClippingRectangle();
-        const float clippingLeft   = clippingRectangle.GetLeft() + boundsClippedLeft;
-        const float clippingTop    = clippingRectangle.GetTop() + boundsClippedTop;
-        const float clippingRight  = clippingRectangle.GetRight() - boundsClippedRight;
-        const float clippingBottom = clippingRectangle.GetBottom() - boundsClippedBottom;
-
-        clippingRectangle.X = clippingLeft;
-        clippingRectangle.Y = clippingTop;
-        clippingRectangle.Width  = (horizontalFlip == false) ? clippingRight - clippingLeft : clippingLeft - clippingRight;
-        clippingRectangle.Height = (verticalFlip   == false) ? clippingBottom - clippingTop : clippingTop - clippingBottom;
-
-        context.Draw(context.GetCurrentClippedBounds(), GetImage(), clippingRectangle);
+        context.Draw(GetImage(), GetHorizontalFlip(), GetVerticalFlip());
     }
 
     void UISprite::ResizeToImageSize()

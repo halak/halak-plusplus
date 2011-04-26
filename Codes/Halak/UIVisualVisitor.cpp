@@ -7,12 +7,13 @@
 namespace Halak
 {
     static const float BigFloat = 10000.0f;
+    static const RectangleF BigRectangle = RectangleF(-BigFloat, -BigFloat, BigFloat + BigFloat, BigFloat + BigFloat);
 
     UIVisualVisitor::UIVisualVisitor()
         : visibleOnly(true),
           currentOpacity(1.0f),
-          currentBounds(RectangleF(-BigFloat, -BigFloat, BigFloat + BigFloat, BigFloat + BigFloat)),
-          currentClippedBounds(RectangleF(-BigFloat, -BigFloat, BigFloat + BigFloat, BigFloat + BigFloat)),
+          currentBounds(BigRectangle),
+          currentClippedBounds(BigRectangle),
           currentTransform(Matrix4::Identity)
     {
     }

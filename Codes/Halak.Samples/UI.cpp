@@ -1,4 +1,6 @@
 #include <Halak.Samples/Samples.h>
+#include <Halak/Font.h>
+#include <Halak/FreeType.h>
 #include <Halak/GameFramework.h>
 #include <Halak/GameNode.h>
 #include <Halak/GameStructure.h>
@@ -11,11 +13,13 @@
 #include <Halak/SpriteRenderer.h>
 #include <Halak/UIAlignedFrame.h>
 #include <Halak/UIButton.h>
+#include <Halak/UICheckBox.h>
 #include <Halak/UIDrawingContext.h>
 #include <Halak/UIFixedFrame.h>
 #include <Halak/UIFittedFrame.h>
 #include <Halak/UIImage.h>
 #include <Halak/UIKeyboardEventDispatcher.h>
+#include <Halak/UILabel.h>
 #include <Halak/UIMarkupText.h>
 #include <Halak/UIMouseEventDispatcher.h>
 #include <Halak/UIRenderer.h>
@@ -44,6 +48,8 @@ class UISampleApp : public GameFramework
 
         spriteRenderer = new SpriteRenderer(GetGraphicsDevice());
         GetStructure()->GetRoot()->AttachChild(spriteRenderer);
+        FreeType* freeType = new FreeType(GetGraphicsDevice());
+        GetStructure()->GetRoot()->AttachChild(freeType);
         //uiRenderer = new UIRenderer(spriteRenderer);
         //GetStructure()->GetRoot()->AttachChild(uiRenderer);
 
@@ -66,11 +72,11 @@ class UISampleApp : public GameFramework
 
         root = new UIWindow();
         const Point window = GetGraphicsDevice()->GetWindow()->GetSize();
-        root->SetFrame(new UIFixedFrame(RectangleF(0, 0, window.X, window.Y)));
+        root->SetFrame(new UIFixedFrame(RectangleF(100, 100, window.X - 200, window.Y - 200)));
 
         {
         UIButtonPtr button = new UIButton();
-        button->SetFrame(new UIAlignedFrame(UIAlignedFrame::Center, Vector2::Zero, Vector2(100.0f, 100.0f)));
+        button->SetFrame(new UIAlignedFrame(UIAlignedFrame::Center, Vector2(-300.0f, 0.0f), Vector2(100.0f, 100.0f)));
         UISpritePtr sprite1 = new UISprite();
         sprite1->SetFrame(new UIFittedFrame());
         sprite1->SetImage(new UIImage("", Rectangle::Empty));
@@ -89,7 +95,7 @@ class UISampleApp : public GameFramework
         root->AddChild(button);
         }
         {
-        UIButtonPtr button = new UIButton();
+        UICheckBoxPtr button = new UICheckBox();
         button->SetFrame(new UIAlignedFrame(UIAlignedFrame::Center, Vector2(50.0f, 50.0f), Vector2(100.0f, 100.0f)));
         UISpritePtr sprite1 = new UISprite();
         sprite1->SetFrame(new UIFittedFrame());
@@ -103,13 +109,40 @@ class UISampleApp : public GameFramework
         sprite3->SetFrame(new UIFittedFrame());
         sprite3->SetImage(new UIImage("", Rectangle::Empty));
         sprite3->GetImage()->SetRealTextureData(new SourceTexture2D(GetGraphicsDevice(), "RSS_a.png"), Halak::Rectangle(0, 0, 256, 256));
+        UISpritePtr sprite4 = new UISprite();
+        sprite4->SetFrame(new UIFittedFrame());
+        sprite4->SetImage(new UIImage("", Rectangle::Empty));
+        sprite4->GetImage()->SetRealTextureData(new SourceTexture2D(GetGraphicsDevice(), "RSS.png"), Halak::Rectangle(0, 0, 256, 256));
+        UISpritePtr sprite5 = new UISprite();
+        sprite5->SetFrame(new UIFittedFrame());
+        sprite5->SetImage(new UIImage("", Rectangle::Empty));
+        sprite5->GetImage()->SetRealTextureData(new SourceTexture2D(GetGraphicsDevice(), "RSS_b.png"), Halak::Rectangle(0, 0, 256, 256));
+        UISpritePtr sprite6 = new UISprite();
+        sprite6->SetFrame(new UIFittedFrame());
+        sprite6->SetImage(new UIImage("", Rectangle::Empty));
+        sprite6->GetImage()->SetRealTextureData(new SourceTexture2D(GetGraphicsDevice(), "RSS_a.png"), Halak::Rectangle(0, 0, 256, 256));
         button->GetNormalWindow()->AddChild(sprite1);
         button->GetPushedWindow()->AddChild(sprite2);
         button->GetHoveringWindow()->AddChild(sprite3);
+        button->GetCheckedNormalWindow()->AddChild(sprite4);
+        button->GetCheckedNormalWindow()->SetOpacity(0.5f);
+        button->GetCheckedPushedWindow()->AddChild(sprite5);
+        button->GetCheckedPushedWindow()->SetOpacity(0.5f);
+        button->GetCheckedHoveringWindow()->AddChild(sprite6);
+        button->GetCheckedHoveringWindow()->SetOpacity(0.5f);
         root->AddChild(button);
         }
 
         uiDomain->SetRoot(root);
+
+        FontPtr font = new Font(freeType);
+        font->SetFace("malgun.ttf");
+        font->SetSize(20.0f);
+        UILabelPtr label = new UILabel();
+        label->SetFrame(new UIAlignedFrame(UIAlignedFrame::RightTop, Vector2(50.0f, 50.0f), Vector2(100.0f, 100.0f)));
+        label->SetFont(font);
+        label->SetText("HELLO WORLD");
+        root->AddChild(label);
     }
 
     virtual void Finalize()

@@ -1998,6 +1998,18 @@
 						RelativePath="..\..\Codes\Halak\UIFrame.inl"
 						>
 					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UISequenceFrame.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UISequenceFrame.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UISequenceFrame.inl"
+						>
+					</File>
 				</Filter>
 				<Filter
 					Name="Visuals"
@@ -2012,18 +2024,6 @@
 					</File>
 					<File
 						RelativePath="..\..\Codes\Halak\UILabel.inl"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\UIMarkupLabel.cpp"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\UIMarkupLabel.h"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\UIMarkupLabel.inl"
 						>
 					</File>
 					<File
@@ -2079,6 +2079,18 @@
 						>
 					</File>
 					<File
+						RelativePath="..\..\Codes\Halak\UICheckBox.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UICheckBox.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UICheckBox.inl"
+						>
+					</File>
+					<File
 						RelativePath="..\..\Codes\Halak\UIEditBox.cpp"
 						>
 					</File>
@@ -2100,6 +2112,18 @@
 					</File>
 					<File
 						RelativePath="..\..\Codes\Halak\UIListBox.inl"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UIMarkupBox.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UIMarkupBox.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UIMarkupBox.inl"
 						>
 					</File>
 					<File

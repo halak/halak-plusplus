@@ -21,6 +21,7 @@ namespace Halak
           spacing(1.0f),
           parametersPointer(new FreeTypeFontRendererParameters()),
           parameters(*parametersPointer),
+          renderer(nullptr),
           freeTypeFontRendererChanged(true)
     {
         HKAssert(freeType);
@@ -62,7 +63,7 @@ namespace Halak
     
     Vector2 Font::Measure(const FontString& fontString, float boundary)
     {
-        HKAssert(fontString.GetFont().GetPointee() == this);
+        HKAssert(fontString.GetFont() == this);
 
        TypingContext context(fontString, boundary);
 

@@ -15,7 +15,13 @@
 
                 inline void Draw(UIVisual* target);
 
-                void Draw(const RectangleF& bounds, UIImage* image, const RectangleF& clippingRectangle);
+                inline void Draw(UIImage* image);
+                inline void Draw(UIImage* image, bool horizontalFlip, bool verticalFlip);
+                void Draw(const RectangleF& bounds, const RectangleF& clippedBounds, UIImage* image, bool horizontalFlip, bool verticalFlip);
+                inline void DrawString(Font* font, const String& text);
+                void DrawString(const RectangleF& bounds, const RectangleF& clippedBounds, Font* font, const String& text);
+                inline void DrawString(const FontString& fontString);
+                void DrawString(const RectangleF& bounds, const RectangleF& clippedBounds, const FontString& fontString);
                 void DrawRectangle(const RectangleF& bounds, Color color);
 
             protected:
