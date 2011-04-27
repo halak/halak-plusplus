@@ -164,7 +164,7 @@ namespace Halak
 
                         for (std::vector<PhotoshopLayerPtr>::iterator it = layers.begin(); it != layers.end();)
                         {
-                            if ((*it)->GetGroup().IsAlive())
+                            if ((*it)->GetGroup())
                                 it = layers.erase(it);
                             else
                                 it++;

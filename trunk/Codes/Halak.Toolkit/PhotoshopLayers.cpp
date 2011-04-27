@@ -348,7 +348,7 @@ namespace Halak
                 return false;
         }
 
-        PhotoshopLayerPtr PhotoshopLayer::FindSubLayer(const String& name) const
+        PhotoshopLayer* PhotoshopLayer::FindSubLayer(const String& name) const
         {
             for (std::vector<PhotoshopLayerPtr>::const_iterator it = subLayers.begin(); it != subLayers.end(); it++)
             {
@@ -404,7 +404,7 @@ namespace Halak
             return channels;
         }
 
-        PhotoshopChannelPtr PhotoshopLayer::GetChannel(const PhotoshopChannel::ID id) const
+        PhotoshopChannel* PhotoshopLayer::GetChannel(const PhotoshopChannel::ID id) const
         {
             for (std::vector<PhotoshopChannelPtr>::const_iterator it = channels.begin(); it != channels.end(); it++)
             {
@@ -415,7 +415,7 @@ namespace Halak
             return nullptr;
         }
         
-        PhotoshopMaskPtr PhotoshopLayer::GetMask() const
+        PhotoshopMask* PhotoshopLayer::GetMask() const
         {
             return mask;
         }
@@ -434,7 +434,7 @@ namespace Halak
             return result;
         }
 
-        PhotoshopLayerWeakPtr PhotoshopLayer::GetGroup() const
+        PhotoshopLayer* PhotoshopLayer::GetGroup() const
         {
             return group;
         }
