@@ -1820,6 +1820,10 @@
 				Name="UI"
 				>
 				<File
+					RelativePath="..\..\Codes\Halak\UI.h"
+					>
+				</File>
+				<File
 					RelativePath="..\..\Codes\Halak\UIDomain.cpp"
 					>
 				</File>

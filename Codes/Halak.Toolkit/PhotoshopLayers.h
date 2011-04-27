@@ -59,7 +59,7 @@
 
                     void AddSubLayer(PhotoshopLayerPtr item);
                     bool RemoveSubLayer(PhotoshopLayerPtr item);
-                    PhotoshopLayerPtr FindSubLayer(const String& name) const;
+                    PhotoshopLayer* FindSubLayer(const String& name) const;
 
                     void ReadPixelData(int bitsPerPixel, PhotoshopDocumentReader& reader);
 
@@ -72,12 +72,12 @@
                     bool GetVisible() const;
                     bool IsGroup() const;
                     const std::vector<PhotoshopChannelPtr>& GetChannels() const;
-                    PhotoshopChannelPtr GetChannel(const PhotoshopChannel::ID id) const;
-                    PhotoshopMaskPtr GetMask() const;
+                    PhotoshopChannel* GetChannel(const PhotoshopChannel::ID id) const;
+                    PhotoshopMask* GetMask() const;
 
                     Rectangle GetUnionRectangle() const;
 
-                    PhotoshopLayerWeakPtr GetGroup() const;
+                    PhotoshopLayer* GetGroup() const;
                     const std::vector<PhotoshopLayerPtr>& GetSubLayers() const;
 
                     Texture2DPtr ToTexture(GraphicsDevice* graphicsDevice) const;
