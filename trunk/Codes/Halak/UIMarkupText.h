@@ -122,6 +122,20 @@
                         friend class UIMarkupText;
                 };
 
+                // 글꼴 변화를 가리키는 Phrase.
+                class FontPhrase : public Phrase
+                {
+                    private:
+                        FontPhrase(const String& originalText, int index, int length);
+                        FontPhrase(const FontPhrase& original);
+                        virtual ~FontPhrase();
+
+                        virtual FontPhrase* Clone() const;
+
+                    private:
+                        friend class UIMarkupText;
+                };
+
                 class ContentPhrase : public Phrase
                 {
                     public:

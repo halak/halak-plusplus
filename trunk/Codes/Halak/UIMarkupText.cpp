@@ -291,6 +291,27 @@ namespace Halak
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    UIMarkupText::FontPhrase::FontPhrase(const String& /*originalText*/, int index, int length)
+        : Phrase(FontPhraseType, index, length)
+    {
+    }
+    
+    UIMarkupText::FontPhrase::FontPhrase(const FontPhrase& original)
+        : Phrase(original)
+    {
+    }
+
+    UIMarkupText::FontPhrase::~FontPhrase()
+    {
+    }
+
+    UIMarkupText::FontPhrase* UIMarkupText::FontPhrase::Clone() const
+    {
+        return new FontPhrase(*this);
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+
     UIMarkupText::ContentPhrase::ContentPhrase(const String& originalText, int index, int length)
         : Phrase(ContentPhraseType, index, length)
     {
