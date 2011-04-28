@@ -4,6 +4,7 @@
 
 #   include <Halak/FWD.h>
 #   include <Halak/UIFlowPanel.h>
+#   include <Halak/UIMarkupText.h>
 
     namespace Halak
     {
@@ -13,7 +14,14 @@
                 UIMarkupTextBox();
                 virtual ~UIMarkupTextBox();
 
+                inline const UIMarkupText& GetText() const;
+                void SetText(const UIMarkupText& value);
+
             private:
+                void UpdateLayout();
+
+            private:
+                UIMarkupText text;
         };
     }
 
