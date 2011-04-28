@@ -41,7 +41,7 @@ namespace Halak
     {
     }
 
-    RectangleF UIAlignedFrame::ComputeBounds(UIVisualVisitor& visitor)
+    RectangleF UIAlignedFrame::ComputeBounds(UIVisual* /*owner*/, UIVisualVisitor& visitor)
     {
         const RectangleF referenceBounds = visitor.GetCurrentBounds();
         if (boundsChanged || lastReferenceBounds != referenceBounds)

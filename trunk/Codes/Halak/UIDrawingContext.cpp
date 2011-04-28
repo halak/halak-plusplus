@@ -57,12 +57,12 @@ namespace Halak
 
     void UIDrawingContext::DrawString(const RectangleF& bounds, const RectangleF& clippedBounds, Font* font, const String& text)
     {
-        renderer->DrawString(Vector2(clippedBounds.X, clippedBounds.Y), FontString(font, text), static_cast<float>(text.GetLength()), clippedBounds.Width);
+        renderer->DrawString(Vector2(clippedBounds.X, clippedBounds.Y), FontString(font, text), static_cast<float>(text.GetLength()), bounds.Width);
     }
 
     void UIDrawingContext::DrawString(const RectangleF& bounds, const RectangleF& clippedBounds, const FontString& fontString)
     {
-        renderer->DrawString(Vector2(clippedBounds.X, clippedBounds.Y), fontString, static_cast<float>(fontString.GetOriginal().GetLength()), clippedBounds.Width);
+        renderer->DrawString(Vector2(clippedBounds.X, clippedBounds.Y), fontString, static_cast<float>(fontString.GetOriginal().GetLength()), bounds.Width);
     }
 
     void UIDrawingContext::DrawRectangle(const RectangleF& bounds, Color color)

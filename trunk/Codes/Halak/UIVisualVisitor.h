@@ -19,10 +19,12 @@
                 inline void SetVisibleOnly(bool value);
 
                 inline UIVisual* GetCurrentVisual() const;
-                inline float GetCurrentOpacity() const;
+                inline float GetCurrentOpacity() const; 
                 inline const RectangleF& GetCurrentBounds() const;
                 inline const RectangleF& GetCurrentClippedBounds() const;
                 inline const Matrix4& GetCurrentTransform() const;
+                inline const RectangleF& GetPreviousBounds() const;
+                inline const RectangleF& GetPreviousClippedBounds() const;
 
             protected:
                 void Visit(UIVisual* target);
@@ -37,6 +39,8 @@
                 RectangleF currentBounds;
                 RectangleF currentClippedBounds;
                 Matrix4 currentTransform;
+                RectangleF previousBounds;
+                RectangleF previousClippedBounds;
         };
     }
 

@@ -12,7 +12,7 @@ namespace Halak
     {
     }
 
-    RectangleF UIFittedFrame::ComputeBounds(UIVisualVisitor& visitor)
+    RectangleF UIFittedFrame::ComputeBounds(UIVisual* /*owner*/, UIVisualVisitor& visitor)
     {
         return visitor.GetCurrentBounds();
     }

@@ -23,6 +23,8 @@
                 void BringToFront();
                 void SendToBack();
 
+                virtual RectangleF ComputeBounds(UIVisualVisitor& context);
+
                 inline float GetOpacity() const;
                 void SetOpacity(float value);
 

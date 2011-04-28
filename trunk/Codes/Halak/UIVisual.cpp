@@ -34,6 +34,11 @@ namespace Halak
             parent->SendChildToBack(this);
     }
 
+    RectangleF UIVisual::ComputeBounds(UIVisualVisitor& context)
+    {
+        return GetFrame()->ComputeBounds(this, context);
+    }
+
     void UIVisual::SetOpacity(float value)
     {
         value = Math::Clamp(value, 0.0f, 1.0f);

@@ -19,7 +19,7 @@ namespace Halak
     {
     }
 
-    RectangleF UIFixedFrame::ComputeBounds(UIVisualVisitor& /*visitor*/)
+    RectangleF UIFixedFrame::ComputeBounds(UIVisual* /*owner*/, UIVisualVisitor& /*visitor*/)
     {
         return rectangle;
     }

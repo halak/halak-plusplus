@@ -37,7 +37,7 @@ namespace Halak
         const RectangleF oldClippedBounds = currentClippedBounds;
         const Matrix4 oldTransform = currentTransform;
 
-        const RectangleF bounds = target->GetFrame()->ComputeBounds(*this);
+        const RectangleF bounds = target->ComputeBounds(*this);
 
         currentVisual = target;
         currentOpacity *= target->GetOpacity();
@@ -46,6 +46,9 @@ namespace Halak
         currentTransform = Matrix4::Identity;
 
         OnVisit(target);
+
+        previousBounds = currentBounds;
+        previousClippedBounds = currentClippedBounds;
 
         currentVisual = oldVisual;
         currentOpacity = oldOpacity;

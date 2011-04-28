@@ -34,4 +34,14 @@ namespace Halak
     {
         return currentTransform;
     }
+
+    const RectangleF& UIVisualVisitor::GetPreviousBounds() const
+    {
+        return previousBounds;
+    }
+
+    const RectangleF& UIVisualVisitor::GetPreviousClippedBounds() const
+    {
+        return previousClippedBounds;
+    }
 }
