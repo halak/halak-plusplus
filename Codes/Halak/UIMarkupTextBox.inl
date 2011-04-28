@@ -4,4 +4,9 @@ namespace Halak
     {
         return text;
     }
+
+    Font* UIMarkupTextBox::GetFont() const
+    {
+        return font;
+    }
 }

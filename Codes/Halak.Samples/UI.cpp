@@ -21,6 +21,7 @@
 #include <Halak/UIKeyboardEventDispatcher.h>
 #include <Halak/UILabel.h>
 #include <Halak/UIMarkupText.h>
+#include <Halak/UIMarkupTextBox.h>
 #include <Halak/UIMouseEventDispatcher.h>
 #include <Halak/UIRenderer.h>
 #include <Halak/UISimpleDomain.h>
@@ -138,10 +139,10 @@ class UISampleApp : public GameFramework
         FontPtr font = new Font(freeType);
         font->SetFace("malgun.ttf");
         font->SetSize(20.0f);
-        UILabelPtr label = new UILabel();
+        UIMarkupTextBoxPtr label = new UIMarkupTextBox();
         label->SetFrame(new UIAlignedFrame(UIAlignedFrame::RightTop, Vector2(50.0f, 50.0f), Vector2(100.0f, 100.0f)));
         label->SetFont(font);
-        label->SetText("HELLO WORLD");
+        label->SetText(UIMarkupText("HELLO|#FF0000|HELLO"));
         root->AddChild(label);
     }
 

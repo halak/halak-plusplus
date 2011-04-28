@@ -129,13 +129,12 @@ namespace Halak
 
     void UIWindow::DrawChildren(UIDrawingContext& context)
     {
-        for (VisualCollection::iterator it = children.begin(); it != children.end(); it++)
+        for (VisualCollection::const_iterator it = children.begin(); it != children.end(); it++)
             context.Draw(*it);
     }
 
     void UIWindow::OnDraw(UIDrawingContext& context)
     {
-        UIVisual::OnDraw(context);
         DrawChildren(context);
     }
 
@@ -143,7 +142,7 @@ namespace Halak
     {
         if (context.GetCurrentClippedBounds().Contains(context.GetPoint()))
         {
-            for (VisualCollection::reverse_iterator it = children.rbegin(); it != children.rend(); it++)
+            for (VisualCollection::const_reverse_iterator it = children.rbegin(); it != children.rend(); it++)
             {
                 if (context.Pick(*it))
                     return;

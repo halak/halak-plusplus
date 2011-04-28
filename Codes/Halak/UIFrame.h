@@ -14,7 +14,7 @@
                 UIFrame();
                 virtual ~UIFrame();
 
-                virtual RectangleF ComputeBounds(UIVisualVisitor& visitor) = 0;
+                virtual RectangleF ComputeBounds(UIVisual* owner, UIVisualVisitor& visitor) = 0;
 
                 virtual void Move(Vector2 displacement);
                 virtual bool IsMovable() const;

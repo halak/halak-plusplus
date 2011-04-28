@@ -15,10 +15,10 @@
             public:
                 enum Direction
                 {
-                    LeftToRight,
-                    RightToLeft,
-                    TopDown,
-                    BottomUp,
+                    LeftToRight = 0x01,
+                    RightToLeft = 0x02,
+                    TopDown     = 0x04,
+                    BottomUp    = 0x08,
                 };
 
             public:
@@ -29,38 +29,22 @@
                 void SetDirection(Direction value);
 
             protected:
-                virtual void OnDraw(UIDrawingContext& context);
-                virtual void OnPick(UIPickingContext& context);
-                virtual void OnChildAdded(UIVisual* child);
-                virtual void OnChildRemoved(UIVisual* child);
-                virtual void OnChildrenAdded(const VisualCollection& children);
-                virtual void OnChildrenRemoved(const VisualCollection& children);
-
-            protected:
                 class ArrangedFrame : public UIFrame
                 {
                     public:
+                        Vector2 Offset;
+                        Vector2 Size;
+                        bool IsNewLine;
+
+                    public:
                         ArrangedFrame();
+                        ArrangedFrame(Vector2 offset, Vector2 size, bool isNewLine);
                         virtual ~ArrangedFrame();
 
-                        virtual RectangleF ComputeBounds(UIVisualVisitor& context);
+                        virtual RectangleF ComputeBounds(UIVisual* owner, UIVisualVisitor& context);
                 };
 
-                class DrawingContext : public UIDrawingContext
-                {
-                    public:
-                        DrawingContext();
-                        virtual ~DrawingContext();
-                };
-
-                class PickingContext : public UIPickingContext
-                {
-                    public:
-                        PickingContext();
-                        virtual ~PickingContext();
-                };
-
-            private:
+        private:
                 Direction direction;
         };
     }

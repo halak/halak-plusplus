@@ -13,7 +13,7 @@
                 UIAnchoredFrame();
                 virtual ~UIAnchoredFrame();
 
-                virtual RectangleF ComputeBounds(UIVisualVisitor& visitor);
+                virtual RectangleF ComputeBounds(UIVisual* owner, UIVisualVisitor& visitor);
 
             private:
         };

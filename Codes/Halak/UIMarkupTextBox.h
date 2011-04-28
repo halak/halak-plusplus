@@ -17,11 +17,15 @@
                 inline const UIMarkupText& GetText() const;
                 void SetText(const UIMarkupText& value);
 
+                inline Font* GetFont() const;
+                void SetFont(Font* value);
+
             private:
                 void UpdateLayout();
 
             private:
                 UIMarkupText text;
+                FontPtr font;
         };
     }
 

@@ -78,7 +78,7 @@ namespace Halak
 
         currentIndex++;
 
-        if (currentPosition.X + (currentGlyph->GetAdvance().X * spacing) >= boundary)
+        if (currentPosition.X + (currentGlyph->GetAdvance().X * spacing) > boundary)
         {
             currentPosition.X = 0.0f;
             currentPosition.Y += lineHeight;

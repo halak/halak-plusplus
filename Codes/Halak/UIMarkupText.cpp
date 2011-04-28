@@ -49,7 +49,7 @@ namespace Halak
 
     bool UIMarkupText::operator != (const UIMarkupText& right) const
     {
-        return operator == (right);
+        return !operator == (right);
     }
 
     void UIMarkupText::AddSubText(int index, int length)
@@ -205,7 +205,8 @@ namespace Halak
     }
 
     UIMarkupText::Phrase::Phrase(const Phrase& original)
-        : index(original.index),
+        : type(original.type),
+          index(original.index),
           length(original.length)
     {
     }

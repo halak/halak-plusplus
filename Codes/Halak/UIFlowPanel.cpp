@@ -17,33 +17,19 @@ namespace Halak
         direction = value;
     }
 
-    void UIFlowPanel::OnDraw(UIDrawingContext& context)
-    {
-    }
-
-    void UIFlowPanel::OnPick(UIPickingContext& context)
-    {
-    }
-
-    void UIFlowPanel::OnChildAdded(UIVisual* child)
-    {
-    }
-
-    void UIFlowPanel::OnChildRemoved(UIVisual* child)
-    {
-    }
-
-    void UIFlowPanel::OnChildrenAdded(const VisualCollection& children)
-    {
-    }
-
-    void UIFlowPanel::OnChildrenRemoved(const VisualCollection& children)
-    {
-    }
-
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
     UIFlowPanel::ArrangedFrame::ArrangedFrame()
+        : Offset(Vector2::Zero),
+          Size(Vector2::Zero),
+          IsNewLine(false)
+    {
+    }
+
+    UIFlowPanel::ArrangedFrame::ArrangedFrame(Vector2 offset, Vector2 size, bool isNewLine)
+        : Offset(offset),
+          Size(size),
+          IsNewLine(isNewLine)
     {
     }
 
@@ -51,28 +37,26 @@ namespace Halak
     {
     }
 
-    RectangleF UIFlowPanel::ArrangedFrame::ComputeBounds(UIVisualVisitor& context)
+    RectangleF UIFlowPanel::ArrangedFrame::ComputeBounds(UIVisual* owner, UIVisualVisitor& context)
     {
-        return Rectangle::Empty;
-    }
+        const RectangleF bounds = context.GetCurrentBounds();
+        const RectangleF previousBounds = context.GetPreviousBounds();
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    UIFlowPanel::ArrangedFrame::PickingContext::PickingContext()
-    {
-    }
-
-    UIFlowPanel::ArrangedFrame::PickingContext::~PickingContext()
-    {
-    }
-
-    ////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    UIFlowPanel::ArrangedFrame::DrawingContext::DrawingContext()
-    {
-    }
-
-    UIFlowPanel::ArrangedFrame::DrawingContext::~DrawingContext()
-    {
+        RectangleF result = RectangleF::Empty;
+        if (owner->GetParent()->GetChildren()[0] != owner)
+        {
+            result.X = previousBounds.GetRight();
+            result.Y = previousBounds.GetTop();
+            result.Width = Size.X;
+            result.Height = Size.Y;
+        }
+        else
+        {
+            result.X = bounds.GetLeft();
+            result.Y = bounds.GetTop();
+            result.Width = Size.X;
+            result.Height = Size.Y;
+        }
+        return result;
     }
 }

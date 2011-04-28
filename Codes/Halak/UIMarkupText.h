@@ -195,4 +195,6 @@
         };
     }
 
+#   include <Halak/UIMarkupText.inl>
+
 #endif

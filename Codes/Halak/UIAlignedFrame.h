@@ -30,7 +30,7 @@
                 UIAlignedFrame(Alignment align, Vector2 offset, Vector2 size);
                 virtual ~UIAlignedFrame();
 
-                virtual RectangleF ComputeBounds(UIVisualVisitor& visitor);
+                virtual RectangleF ComputeBounds(UIVisual* owner, UIVisualVisitor& visitor);
 
                 virtual void Move(Vector2 displacement);
                 virtual bool IsMovable() const;

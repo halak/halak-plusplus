@@ -17,7 +17,7 @@ namespace Halak
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    UIMarkupText::PhraseType UIMarkupText::GetType() const
+    UIMarkupText::PhraseType UIMarkupText::Phrase::GetType() const
     {
         return type;
     }
@@ -56,7 +56,7 @@ namespace Halak
         return contentName;
     }
 
-    const SequenceDictionary UIMarkupText::ContentPhrase::GetAttributes() const
+    const SequenceDictionary& UIMarkupText::ContentPhrase::GetAttributes() const
     {
         return attributes;
     }

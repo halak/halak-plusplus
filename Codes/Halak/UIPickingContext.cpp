@@ -9,7 +9,7 @@ namespace Halak
           result(nullptr)
     {
     }
-    
+
     UIPickingContext::~UIPickingContext()
     {
     }
