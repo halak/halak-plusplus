@@ -839,6 +839,18 @@
 					RelativePath="..\..\Codes\Halak\Timeline.inl"
 					>
 				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\Timer.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\Timer.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\Timer.inl"
+					>
+				</File>
 			</Filter>
 			<Filter
 				Name="*Asset"

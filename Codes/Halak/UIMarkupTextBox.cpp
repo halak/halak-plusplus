@@ -76,22 +76,28 @@ namespace Halak
                 case UIMarkupText::ColorPhraseType:
                     {
                         const ColorPhrase* item = static_cast<const ColorPhrase*>(*it);
-                        currentFont = new Font(*currentFont);
 
+                        Color color = Color::White;
                         if (item->HasColor())
-                            currentFont->SetColor(item->GetColor());
+                            color = item->GetColor();
                         else
-                            currentFont->SetColor(font->GetColor());
+                            color = font->GetColor();
+
+                        if (color != currentFont->GetColor())
+                        {
+                            currentFont = new Font(*currentFont);
+                            currentFont->SetColor(color);
+                        }
                     }
                     break;
                 case UIMarkupText::FontPhraseType:
                     {
-                        const FontPhrase* item = static_cast<const FontPhrase*>(*it);
+                        // const FontPhrase* item = static_cast<const FontPhrase*>(*it);
                     }
                     break;
                 case UIMarkupText::ContentPhraseType:
                     {
-                        const ContentPhrase* item = static_cast<const ContentPhrase*>(*it);
+                        // const ContentPhrase* item = static_cast<const ContentPhrase*>(*it);
                     }
                     break;
             }
