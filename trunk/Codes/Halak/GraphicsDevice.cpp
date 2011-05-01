@@ -2,6 +2,7 @@
 #include <Halak/GraphicsDevice.h>
 #include <Halak/Assert.h>
 #include <Halak/CheckedRelease.h>
+#include <Halak/Colors.h>
 #include <Halak/DisplaySwapChain.h>
 #include <Halak/Window.h>
 #include <stdexcept>
@@ -26,7 +27,7 @@ namespace Halak
 
     void GraphicsDevice::Clear()
     {
-        Clear(Color::CornflowerBlue);
+        Clear(Colors::CornflowerBlue);
     }
 
     void GraphicsDevice::Clear(Color color)

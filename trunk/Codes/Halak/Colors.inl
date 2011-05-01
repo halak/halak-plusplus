@@ -1,43 +1,44 @@
 namespace Halak
 {
-    Colors::NamedColor::NamedColor()
-        : Name(nullptr),
-          Color(0, 0, 0, 0)
+    Colors::Item::Item()
+        : Name(String::Empty),
+          Value(0, 0, 0, 0)
     {
     }
 
-    Colors::NamedColor::NamedColor(const char* name, Color color)
+    Colors::Item::Item(const char* name, Color color)
         : Name(name),
-          Color(color)
+          Value(color)
     {
     }
 
-    Colors::NamedColor::NamedColor(const NamedColor& original)
+    Colors::Item::Item(const Item& original)
         : Name(original.Name),
-          Color(original.Color)          
+          Value(original.Value)          
     {
     }
 
-    Colors::NamedColor& Colors::NamedColor::operator = (const NamedColor& right)
+    Colors::Item& Colors::Item::operator = (const Item& right)
     {
         Name = right.Name;
-        Color = right.Color;
+        Value = right.Value;
+        return *this;
     }
 
-    bool Colors::NamedColor::operator == (const NamedColor& right) const
+    bool Colors::Item::operator == (const Item& right) const
     {
-        return Name == right.Name && Color == right.Color;
+        return Name == right.Name && Value == right.Value;
     }
 
-    bool Colors::NamedColor::operator != (const NamedColor& right) const
+    bool Colors::Item::operator != (const Item& right) const
     {
         return !operator == (right);
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    const NamedColorCollection& Colors::GetNamedColors()
+    const Colors::ItemCollection& Colors::GetItems()
     {
-        return namedColors;
+        return items;
     }
 }

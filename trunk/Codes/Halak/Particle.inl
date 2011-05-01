@@ -5,7 +5,7 @@ namespace Halak
           Lifespan(0.0f),
           Position(Vector3::Zero),
           LinearVelocity(Vector3::Zero),
-          Tint(Color::White)
+          Tint(Color(255, 255, 255, 255))
     {
     }
 
@@ -14,7 +14,7 @@ namespace Halak
           Lifespan(lifespan),
           Position(position),
           LinearVelocity(Vector3::Zero),
-          Tint(Color::White)
+          Tint(Color(255, 255, 255, 255))
     {
     }
 

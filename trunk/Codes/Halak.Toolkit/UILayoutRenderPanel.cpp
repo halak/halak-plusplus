@@ -2,6 +2,7 @@
 #include <Halak.Toolkit/UILayoutRenderPanel.h>
 #include <Halak.Toolkit/wxWidgetsApplication.h>
 #include <Halak.Toolkit/wxWidgetsWindow.h>
+#include <Halak/Colors.h>
 #include <Halak/DisplaySwapChain.h>
 #include <Halak/GameStructure.h>
 #include <Halak/GraphicsDevice.h>
@@ -28,7 +29,7 @@ namespace Halak
             : RenderPanel(parent),
               domain(nullptr),
               renderer(nullptr),
-              clearColor(Color::CornflowerBlue)
+              clearColor(Colors::CornflowerBlue)
         {
             GameStructure* gameStructure = wxWidgetsApplication::GetInstance()->GetStructure();
 

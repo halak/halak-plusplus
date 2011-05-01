@@ -1,5 +1,6 @@
 #include <Halak/PCH.h>
 #include <Halak/UILabel.h>
+#include <Halak/Colors.h>
 #include <Halak/Font.h>
 #include <Halak/UIDrawingContext.h>
 
@@ -47,8 +48,8 @@ namespace Halak
     {
         UIVisual::OnDraw(context);
 
-        context.DrawRectangle(context.GetCurrentBounds(), Color::White);
-        context.DrawRectangle(context.GetCurrentClippedBounds(), Color::Yellow);
+        context.DrawRectangle(context.GetCurrentBounds(), Colors::White);
+        context.DrawRectangle(context.GetCurrentClippedBounds(), Colors::Yellow);
 
         if (GetFont() == nullptr || GetText().IsEmpty())
             return;

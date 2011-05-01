@@ -1,6 +1,6 @@
 namespace Halak
 {
-    const String& UIImage::GetTextureURI() const
+    const URI& UIImage::GetTextureURI() const
     {
         return textureURI;
     }

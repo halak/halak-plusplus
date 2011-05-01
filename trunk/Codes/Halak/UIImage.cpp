@@ -4,7 +4,7 @@
 
 namespace Halak
 {
-    UIImage::UIImage(const String& textureURI, const Rectangle& clippingRectangle)
+    UIImage::UIImage(const URI& textureURI, const Rectangle& clippingRectangle)
         : textureURI(textureURI),
           clippingRectangle(clippingRectangle),
           revision(1)

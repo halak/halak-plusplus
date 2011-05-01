@@ -5,7 +5,7 @@
 namespace Halak
 {
     ColorRangeKeyframe::ColorRangeKeyframe()
-        : Value(Color::White, Color::White),
+        : Value(Color(255, 255, 255, 255), Color(255, 255, 255, 255)),
           Duration(0.0f),
           StartTime(0.0f)
     {

@@ -93,6 +93,7 @@
         // Asset
 #           include <Halak/Asset.h>
 #           include <Halak/AssetLoader.h>
+#           include <Halak/IAssetStorage.h>
 #           include <Halak/IReloadable.h>
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         // Cloning

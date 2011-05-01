@@ -11,22 +11,24 @@
     {
         struct Colors
         {
-            struct NamedColor
+            HKThisIsStaticStruct(Colors);
+            struct Item
             {
-                const char* Name;
-                Color Color;
+                String Name;
+                Color Value;
 
-                inline NamedColor();
-                inline NamedColor(const char* name, Color color);
-                inline NamedColor(const NamedColor& original);
+                inline Item();
+                inline Item(const char* name, Color color);
+                inline Item(const Item& original);
 
-                inline NamedColor& operator = (const NamedColor& right);
-                inline bool operator == (const NamedColor& right) const;
-                inline bool operator != (const NamedColor& right) const;
+                inline Item& operator = (const Item& right);
+                inline bool operator == (const Item& right) const;
+                inline bool operator != (const Item& right) const;
             };
-            typedef std::vector<NamedColor> NamedColorCollection;
+            typedef std::vector<Item> ItemCollection;
 
-            static inline const NamedColorCollection& GetNamedColors();
+            static inline const ItemCollection& GetItems();
+            static const Color* Find(const String& name);
 
             static const Color TransparentBlack;
             static const Color TransparentWhite;
@@ -172,7 +174,8 @@
             static const Color YellowGreen;
 
             private:
-                NamedColorCollection namedColors;
+                static ItemCollection items;
+                static void FillItems();
         };
     }
 

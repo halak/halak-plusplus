@@ -1,29 +1,32 @@
 namespace Halak
 {
-    URI::URI()
+    URI::Source URI::GetSource() const
     {
+        return source;
     }
 
-    URI::URI(const URI& /*original*/)
+    uint32 URI::GetID() const
     {
+        return id;
     }
 
-    URI::~URI()
+    const String& URI::GetAddress() const
     {
+        return address;
     }
 
-    URI& URI::operator = (const URI& /*right*/)
+    bool URI::operator == (const URI& right) const
     {
-        return *this;
-    }
-
-    bool URI::operator == (const URI& /*right*/) const
-    {
-        return true;
+        return source == right.source && id == right.id && address == right.address;
     }
 
     bool URI::operator != (const URI& right) const
     {
         return !operator == (right);
+    }
+
+    bool URI::operator < (const URI& right) const
+    {
+        return source < right.source && id < right.id && address < right.address;
     }
 }

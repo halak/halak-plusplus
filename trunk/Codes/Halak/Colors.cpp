@@ -1,10 +1,39 @@
 #include <Halak/PCH.h>
 #include <Halak/Colors.h>
-#include <Halak/Assert.h>
-#include <sstream>
+#include <algorithm>
 
 namespace Halak
 {
+    Colors::ItemCollection Colors::items;
+
+    const Color* Colors::Find(const String& name)
+    {
+        if (items.empty())
+            FillItems();
+
+        for (ItemCollection::const_iterator it = items.begin(); it != items.end(); it++)
+        {
+            if ((*it).Name == name)
+                return &(*it).Value;
+        }
+
+        return nullptr;
+
+        //struct ComparePredicate
+        //{
+        //    bool operator () (const Item& a, const Item& b) const
+        //    {
+        //        return a.Name.Compare(b.Name) < 0;
+        //    }
+        //};
+
+        //ItemCollection::const_iterator it = std::lower_bound(items.begin(), items.end(), ComparePredicate());
+        //if ((*it).Name == name)
+        //    return &(*it).Value;
+        //else
+        //    return nullptr;
+    }
+
     //Color Colors::Parse(const String& text)
     //{
     //    if (text.GetLength() >= 7 && text[0] == '#')
@@ -188,11 +217,12 @@ namespace Halak
     const Color Colors::Yellow = Color(0xFFFFFF00);
     const Color Colors::YellowGreen = Color(0xFF9ACD32);
 
-    void Colors::FillNamedColors()
+    void Colors::FillItems()
     {
-        HKAssertDebug(namedColorDictionary.empty());
+        HKAssertDebug(items.empty());
+        items.reserve(150);
 
-#       define HKAddNamedColor(name) namedColorDictionary.insert(StringColorDictionary::value_type(#name, name));
+#       define HKAddNamedColor(name) items.push_back(Item(#name, name));
             HKAddNamedColor(AliceBlue);
             HKAddNamedColor(AntiqueWhite);
             HKAddNamedColor(Aqua);

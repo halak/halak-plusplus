@@ -4,6 +4,12 @@
 namespace Halak
 {
     Asset::Asset()
+        : uri(URI::Empty)
+    {
+    }
+
+    Asset::Asset(const URI& uri)
+        : uri(uri)
     {
     }
 

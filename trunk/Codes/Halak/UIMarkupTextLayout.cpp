@@ -265,7 +265,7 @@ namespace Halak
                     {
                         const UIMarkupText::ColorPhrase* item = static_cast<const UIMarkupText::ColorPhrase*>(*it);
 
-                        Color color = Color::White;
+                        Color color = Color(255, 255, 255, 255);
                         if (item->HasColor())
                             color = item->GetColor();
                         else
