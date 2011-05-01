@@ -11,6 +11,7 @@
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         // (BasicTypes)
 #           include <Halak/Color.h>
+#           include <Halak/Colors.h>
 #           include <Halak/Matrix4.h>
 #           include <Halak/Point.h>
 #           include <Halak/Quaternion.h>
@@ -120,7 +121,8 @@
 #           include <Halak/ParallelTimeline.h>
 #           include <Halak/SubTimeline.h>
 #           include <Halak/Timeline.h>
-#           include <Halak/Timer.h>
+#           include <Halak/UpdateableObject.h>
+#               include <Halak/Timer.h>
         ////////////////////////////////////////////////////////////////////////////////////////////////////
     // 03. (NotYet)
         ////////////////////////////////////////////////////////////////////////////////////////////////////
