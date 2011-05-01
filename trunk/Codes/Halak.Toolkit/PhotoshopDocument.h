@@ -12,7 +12,7 @@
     {
         namespace Toolkit
         {
-            class PhotoshopDocument : public Asset, public IReloadable
+            class PhotoshopDocument : public Asset
             {
                 public:
                     enum CompressionMode
