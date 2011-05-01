@@ -1,6 +1,7 @@
 #include <Halak.Samples/Samples.h>
 #include <Halak/Clock.h>
 #include <Halak/ColorRangeSequence.h>
+#include <Halak/Colors.h>
 #include <Halak/EvaluableFloatSequence.h>
 #include <Halak/EvaluableFloatRangeSequence.h>
 #include <Halak/FloatSequence.h>
@@ -70,10 +71,10 @@ class SequentialParticleApp : public GameFramework
         Vector2RangeSequencePtr scaleSequence(new Vector2RangeSequence());
         scaleSequence->AddKeyframe(Vector2RangeKeyframe(Vector2Range(Vector2::One, Vector2::One), 1.0f));
         ColorRangeSequencePtr colorSequence(new ColorRangeSequence());
-        colorSequence->AddKeyframe(ColorRangeKeyframe(ColorRange(Color::TransparentWhite, Color::TransparentWhite), 0.3f));
-        colorSequence->AddKeyframe(ColorRangeKeyframe(ColorRange(Color::Red, Color::Blue), 1.0f));
-        colorSequence->AddKeyframe(ColorRangeKeyframe(ColorRange(Color::Red, Color::Blue), 0.3f));
-        colorSequence->AddKeyframe(ColorRangeKeyframe(ColorRange(Color::TransparentWhite, Color::TransparentWhite), 0.0f));
+        colorSequence->AddKeyframe(ColorRangeKeyframe(ColorRange(Colors::TransparentWhite, Colors::TransparentWhite), 0.3f));
+        colorSequence->AddKeyframe(ColorRangeKeyframe(ColorRange(Colors::Red, Colors::Blue), 1.0f));
+        colorSequence->AddKeyframe(ColorRangeKeyframe(ColorRange(Colors::Red, Colors::Blue), 0.3f));
+        colorSequence->AddKeyframe(ColorRangeKeyframe(ColorRange(Colors::TransparentWhite, Colors::TransparentWhite), 0.0f));
 
         emitter->SetLinearVelocitySequence(velocitySequence);
         emitter->SetRotationSequence(rotationSequence);

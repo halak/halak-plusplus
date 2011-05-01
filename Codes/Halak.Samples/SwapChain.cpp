@@ -1,4 +1,5 @@
 #include <Halak.Samples/Samples.h>
+#include <Halak/Colors.h>
 #include <Halak/DisplaySwapChain.h>
 #include <Halak/Font.h>
 #include <Halak/FreeType.h>
@@ -48,7 +49,7 @@ class SwapChainSampleApp : public GameFramework
         font = new Font(freeType);
         font->SetFace("malgun.ttf");
         font->SetSize(20.0f);
-        font->SetColor(Color::Blue);
+        font->SetColor(Colors::Blue);
 
         textRotation = 0.0f;
         textSize = font->Measure("Hello");
@@ -89,7 +90,7 @@ class SwapChainSampleApp : public GameFramework
         GameFramework::EndDraw();
 
         otherSwapChain->BeginDraw();
-        GetGraphicsDevice()->Clear(Color::YellowGreen);
+        GetGraphicsDevice()->Clear(Colors::YellowGreen);
         spriteRenderer->Begin();
         spriteRenderer->Push(Matrix4::Translation(Vector3(-textSize.X * 0.5f - 10.0f, -textSize.Y * 0.5f - 10.0f, 0.0f)) *
                              Matrix4::RotationZ(-textRotation) *

@@ -1,7 +1,7 @@
 #include <Halak/PCH.h>
 #include <Halak/UISprite.h>
 #include <Halak/Assert.h>
-#include <Halak/Color.h>
+#include <Halak/Colors.h>
 #include <Halak/UIDrawingContext.h>
 #include <Halak/UIFrame.h>
 #include <Halak/UIImage.h>
@@ -46,8 +46,8 @@ namespace Halak
     {
         UIVisual::OnDraw(context);
 
-        context.DrawRectangle(context.GetCurrentBounds(), Color::White);
-        context.DrawRectangle(context.GetCurrentClippedBounds(), Color::Yellow);
+        context.DrawRectangle(context.GetCurrentBounds(), Colors::White);
+        context.DrawRectangle(context.GetCurrentClippedBounds(), Colors::Yellow);
 
         if (GetImage() == nullptr || GetImage()->GetRealTexture() == nullptr)
             return;

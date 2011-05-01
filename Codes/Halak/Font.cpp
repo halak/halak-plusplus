@@ -16,8 +16,8 @@ namespace Halak
     Font::Font(FreeType* freeType)
         : freeType(freeType),
           revision(0),
-          color(Color::Black),
-          strokeColor(Color::Black),
+          color(Color(0, 0, 0, 255)),
+          strokeColor(Color(0, 0, 0, 255)),
           spacing(1.0f),
           parametersPointer(new FreeTypeFontRendererParameters()),
           parameters(*parametersPointer),

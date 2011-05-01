@@ -1,6 +1,7 @@
 #include <Halak/PCH.h>
 #include <Halak/UIMarkupText.h>
 #include <Halak/Assert.h>
+#include <Halak/Colors.h>
 #include <Halak/Math.h>
 #include <algorithm>
 
@@ -261,17 +262,17 @@ namespace Halak
 
     UIMarkupText::ColorPhrase::ColorPhrase(const String& originalText, int index, int length)
         : Phrase(ColorPhraseType, index, length),
-          color(Color::TransparentWhite),
+          color(Color(0, 0, 0, 0)),
           hasColor(false)
     {
-        Color convertedColor = Color::Black;
-        if (length >= 2 && Color::CanParse(originalText.Substring(index, 2)))
-        {
-            color = Color::Parse(originalText.Substring(index, 2));
-            hasColor = true;
-        }
-        else
-            hasColor = false;
+        Color convertedColor = Colors::Black;
+        //if (length >= 2 && Color::CanParse(originalText.Substring(index, 2)))
+        //{
+        //    color = Color::Parse(originalText.Substring(index, 2));
+        //    hasColor = true;
+        //}
+        //else
+        //    hasColor = false;
     }
 
     UIMarkupText::ColorPhrase::ColorPhrase(const ColorPhrase& original)

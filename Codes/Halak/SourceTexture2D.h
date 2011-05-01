@@ -11,18 +11,18 @@
         class SourceTexture2D : public Texture2D, public IReloadable
         {
             public:
-                SourceTexture2D(GraphicsDevice* graphicsDevice, const String& filename);
+                SourceTexture2D(GraphicsDevice* graphicsDevice, const URI& uri);
                 virtual ~SourceTexture2D();
 
                 virtual void Reload();
 
-                virtual const String& GetFilename() const;
+                virtual const URI& GetURI() const;
 
             protected:
                 virtual Texture2D::D3DTextureInfo CreateD3DTexture();
 
             private:
-                String filename;
+                URI uri;
         };
     }
 

@@ -67,17 +67,17 @@
                 {
                     for (ReloadableCollection::iterator itHotloadable = m.entries.begin(); itHotloadable != m.entries.end(); itHotloadable++)
                     {
-                        IReloadableWeakPtr item = (*itHotloadable);
-                        if (item.IsAlive())
-                        {
-                            if (item.Lock()->GetFilename().EqualsIgnoreCase(*it))
-                            {
-                                m.changedEntries.insert(item);
-                                break;
-                            }
-                        }
-                        else
-                            m.entries.erase(itHotloadable++);
+                        //IReloadableWeakPtr item = (*itHotloadable);
+                        //if (item.IsAlive())
+                        //{
+                        //    if (item.Lock()->GetFilename().EqualsIgnoreCase(*it))
+                        //    {
+                        //        m.changedEntries.insert(item);
+                        //        break;
+                        //    }
+                        //}
+                        //else
+                        //    m.entries.erase(itHotloadable++);
                     }
                 }
 

@@ -4,6 +4,7 @@
 
 #   include <Halak/FWD.h>
 #   include <Halak/SharedObject.h>
+#   include <Halak/URI.h>
 
     namespace Halak
     {
@@ -13,8 +14,14 @@
             public:
                 virtual ~Asset();
 
+                inline const URI& GetURI() const;
+
             protected:
                 Asset();
+                Asset(const URI& uri);
+
+            private:
+                URI uri;
         };
     }
 

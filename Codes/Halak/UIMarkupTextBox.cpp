@@ -77,7 +77,7 @@ namespace Halak
                     {
                         const ColorPhrase* item = static_cast<const ColorPhrase*>(*it);
 
-                        Color color = Color::White;
+                        Color color;
                         if (item->HasColor())
                             color = item->GetColor();
                         else

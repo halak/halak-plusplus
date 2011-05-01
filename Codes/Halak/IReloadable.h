@@ -3,7 +3,7 @@
 #define __HALAK_RELOADABLE_INTERFACE__
 
 #   include <Halak/FWD.h>
-#   include <Halak/String.h>
+#   include <Halak/URI.h>
 
     namespace Halak
     {
@@ -14,7 +14,7 @@
 
                 virtual void Reload() = 0;
 
-                virtual const String& GetFilename() const = 0;
+                virtual const URI& GetURI() const = 0;
         };
     }
 
