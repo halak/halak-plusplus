@@ -136,7 +136,8 @@
                 class Timeline;
                     class ParallelTimeline;
                     class SubTimeline;
-                class Timer;
+                HKForwardDeclareSmartPointerClass(UpdateableObject);
+                    HKForwardDeclareSmartPointerClass(Timer);
             ////////////////////////////////////////////////////////////////////////////////////////////////////
         // 03. (NotYet)
             ////////////////////////////////////////////////////////////////////////////////////////////////////

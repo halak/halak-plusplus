@@ -3,12 +3,11 @@
 #define __HALAK_TIMER_H__
 
 #   include <Halak/FWD.h>
-#   include <Halak/SharedObject.h>
-#   include <Halak/IUpdateable.h>
+#   include <Halak/UpdateableObject.h>
 
     namespace Halak
     {
-        class Timer : public SharedObject, public IUpdateable
+        class Timer : public UpdateableObject
         {
             public:
                 Timer();
@@ -27,7 +26,6 @@
             private:
                 float time;
                 float duration;
-                uint lastTimestamp;
         };
     }
 

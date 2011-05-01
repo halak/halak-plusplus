@@ -184,15 +184,23 @@
 				Name="(BasicTypes)"
 				>
 				<File
-					RelativePath="..\..\Codes\Halak\Color.cpp"
-					>
-				</File>
-				<File
 					RelativePath="..\..\Codes\Halak\Color.h"
 					>
 				</File>
 				<File
 					RelativePath="..\..\Codes\Halak\Color.inl"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\Colors.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\Colors.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\Colors.inl"
 					>
 				</File>
 				<File
@@ -849,6 +857,18 @@
 				</File>
 				<File
 					RelativePath="..\..\Codes\Halak\Timer.inl"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\UpdateableObject.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\UpdateableObject.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\UpdateableObject.inl"
 					>
 				</File>
 			</Filter>

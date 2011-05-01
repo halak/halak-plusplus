@@ -5,14 +5,13 @@ namespace Halak
 {
     Timer::Timer()
         : time(0.0f),
-          duration(0.0f),
-          lastTimestamp(0xFFFFFFFF)
+          duration(0.0f)
     {
     }
 
     Timer::Timer(float duration)
         : time(0.0f),
-          duration(std::max(duration, 0.0f))
+          duration(Math::Max(duration, 0.0f))
     {
     }
 
@@ -22,10 +21,8 @@ namespace Halak
 
     void Timer::Update(float dt, uint timestamp)
     {
-        if (timestamp == lastTimestamp || time == duration)
+        if (Seal(timestamp) || time == duration)
             return;
-
-        lastTimestamp = timestamp;
 
         time += dt;
 
