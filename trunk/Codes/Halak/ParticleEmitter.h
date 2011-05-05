@@ -17,10 +17,10 @@
 
                 virtual void Update(float dt, uint timestamp);
 
-                ISpatialPtr GetOrigin() const;
+                ISpatial* GetOrigin() const;
                 void SetOrigin(ISpatialPtr value);
 
-                IFloatEvaluablePtr GetSpawnPeriod() const;
+                IFloatEvaluable* GetSpawnPeriod() const;
                 void SetSpawnPeriod(IFloatEvaluablePtr value);
 
                 ParticleSpawnPoint* GetSpawnPonit() const;

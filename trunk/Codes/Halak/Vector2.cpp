@@ -26,7 +26,7 @@ namespace Halak
 
     void Vector2::Rotate(float sin, float cos)
     {
-        Vector2 v = Vector2(X, Y);
+        const Vector2 v = Vector2(X, Y);
         X = cos * v.X - sin * v.Y;
         Y = sin * v.X + cos * v.Y;
     }

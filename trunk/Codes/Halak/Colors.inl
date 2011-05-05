@@ -6,7 +6,7 @@ namespace Halak
     {
     }
 
-    Colors::Item::Item(const char* name, Color color)
+    Colors::Item::Item(const String& name, Color color)
         : Name(name),
           Value(color)
     {

@@ -26,7 +26,7 @@ namespace Halak
 
     Texture2D::D3DTextureInfo SourceTexture2D::CreateD3DTexture()
     {
-        HKAssert(uri.GetSource() == URI::FileSystem);
+        HKAssert(uri.GetSource() == URI::Anywhere || uri.GetSource() == URI::FileSystem);
 
         D3DXIMAGE_INFO imageInfo = { 0, };
 

@@ -100,7 +100,7 @@
                 HKForwardDeclareSmartPointerClass(ISpatial2D);
                 template <typename T> class Property;
                 class RectangleStorage;
-            ////////////////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
         // 02. GameComponent
             ////////////////////////////////////////////////////////////////////////////////////////////////////
             // (Structure)
@@ -140,23 +140,29 @@
                     class SubTimeline;
                 HKForwardDeclareSmartPointerClass(UpdateableObject);
                     HKForwardDeclareSmartPointerClass(Timer);
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        // 03. Graphics
             ////////////////////////////////////////////////////////////////////////////////////////////////////
-        // 03. (NotYet)
-            ////////////////////////////////////////////////////////////////////////////////////////////////////
-            // Graphics
+            // (Core)
                 class DisplaySwapChain;
-                class DrawingContext;
                 class GraphicsDevice;
-                HKForwardDeclareSmartPointerClass(IDrawable);
-                class Sprite;
-                class SpriteRenderer;
+                class Window;
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
+            // Assets
                 HKForwardDeclareSmartPointerClass(Texture2D);
                     HKForwardDeclareSmartPointerClass(DynamicTexture2D);
                     HKForwardDeclareSmartPointerClass(MemoryTexture2D);
                     HKForwardDeclareSmartPointerClass(SourceTexture2D);
-                class Window;
             ////////////////////////////////////////////////////////////////////////////////////////////////////
-            // Input
+            // Drawing
+                class DrawingContext;
+                HKForwardDeclareSmartPointerClass(IDrawable);
+                class Sprite;
+                class SpriteRenderer;
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        // 03. Input
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
+            // Device
                 class IGamePad;
                 class IKeyboard;
                 class IMouse;
@@ -165,7 +171,7 @@
                 struct KeyboardState;
                 class Mouse;
                 struct MouseState;
-            ////////////////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
         // 04. Application
             ////////////////////////////////////////////////////////////////////////////////////////////////////
             // Animation
@@ -301,7 +307,6 @@
                 HKForwardDeclareSmartPointerClass(UIElement);
                 HKForwardDeclareSmartPointerClass(UIImage);
                 class UIMarkupText;
-                class UIMarkupTextLayout;
                 class UIRenderer;
                 class UIVisualVisitor;
                     class UIDrawingContext;

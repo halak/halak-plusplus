@@ -31,7 +31,7 @@ class ParticleSampleApp : public GameFramework
 
         emitter = new SimpleParticleEmitter();
         emitter->SetOrigin(ISpatialPtr(new SpatialObject(Vector3(400.0f, 300.0f, 0.0f))));
-        emitter->SetSpawnPoint(new ParticleSpawnPoint());
+        emitter->SetSpawnPoint(new ParticleSpawnSphere(100.0f));
         emitter->SetSpawnPeriod(IFloatEvaluablePtr(new EvaluableFloatConstant(0.01f)));
         emitter->SetLinearVelocity1(Vector3(+200.0f, +200.0f, +0.0f));
         emitter->SetLinearVelocity2(Vector3(+300.0f, +300.0f, +0.0f));

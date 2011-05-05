@@ -11,68 +11,20 @@ namespace Halak
         if (items.empty())
             FillItems();
 
-        for (ItemCollection::const_iterator it = items.begin(); it != items.end(); it++)
+        struct ComparePredicate
         {
-            if ((*it).Name == name)
-                return &(*it).Value;
-        }
+            bool operator () (const Item& a, const Item& b) const
+            {
+                return a.Name.Compare(b.Name) < 0;
+            }
+        };
 
-        return nullptr;
-
-        //struct ComparePredicate
-        //{
-        //    bool operator () (const Item& a, const Item& b) const
-        //    {
-        //        return a.Name.Compare(b.Name) < 0;
-        //    }
-        //};
-
-        //ItemCollection::const_iterator it = std::lower_bound(items.begin(), items.end(), ComparePredicate());
-        //if ((*it).Name == name)
-        //    return &(*it).Value;
-        //else
-        //    return nullptr;
+        ItemCollection::const_iterator it = std::lower_bound(items.begin(), items.end(), Item(name, Colors::TransparentBlack), ComparePredicate());
+        if ((*it).Name == name)
+            return &(*it).Value;
+        else
+            return nullptr;
     }
-
-    //Color Colors::Parse(const String& text)
-    //{
-    //    if (text.GetLength() >= 7 && text[0] == '#')
-    //    {
-    //        unsigned int colorCode = 0x00000000;
-
-    //        std::istringstream sin(text.Substring(1).CStr());
-    //        sin >> std::hex;
-    //        sin >> colorCode;
-
-    //        if (text.GetLength() == 7)
-    //            colorCode |= 0xFF000000;
-
-    //        return Color(static_cast<byte>((colorCode & 0xFF000000) >> 24),
-    //                     static_cast<byte>((colorCode & 0x00FF0000) >> 16),
-    //                     static_cast<byte>((colorCode & 0x0000FF00) >> 8),
-    //                     static_cast<byte>((colorCode & 0x000000FF) >> 0));
-    //    }
-
-    //    if (namedColorDictionary.empty())
-    //        FillNamedColors();
-
-    //    StringColorDictionary::const_iterator it = namedColorDictionary.find(text);
-    //    if (it != namedColorDictionary.end())
-    //        return (*it).second;
-    //    else
-    //        return Color::TransparentBlack;
-    //}
-
-    //bool Color::CanParse(const String& text)
-    //{
-    //    if (text.GetLength() >= 7 && text[0] == '#')
-    //        return true;
-
-    //    if (namedColorDictionary.empty())
-    //        FillNamedColors();
-
-    //    return namedColorDictionary.find(text) != namedColorDictionary.end();
-    //}
 
     const Color Colors::TransparentBlack = Color(0, 0, 0, 0);
     const Color Colors::TransparentWhite = Color(255, 255, 255, 0);

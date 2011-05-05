@@ -262,17 +262,16 @@ namespace Halak
 
     UIMarkupText::ColorPhrase::ColorPhrase(const String& originalText, int index, int length)
         : Phrase(ColorPhraseType, index, length),
-          color(Color(0, 0, 0, 0)),
+          color(Colors::Black),
           hasColor(false)
     {
-        Color convertedColor = Colors::Black;
-        //if (length >= 2 && Color::CanParse(originalText.Substring(index, 2)))
-        //{
-        //    color = Color::Parse(originalText.Substring(index, 2));
-        //    hasColor = true;
-        //}
-        //else
-        //    hasColor = false;
+        if (const Color* namedColor = Colors::Find(originalText.Substring(index, length)))
+        {
+            color = (*namedColor);
+            hasColor = true;
+        }
+        else
+            hasColor = false;
     }
 
     UIMarkupText::ColorPhrase::ColorPhrase(const ColorPhrase& original)
