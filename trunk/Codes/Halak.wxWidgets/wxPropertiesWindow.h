@@ -2,7 +2,7 @@
 #ifndef __HALAK_WXWIDGETS_PROPERTIESWINDOW_H__
 #define __HALAK_WXWIDGETS_PROPERTIESWINDOW_H__
 
-#   include <Halak.Toolkit/FWD.h>
+#   include <Halak.wxWidgets/FWD.h>
 #   include <Halak.Toolkit/AnyPtr.h>
 #   include <wx/wx.h>
 #   include <wx/propgrid/propgrid.h>
@@ -13,22 +13,22 @@
     {
         namespace wxWidgets
         {
-            class PropertiesWindow : public wxPanel
+            class wxPropertiesWindow : public wxPanel
             {
                 public:
-                    typedef std::vector<AnyPtr> AnyPtrCollection;
+                    typedef std::vector<Halak::Toolkit::AnyPtr> AnyPtrCollection;
 
                 public:
-                    PropertiesWindow(wxWindow* parent);
-                    virtual ~PropertiesWindow();
+                    wxPropertiesWindow(wxWindow* parent);
+                    virtual ~wxPropertiesWindow();
 
                     void UpdateProperties();
 
                     CommandHistory* GetHistory() const;
                     void SetHistory(CommandHistory* value);
 
-                    const AnyPtr& GetTargetPointee() const;
-                    void SetTarget(const AnyPtr& value);
+                    const Halak::Toolkit::AnyPtr& GetTargetPointee() const;
+                    void SetTarget(const Halak::Toolkit::AnyPtr& value);
 
                     const AnyPtrCollection& GetTargets() const;
                     void SetTargets(const AnyPtrCollection& value);
@@ -46,7 +46,7 @@
                     virtual void OnCommandRedone(CommandHistory* sender, const std::list<Command*>& commands);
 
                 private:
-                    void FillPage(const ClassInfo* classInfo);
+                    void FillPage(const Halak::Toolkit::ClassInfo* classInfo);
 
                 private:
                     CommandHistory* history;
@@ -64,6 +64,6 @@
         }
     }
 
-#   include <Halak.Toolkit/PropertiesWindow.inl>
+#   include <Halak.wxWidgets/wxPropertiesWindow.inl>
 
 #endif

@@ -1,10 +1,12 @@
-#include <Halak.Toolkit/PCH.h>
-#include <Halak.Toolkit/IPropertyUpdateable.h>
+#include <Halak.wxWidgets/PCH.h>
+#include <Halak.wxWidgets/IPropertyUpdateable.h>
 #include <Halak.Toolkit/ChangePropertyCommand.h>
 #include <Halak.Toolkit/PropertyInfo.h>
 #include <Halak/Any.h>
 #include <Halak/BatchCommand.h>
 #include <Halak/CommandHistory.h>
+using namespace Halak;
+using namespace Halak::Toolkit;
 
 namespace Halak
 {

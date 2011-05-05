@@ -1,9 +1,9 @@
-#include <Halak.Toolkit/PCH.h>
-#include <Halak.Toolkit/MainWindow.h>
-#include <Halak.Toolkit/UILayoutRenderPanel.h>
-#include <Halak.Toolkit/HistoryWindow.h>
-#include <Halak.Toolkit/PaletteWindow.h>
-#include <Halak.Toolkit/PropertiesWindow.h>
+#include <Halak.wxWidgets/PCH.h>
+#include <Halak.wxWidgets/wxMainWindow.h>
+#include <Halak.wxWidgets/wxHistoryWindow.h>
+#include <Halak.wxWidgets/wxPaletteWindow.h>
+#include <Halak.wxWidgets/wxPropertiesWindow.h>
+#include <Halak.wxWidgets/wxUILayoutRenderPanel.h>
 #include <Halak/CommandHistory.h>
 
 namespace Halak
@@ -16,15 +16,15 @@ namespace Halak
             MenuEditRedoID,
         };
 
-        BEGIN_EVENT_TABLE(MainWindow, wxFrame)
-            EVT_ERASE_BACKGROUND(MainWindow::OnEraseBackground)
-            EVT_SIZE(MainWindow::OnSize)
+        BEGIN_EVENT_TABLE(wxMainWindow, wxFrame)
+            EVT_ERASE_BACKGROUND(wxMainWindow::OnEraseBackground)
+            EVT_SIZE(wxMainWindow::OnSize)
 
-            EVT_MENU(MenuEditUndoID, MainWindow::OnMenuEditUndo)
-            EVT_MENU(MenuEditRedoID, MainWindow::OnMenuEditRedo)
+            EVT_MENU(MenuEditUndoID, wxMainWindow::OnMenuEditUndo)
+            EVT_MENU(MenuEditRedoID, wxMainWindow::OnMenuEditRedo)
         END_EVENT_TABLE()
 
-        MainWindow::MainWindow(const wxString& title, wxSize size, GameStructure* structure)
+        wxMainWindow::wxMainWindow(const wxString& title, wxSize size, GameStructure* structure)
             : wxFrame(nullptr, wxID_ANY, title, wxDefaultPosition, size, wxDEFAULT_FRAME_STYLE | wxSUNKEN_BORDER),
               structure(structure),
               notebook(notebook),
@@ -70,52 +70,52 @@ namespace Halak
             UpdateAcceleratorTable();
         }
 
-        MainWindow::~MainWindow()
+        wxMainWindow::~wxMainWindow()
         {
             auiManager.UnInit();
         }
 
-        void MainWindow::AddDockablePane(wxWindow* window, wxAuiPaneInfo& paneInfo)
+        void wxMainWindow::AddDockablePane(wxWindow* window, wxAuiPaneInfo& paneInfo)
         {
             auiManager.AddPane(window, paneInfo);
             if (layoutSuspended == false)
                 auiManager.Update();
         }
 
-        void MainWindow::AddNotebookPage(wxWindow* window, const String& caption)
+        void wxMainWindow::AddNotebookPage(wxWindow* window, const String& caption)
         {
             notebook->AddPage(window, wxString(caption.CStr(), caption.GetLength()));
             if (layoutSuspended == false)
                 auiManager.Update();
         }
 
-        int MainWindow::GetNumberOfNotebookPages() const
+        int wxMainWindow::GetNumberOfNotebookPages() const
         {
             return static_cast<int>(notebook->GetPageCount());
         }
 
-        wxWindow* MainWindow::GetNotebookPage(int index)
+        wxWindow* wxMainWindow::GetNotebookPage(int index)
         {
             return notebook->GetPage(index);
         }
 
-        void MainWindow::SuspendLayout()
+        void wxMainWindow::SuspendLayout()
         {
             layoutSuspended = true;
         }
 
-        void MainWindow::ResumeLayout()
+        void wxMainWindow::ResumeLayout()
         {
             layoutSuspended = false;
             auiManager.Update();
         }
 
-        void MainWindow::UpdateMenuBar()
+        void wxMainWindow::UpdateMenuBar()
         {
             SetupMenuBar(GetMenuBar());
         }
 
-        void MainWindow::UpdateAcceleratorTable()
+        void wxMainWindow::UpdateAcceleratorTable()
         {
             std::vector<wxAcceleratorEntry> entries;
             SetupAcceleratorTable(entries);
@@ -123,17 +123,17 @@ namespace Halak
             SetAcceleratorTable(wxAcceleratorTable(static_cast<int>(entries.size()), &entries[0]));
         }
 
-        CommandHistory* MainWindow::GetHistory() const
+        CommandHistory* wxMainWindow::GetHistory() const
         {
             return history;
         }
 
-        void MainWindow::SetHistory(CommandHistory* value)
+        void wxMainWindow::SetHistory(CommandHistory* value)
         {
             history = value;
         }
 
-        void MainWindow::SetupMenuBar(wxMenuBar* menuBar)
+        void wxMainWindow::SetupMenuBar(wxMenuBar* menuBar)
         {
             wxMenu* menuFile = new wxMenu();
             menuFile->AppendSeparator();
@@ -147,30 +147,30 @@ namespace Halak
             menuBar->Append(menuEdit, _("&Edit"));
         }
 
-        void MainWindow::SetupAcceleratorTable(std::vector<wxAcceleratorEntry>& entries)
+        void wxMainWindow::SetupAcceleratorTable(std::vector<wxAcceleratorEntry>& entries)
         {
             entries.reserve(entries.size() + 10);
             entries.push_back(wxAcceleratorEntry(wxACCEL_CTRL, 'Z', MenuEditUndoID));
             entries.push_back(wxAcceleratorEntry(wxACCEL_CTRL, 'Y', MenuEditRedoID));
         }
 
-        void MainWindow::OnEraseBackground(wxEraseEvent& event)
+        void wxMainWindow::OnEraseBackground(wxEraseEvent& event)
         {
             event.Skip();
         }
 
-        void MainWindow::OnSize(wxSizeEvent& event)
+        void wxMainWindow::OnSize(wxSizeEvent& event)
         {
             event.Skip();
         }
 
-        void MainWindow::OnMenuEditUndo(wxCommandEvent& /*event*/)
+        void wxMainWindow::OnMenuEditUndo(wxCommandEvent& /*event*/)
         {
             if (history)
                 history->Undo();
         }
 
-        void MainWindow::OnMenuEditRedo(wxCommandEvent& /*event*/)
+        void wxMainWindow::OnMenuEditRedo(wxCommandEvent& /*event*/)
         {
             if (history)
                 history->Redo();

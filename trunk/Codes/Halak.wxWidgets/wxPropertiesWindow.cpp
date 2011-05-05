@@ -1,8 +1,8 @@
-#include <Halak.Toolkit/PCH.h>
-#include <Halak.Toolkit/PropertiesWindow.h>
-#include <Halak.Toolkit/IPropertyUpdateable.h>
-#include <Halak.Toolkit/NumberProperty.h>
-#include <Halak.Toolkit/Vector3Property.h>
+#include <Halak.wxWidgets/PCH.h>
+#include <Halak.wxWidgets/wxPropertiesWindow.h>
+#include <Halak.wxWidgets/IPropertyUpdateable.h>
+#include <Halak.wxWidgets/wxNumberProperty.h>
+#include <Halak.wxWidgets/wxVector3Property.h>
 #include <Halak.Toolkit/Attributes.h>
 #include <Halak.Toolkit/ClassInfo.h>
 #include <Halak.Toolkit/PropertyInfo.h>
@@ -10,6 +10,8 @@
 #include <wx/propgrid/manager.h>
 #include <wx/propgrid/propdev.h>
 #include <wx/propgrid/advprops.h>
+using namespace Halak;
+using namespace Halak::Toolkit;
 
 namespace Halak
 {
@@ -20,16 +22,16 @@ namespace Halak
             PropertyGridID = 100,
         };
 
-        BEGIN_EVENT_TABLE(PropertiesWindow, wxPanel)
-            EVT_PG_SELECTED      (PropertyGridID, PropertiesWindow::OnPropertyGridSelected)
-            EVT_PG_CHANGED       (PropertyGridID, PropertiesWindow::OnPropertyGridChanged)
-            EVT_PG_CHANGING      (PropertyGridID, PropertiesWindow::OnPropertyGridChanging)
-            EVT_PG_HIGHLIGHTED   (PropertyGridID, PropertiesWindow::OnPropertyGridHighlighted)
-            EVT_PG_ITEM_COLLAPSED(PropertyGridID, PropertiesWindow::OnPropertyGridItemCollapsed)
-            EVT_PG_ITEM_EXPANDED (PropertyGridID, PropertiesWindow::OnPropertyGridItemExpanded)
+        BEGIN_EVENT_TABLE(wxPropertiesWindow, wxPanel)
+            EVT_PG_SELECTED      (PropertyGridID, wxPropertiesWindow::OnPropertyGridSelected)
+            EVT_PG_CHANGED       (PropertyGridID, wxPropertiesWindow::OnPropertyGridChanged)
+            EVT_PG_CHANGING      (PropertyGridID, wxPropertiesWindow::OnPropertyGridChanging)
+            EVT_PG_HIGHLIGHTED   (PropertyGridID, wxPropertiesWindow::OnPropertyGridHighlighted)
+            EVT_PG_ITEM_COLLAPSED(PropertyGridID, wxPropertiesWindow::OnPropertyGridItemCollapsed)
+            EVT_PG_ITEM_EXPANDED (PropertyGridID, wxPropertiesWindow::OnPropertyGridItemExpanded)
         END_EVENT_TABLE()
 
-        PropertiesWindow::PropertiesWindow(wxWindow* parent)
+        wxPropertiesWindow::wxPropertiesWindow(wxWindow* parent)
             : wxPanel(parent, wxID_ANY),
               history(nullptr),
               propertyGridManager(nullptr),
@@ -75,12 +77,12 @@ namespace Halak
             wxPropertyGridManager::RegisterAdditionalEditors();
         }
 
-        PropertiesWindow::~PropertiesWindow()
+        wxPropertiesWindow::~wxPropertiesWindow()
         {
             SetHistory(nullptr); // disconnect slots
         }
 
-        void PropertiesWindow::UpdateProperties()
+        void wxPropertiesWindow::UpdateProperties()
         {
             wxPropertyGridPage* page = propertyGridManager->GetPage(0);
             for (wxPropertyGridIterator it = page->GetIterator(); it.AtEnd() == false; it++)
@@ -90,34 +92,34 @@ namespace Halak
             }
         }
 
-        CommandHistory* PropertiesWindow::GetHistory() const
+        CommandHistory* wxPropertiesWindow::GetHistory() const
         {
             return history;
         }
 
-        void PropertiesWindow::SetHistory(CommandHistory* value)
+        void wxPropertiesWindow::SetHistory(CommandHistory* value)
         {
             if (history != value)
             {
                 if (history)
                 {
-                    history->Redone().Disconnect(this, &PropertiesWindow::OnCommandRedone);
-                    history->Undone().Disconnect(this, &PropertiesWindow::OnCommandUndone);
-                    history->Executed().Disconnect(this, &PropertiesWindow::OnCommandExecuted);
+                    history->Redone().Disconnect(this, &wxPropertiesWindow::OnCommandRedone);
+                    history->Undone().Disconnect(this, &wxPropertiesWindow::OnCommandUndone);
+                    history->Executed().Disconnect(this, &wxPropertiesWindow::OnCommandExecuted);
                 }
 
                 history = value;
 
                 if (history)
                 {
-                    history->Executed().Connect(this, &PropertiesWindow::OnCommandExecuted);
-                    history->Undone().Connect(this, &PropertiesWindow::OnCommandUndone);
-                    history->Redone().Connect(this, &PropertiesWindow::OnCommandRedone);
+                    history->Executed().Connect(this, &wxPropertiesWindow::OnCommandExecuted);
+                    history->Undone().Connect(this, &wxPropertiesWindow::OnCommandUndone);
+                    history->Redone().Connect(this, &wxPropertiesWindow::OnCommandRedone);
                 }
             }
         }
 
-        const AnyPtr& PropertiesWindow::GetTargetPointee() const
+        const AnyPtr& wxPropertiesWindow::GetTargetPointee() const
         {
             if (targets.empty() == false)
                 return targets.front();
@@ -125,7 +127,7 @@ namespace Halak
                 return AnyPtr::Null;
         }
 
-        void PropertiesWindow::SetTarget(const AnyPtr& value)
+        void wxPropertiesWindow::SetTarget(const AnyPtr& value)
         {
             if (value.GetPointeeType()->IsClass())
             {
@@ -135,62 +137,62 @@ namespace Halak
             }
         }
 
-        const PropertiesWindow::AnyPtrCollection& PropertiesWindow::GetTargets() const
+        const wxPropertiesWindow::AnyPtrCollection& wxPropertiesWindow::GetTargets() const
         {
             return targets;
         }
 
-        void PropertiesWindow::SetTargets(const AnyPtrCollection& value)
+        void wxPropertiesWindow::SetTargets(const AnyPtrCollection& value)
         {
             targets = value;
             //FillPage(TypeLibrary::GetInstance().Find<T::element_type>());
         }
     
-        void PropertiesWindow::OnPropertyGridSelected(wxPropertyGridEvent& event)
+        void wxPropertiesWindow::OnPropertyGridSelected(wxPropertyGridEvent& event)
         {
         }
 
-        void PropertiesWindow::OnPropertyGridChanged(wxPropertyGridEvent& event)
+        void wxPropertiesWindow::OnPropertyGridChanged(wxPropertyGridEvent& event)
         {
             if (IPropertyUpdateable* updateable = dynamic_cast<IPropertyUpdateable*>(event.GetProperty()))
                 updateable->UpdateTo(targets);
         }
 
-        void PropertiesWindow::OnPropertyGridChanging(wxPropertyGridEvent& event)
+        void wxPropertiesWindow::OnPropertyGridChanging(wxPropertyGridEvent& event)
         {
         }
 
-        void PropertiesWindow::OnPropertyGridHighlighted(wxPropertyGridEvent& event)
+        void wxPropertiesWindow::OnPropertyGridHighlighted(wxPropertyGridEvent& event)
         {
         }
 
-        void PropertiesWindow::OnPropertyGridItemCollapsed(wxPropertyGridEvent& event)
+        void wxPropertiesWindow::OnPropertyGridItemCollapsed(wxPropertyGridEvent& event)
         {
         }
 
-        void PropertiesWindow::OnPropertyGridItemExpanded(wxPropertyGridEvent& event)
+        void wxPropertiesWindow::OnPropertyGridItemExpanded(wxPropertyGridEvent& event)
         {
         }
             
-        void PropertiesWindow::OnCommandExecuted(CommandHistory* sender, Command* /*command*/, const std::list<Command*>& /*cancelledCommands*/)
+        void wxPropertiesWindow::OnCommandExecuted(CommandHistory* sender, Command* /*command*/, const std::list<Command*>& /*cancelledCommands*/)
         {
             HKAssert(history == sender);
             UpdateProperties();
         }
 
-        void PropertiesWindow::OnCommandUndone(CommandHistory* sender, const std::list<Command*>& /*commands*/)
+        void wxPropertiesWindow::OnCommandUndone(CommandHistory* sender, const std::list<Command*>& /*commands*/)
         {
             HKAssert(history == sender);
             UpdateProperties();
         }
 
-        void PropertiesWindow::OnCommandRedone(CommandHistory* sender, const std::list<Command*>& /*commands*/)
+        void wxPropertiesWindow::OnCommandRedone(CommandHistory* sender, const std::list<Command*>& /*commands*/)
         {
             HKAssert(history == sender);
             UpdateProperties();
         }
 
-        void PropertiesWindow::FillPage(const ClassInfo* classInfo)
+        void wxPropertiesWindow::FillPage(const ClassInfo* classInfo)
         {
             const int numberOfPages = propertyGridManager->GetPageCount();
             for (int i = numberOfPages - 1; i >= 0; i--)
@@ -206,11 +208,11 @@ namespace Halak
                 wxPGProperty* newProperty = nullptr;
                 if (String((*it)->GetName()) == "LinearVelocity1" || String((*it)->GetName()) == "LinearVelocity2")
                 {
-                    newProperty = new Vector3Property((*it)->GetName(), wxPG_LABEL, history, (*it));
+                    newProperty = new wxVector3Property((*it)->GetName(), wxPG_LABEL, history, (*it));
                 }
                 else if (String((*it)->GetName()) == "Lifespan1" || String((*it)->GetName()) == "Lifespan2")
                 {
-                    newProperty = new NumberProperty((*it)->GetName(), wxPG_LABEL, history, (*it));
+                    newProperty = new wxNumberProperty((*it)->GetName(), wxPG_LABEL, history, (*it));
                 }
                 else
                 {

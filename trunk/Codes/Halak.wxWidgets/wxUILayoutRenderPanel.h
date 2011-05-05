@@ -2,18 +2,18 @@
 #ifndef __HALAK_WXWIDGETS_UILAYOUTRENDERPANEL_H__
 #define __HALAK_WXWIDGETS_UILAYOUTRENDERPANEL_H__
 
-#   include <Halak.Toolkit/FWD.h>
-#   include <Halak.Toolkit/RenderPanel.h>
+#   include <Halak.wxWidgets/FWD.h>
+#   include <Halak.wxWidgets/wxRenderPanel.h>
 #   include <Halak/Color.h>
 
     namespace Halak
     {
         namespace wxWidgets
         {
-            class UILayoutRenderPanel : public RenderPanel
+            class wxUILayoutRenderPanel : public wxRenderPanel
             {
                 public:
-                    UILayoutRenderPanel(wxWindow* parent);
+                    wxUILayoutRenderPanel(wxWindow* parent);
 
                     UIDomain* GetDomain() const;
                     void SetDomain(UIDomain* value);

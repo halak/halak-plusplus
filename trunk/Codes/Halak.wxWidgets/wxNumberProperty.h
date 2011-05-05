@@ -15,7 +15,9 @@
             {
                 WX_PG_DECLARE_PROPERTY_CLASS(wxNumberProperty)
                 public:
-                    wxNumberProperty(const wxString& label = wxPG_LABEL, const wxString& name = wxPG_LABEL, CommandHistory* history = nullptr, const PropertyInfo* propertyInfo = nullptr);
+                    wxNumberProperty(const wxString& label = wxPG_LABEL, const wxString& name = wxPG_LABEL,
+                                     CommandHistory* history = nullptr,
+                                     const Halak::Toolkit::PropertyInfo* propertyInfo = nullptr);
                     virtual ~wxNumberProperty();
 
                     virtual void UpdateTo(const AnyPtrCollection& targets);
@@ -23,7 +25,7 @@
 
                 private:
                     CommandHistory* history;
-                    const PropertyInfo* propertyInfo;
+                    const Halak::Toolkit::PropertyInfo* propertyInfo;
 
             };
         }
