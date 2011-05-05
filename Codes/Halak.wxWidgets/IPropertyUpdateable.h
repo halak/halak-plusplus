@@ -13,7 +13,7 @@
             class IPropertyUpdateable
             {
                 public:
-                    typedef std::vector<AnyPtr> AnyPtrCollection;
+                    typedef std::vector<Halak::Toolkit::AnyPtr> AnyPtrCollection;
 
                 public:
                     virtual ~IPropertyUpdateable() { }
@@ -22,7 +22,7 @@
                     virtual void UpdateFrom(const AnyPtrCollection& targets) = 0;
 
                 public:
-                    static void UpdateTo(CommandHistory* history, const AnyPtrCollection& targets, const PropertyInfo* propertyInfo, const Any& value);
+                    static void UpdateTo(CommandHistory* history, const AnyPtrCollection& targets, const Halak::Toolkit::PropertyInfo* propertyInfo, const Any& value);
             };
         }
     }

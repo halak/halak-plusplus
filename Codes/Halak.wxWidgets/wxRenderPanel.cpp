@@ -1,5 +1,5 @@
-#include <Halak.Toolkit/PCH.h>
-#include <Halak.Toolkit/RenderPanel.h>
+#include <Halak.wxWidgets/PCH.h>
+#include <Halak.wxWidgets/wxRenderPanel.h>
 #include <Halak/DisplaySwapChain.h>
 #include <Halak/Rectangle.h>
 
@@ -7,14 +7,14 @@ namespace Halak
 {
     namespace wxWidgets
     {
-        BEGIN_EVENT_TABLE(RenderPanel, wxPanel)
-            EVT_ERASE_BACKGROUND(RenderPanel::OnDraw)
-            EVT_TIMER(wxID_ANY, RenderPanel::OnIdle)
-            EVT_SIZE(RenderPanel::OnSize)
-            EVT_SCROLLWIN(RenderPanel::OnScrollWin)
+        BEGIN_EVENT_TABLE(wxRenderPanel, wxPanel)
+            EVT_ERASE_BACKGROUND(wxRenderPanel::OnDraw)
+            EVT_TIMER(wxID_ANY, wxRenderPanel::OnIdle)
+            EVT_SIZE(wxRenderPanel::OnSize)
+            EVT_SCROLLWIN(wxRenderPanel::OnScrollWin)
         END_EVENT_TABLE()
 
-        RenderPanel::RenderPanel(wxWindow* parent)
+        wxRenderPanel::wxRenderPanel(wxWindow* parent)
             : wxPanel(parent),
               swapChain(nullptr),
               idleTimer(this)
@@ -22,27 +22,27 @@ namespace Halak
             idleTimer.Start();
         }
 
-        RenderPanel::~RenderPanel()
+        wxRenderPanel::~wxRenderPanel()
         {
         }
 
-        DisplaySwapChain* RenderPanel::GetSwapChain() const
+        DisplaySwapChain* wxRenderPanel::GetSwapChain() const
         {
             return swapChain;
         }
 
-        void RenderPanel::SetSwapChain(DisplaySwapChain* value)
+        void wxRenderPanel::SetSwapChain(DisplaySwapChain* value)
         {
             swapChain = value;
         }
 
-        void RenderPanel::OnIdle(wxTimerEvent& /*event*/)
+        void wxRenderPanel::OnIdle(wxTimerEvent& /*event*/)
         {
             if (swapChain)
                 Refresh();
         }
 
-        void RenderPanel::OnDraw(wxEraseEvent& /*event*/)
+        void wxRenderPanel::OnDraw(wxEraseEvent& /*event*/)
         {
             if (swapChain)
             {
@@ -58,7 +58,7 @@ namespace Halak
             }
         }
 
-        void RenderPanel::OnSize(wxSizeEvent& event)
+        void wxRenderPanel::OnSize(wxSizeEvent& event)
         {
             if (swapChain)
             {
@@ -72,7 +72,7 @@ namespace Halak
             }
         }
 
-        void RenderPanel::OnScrollWin(wxScrollWinEvent& event)
+        void wxRenderPanel::OnScrollWin(wxScrollWinEvent& event)
         {
             int scrollPosition = 0;
 
@@ -105,7 +105,7 @@ namespace Halak
             SetScrollPos(event.GetOrientation(), scrollPosition);
         }
 
-        void RenderPanel::Draw()
+        void wxRenderPanel::Draw()
         {
         }
     }

@@ -1,8 +1,8 @@
 #pragma once
-#ifndef __HALAK_WXWIDGETS_MAINWINDOW_H__
-#define __HALAK_WXWIDGETS_MAINWINDOW_H__
+#ifndef __HALAK_WXWIDGETS_WXMAINWINDOW_H__
+#define __HALAK_WXWIDGETS_WXMAINWINDOW_H__
 
-#   include <Halak.Toolkit/FWD.h>
+#   include <Halak.wxWidgets/FWD.h>
 #   include <wx/wx.h>
 #   include <wx/aui/aui.h>
 #   include <vector>
@@ -11,11 +11,11 @@
     {
         namespace wxWidgets
         {
-            class MainWindow : public wxFrame
+            class wxMainWindow : public wxFrame
             {
                 public:
-                    MainWindow(const wxString& title, wxSize size, GameStructure* structure);
-                    virtual ~MainWindow();
+                    wxMainWindow(const wxString& title, wxSize size, GameStructure* structure);
+                    virtual ~wxMainWindow();
 
                     void AddDockablePane(wxWindow* window, wxAuiPaneInfo& paneInfo);
                     void AddNotebookPage(wxWindow* window, const String& caption);

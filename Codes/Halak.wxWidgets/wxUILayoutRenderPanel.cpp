@@ -1,7 +1,7 @@
-#include <Halak.Toolkit/PCH.h>
-#include <Halak.Toolkit/UILayoutRenderPanel.h>
-#include <Halak.Toolkit/wxWidgetsApplication.h>
-#include <Halak.Toolkit/wxWidgetsWindow.h>
+#include <Halak.wxWidgets/PCH.h>
+#include <Halak.wxWidgets/wxUILayoutRenderPanel.h>
+#include <Halak.wxWidgets/AppFramework.h>
+#include <Halak.wxWidgets/Window.h>
 #include <Halak/Colors.h>
 #include <Halak/DisplaySwapChain.h>
 #include <Halak/GameStructure.h>
@@ -15,7 +15,7 @@ namespace Halak
 {
     namespace wxWidgets
     {
-        BEGIN_EVENT_TABLE(UILayoutRenderPanel, RenderPanel)
+        BEGIN_EVENT_TABLE(wxUILayoutRenderPanel, wxRenderPanel)
             EVT_LEFT_DOWN   (OnMouseButtonDown)
             EVT_LEFT_UP     (OnMouseButtonUp)
             EVT_RIGHT_DOWN  (OnMouseButtonDown)
@@ -25,13 +25,13 @@ namespace Halak
             EVT_MOTION      (OnMouseMotion)
         END_EVENT_TABLE()
 
-        UILayoutRenderPanel::UILayoutRenderPanel(wxWindow* parent)
-            : RenderPanel(parent),
+        wxUILayoutRenderPanel::wxUILayoutRenderPanel(wxWindow* parent)
+            : wxRenderPanel(parent),
               domain(nullptr),
               renderer(nullptr),
               clearColor(Colors::CornflowerBlue)
         {
-            GameStructure* gameStructure = wxWidgetsApplication::GetInstance()->GetStructure();
+            GameStructure* gameStructure = AppFramework::GetInstance()->GetStructure();
 
             //wxWidgetsWindow* adaptedWindow = new wxWidgetsWindow(this);
             //DisplaySwapChain* swapChain = new DisplaySwapChain(wxWidgetsApplication::GetInstance()->GetGraphicsDevice(), adaptedWindow, Point(800, 600));
@@ -42,7 +42,7 @@ namespace Halak
             //document->GetTimeline()->SetSpeed(1.0f);
 
                 //MainWindow* mainWindow = wxWidgetsApplication::GetInstance()->GetMainWindow();
-                //UILayoutRenderPanel* renderPanel = new UILayoutRenderPanel(mainWindow);
+                //wxUILayoutRenderPanel* renderPanel = new wxUILayoutRenderPanel(mainWindow);
                 //renderPanel->SetTarget(rootEntity);
                 //mainWindow->AddNotebookPage(renderPanel, rootEntity->GetName());
 
@@ -57,7 +57,7 @@ namespace Halak
 
                 //document->GetTimeline()->SetSpeed(1.0f);
            //{
-           // UILayoutRenderPanel* renderPanel = new UILayoutRenderPanel(mainWindow);
+           // wxUILayoutRenderPanel* renderPanel = new wxUILayoutRenderPanel(mainWindow);
            // renderPanel->SetTarget(entity);
            // mainWindow->AddNotebookPage(renderPanel, "TEST1");
            // AdaptedWxWindow* panelWindow = new AdaptedWxWindow(renderPanel);
@@ -79,42 +79,42 @@ namespace Halak
            // }
         }
 
-        UIDomain* UILayoutRenderPanel::GetDomain() const
+        UIDomain* wxUILayoutRenderPanel::GetDomain() const
         {
             return domain;
         }
 
-        void UILayoutRenderPanel::SetDomain(UIDomain* value)
+        void wxUILayoutRenderPanel::SetDomain(UIDomain* value)
         {
             domain = value;
         }
 
-        SpriteRenderer* UILayoutRenderPanel::GetRenderer() const
+        SpriteRenderer* wxUILayoutRenderPanel::GetRenderer() const
         {
             return renderer;
         }
 
-        void UILayoutRenderPanel::SetRenderer(SpriteRenderer* value)
+        void wxUILayoutRenderPanel::SetRenderer(SpriteRenderer* value)
         {
             renderer = value;
         }
 
-        Color UILayoutRenderPanel::GetClearColor() const
+        Color wxUILayoutRenderPanel::GetClearColor() const
         {
             return clearColor;
         }
 
-        void UILayoutRenderPanel::SetClearColor(Color value)
+        void wxUILayoutRenderPanel::SetClearColor(Color value)
         {
             clearColor = value;
         }
 
-        //RootEntityPtr UILayoutRenderPanel::GetTargetPointee() const
+        //RootEntityPtr wxUILayoutRenderPanel::GetTargetPointee() const
         //{
         //    return target;
         //}
 
-        //void UILayoutRenderPanel::SetTarget(const RootEntityPtr value)
+        //void wxUILayoutRenderPanel::SetTarget(const RootEntityPtr value)
         //{
         //    if (target != value)
         //    {
@@ -122,17 +122,17 @@ namespace Halak
         //    }
         //}
 
-        //SpriteRenderer* UILayoutRenderPanel::GetSpriteRenderer() const
+        //SpriteRenderer* wxUILayoutRenderPanel::GetSpriteRenderer() const
         //{
         //    return spriteRenderer;
         //}
 
-        //void UILayoutRenderPanel::SetSpriteRenderer(SpriteRenderer* value)
+        //void wxUILayoutRenderPanel::SetSpriteRenderer(SpriteRenderer* value)
         //{
         //    spriteRenderer = value;
         //}
 
-        void UILayoutRenderPanel::Draw()
+        void wxUILayoutRenderPanel::Draw()
         {
             if (domain == nullptr ||
                 domain->GetRoot() == nullptr ||
@@ -165,7 +165,7 @@ namespace Halak
             //spriteRenderer->End();
         }
 
-        void UILayoutRenderPanel::OnMouseButtonDown(wxMouseEvent& event)
+        void wxUILayoutRenderPanel::OnMouseButtonDown(wxMouseEvent& event)
         {
             //const Ray ray(Vector3(event.GetX(), event.GetY(), 0), Vector3(0.0f, 0.0f, -1.0f));
             //PickingContext context(ray, true, false, true);
@@ -179,11 +179,11 @@ namespace Halak
             //}
         }
 
-        void UILayoutRenderPanel::OnMouseButtonUp(wxMouseEvent& /*event*/)
+        void wxUILayoutRenderPanel::OnMouseButtonUp(wxMouseEvent& /*event*/)
         {
         }
 
-        void UILayoutRenderPanel::OnMouseMotion(wxMouseEvent& /*event*/)
+        void wxUILayoutRenderPanel::OnMouseMotion(wxMouseEvent& /*event*/)
         {
         }
     }

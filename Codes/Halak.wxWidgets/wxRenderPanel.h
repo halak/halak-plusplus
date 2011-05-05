@@ -2,18 +2,18 @@
 #ifndef __HALAK_WXWIDGETS_WXRENDERPANEL_H__
 #define __HALAK_WXWIDGETS_WXRENDERPANEL_H__
 
-#   include <Halak.Toolkit/FWD.h>
+#   include <Halak.wxWidgets/FWD.h>
 #   include <wx/wx.h>
 
     namespace Halak
     {
         namespace wxWidgets
         {
-            class RenderPanel : public wxPanel
+            class wxRenderPanel : public wxPanel
             {
                 public:
-                    RenderPanel(wxWindow* parent);
-                    virtual ~RenderPanel();
+                    wxRenderPanel(wxWindow* parent);
+                    virtual ~wxRenderPanel();
 
                     DisplaySwapChain* GetSwapChain() const;
                     void SetSwapChain(DisplaySwapChain* value);
@@ -28,7 +28,7 @@
                     virtual void Draw();
 
                 private:
-                    Halak::DisplaySwapChain* swapChain;
+                    DisplaySwapChain* swapChain;
 
                     wxTimer idleTimer;
 
