@@ -18,7 +18,7 @@
                 Color Value;
 
                 inline Item();
-                inline Item(const char* name, Color color);
+                inline Item(const String& name, Color color);
                 inline Item(const Item& original);
 
                 inline Item& operator = (const Item& right);

@@ -7,7 +7,6 @@
 #   include <Halak/UIElement.h>
 #   include <Halak/UIImage.h>
 #   include <Halak/UIMarkupText.h>
-#   include <Halak/UIMarkupTextLayout.h>
 #   include <Halak/UIRenderer.h>
 #   include <Halak/UIVisualVisitor.h>
 #       include <Halak/UIDrawingContext.h>

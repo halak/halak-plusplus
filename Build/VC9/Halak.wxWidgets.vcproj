@@ -331,6 +331,10 @@
 				>
 			</File>
 		</Filter>
+		<Filter
+			Name="(Class)"
+			>
+		</Filter>
 		<File
 			RelativePath="..\..\Codes\Halak.wxWidgets\All.h"
 			>

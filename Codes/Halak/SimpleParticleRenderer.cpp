@@ -34,13 +34,13 @@ namespace Halak
 
     void SimpleParticleRenderer::DrawDebugInformation(DrawingContext& context)
     {
-        HKAssertDebug(context.GetSpriteRenderer());
-        if (GetTargetPointee() == nullptr)
-            return;
+        //HKAssertDebug(context.GetSpriteRenderer());
+        //if (GetTargetPointee() == nullptr)
+        //    return;
 
-        SpriteRenderer* renderer = context.GetSpriteRenderer();
-        const SimpleParticleEmitter* castedTarget = static_cast<const SimpleParticleEmitter*>(GetTargetPointee().GetPointee());
-        const SimpleParticleEmitter::ParticleCollection& particles = castedTarget->GetParticles();
+        //SpriteRenderer* renderer = context.GetSpriteRenderer();
+        //const SimpleParticleEmitter* castedTarget = static_cast<const SimpleParticleEmitter*>(GetTargetPointee().GetPointee());
+        //const SimpleParticleEmitter::ParticleCollection& particles = castedTarget->GetParticles();
         //for (SimpleParticleEmitter::ParticleCollection::const_reverse_iterator it = particles.rbegin(); it != particles.rend(); it++)
         //{
         //    const SimpleParticle* item = (*it);

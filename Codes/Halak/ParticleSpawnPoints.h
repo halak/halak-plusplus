@@ -44,6 +44,7 @@
         {
             public:
                 ParticleSpawnSphere();
+                ParticleSpawnSphere(float radius);
                 ParticleSpawnSphere(const ParticleSpawnSphere& original);
                 virtual ~ParticleSpawnSphere();
 

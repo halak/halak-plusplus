@@ -10,8 +10,8 @@ namespace Halak
         : pointee(pointee),
           life(pointee ? life : 0)
     {
-        if (life)
-            life->IncreaseStrongCount();
+        if (this->life)
+            this->life->IncreaseStrongCount();
     }
 
     template <typename T> SharedPointer<T>::SharedPointer(const SharedPointer<T>& original)

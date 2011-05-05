@@ -48,7 +48,7 @@ namespace Halak
         }
     }
 
-    ISpatialPtr ParticleEmitter::GetOrigin() const
+    ISpatial* ParticleEmitter::GetOrigin() const
     {
         return origin;
     }
@@ -58,7 +58,7 @@ namespace Halak
         origin = value;
     }
 
-    IFloatEvaluablePtr ParticleEmitter::GetSpawnPeriod() const
+    IFloatEvaluable* ParticleEmitter::GetSpawnPeriod() const
     {
         return spawnPeriod;
     }
