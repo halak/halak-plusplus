@@ -74,34 +74,6 @@
                     HKForwardDeclareSmartPointerClass(Tool);
                         HKForwardDeclareSmartPointerClass(ParticleEmitterTool);
                             HKForwardDeclareSmartPointerClass(SimpleParticleEmitterTool);
-            ////////////////////////////////////////////////////////////////////////////////////////////////////
-            // 03. GUI (wxWidgets)
-                ////////////////////////////////////////////////////////////////////////////////////////////////////
-                // (Integration)
-                    class wxWidgetsApplication;
-                    class wxWidgetsWindow;
-                ////////////////////////////////////////////////////////////////////////////////////////////////////
-                // wxProperties
-                    class BooleanProperty;
-                    class ColorProperty;
-                    class IPropertyUpdateable;
-                    class Matrix4Property;
-                    class NumberProperty;
-                    class PointProperty;
-                    class QuaternionProperty;
-                    class RectangleProperty;
-                    class Vector2Property;
-                    class Vector3Property;
-                    class Vector4Property;
-                ////////////////////////////////////////////////////////////////////////////////////////////////////
-                // wxWindows
-                    class EntityTreeWindow;
-                    class HistoryWindow;
-                    class MainWindow;
-                    class PaletteWindow;
-                    class PropertiesWindow;
-                    class RenderPanel;
-                        class UILayoutRenderPanel;
 
 #           undef HKForwardDeclareSmartPointerClass
         }

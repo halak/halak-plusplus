@@ -53,33 +53,5 @@
 #           include <Halak.Toolkit/Tool.h>
 #               include <Halak.Toolkit/ParticleEmitterTool.h>
 #                   include <Halak.Toolkit/SimpleParticleEmitterTool.h>
-    ////////////////////////////////////////////////////////////////////////////////////////////////////
-    // 03. GUI (wxWidgets)
-        ////////////////////////////////////////////////////////////////////////////////////////////////////
-        // (Integration)
-#           include <Halak.Toolkit/wxWidgetsApplication.h>
-#           include <Halak.Toolkit/wxWidgetsWindow.h>
-        ////////////////////////////////////////////////////////////////////////////////////////////////////
-        // wxProperties
-#           include <Halak.Toolkit/BooleanProperty.h>
-#           include <Halak.Toolkit/ColorProperty.h>
-#           include <Halak.Toolkit/IPropertyUpdateable.h>
-#           include <Halak.Toolkit/Matrix4Property.h>
-#           include <Halak.Toolkit/NumberProperty.h>
-#           include <Halak.Toolkit/PointProperty.h>
-#           include <Halak.Toolkit/QuaternionProperty.h>
-#           include <Halak.Toolkit/RectangleProperty.h>
-#           include <Halak.Toolkit/Vector2Property.h>
-#           include <Halak.Toolkit/Vector3Property.h>
-#           include <Halak.Toolkit/Vector4Property.h>
-        ////////////////////////////////////////////////////////////////////////////////////////////////////
-        // wxWindows
-#           include <Halak.Toolkit/EntityTreeWindow.h>
-#           include <Halak.Toolkit/HistoryWindow.h>
-#           include <Halak.Toolkit/MainWindow.h>
-#           include <Halak.Toolkit/PaletteWindow.h>
-#           include <Halak.Toolkit/PropertiesWindow.h>
-#           include <Halak.Toolkit/RenderPanel.h>
-#               include <Halak.Toolkit/UILayoutRenderPanel.h>
 
 #endif

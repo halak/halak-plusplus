@@ -21,6 +21,7 @@
 			OutputDirectory="..\..\Libraries"
 			IntermediateDirectory="Intermediate\$(ProjectName).$(ConfigurationName)"
 			ConfigurationType="4"
+			InheritedPropertySheets=".\Halak.Debug.vsprops"
 			CharacterSet="2"
 			>
 			<Tool
@@ -85,6 +86,7 @@
 			OutputDirectory="..\..\Libraries"
 			IntermediateDirectory="Intermediate\$(ProjectName).$(ConfigurationName)"
 			ConfigurationType="4"
+			InheritedPropertySheets=".\Halak.Release.vsprops"
 			CharacterSet="2"
 			WholeProgramOptimization="1"
 			>
@@ -468,190 +470,6 @@
 					>
 				</File>
 			</Filter>
-		</Filter>
-		<Filter
-			Name="03. GUI (wxWidgets)"
-			>
-			<Filter
-				Name="wxProperties"
-				>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\BooleanProperty.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\BooleanProperty.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\ColorProperty.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\ColorProperty.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\IPropertyUpdateable.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\IPropertyUpdateable.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\Matrix4Property.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\Matrix4Property.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\NumberProperty.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\NumberProperty.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\PointProperty.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\PointProperty.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\QuaternionProperty.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\QuaternionProperty.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\RectangleProperty.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\RectangleProperty.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\Vector2Property.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\Vector2Property.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\Vector3Property.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\Vector3Property.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\Vector4Property.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\Vector4Property.h"
-					>
-				</File>
-			</Filter>
-			<Filter
-				Name="wxWindows"
-				>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\EntityTreeWindow.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\EntityTreeWindow.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\HistoryWindow.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\HistoryWindow.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\MainWindow.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\MainWindow.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\PaletteWindow.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\PaletteWindow.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\PropertiesWindow.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\PropertiesWindow.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\PropertiesWindow.inl"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\RenderPanel.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\RenderPanel.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\UILayoutRenderPanel.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\UILayoutRenderPanel.h"
-					>
-				</File>
-			</Filter>
-			<Filter
-				Name="Core"
-				>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\wxWidgetsApplication.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\wxWidgetsApplication.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\wxWidgetsWindow.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Codes\Halak.Toolkit\wxWidgetsWindow.h"
-					>
-				</File>
-			</Filter>
-		</Filter>
-		<Filter
-			Name="03. GUI"
-			>
 		</Filter>
 		<Filter
 			Name="02. Asset"

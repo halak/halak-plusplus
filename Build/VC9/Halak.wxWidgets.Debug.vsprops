@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ks_c_5601-1987"?>
+<VisualStudioPropertySheet
+	ProjectType="Visual C++"
+	Version="8.00"
+	Name="Halak.wxWidgets.Debug"
+	InheritedPropertySheets=".\Halak.Toolkit.Debug.vsprops"
+	>
+	<Tool
+		Name="VCCLCompilerTool"
+		AdditionalIncludeDirectories=""
+	/>
+	<Tool
+		Name="VCLinkerTool"
+		AdditionalDependencies="Halak.wxWidgets.Debug.lib wxmsw28d_aui.lib wxmsw28d_html.lib wxmsw28d_core.lib wxmsw28d_adv.lib wxbase28d.lib wxtiffd.lib wxjpegd.lib wxpngd.lib wxzlibd.lib wxregexd.lib wxexpatd.lib wxcode_msw28d_propgrid.lib comctl32.lib rpcrt4.lib wsock32.lib odbc32.lib"
+	/>
+</VisualStudioPropertySheet>

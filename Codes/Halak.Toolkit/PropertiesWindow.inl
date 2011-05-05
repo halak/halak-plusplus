@@ -1,6 +1,0 @@
-namespace Halak
-{
-    namespace Toolkit
-    {
-    }
-}

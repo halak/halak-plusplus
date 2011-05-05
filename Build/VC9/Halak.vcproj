@@ -336,11 +336,27 @@
 					>
 				</File>
 				<File
-					RelativePath="..\..\Codes\Halak\AssetLoader.cpp"
+					RelativePath="..\..\Codes\Halak\AssetFileSystem.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Codes\Halak\AssetLoader.h"
+					RelativePath="..\..\Codes\Halak\AssetFileSystem.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\AssetFileSystem.inl"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\AssetStorage.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\AssetStorage.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\AssetStorage.inl"
 					>
 				</File>
 				<File
