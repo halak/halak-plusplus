@@ -8,6 +8,7 @@
 		Name="VCCLCompilerTool"
 		AdditionalIncludeDirectories="$(DXSDK_DIR)Include"
 		PreprocessorDefinitions="NOMINMAX"
+		WarningLevel="4"
 	/>
 	<Tool
 		Name="VCLinkerTool"

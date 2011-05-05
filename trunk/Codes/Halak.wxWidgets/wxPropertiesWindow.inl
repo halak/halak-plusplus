@@ -1,0 +1,6 @@
+namespace Halak
+{
+    namespace wxWidgets
+    {
+    }
+}

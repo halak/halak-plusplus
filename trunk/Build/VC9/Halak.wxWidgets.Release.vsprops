@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ks_c_5601-1987"?>
+<VisualStudioPropertySheet
+	ProjectType="Visual C++"
+	Version="8.00"
+	Name="Halak.wxWidgets.Release"
+	InheritedPropertySheets=".\Halak.Toolkit.Release.vsprops"
+	>
+	<Tool
+		Name="VCLinkerTool"
+		AdditionalDependencies="Halak.wxWidgets.Release.lib wxmsw28_aui.lib wxmsw28_html.lib wxmsw28_core.lib wxmsw28_adv.lib wxbase28.lib wxtiff.lib wxjpeg.lib wxpng.lib wxzlib.lib wxregex.lib wxexpat.lib wxcode_msw28_propgrid.lib comctl32.lib rpcrt4.lib wsock32.lib odbc32.lib"
+	/>
+</VisualStudioPropertySheet>
