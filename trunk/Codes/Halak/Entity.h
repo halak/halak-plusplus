@@ -16,6 +16,8 @@
                 struct Component
                 {
                     String Name;
+                    int index;
+                    String Tag;
                     SharedObjectPtr Object;
                     ICloneable*  CloneableInterface;
                     IDisposable* DisposableInterface;

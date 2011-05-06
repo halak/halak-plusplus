@@ -44,7 +44,7 @@
             if (m.Handle == nullptr)
                 m.CreateHandle(this);
 
-            RECT windowRect = { 0, };
+            RECT windowRect = { 0, 0, 0, 0 };
             if (GetWindowRect(m.Handle, &windowRect))
             {
                 const SIZE screenSize = { GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN) };
@@ -73,10 +73,11 @@
             if (m.Handle == nullptr)
                 m.CreateHandle(this);
 
-            if (GetTitle() != value)
+            if (title != value)
             {
                 title = value;
-                SetWindowText(m.Handle, GetTitle().CStr());
+                
+                ::SetWindowText(m.Handle, title.CStr());
             }
         }
 
@@ -93,8 +94,8 @@
             if (GetPosition() != value)
             {
                 position = value;
-
-                SetWindowPos(m.Handle, NULL, GetPosition().X, GetPosition().Y, 0, 0, SWP_NOZORDER | SWP_NOSIZE | SWP_NOACTIVATE);
+                
+                ::SetWindowPos(m.Handle, NULL, position.X, position.Y, 0, 0, SWP_NOZORDER | SWP_NOSIZE | SWP_NOACTIVATE);
             }
         }
 
@@ -114,12 +115,12 @@
 
                 const DWORD exWindowStyle = static_cast<DWORD>(GetWindowLong(m.Handle, GWL_EXSTYLE));
                 const DWORD windowStyle = static_cast<DWORD>(GetWindowLong(m.Handle, GWL_STYLE));
-                const bool hasMenu = GetMenu(m.Handle) != NULL;
-                RECT windowRect = { 0, 0, GetSize().X, GetSize().Y };
-                AdjustWindowRectEx(&windowRect, windowStyle, hasMenu ? TRUE : FALSE, exWindowStyle);
+                const BOOL hasMenu = GetMenu(m.Handle) != NULL ? TRUE : FALSE;
+                RECT windowRect = { 0, 0, size.X, size.Y };
+                ::AdjustWindowRectEx(&windowRect, windowStyle, hasMenu, exWindowStyle);
 
                 const SIZE windowSize = { windowRect.right - windowRect.left, windowRect.bottom - windowRect.top };
-                SetWindowPos(m.Handle, NULL, 0, 0, windowSize.cx, windowSize.cy, SWP_NOZORDER | SWP_NOMOVE | SWP_NOACTIVATE);
+                ::SetWindowPos(m.Handle, NULL, 0, 0, windowSize.cx, windowSize.cy, SWP_NOZORDER | SWP_NOMOVE | SWP_NOACTIVATE);
             }
         }
 
@@ -133,14 +134,15 @@
             if (m.Handle == nullptr)
                 m.CreateHandle(this);
 
-            if (GetVisible() != value)
+            if (visible != value)
             {
                 visible = value;
 
-                if (GetVisible())
-                    ShowWindow(m.Handle, SW_SHOW);
-                else
-                    ShowWindow(m.Handle, SW_HIDE);
+                int showCommand = SW_HIDE;
+                if (visible)
+                    showCommand = SW_SHOW;
+
+                ::ShowWindow(m.Handle, showCommand);
             }
         }
 
@@ -184,9 +186,9 @@
             windowClass.hIconSm = windowClass.hIcon;
             RegisterClassEx(&windowClass);
 
-            Handle = CreateWindowEx(0x00000000, ClassName, ClassName, WS_OVERLAPPEDWINDOW,
-                                    CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT,
-                                    NULL, NULL, GetModuleHandle(NULL), owner);
+            Handle = ::CreateWindowEx(0x00000000, ClassName, ClassName, WS_OVERLAPPEDWINDOW,
+                                      CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT,
+                                      NULL, NULL, GetModuleHandle(NULL), owner);
         }
 
         LRESULT CALLBACK GameWindow::Fields::WindowProcedure(HWND windowHandle, UINT message, WPARAM wParam, LPARAM lParam)

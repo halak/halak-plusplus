@@ -1002,6 +1002,18 @@
 						RelativePath="..\..\Codes\Halak\EntityWorld.inl"
 						>
 					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\Prefab.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\Prefab.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\Prefab.inl"
+						>
+					</File>
 				</Filter>
 			</Filter>
 			<Filter
