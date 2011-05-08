@@ -19,6 +19,7 @@
             ////////////////////////////////////////////////////////////////////////////////////////////////////
             // (BasicTypes)
                 struct Color;
+                struct Colors;
                 struct Matrix4;
                 struct Point;
                 struct Quaternion;
