@@ -15,14 +15,9 @@ namespace Halak
         return graphicsDevice;
     }
 
-    IUpdateable* GameFramework::GetMainTimeline() const
+    Timeline* GameFramework::GetMainTimeline() const
     {
         return mainTimeline;
-    }
-
-    void GameFramework::SetMainTimeline(IUpdateable* value)
-    {
-        mainTimeline = value;
     }
 
     bool GameFramework::GetFixedTimeStep() const

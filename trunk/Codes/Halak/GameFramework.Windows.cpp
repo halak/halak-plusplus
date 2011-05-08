@@ -7,6 +7,7 @@
 #include <Halak/GameWindow.h>
 #include <Halak/GraphicsDevice.h>
 #include <Halak/Math.h>
+#include <Halak/Timeline.h>
 
 #if (defined(HALAK_PLATFORM_WINDOWS))
 
@@ -18,7 +19,7 @@
             : structure(new GameStructure()),
               window(new GameWindow()),
               graphicsDevice(new GraphicsDevice()),
-              mainTimeline(nullptr),
+              mainTimeline(new Timeline()),
               fixedTimeStep(true),
               fixedElapsedTime(1.0f / static_cast<float>(GeneralFPS)),
               maxTimeInOneFrame(1.0f),
@@ -26,6 +27,7 @@
         {
             structure->GetRoot()->AttachChild(window);
             structure->GetRoot()->AttachChild(graphicsDevice);
+            structure->GetRoot()->AttachChild(mainTimeline);
 
             //SYSTEM_INFO systemInfo = { 0, };
             //GetSystemInfo(&systemInfo);
@@ -140,8 +142,7 @@
 
         void GameFramework::Update(float dt, uint timestamp)
         {
-            if (mainTimeline)
-                mainTimeline->Update(dt, timestamp);
+            mainTimeline->Update(dt, timestamp);
         }
 
         void GameFramework::Draw()

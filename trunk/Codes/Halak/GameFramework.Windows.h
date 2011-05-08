@@ -3,8 +3,8 @@
 #define __HALAK_GAMEFRAMEWORK_WINDOWS_H__
 
 #   include <Halak/FWD.h>
-#   include <Halak/IUpdateable.h>
 #   include <Halak/IDrawable.h>
+#   include <Halak/IUpdateable.h>
 #   include <deque>
 
 #   if (defined(HALAK_PLATFORM_WINDOWS))
@@ -21,9 +21,7 @@
                     inline GameStructure*  GetStructure() const;
                     inline GameWindow*     GetWindow() const;
                     inline GraphicsDevice* GetGraphicsDevice() const;
-                    
-                    inline IUpdateable* GetMainTimeline() const;
-                    inline void SetMainTimeline(IUpdateable* value);
+                    inline Timeline*       GetMainTimeline() const;
 
                     inline bool GetFixedTimeStep() const;
                            void SetFixedTimeStep(bool value);
@@ -57,7 +55,7 @@
                     GameStructure* structure;
                     GameWindow* window;
                     GraphicsDevice* graphicsDevice;
-                    IUpdateable* mainTimeline;
+                    Timeline* mainTimeline;
 
                     bool  fixedTimeStep;
                     float fixedElapsedTime;
