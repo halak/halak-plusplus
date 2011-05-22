@@ -16,35 +16,51 @@
                 struct Component
                 {
                     String Name;
-                    int index;
                     String Tag;
+                    void* Value;
                     SharedObjectPtr Object;
-                    ICloneable*  CloneableInterface;
-                    IDisposable* DisposableInterface;
-                    IClassQueryable* QueryableInterface;
+
+                    Component();
+                    Component(const String& name, const String& tag, void* value);
+                    Component(const String& name, const String& tag, SharedObject* value);
+                    Component(const Component& original);
+
+                    Component& operator = (const Component& right);
+                    bool operator == (const Component& right) const;
+                    inline bool operator != (const Component& right) const;
                 };
-                typedef std::list<Component*> ComponentCollection;
+                typedef std::vector<Component> ComponentCollection;
 
             public:
                 Entity();
                 Entity(const String& name);
+                Entity(const String& name, int componentCapacity);
                 virtual ~Entity();
 
                 virtual void Dispose();
 
+                const Component* Find(const String& name) const;
+
                 inline const String& GetName() const;
                 void SetName(const String& value);
 
-                inline Signal<Entity*, const String&>& NameChangedEvent();
+                inline const ComponentCollection& GetComponents() const;
+                void SetComponents(const ComponentCollection& value);
 
             protected:
+                void Insert(const Component& item);
+                bool Remove(const String& name);
+
+                ComponentCollection::iterator FindIterator(const String& name);
+                ComponentCollection::const_iterator FindIterator(const String& name) const;
+
                 virtual void OnNameChanged(const String& old);
+                virtual void OnComponentChanged(const Component& item);
+                virtual void OnComponentRemoved(const Component& item);
 
             private:
                 String name;
                 ComponentCollection components;
-
-                Signal<Entity*, const String&> nameChangedEvent;
 
             private:
                 Entity(const Entity&);

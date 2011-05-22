@@ -5,8 +5,15 @@ namespace Halak
         return name;
     }
 
-    Signal<Entity*, const String&>& Entity::NameChangedEvent()
+    const Entity::ComponentCollection& Entity::GetComponents() const
     {
-        return nameChangedEvent;
+        return components;
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    bool Entity::Component::operator != (const Component& right) const
+    {
+        return !operator == (right);
     }
 }
