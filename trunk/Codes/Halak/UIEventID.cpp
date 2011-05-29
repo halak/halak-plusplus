@@ -3,8 +3,9 @@
 
 namespace Halak
 {
-    const String UIEventID::EventNames[OtherType] = 
+    const String UIEventID::EventNames[ApplicationType] = 
     {
+        "Unknown",
         "KeyDown",
         "KeyUp",
         "KeyPressing",
@@ -23,6 +24,7 @@ namespace Halak
         "GamePadThumbstick",
    };
 
+    const UIEventID UIEventID::Unknown(UnknownType);
     const UIEventID UIEventID::KeyDown(KeyDownType);
     const UIEventID UIEventID::KeyUp(KeyUpType);
     const UIEventID UIEventID::KeyPressing(KeyPressingType);
@@ -39,11 +41,10 @@ namespace Halak
     const UIEventID UIEventID::GamePadButtonPressing(GamePadButtonPressingType);
     const UIEventID UIEventID::GamePadTrigger(GamePadTriggerType);
     const UIEventID UIEventID::GamePadThumbstick(GamePadThumbstickType);
-    const UIEventID UIEventID::Other(OtherType);
 
     const String& UIEventID::ConvertFromTypeToName(Type type)
     {
-        if (type != OtherType)
+        if (type != ApplicationType)
             return EventNames[type];
         else
             return String::Empty;
@@ -60,6 +61,6 @@ namespace Halak
             }
         }
 
-        return OtherType;
+        return UnknownType;
     }
 }
