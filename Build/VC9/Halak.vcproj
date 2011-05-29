@@ -1615,46 +1615,6 @@
 					RelativePath="..\..\Codes\Halak\SpatialObject2D.h"
 					>
 				</File>
-				<Filter
-					Name="Entity System"
-					>
-					<File
-						RelativePath="..\..\Codes\Halak\Entity.cpp"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\Entity.h"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\Entity.inl"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\EntityWorld.cpp"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\EntityWorld.h"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\EntityWorld.inl"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\Prefab.cpp"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\Prefab.h"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\Prefab.inl"
-						>
-					</File>
-				</Filter>
 			</Filter>
 			<Filter
 				Name="Framework"
@@ -2491,6 +2451,58 @@
 						>
 					</File>
 				</Filter>
+			</Filter>
+			<Filter
+				Name="Entity"
+				>
+				<File
+					RelativePath="..\..\Codes\Halak\Entity.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\Entity.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\Entity.inl"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\EntityComponent.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\EntityComponent.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\EntityComponent.inl"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\EntityWorld.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\EntityWorld.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\EntityWorld.inl"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\ObjectOperators.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\ObjectOperators.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\ObjectOperators.inl"
+					>
+				</File>
 			</Filter>
 		</Filter>
 		<File

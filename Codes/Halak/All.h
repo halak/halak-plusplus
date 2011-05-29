@@ -231,6 +231,12 @@
 #           include <Halak/CommandHistory.h>
 #           include <Halak/CommandQueue.h>
         ////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Entity
+#           include <Halak/Entity.h>
+#           include <Halak/EntityComponent.h>
+#           include <Halak/ObjectOperators.h>
+#           include <Halak/EntityWorld.h>
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
         // Framework
 #           include <Halak/GameFramework.h>
 #           include <Halak/GameWindow.h>
@@ -238,10 +244,6 @@
         // Gameplay
 #           include <Halak/SpatialObject.h>
 #           include <Halak/SpatialObject2D.h>
-            ////////////////////////////////////////////////////////////////////////////////////////////////////
-            // Entity System
-#               include <Halak/Entity.h>
-#               include <Halak/EntityWorld.h>
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         // Lua
 #           include <Halak/LuaRuntimeEnvironment.h>

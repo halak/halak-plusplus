@@ -1,6 +1,7 @@
 #include <Halak/PCH.h>
 #include <Halak/Entity.h>
 #include <Halak/CloningContext.h>
+#include <Halak/ObjectOperators.h>
 #include <Halak/SharedObject.h>
 #include <algorithm>
 
@@ -8,76 +9,71 @@ namespace Halak
 {
     struct ComponentPredicate
     {
-        bool operator () (const Entity::Component& a, const Entity::Component& b) const
+        inline bool operator () (const EntityComponent& a, const EntityComponent& b) const
         {
-            return a.Name < b.Name;
+            return a.GetName() < b.GetName();
         }
 
-        bool operator () (const String& name, const Entity::Component& b) const
+        inline bool operator () (const String& name, const EntityComponent& b) const
         {
-            return name < b.Name;
+            return name < b.GetName();
         }
 
-        bool operator () (const Entity::Component& a, const String& name) const
+        inline bool operator () (const EntityComponent& a, const String& name) const
         {
-            return a.Name < name;
+            return a.GetName() < name;
         }
     };
-    
+
     Entity::Entity()
     {
     }
+    
+    Entity::Entity(int numberOfIndexedComponents)
+    {
+        indexedComponents.resize(numberOfIndexedComponents);
+    }
 
-    Entity::Entity(const String& name)
-        : name(name)
+    Entity::Entity(const String& type)
+        : type(type)
     {
     }
 
-    Entity::Entity(const String& name, int componentCapacity)
-        : name(name)
+    Entity::Entity(const String& type, const String& name)
+        : type(type),
+          name(name)
     {
-        components.reserve(componentCapacity);
+    }
+
+    Entity::Entity(const String& type, const String& name, int numberOfIndexedComponents)
+        : type(type),
+          name(name)
+    {
+        indexedComponents.resize(numberOfIndexedComponents);
     }
 
     Entity::~Entity()
     {
+        DestructAll(indexedComponents);
+        DestructAll(components);
     }
 
-    void Entity::Dispose()
+    void Entity::Insert(const EntityComponent& item)
     {
-    }
-
-    const Entity::Component* Entity::Find(const String& name) const
-    {
-        ComponentCollection::const_iterator it = FindIterator(name);
+        ComponentCollection::iterator it = FindIterator(item.GetName());
         if (it != components.end())
-            return &(*it);
-        else
-            return nullptr;
-    }
-
-    void Entity::SetName(const String& value)
-    {
-        if (name != value)
         {
-            const String old = name;
-            name = value;
+            if ((*it) != item)
+            {
+                EntityComponent removedComponent = (*it);
+                (*it) = item;
 
-            OnNameChanged(old);
+                if (removedComponent.GetOperator())
+                    removedComponent.GetOperator()->Destruct(removedComponent.GetObject());
+
+                OnComponentRemoved(removedComponent);
+            }
         }
-    }
-
-    void Entity::SetComponents(const ComponentCollection& value)
-    {
-        components = value;
-        std::sort(components.begin(), components.end(), ComponentPredicate());
-    }
-
-    void Entity::Insert(const Component& item)
-    {
-        ComponentCollection::iterator it = FindIterator(item.Name);
-        if (it != components.end())
-            (*it) = item;
         else
         {
             it = std::lower_bound(components.begin(), components.end(), item, ComponentPredicate());
@@ -90,22 +86,59 @@ namespace Halak
 
     bool Entity::Remove(const String& name)
     {
-        Entity::ComponentCollection::iterator it = FindIterator(name);
+        ComponentCollection::iterator it = FindIterator(name); 
         if (it != components.end())
         {
-            Component removedComponent = (*it);
+            EntityComponent removedComponent = (*it);
             components.erase(it);
+
+            if (removedComponent.GetOperator())
+                removedComponent.GetOperator()->Destruct(removedComponent.GetObject());
+
             OnComponentRemoved(removedComponent);
+
             return true;
         }
         else
             return false;
     }
 
+    void Entity::RemoveAll()
+    {
+        ComponentCollection removedComponents;
+        removedComponents.swap(components);
+
+        DestructAll(removedComponents);
+
+        if (removedComponents.empty() == false)
+            OnComponentsRemoved(removedComponents);
+    }
+
+    const EntityComponent* Entity::Find(const String& name) const
+    {
+        ComponentCollection::const_iterator it = FindIterator(name);
+        if (it != components.end())
+            return &(*it);
+        else
+            return nullptr;
+    }
+
+    void Entity::SetComponents(const ComponentCollection& value)
+    {
+        ComponentCollection removedComponents;
+        removedComponents.swap(components);
+
+        components = value;
+        std::sort(components.begin(), components.end(), ComponentPredicate());
+
+        if (removedComponents.empty() == false)
+            OnComponentsRemoved(removedComponents);
+    }
+
     Entity::ComponentCollection::iterator Entity::FindIterator(const String& name)
     {
         ComponentCollection::iterator it = std::lower_bound(components.begin(), components.end(), name, ComponentPredicate());
-        if (it != components.end() && (*it).Name == name)
+        if (it != components.end() && (*it).GetName() == name)
             return it;
         else
             return components.end();
@@ -114,7 +147,7 @@ namespace Halak
     Entity::ComponentCollection::const_iterator Entity::FindIterator(const String& name) const
     {
         ComponentCollection::const_iterator it = std::lower_bound(components.begin(), components.end(), name, ComponentPredicate());
-        if (it != components.end() && (*it).Name == name)
+        if (it != components.end() && (*it).GetName() == name)
             return it;
         else
             return components.end();
@@ -124,66 +157,25 @@ namespace Halak
     {
     }
 
-    void Entity::OnComponentChanged(const Component& /*item*/)
+    void Entity::OnComponentChanged(const EntityComponent& /*item*/)
     {
     }
 
-    void Entity::OnComponentRemoved(const Component& /*item*/)
+    void Entity::OnComponentRemoved(const EntityComponent& /*item*/)
     {
     }
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    Entity::Component::Component()
-        : Name(String::Empty),
-          Tag(String::Empty),
-          Value(nullptr),
-          Object(nullptr)
+    void Entity::OnComponentsRemoved(const ComponentCollection& /*items*/)
     {
     }
 
-    Entity::Component::Component(const String& name, const String& tag, void* value)
-        : Name(name),
-          Tag(tag),
-          Value(value),
-          Object(nullptr)
+    void Entity::DestructAll(ComponentCollection& components)
     {
-    }
-
-    Entity::Component::Component(const String& name, const String& tag, SharedObject* value)
-        : Name(name),
-          Tag(tag),
-          Value(static_cast<void*>(value)),
-          Object(value)
-    {
-    }
-
-    Entity::Component::Component(const Component& original)
-        : Name(original.Name),
-          Tag(original.Tag),
-          Value(original.Value),
-          Object(original.Object)
-    {
-    }
-
-    Entity::Component& Entity::Component::operator = (const Component& right)
-    {
-        if (this == &right)
-            return *this;
-
-        Name = right.Name;
-        Tag = right.Tag;
-        Value = right.Value;
-        Object = right.Object;
-        return *this;
-    }
-
-    bool Entity::Component::operator == (const Component& right) const
-    {
-        return (this == &right) ||
-               (Name == right.Name &&
-                Tag == right.Tag &&
-                Value == right.Value &&
-                Object == right.Object);
+        for (ComponentCollection::iterator it = components.begin(); it != components.end(); it++)
+        {
+            const EntityComponent& item = (*it);
+            if (item.GetOperator())
+                item.GetOperator()->Destruct(item.GetObject());
+        }
     }
 }
