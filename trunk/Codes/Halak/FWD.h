@@ -248,6 +248,15 @@
                 class CommandHistory;
                 class CommandQueue;
             ////////////////////////////////////////////////////////////////////////////////////////////////////
+            // Entity
+                HKForwardDeclareSmartPointerClass(Entity);
+                class EntityComponent;
+                class EntityWorld;
+                class ObjectOperator;
+                    class GameComponentOperator;
+                    class SharedObjectOperator;
+                    template <typename T, uint32 ClassID> class StructOperator;
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
             // Framework
                 class GameFramework;
                 class GameWindow;
@@ -255,10 +264,6 @@
             // Gameplay
                 HKForwardDeclareSmartPointerClass(SpatialObject);
                 HKForwardDeclareSmartPointerClass(SpatialObject2D);
-                ////////////////////////////////////////////////////////////////////////////////////////////////////
-                // Entity System
-                    HKForwardDeclareSmartPointerClass(Entity);
-                    class EntityWorld;
             ////////////////////////////////////////////////////////////////////////////////////////////////////
             // JSON
             ////////////////////////////////////////////////////////////////////////////////////////////////////

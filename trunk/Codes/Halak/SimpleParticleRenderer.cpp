@@ -32,7 +32,7 @@ namespace Halak
         }
     }
 
-    void SimpleParticleRenderer::DrawDebugInformation(DrawingContext& context)
+    void SimpleParticleRenderer::DrawDebugInformation(DrawingContext& /*context*/)
     {
         //HKAssertDebug(context.GetSpriteRenderer());
         //if (GetTargetPointee() == nullptr)
