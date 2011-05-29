@@ -12,6 +12,7 @@
             public:
                 enum Type
                 {
+                    UnknownType,
                     KeyDownType,
                     KeyUpType,
                     KeyPressingType,
@@ -28,9 +29,10 @@
                     GamePadButtonPressingType,
                     GamePadTriggerType,
                     GamePadThumbstickType,
-                    OtherType,
+                    ApplicationType,
                 };
 
+                static const UIEventID Unknown;
                 static const UIEventID KeyDown;
                 static const UIEventID KeyUp;
                 static const UIEventID KeyPressing;
@@ -47,7 +49,6 @@
                 static const UIEventID GamePadButtonPressing;
                 static const UIEventID GamePadTrigger;
                 static const UIEventID GamePadThumbstick;
-                static const UIEventID Other;
 
             public:
                 inline UIEventID();
@@ -71,7 +72,7 @@
                 Type type;
                 String name;
 
-                static const String EventNames[OtherType];
+                static const String EventNames[ApplicationType];
         };
     }
 

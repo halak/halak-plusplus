@@ -2111,6 +2111,18 @@
 						>
 					</File>
 					<File
+						RelativePath="..\..\Codes\Halak\UIControl.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UIControl.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UIControl.inl"
+						>
+					</File>
+					<File
 						RelativePath="..\..\Codes\Halak\UIEditBox.cpp"
 						>
 					</File>

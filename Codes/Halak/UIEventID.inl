@@ -1,7 +1,7 @@
 namespace Halak
 {
     UIEventID::UIEventID()
-        : type(OtherType)
+        : type(UnknownType)
     {
     }
 
@@ -46,7 +46,7 @@ namespace Halak
 
     bool UIEventID::operator == (const UIEventID& right) const
     {
-        if (type != OtherType)
+        if (type != ApplicationType)
             return type == right.type;
         else
             return type == right.type && name == right.name;
