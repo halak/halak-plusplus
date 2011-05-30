@@ -1,5 +1,10 @@
 namespace Halak
 {
+    float Math::Atan2(Vector2 xy)
+    {
+        return Atan2(xy.y, xy.x);
+    }
+
     char Math::Abs(char value)
     {
         return value >= 0 ? value : -value;

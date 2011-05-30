@@ -29,6 +29,7 @@
                 static float Tan(float radian);
                 static float Acos(float radian);
                 static float Atan2(float y, float x);
+                static inline float Atan2(Vector2 xy);
 
                 static inline char   Abs(char value);
                 static inline short  Abs(short value);
