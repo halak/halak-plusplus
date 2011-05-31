@@ -2,7 +2,7 @@ namespace Halak
 {
     float Math::Atan2(Vector2 xy)
     {
-        return Atan2(xy.y, xy.x);
+        return Atan2(xy.Y, xy.X);
     }
 
     char Math::Abs(char value)
