@@ -11,8 +11,8 @@
     namespace Halak
     {
 #       define HKForwardDeclareSmartPointerClass(name) class name; \
-                                                       typedef SharedPointer<name> name##Ptr; \
-                                                       typedef WeakPointer<name>   name##WeakPtr;
+                                                       typedef Halak::SharedPointer<name> name##Ptr; \
+                                                       typedef Halak::WeakPointer<name>   name##WeakPtr;
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         // 01. Foundation
@@ -369,8 +369,6 @@
                             HKForwardDeclareSmartPointerClass(UIWindow);
                         HKForwardDeclareSmartPointerClass(UISprite);
                         HKForwardDeclareSmartPointerClass(UIVideo);
-
-#       undef HKForwardDeclareSmartPointerClass
     }
 
 #endif
