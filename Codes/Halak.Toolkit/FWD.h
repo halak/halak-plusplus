@@ -8,10 +8,6 @@
     {
         namespace Toolkit
         {
-#           define HKForwardDeclareSmartPointerClass(name) class name; \
-                                                           typedef SharedPointer<name> name##Ptr; \
-                                                           typedef WeakPointer<name>   name##WeakPtr;
-
             ////////////////////////////////////////////////////////////////////////////////////////////////////
             // 01. Foundation
                 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -74,8 +70,6 @@
                     HKForwardDeclareSmartPointerClass(Tool);
                         HKForwardDeclareSmartPointerClass(ParticleEmitterTool);
                             HKForwardDeclareSmartPointerClass(SimpleParticleEmitterTool);
-
-#           undef HKForwardDeclareSmartPointerClass
         }
     }
 

@@ -1,5 +1,13 @@
 namespace Halak
 {
+    template <typename T>
+    T* GameNode::CreateAndAttachChild()
+    {
+        T* component = new T();
+        AttachChild(component);
+        return component;
+    }
+
     template <typename T> T* GameNode::FindChild(bool searchAllChildren) const
     {
         return static_cast<T*>(FindChildByClassID(T::ClassID, searchAllChildren));
