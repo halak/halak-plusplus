@@ -1900,6 +1900,30 @@
 					>
 				</File>
 				<File
+					RelativePath="..\..\Codes\Halak\UIFunctionTable.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\UIFunctionTable.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\UIFunctionTable.inl"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\UIHandledDrawingContext.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\UIHandledDrawingContext.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\UIHandledDrawingContext.inl"
+					>
+				</File>
+				<File
 					RelativePath="..\..\Codes\Halak\UIImage.cpp"
 					>
 				</File>
@@ -2035,6 +2059,54 @@
 					Name="Visuals"
 					>
 					<File
+						RelativePath="..\..\Codes\Halak\UIButton.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UIButton.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UIButton.inl"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UICheckBox.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UICheckBox.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UICheckBox.inl"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UIEditBox.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UIEditBox.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UIEditBox.inl"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UIFlowPanel.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UIFlowPanel.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UIFlowPanel.inl"
+						>
+					</File>
+					<File
 						RelativePath="..\..\Codes\Halak\UILabel.cpp"
 						>
 					</File>
@@ -2044,6 +2116,42 @@
 					</File>
 					<File
 						RelativePath="..\..\Codes\Halak\UILabel.inl"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UIListBox.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UIListBox.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UIListBox.inl"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UIMarkupTextBox.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UIMarkupTextBox.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UIMarkupTextBox.inl"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UIPanel.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UIPanel.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UIPanel.inl"
 						>
 					</File>
 					<File
@@ -2082,94 +2190,6 @@
 						RelativePath="..\..\Codes\Halak\UIVisual.inl"
 						>
 					</File>
-				</Filter>
-				<Filter
-					Name="Windows"
-					>
-					<File
-						RelativePath="..\..\Codes\Halak\UIButton.cpp"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\UIButton.h"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\UIButton.inl"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\UICheckBox.cpp"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\UICheckBox.h"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\UICheckBox.inl"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\UIControl.cpp"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\UIControl.h"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\UIControl.inl"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\UIEditBox.cpp"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\UIEditBox.h"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\UIEditBox.inl"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\UIFlowPanel.cpp"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\UIFlowPanel.h"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\UIFlowPanel.inl"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\UIListBox.cpp"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\UIListBox.h"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\UIListBox.inl"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\UIMarkupTextBox.cpp"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\UIMarkupTextBox.h"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\UIMarkupTextBox.inl"
-						>
-					</File>
 					<File
 						RelativePath="..\..\Codes\Halak\UIWindow.cpp"
 						>
@@ -2199,6 +2219,18 @@
 						>
 					</File>
 					<File
+						RelativePath="..\..\Codes\Halak\UIEffectMap.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UIEffectMap.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UIEffectMap.inl"
+						>
+					</File>
+					<File
 						RelativePath="..\..\Codes\Halak\UITintEffect.cpp"
 						>
 					</File>
@@ -2214,6 +2246,30 @@
 				<Filter
 					Name="Events"
 					>
+					<File
+						RelativePath="..\..\Codes\Halak\UIAppEventDispatcher.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UIAppEventDispatcher.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UIAppEventDispatcher.inl"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UIAsyncEventQueue.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UIAsyncEventQueue.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UIAsyncEventQueue.inl"
+						>
+					</File>
 					<File
 						RelativePath="..\..\Codes\Halak\UIEventArgs.cpp"
 						>
@@ -2248,6 +2304,18 @@
 					</File>
 					<File
 						RelativePath="..\..\Codes\Halak\UIEventID.inl"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UIEventMap.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UIEventMap.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UIEventMap.inl"
 						>
 					</File>
 					<File
@@ -2370,6 +2438,46 @@
 						RelativePath="..\..\Codes\Halak\UITouchEventDispatcher.inl"
 						>
 					</File>
+					<Filter
+						Name="Handlers"
+						>
+						<File
+							RelativePath="..\..\Codes\Halak\UIEventHandler.cpp"
+							>
+						</File>
+						<File
+							RelativePath="..\..\Codes\Halak\UIEventHandler.h"
+							>
+						</File>
+						<File
+							RelativePath="..\..\Codes\Halak\UIEventHandler.inl"
+							>
+						</File>
+						<File
+							RelativePath="..\..\Codes\Halak\UIFunctionEventHandler.cpp"
+							>
+						</File>
+						<File
+							RelativePath="..\..\Codes\Halak\UIFunctionEventHandler.h"
+							>
+						</File>
+						<File
+							RelativePath="..\..\Codes\Halak\UIFunctionEventHandler.inl"
+							>
+						</File>
+						<File
+							RelativePath="..\..\Codes\Halak\UISequentialEventHandler.cpp"
+							>
+						</File>
+						<File
+							RelativePath="..\..\Codes\Halak\UISequentialEventHandler.h"
+							>
+						</File>
+						<File
+							RelativePath="..\..\Codes\Halak\UISequentialEventHandler.inl"
+							>
+						</File>
+					</Filter>
 				</Filter>
 			</Filter>
 			<Filter

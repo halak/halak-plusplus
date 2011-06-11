@@ -13,7 +13,7 @@ namespace Halak
     {
     }
 
-    UISimpleDomain::UISimpleDomain(UIWindow* root, UIWindow* focus)
+    UISimpleDomain::UISimpleDomain(UIWindow* root, UIVisual* focus)
         : UIDomain(root),
           focus(focus)
     {
@@ -23,12 +23,12 @@ namespace Halak
     {
     }
 
-    UIWindow* UISimpleDomain::GetFocus() const
+    UIVisual* UISimpleDomain::GetFocus() const
     {
         return focus;
     }
 
-    void UISimpleDomain::SetFocus(UIWindow* value)
+    void UISimpleDomain::SetFocus(UIVisual* value)
     {
         focus = value;
     }

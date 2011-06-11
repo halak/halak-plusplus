@@ -18,8 +18,8 @@
                 inline UIWindow* GetRoot() const;
                 void SetRoot(UIWindow* value);
 
-                virtual UIWindow* GetFocus() const = 0;
-                virtual void SetFocus(UIWindow* value) = 0;
+                virtual UIVisual* GetFocus() const = 0;
+                virtual void SetFocus(UIVisual* value) = 0;
 
             private:
                 UIWindowPtr root;

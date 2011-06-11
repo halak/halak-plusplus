@@ -9,13 +9,13 @@ namespace Halak
     {
     }
 
-    UIMouseWheelEventArgs::UIMouseWheelEventArgs(UIWindow* target, Point position, int wheelDelta)
+    UIMouseWheelEventArgs::UIMouseWheelEventArgs(UIVisual* target, Point position, int wheelDelta)
         : UIMouseEventArgs(target, position),
           wheelDelta(wheelDelta)
     {
     }
 
-    UIMouseWheelEventArgs::UIMouseWheelEventArgs(UIWindow* target, Point position, bool isLeftButtonPressed, bool isRightButtonPressed, bool isMiddleButtonPressed, int wheelDelta)
+    UIMouseWheelEventArgs::UIMouseWheelEventArgs(UIVisual* target, Point position, bool isLeftButtonPressed, bool isRightButtonPressed, bool isMiddleButtonPressed, int wheelDelta)
         : UIMouseEventArgs(target, position, isLeftButtonPressed, isRightButtonPressed, isMiddleButtonPressed),
           wheelDelta(wheelDelta)
     {
@@ -35,5 +35,10 @@ namespace Halak
 
     UIMouseWheelEventArgs::~UIMouseWheelEventArgs()
     {
+    }
+
+    UIMouseWheelEventArgs* UIMouseWheelEventArgs::Clone() const
+    {
+        return new UIMouseWheelEventArgs(*this);
     }
 }

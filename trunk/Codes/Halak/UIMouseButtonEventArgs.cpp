@@ -9,13 +9,13 @@ namespace Halak
     {
     }
 
-    UIMouseButtonEventArgs::UIMouseButtonEventArgs(UIWindow* target, Point position, Key::Code buttonCode)
+    UIMouseButtonEventArgs::UIMouseButtonEventArgs(UIVisual* target, Point position, Key::Code buttonCode)
         : UIMouseEventArgs(target, position),
           buttonCode(buttonCode)
     {
     }
 
-    UIMouseButtonEventArgs::UIMouseButtonEventArgs(UIWindow* target, Point position, bool isLeftButtonPressed, bool isRightButtonPressed, bool isMiddleButtonPressed, Key::Code buttonCode)
+    UIMouseButtonEventArgs::UIMouseButtonEventArgs(UIVisual* target, Point position, bool isLeftButtonPressed, bool isRightButtonPressed, bool isMiddleButtonPressed, Key::Code buttonCode)
         : UIMouseEventArgs(target, position, isLeftButtonPressed, isRightButtonPressed, isMiddleButtonPressed),
           buttonCode(buttonCode)
     {
@@ -35,5 +35,10 @@ namespace Halak
 
     UIMouseButtonEventArgs::~UIMouseButtonEventArgs()
     {
+    }
+
+    UIMouseButtonEventArgs* UIMouseButtonEventArgs::Clone() const
+    {
+        return new UIMouseButtonEventArgs(*this);
     }
 }

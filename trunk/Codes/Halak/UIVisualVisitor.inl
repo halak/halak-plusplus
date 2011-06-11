@@ -1,13 +1,13 @@
 namespace Halak
 {
+    float UIVisualVisitor::GetFieldOfView() const
+    {
+        return fieldOfView;
+    }
+
     bool UIVisualVisitor::GetVisibleOnly() const
     {
         return visibleOnly;
-    }
-
-    void UIVisualVisitor::SetVisibleOnly(bool value)
-    {
-        visibleOnly = value;
     }
 
     UIVisual* UIVisualVisitor::GetCurrentVisual() const
@@ -33,15 +33,5 @@ namespace Halak
     const Matrix4& UIVisualVisitor::GetCurrentTransform() const
     {
         return currentTransform;
-    }
-
-    const RectangleF& UIVisualVisitor::GetPreviousBounds() const
-    {
-        return previousBounds;
-    }
-
-    const RectangleF& UIVisualVisitor::GetPreviousClippedBounds() const
-    {
-        return previousClippedBounds;
     }
 }

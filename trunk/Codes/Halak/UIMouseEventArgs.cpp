@@ -12,7 +12,7 @@ namespace Halak
     {
     }
 
-    UIMouseEventArgs::UIMouseEventArgs(UIWindow* target, Point position)
+    UIMouseEventArgs::UIMouseEventArgs(UIVisual* target, Point position)
         : UIEventArgs(target),
           position(position),
           isLeftButtonPressed(false),
@@ -21,7 +21,7 @@ namespace Halak
     {
     }
 
-    UIMouseEventArgs::UIMouseEventArgs(UIWindow* target, Point position, bool isLeftButtonPressed, bool isRightButtonPressed, bool isMiddleButtonPressed)
+    UIMouseEventArgs::UIMouseEventArgs(UIVisual* target, Point position, bool isLeftButtonPressed, bool isRightButtonPressed, bool isMiddleButtonPressed)
         : UIEventArgs(target),
           position(position),
           isLeftButtonPressed(isLeftButtonPressed),
@@ -41,5 +41,10 @@ namespace Halak
 
     UIMouseEventArgs::~UIMouseEventArgs()
     {
+    }
+
+    UIMouseEventArgs* UIMouseEventArgs::Clone() const
+    {
+        return new UIMouseEventArgs(*this);
     }
 }

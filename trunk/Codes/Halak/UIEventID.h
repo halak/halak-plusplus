@@ -63,6 +63,7 @@
                 inline UIEventID& operator = (const UIEventID& right);
                 inline bool operator == (const UIEventID& right) const;
                 inline bool operator != (const UIEventID& right) const;
+                inline bool operator < (const UIEventID& right) const;
 
             public:
                 static const String& ConvertFromTypeToName(Type type);

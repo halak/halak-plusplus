@@ -56,4 +56,12 @@ namespace Halak
     {
         return !operator == (right);
     }
+
+    bool UIEventID::operator < (const UIEventID& right) const
+    {
+        if (type == ApplicationType && right.type == ApplicationType)
+            return name < right.name;
+        else
+            return type < right.type;
+    }
 }

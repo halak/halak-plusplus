@@ -1,87 +1,27 @@
 namespace Halak
 {
-    const UIWindow::VisualCollection& UIWindow::GetChildren() const
+    void UIWindow::AddChild(UIVisual* item)
     {
-        return children;
+        Add(item);
     }
 
-    Signal<const UIKeyboardEventArgs&, bool&>& UIWindow::KeyDownEvent()
+    void UIWindow::InsertChild(int index, UIVisual* item)
     {
-        return keyDownEvent;
+        Insert(index, item);
     }
 
-    Signal<const UIKeyboardEventArgs&, bool&>& UIWindow::KeyUpEvent()
+    bool UIWindow::RemoveChild(UIVisual* item)
     {
-        return keyUpEvent;
+        return Remove(item);
     }
 
-    Signal<const UIKeyboardEventArgs&, bool&>& UIWindow::KeyPressingEvent()
+    bool UIWindow::RemoveChildAt(int index)
     {
-        return keyPressingEvent;
+        return RemoveAt(index);
     }
 
-    Signal<const UIMouseEventArgs&>& UIWindow::MouseEnterEvent()
+    void UIWindow::RemoveAllChildren()
     {
-        return mouseEnterEvent;
-    }
-
-    Signal<const UIMouseEventArgs&>& UIWindow::MouseLeaveEvent()
-    {
-        return mouseLeaveEvent;
-    }
-
-    Signal<const UIMouseEventArgs&, bool&>& UIWindow::MouseMoveEvent()
-    {
-        return mouseMoveEvent;
-    }
-
-    Signal<const UIMouseEventArgs&, bool&>& UIWindow::MouseClickEvent()
-    {
-        return mouseClickEvent;
-    }
-
-    Signal<const UIMouseButtonEventArgs&, bool&>& UIWindow::MouseButtonDownEvent()
-    {
-        return mouseButtonDownEvent;
-    }
-
-    Signal<const UIMouseButtonEventArgs&, bool&>& UIWindow::MouseButtonUpEvent()
-    {
-        return mouseButtonUpEvent;
-    }
-
-    Signal<const UIMouseButtonEventArgs&, bool&>& UIWindow::MouseButtonPressingEvent()
-    {
-        return mouseButtonPressingEvent;
-    }
-
-    Signal<const UIMouseWheelEventArgs&, bool&>& UIWindow::MouseWheelEvent()
-    {
-        return mouseWheelEvent;
-    }
-
-    Signal<const UIGamePadEventArgs&, bool&>& UIWindow::GamePadButtonDownEvent()
-    {
-        return gamePadButtonDownEvent;
-    }
-
-    Signal<const UIGamePadEventArgs&, bool&>& UIWindow::GamePadButtonUpEvent()
-    {
-        return gamePadButtonUpEvent;
-    }
-
-    Signal<const UIGamePadEventArgs&, bool&>& UIWindow::GamePadButtonPressingEvent()
-    {
-        return gamePadButtonPressingEvent;
-    }
-
-    Signal<const UIGamePadEventArgs&, bool&>& UIWindow::GamePadTriggerEvent()
-    {
-        return gamePadTriggerEvent;
-    }
-
-    Signal<const UIGamePadEventArgs&, bool&>& UIWindow::GamePadThumbstickEvent()
-    {
-        return gamePadThumbstickEvent;
+        RemoveAll();
     }
 }

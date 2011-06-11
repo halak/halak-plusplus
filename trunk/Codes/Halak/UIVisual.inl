@@ -20,12 +20,22 @@ namespace Halak
         return shown;
     }
 
+    void UIVisual::SetShown(bool value)
+    {
+        shown = value;
+    }
+
     UIFrame* UIVisual::GetFrame() const
     {
         return frame;
     }
 
-    UIWindow* UIVisual::GetParent() const
+    UIEventMap* UIVisual::GetEventMap() const
+    {
+        return eventMap;
+    }
+
+    UIPanel* UIVisual::GetParent() const
     {
         return parent;
     }

@@ -14,8 +14,8 @@ namespace Halak
         : lastTimestamp(0xFFFFFFFF),
           domain(nullptr),
           device(nullptr),
-          capturedWindow(nullptr),
-          lastTargetWindow(nullptr),
+          capturedVisual(nullptr),
+          lastTargetVisual(nullptr),
           lastMouseState(MouseState::Empty)
     {
     }
@@ -34,7 +34,7 @@ namespace Halak
 
         lastTimestamp = timestamp;
 
-        UIWindowPtr rootWindow = domain->GetRoot();
+        UIWindow* rootWindow = domain->GetRoot();
         if (rootWindow == nullptr)
             return;
 
@@ -43,131 +43,126 @@ namespace Halak
 
         struct Pick
         {
-            static UIWindow* Do(UIPickingContext& context, UIWindow* rootWindow)
+            static UIVisual* Do(UIPickingContext& context, UIWindow* rootWindow)
             {
                 if (context.Pick(rootWindow))
-                {
-                    if (context.GetResult()->IsWindow())
-                        return static_cast<UIWindow*>(context.GetResult());
-                    else
-                        return context.GetResult()->GetParent();
-                }
+                    return context.GetResult();
                 else
                     return rootWindow;
             }
         };
 
-        UIWindowPtr pickedWindow = nullptr;
-        UIWindowPtr targetWindow = nullptr;
+        UIVisual* pickedVisual = nullptr;
+        UIVisual* targetVisual = nullptr;
 
-        if (capturedWindow)
-            targetWindow = capturedWindow;
+        if (capturedVisual)
+            targetVisual = capturedVisual;
         else
         {
-            pickedWindow = Pick::Do(picker, rootWindow);
-            targetWindow = pickedWindow;
+            pickedVisual = Pick::Do(picker, rootWindow);
+            targetVisual = pickedVisual;
         }
 
-        const UIMouseEventArgs baseArgs = UIMouseEventArgs(targetWindow,
+        const UIMouseEventArgs baseArgs = UIMouseEventArgs(targetVisual,
                                                            mouseState.Position,
                                                            mouseState.IsLeftButtonPressed,
                                                            mouseState.IsRightButtonPressed,
                                                            mouseState.IsMiddleButtonPressed);
 
-        if (targetWindow != lastTargetWindow)
+        if (targetVisual != lastTargetVisual)
         {
             // 가리키고 있는 Window가 달라지면,
             // 이전에 가리킨 Window와 그 부모들에게 MouseLeave Event를 발생시키고
             // 현재 가리키고 있는 Window와 그 부모들에게 MouseEnter Event를 발생시킵니다.
             // 물론 두 Window의 공통된 부모들에게는 아무 Event도 발생시키지 않습니다.
 
-            cachedEnterWindows.clear();
-            cachedLeaveWindows.clear();
+            cachedEnterVisuals.clear();
+            cachedLeaveVisuals.clear();
 
-            for (UIWindow* leaveWindow = lastTargetWindow; leaveWindow; leaveWindow = leaveWindow->GetParent())
-                cachedLeaveWindows.push_back(leaveWindow);
-            for (UIWindow* enterWindow = targetWindow; enterWindow; enterWindow = enterWindow->GetParent())
+            for (UIVisual* leaveVisual = lastTargetVisual; leaveVisual; leaveVisual = leaveVisual->GetParent())
+                cachedLeaveVisuals.push_back(leaveVisual);
+            for (UIVisual* enterVisual = targetVisual; enterVisual; enterVisual = enterVisual->GetParent())
             {
-                const WindowVector::const_iterator it = std::find(cachedLeaveWindows.begin(), cachedLeaveWindows.end(), enterWindow);
-                if (it == cachedLeaveWindows.end())
-                    cachedEnterWindows.push_back(enterWindow);
+                const VisualVector::const_iterator it = std::find(cachedLeaveVisuals.begin(), cachedLeaveVisuals.end(), enterVisual);
+                if (it == cachedLeaveVisuals.end())
+                    cachedEnterVisuals.push_back(enterVisual);
                 else
                 {
-                    cachedLeaveWindows.resize(it - cachedLeaveWindows.begin());
+                    cachedLeaveVisuals.resize(it - cachedLeaveVisuals.begin());
                     break;
                 }
             }
 
-            for (WindowVector::const_iterator it = cachedLeaveWindows.begin(); it != cachedLeaveWindows.end(); it++)
+            for (VisualVector::const_iterator it = cachedLeaveVisuals.begin(); it != cachedLeaveVisuals.end(); it++)
                 (*it)->RaiseMouseLeaveEvent(baseArgs);
 
-            for (WindowVector::const_iterator it = cachedEnterWindows.begin(); it != cachedEnterWindows.end(); it++)
+            for (VisualVector::const_iterator it = cachedEnterVisuals.begin(); it != cachedEnterVisuals.end(); it++)
                 (*it)->RaiseMouseEnterEvent(baseArgs);
         }
 
-        if (targetWindow && lastMouseState.Position != mouseState.Position)
-            targetWindow->RaiseMouseMoveEvent(baseArgs);
+        if (targetVisual && lastMouseState.Position != mouseState.Position)
+            targetVisual->RaiseMouseMoveEvent(baseArgs);
 
-        if (targetWindow)
+        if (targetVisual)
         {
             if (mouseState.IsLeftButtonPressed)
             {
                 if (lastMouseState.IsLeftButtonPressed)
-                    targetWindow->RaiseMouseButtonPressingEvent(UIMouseButtonEventArgs(baseArgs, Key::MouseLeftButton));
+                    targetVisual->RaiseMouseButtonPressingEvent(UIMouseButtonEventArgs(baseArgs, Key::MouseLeftButton));
                 else
                 {
-                    capturedWindow = targetWindow;
-                    domain->SetFocus(targetWindow);
-                    targetWindow->RaiseMouseButtonDownEvent(UIMouseButtonEventArgs(baseArgs, Key::MouseLeftButton));
+                    capturedVisual = targetVisual;
+                    domain->SetFocus(targetVisual);
+                    targetVisual->RaiseMouseButtonDownEvent(UIMouseButtonEventArgs(baseArgs, Key::MouseLeftButton));
                 }
             }
             else
             {
                 if (lastMouseState.IsLeftButtonPressed)
                 {
-                    capturedWindow.Reset();
-                    targetWindow->RaiseMouseButtonUpEvent(UIMouseButtonEventArgs(baseArgs, Key::MouseLeftButton));
+                    capturedVisual.Reset();
+                    targetVisual->RaiseMouseButtonUpEvent(UIMouseButtonEventArgs(baseArgs, Key::MouseLeftButton));
 
-                    if (pickedWindow == nullptr)
-                        pickedWindow = Pick::Do(picker, rootWindow);
+                    if (pickedVisual == nullptr)
+                        pickedVisual = Pick::Do(picker, rootWindow);
 
-                    if (targetWindow == pickedWindow)
-                        targetWindow->RaiseMouseClickEvent(baseArgs);
+                    if (targetVisual == pickedVisual)
+                        targetVisual->RaiseMouseClickEvent(baseArgs);
                 }
             }
 
             if (mouseState.IsRightButtonPressed)
             {
                 if (lastMouseState.IsRightButtonPressed)
-                    targetWindow->RaiseMouseButtonPressingEvent(UIMouseButtonEventArgs(baseArgs, Key::MouseRightButton));
+                    targetVisual->RaiseMouseButtonPressingEvent(UIMouseButtonEventArgs(baseArgs, Key::MouseRightButton));
                 else
-                    targetWindow->RaiseMouseButtonDownEvent(UIMouseButtonEventArgs(baseArgs, Key::MouseRightButton));
+                    targetVisual->RaiseMouseButtonDownEvent(UIMouseButtonEventArgs(baseArgs, Key::MouseRightButton));
             }
             else
             {
                 if (lastMouseState.IsRightButtonPressed)
-                    targetWindow->RaiseMouseButtonUpEvent(UIMouseButtonEventArgs(baseArgs, Key::MouseRightButton));
+                    targetVisual->RaiseMouseButtonUpEvent(UIMouseButtonEventArgs(baseArgs, Key::MouseRightButton));
             }
 
             if (mouseState.IsMiddleButtonPressed)
             {
                 if (lastMouseState.IsMiddleButtonPressed)
-                    targetWindow->RaiseMouseButtonPressingEvent(UIMouseButtonEventArgs(baseArgs, Key::MouseMiddleButton));
+                    targetVisual->RaiseMouseButtonPressingEvent(UIMouseButtonEventArgs(baseArgs, Key::MouseMiddleButton));
                 else
-                    targetWindow->RaiseMouseButtonDownEvent(UIMouseButtonEventArgs(baseArgs, Key::MouseMiddleButton));
+                    targetVisual->RaiseMouseButtonDownEvent(UIMouseButtonEventArgs(baseArgs, Key::MouseMiddleButton));
             }
             else
             {
                 if (lastMouseState.IsMiddleButtonPressed)
-                    targetWindow->RaiseMouseButtonUpEvent(UIMouseButtonEventArgs(baseArgs, Key::MouseMiddleButton));
+                    targetVisual->RaiseMouseButtonUpEvent(UIMouseButtonEventArgs(baseArgs, Key::MouseMiddleButton));
             }
 
             const int wheelDelta = mouseState.Wheel - lastMouseState.Wheel;
             if (wheelDelta != 0)
-                targetWindow->RaiseMouseWheelEvent(UIMouseWheelEventArgs(baseArgs, wheelDelta));
+                targetVisual->RaiseMouseWheelEvent(UIMouseWheelEventArgs(baseArgs, wheelDelta));
         }
 
-        lastTargetWindow = targetWindow;
+        lastTargetVisual = targetVisual;
         lastMouseState = mouseState;
     }
 
@@ -176,7 +171,7 @@ namespace Halak
         if (domain != value)
         {
             domain = value;
-            lastTargetWindow.Reset();
+            lastTargetVisual.Reset();
             lastMouseState = MouseState::Empty;
         }
     }
@@ -186,7 +181,7 @@ namespace Halak
         if (device != value)
         {
             device = value;
-            lastTargetWindow.Reset();
+            lastTargetVisual.Reset();
             lastMouseState = MouseState::Empty;
         }
     }

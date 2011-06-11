@@ -311,11 +311,13 @@
                 class UIDomain;
                     class UISimpleDomain;
                 HKForwardDeclareSmartPointerClass(UIElement);
+                class UIFunctionTable;
                 HKForwardDeclareSmartPointerClass(UIImage);
                 class UIMarkupText;
                 class UIRenderer;
                 class UIVisualVisitor;
                     class UIDrawingContext;
+                        class UIHandledDrawingContext;
                     class UIPickingContext;
                 ////////////////////////////////////////////////////////////////////////////////////////////////////
                 // Frames
@@ -329,8 +331,10 @@
                 // Effects
                     HKForwardDeclareSmartPointerClass(UIEffect);
                         HKForwardDeclareSmartPointerClass(UITintEffect);
+                    HKForwardDeclareSmartPointerClass(UIEffectMap);
                 ////////////////////////////////////////////////////////////////////////////////////////////////////
                 // Events
+                    class UIAsyncEventQueue;
                     HKForwardDeclareSmartPointerClass(UIEventArgs);
                         HKForwardDeclareSmartPointerClass(UIGamePadEventArgs);
                         HKForwardDeclareSmartPointerClass(UIKeyboardEventArgs);
@@ -339,24 +343,30 @@
                             HKForwardDeclareSmartPointerClass(UIMouseWheelEventArgs);
                         HKForwardDeclareSmartPointerClass(UITouchEventArgs);
                     class UIEventDispatcher;
+                        class UIAppEventDispatcher;
                         class UIGamePadEventDispatcher;
                         class UIKeyboardEventDispatcher;
                         class UIMouseEventDispatcher;
                         class UITouchEventDispatcher;
                     class UIEventID;
-                ////////////////////////////////////////////////////////////////////////////////////////////////////
-                // Windows
-                    HKForwardDeclareSmartPointerClass(UIWindow);
-                        HKForwardDeclareSmartPointerClass(UIButton);
-                            HKForwardDeclareSmartPointerClass(UICheckBox);
-                        HKForwardDeclareSmartPointerClass(UIEditBox);
-                        HKForwardDeclareSmartPointerClass(UIFlowPanel);
-                            HKForwardDeclareSmartPointerClass(UIListBox);
-                            HKForwardDeclareSmartPointerClass(UIMarkupTextBox);
+                    HKForwardDeclareSmartPointerClass(UIEventMap);
+                    ////////////////////////////////////////////////////////////////////////////////////////////////////
+                    // Handlers
+                        HKForwardDeclareSmartPointerClass(UIEventHandler);
+                            HKForwardDeclareSmartPointerClass(UIFunctionEventHandler);
+                            HKForwardDeclareSmartPointerClass(UISequentialEventHandler);
                 ////////////////////////////////////////////////////////////////////////////////////////////////////
                 // Visuals
                     HKForwardDeclareSmartPointerClass(UIVisual);
                         HKForwardDeclareSmartPointerClass(UILabel);
+                        HKForwardDeclareSmartPointerClass(UIPanel);
+                            HKForwardDeclareSmartPointerClass(UIButton);
+                                HKForwardDeclareSmartPointerClass(UICheckBox);
+                            HKForwardDeclareSmartPointerClass(UIEditBox);
+                            HKForwardDeclareSmartPointerClass(UIFlowPanel);
+                                HKForwardDeclareSmartPointerClass(UIListBox);
+                            HKForwardDeclareSmartPointerClass(UIMarkupTextBox);
+                            HKForwardDeclareSmartPointerClass(UIWindow);
                         HKForwardDeclareSmartPointerClass(UISprite);
                         HKForwardDeclareSmartPointerClass(UIVideo);
 
