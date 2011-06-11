@@ -1960,15 +1960,19 @@
 					>
 				</File>
 				<File
-					RelativePath="..\..\Codes\Halak\UIRenderer.cpp"
-					>
-				</File>
-				<File
 					RelativePath="..\..\Codes\Halak\UIRenderer.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Codes\Halak\UIRenderer.inl"
+					RelativePath="..\..\Codes\Halak\UIRenderer.Windows.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\UIRenderer.Windows.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\UIRenderer.Windows.inl"
 					>
 				</File>
 				<File
