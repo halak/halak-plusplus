@@ -55,5 +55,5 @@
     }
 
 #   include <Halak/Color.inl>
-
+   
 #endif

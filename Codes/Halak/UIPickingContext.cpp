@@ -6,6 +6,15 @@ namespace Halak
 {
     UIPickingContext::UIPickingContext(Vector2 point)
         : point(point),
+          currentPoint(point),
+          result(nullptr)
+    {
+    }
+
+    UIPickingContext::UIPickingContext(float fieldOfView, bool visibleOnly, Vector2 point)
+        : UIVisualVisitor(fieldOfView, visibleOnly),
+          point(point),
+          currentPoint(point),
           result(nullptr)
     {
     }
@@ -27,6 +36,12 @@ namespace Halak
 
     void UIPickingContext::OnVisit(UIVisual* target)
     {
+        const Vector2 oldPoint = currentPoint;
+
+        currentPoint = Unproject(point);
+
         target->OnPick(*this);
+
+        currentPoint = oldPoint;
     }
 }

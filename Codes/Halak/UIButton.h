@@ -3,11 +3,11 @@
 #define __HALAK_UIBUTTON_H__
 
 #   include <Halak/FWD.h>
-#   include <Halak/UIWindow.h>
+#   include <Halak/UIPanel.h>
 
     namespace Halak
     {
-        class UIButton : public UIWindow
+        class UIButton : public UIPanel
         {
             public:
                 enum State

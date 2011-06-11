@@ -12,10 +12,12 @@
         {
             public:
                 UIMouseEventArgs();
-                UIMouseEventArgs(UIWindow* target, Point position);
-                UIMouseEventArgs(UIWindow* target, Point position, bool isLeftButtonPressed, bool isRightButtonPressed, bool isMiddleButtonPressed);
+                UIMouseEventArgs(UIVisual* target, Point position);
+                UIMouseEventArgs(UIVisual* target, Point position, bool isLeftButtonPressed, bool isRightButtonPressed, bool isMiddleButtonPressed);
                 UIMouseEventArgs(const UIMouseEventArgs& original);
                 virtual ~UIMouseEventArgs();
+
+                virtual UIMouseEventArgs* Clone() const;
 
                 inline Point GetPosition() const;
                 inline bool IsLeftButtonPressed() const;

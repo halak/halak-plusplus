@@ -31,13 +31,13 @@
                 uint lastTimestamp;
                 UIDomain* domain;
                 Mouse* device;
-                UIWindowPtr capturedWindow;
-                UIWindowPtr lastTargetWindow;
+                UIVisualPtr capturedVisual;
+                UIVisualPtr lastTargetVisual;
                 MouseState  lastMouseState;
 
-                typedef std::vector<UIWindow*> WindowVector;
-                WindowVector cachedEnterWindows;
-                WindowVector cachedLeaveWindows;
+                typedef std::vector<UIVisual*> VisualVector;
+                VisualVector cachedEnterVisuals;
+                VisualVector cachedLeaveVisuals;
         };
     }
 

@@ -11,11 +11,15 @@
         {
             public:
                 UIPickingContext(Vector2 point);
+                UIPickingContext(float fieldOfView, bool visibleOnly, Vector2 point);
                 virtual ~UIPickingContext();
 
                 bool Pick(UIVisual* target);
 
+                inline bool Contains(const RectangleF& bounds);
+
                 inline Vector2 GetPoint() const;
+                inline Vector2 GetCurrentPoint() const;
 
                 inline UIVisual* GetResult() const;
                 void SetResult(UIVisual* value);
@@ -25,6 +29,7 @@
 
             private:
                 Vector2 point;
+                Vector2 currentPoint;
                 UIVisual* result;
         };
     }

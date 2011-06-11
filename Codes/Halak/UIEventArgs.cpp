@@ -9,7 +9,7 @@ namespace Halak
     {
     }
 
-    UIEventArgs::UIEventArgs(UIWindow* target)
+    UIEventArgs::UIEventArgs(UIVisual* target)
         : target(target)
     {
     }
@@ -21,5 +21,10 @@ namespace Halak
 
     UIEventArgs::~UIEventArgs()
     {
+    }
+
+    UIEventArgs* UIEventArgs::Clone() const
+    {
+        return new UIEventArgs(*this);
     }
 }

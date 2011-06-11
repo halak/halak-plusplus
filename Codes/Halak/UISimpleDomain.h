@@ -13,14 +13,14 @@
             public:
                 UISimpleDomain();
                 UISimpleDomain(UIWindow* root);
-                UISimpleDomain(UIWindow* root, UIWindow* focus);
+                UISimpleDomain(UIWindow* root, UIVisual* focus);
                 virtual ~UISimpleDomain();
 
-                virtual UIWindow* GetFocus() const;
-                virtual void SetFocus(UIWindow* value);
+                virtual UIVisual* GetFocus() const;
+                virtual void SetFocus(UIVisual* value);
 
             private:
-                UIWindowWeakPtr focus;
+                UIVisualWeakPtr focus;
         };
     }
 

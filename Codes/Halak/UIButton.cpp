@@ -2,12 +2,12 @@
 #include <Halak/UIButton.h>
 #include <Halak/UIFittedFrame.h>
 #include <Halak/UIMouseButtonEventArgs.h>
+#include <Halak/UIWindow.h>
 
 namespace Halak
 {
     UIButton::UIButton()
-        : UIWindow(),
-          currentState(NormalState),
+        : currentState(NormalState),
           normalWindow(new UIWindow()),
           pushedWindow(new UIWindow()),
           hoveringWindow(new UIWindow()),
@@ -20,9 +20,9 @@ namespace Halak
         pushedWindow->Hide();
         hoveringWindow->SetFrame(new UIFittedFrame());
         hoveringWindow->Hide();
-        AddChild(hoveringWindow);
-        AddChild(pushedWindow);
-        AddChild(normalWindow);
+        Add(hoveringWindow);
+        Add(pushedWindow);
+        Add(normalWindow);
     }
 
     UIButton::~UIButton()

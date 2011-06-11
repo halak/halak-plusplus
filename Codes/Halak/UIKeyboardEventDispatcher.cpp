@@ -30,7 +30,7 @@ namespace Halak
 
         lastTimestamp = timestamp;
 
-        UIWindow* target = domain->GetFocus();
+        UIVisual* target = domain->GetFocus();
         if (target == nullptr)
             target = domain->GetRoot();
         if (target == nullptr)

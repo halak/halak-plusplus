@@ -1,27 +1,25 @@
 #pragma once
-#ifndef __HALAK_UIEVENTARGS_H__
-#define __HALAK_UIEVENTARGS_H__
 
-#   include <Halak/FWD.h>
-#   include <Halak/SharedObject.h>
+#include <Halak/FWD.h>
+#include <Halak/SharedObject.h>
 
-    namespace Halak
+namespace Halak
+{
+    class UIEventArgs : public SharedObject
     {
-        class UIEventArgs : public SharedObject
-        {
-            public:
-                UIEventArgs();
-                UIEventArgs(UIWindow* target);
-                UIEventArgs(const UIEventArgs& original);
-                virtual ~UIEventArgs();
+        public:
+            UIEventArgs();
+            UIEventArgs(UIVisual* target);
+            UIEventArgs(const UIEventArgs& original);
+            virtual ~UIEventArgs();
 
-                inline UIWindow* GetTarget() const;
+            virtual UIEventArgs* Clone() const;
 
-            private:
-                UIWindowPtr target;
-        };
-    }
+            inline UIVisual* GetTarget() const;
 
-#   include <Halak/UIEventArgs.inl>
+        private:
+            UIVisualPtr target;
+    };
+}
 
-#endif
+#include <Halak/UIEventArgs.inl>

@@ -18,7 +18,7 @@ namespace Halak
             .Add(new PropertyInfo(HKMakeFOURCC('F', 'R', 'M', 'E'), "Frame", &UIVisual::GetFrame, &UIVisual::SetFrame)).Close()
             .Add(new PropertyInfo(HKMakeFOURCC('P', 'A', 'R', 'N'), "Parent", &UIVisual::GetParent)).Close()
             .Add(new PropertyInfo(HKMakeFOURCC('V', 'I', 'S', 'B'), "IsVisible", &UIVisual::IsVisible)).Close()
-            .Add(new PropertyInfo(HKMakeFOURCC('W', 'I', 'N', 'D'), "IsWindow", &UIVisual::IsWindow)).Close()
+            .Add(new PropertyInfo(HKMakeFOURCC('P', 'A', 'N', 'L'), "IsPanel", &UIVisual::IsPanel)).Close()
             .Close();
     }
 }

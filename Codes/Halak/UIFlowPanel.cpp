@@ -39,24 +39,25 @@ namespace Halak
 
     RectangleF UIFlowPanel::ArrangedFrame::ComputeBounds(UIVisual* owner, UIVisualVisitor& context)
     {
-        const RectangleF bounds = context.GetCurrentBounds();
-        const RectangleF previousBounds = context.GetPreviousBounds();
+        //const RectangleF bounds = context.GetCurrentBounds();
+        //const RectangleF previousBounds = context.GetPreviousBounds();
 
-        RectangleF result = RectangleF::Empty;
-        if (owner->GetParent()->GetChildren()[0] != owner)
-        {
-            result.X = previousBounds.GetRight();
-            result.Y = previousBounds.GetTop();
-            result.Width = Size.X;
-            result.Height = Size.Y;
-        }
-        else
-        {
-            result.X = bounds.GetLeft();
-            result.Y = bounds.GetTop();
-            result.Width = Size.X;
-            result.Height = Size.Y;
-        }
-        return result;
+        //RectangleF result = RectangleF::Empty;
+        //if (owner->GetParent()->GetChildren()[0] != owner)
+        //{
+        //    result.X = previousBounds.GetRight();
+        //    result.Y = previousBounds.GetTop();
+        //    result.Width = Size.X;
+        //    result.Height = Size.Y;
+        //}
+        //else
+        //{
+        //    result.X = bounds.GetLeft();
+        //    result.Y = bounds.GetTop();
+        //    result.Width = Size.X;
+        //    result.Height = Size.Y;
+        //}
+        //return result;
+        return context.GetCurrentBounds();
     }
 }

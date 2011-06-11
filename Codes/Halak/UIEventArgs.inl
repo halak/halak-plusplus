@@ -1,6 +1,6 @@
 namespace Halak
 {
-    UIWindow* UIEventArgs::GetTarget() const
+    UIVisual* UIEventArgs::GetTarget() const
     {
         return target;
     }

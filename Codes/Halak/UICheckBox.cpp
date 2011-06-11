@@ -2,12 +2,12 @@
 #include <Halak/UICheckBox.h>
 #include <Halak/UIFittedFrame.h>
 #include <Halak/UIMouseEventArgs.h>
+#include <Halak/UIWindow.h>
 
 namespace Halak
 {
     UICheckBox::UICheckBox()
-        : UIButton(),
-          checkedNormalWindow(new UIWindow()),
+        : checkedNormalWindow(new UIWindow()),
           checkedPushedWindow(new UIWindow()),
           checkedHoveringWindow(new UIWindow()),
           checked(false)
@@ -18,9 +18,9 @@ namespace Halak
         checkedPushedWindow->Hide();
         checkedHoveringWindow->SetFrame(new UIFittedFrame());
         checkedHoveringWindow->Hide();
-        AddChild(checkedHoveringWindow);
-        AddChild(checkedPushedWindow);
-        AddChild(checkedNormalWindow);
+        Add(checkedHoveringWindow);
+        Add(checkedPushedWindow);
+        Add(checkedNormalWindow);
     }
 
     UICheckBox::~UICheckBox()
