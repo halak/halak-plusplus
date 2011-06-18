@@ -13,11 +13,13 @@
                 UISprite();
                 virtual ~UISprite();
 
+                virtual RectangleF ComputeBounds(UIVisualVisitor& visitor);
+
                 inline UIImage* GetImage() const;
                 void SetImage(UIImage* value);
 
                 inline bool GetAutoResize() const;
-                void SetAutoResize(bool value);
+                inline void SetAutoResize(bool value);
 
                 inline bool GetHorizontalFlip() const;
                 inline void SetHorizontalFlip(bool value);
@@ -27,9 +29,6 @@
 
             protected:
                 virtual void OnDraw(UIDrawingContext& context);
-
-            private:
-                void ResizeToImageSize();
 
             private:
                 UIImagePtr image;

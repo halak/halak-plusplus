@@ -153,16 +153,6 @@ namespace Halak
         return !operator == (right);
     }
 
-    Matrix4::operator float* ()
-    {
-        return &M00;
-    }
-
-    Matrix4::operator const float* () const
-    {
-        return &M00;
-    }
-
     Matrix4 Matrix4::Translation(Vector3 value)
     {
         return Matrix4(1.0f,    0.0f,    0.0f,    0.0f,

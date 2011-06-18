@@ -1,10 +1,5 @@
 namespace Halak
 {
-    float UIVisualVisitor::GetFieldOfView() const
-    {
-        return fieldOfView;
-    }
-
     bool UIVisualVisitor::GetVisibleOnly() const
     {
         return visibleOnly;
@@ -33,5 +28,15 @@ namespace Halak
     const Matrix4& UIVisualVisitor::GetCurrentTransform() const
     {
         return currentTransform;
+    }
+
+    const Matrix4& UIVisualVisitor::GetViewTransform() const
+    {
+        return viewTransform;
+    }
+
+    const Matrix4& UIVisualVisitor::GetProjectionTransform() const
+    {
+        return projectionTransform;
     }
 }

@@ -14,6 +14,7 @@ namespace Halak
         : lastTimestamp(0xFFFFFFFF),
           domain(nullptr),
           device(nullptr),
+          renderer(nullptr),
           capturedVisual(nullptr),
           lastTargetVisual(nullptr),
           lastMouseState(MouseState::Empty)
@@ -29,6 +30,7 @@ namespace Halak
         if (lastTimestamp == timestamp ||
             domain == nullptr ||
             device == nullptr ||
+            renderer == nullptr ||
             GetStatus() != ActiveStatus)
             return;
 
@@ -39,7 +41,7 @@ namespace Halak
             return;
 
         const MouseState& mouseState = device->GetState();
-        UIPickingContext picker(Vector2(mouseState.Position.X, mouseState.Position.Y));
+        UIPickingContext picker(renderer, Vector2(mouseState.Position.X, mouseState.Position.Y));
 
         struct Pick
         {

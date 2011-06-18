@@ -10,6 +10,11 @@ namespace Halak
         return autoResize;
     }
 
+    void UISprite::SetAutoResize(bool value)
+    {
+        autoResize = value;
+    }
+
     bool UISprite::GetHorizontalFlip() const
     {
         return horizontalFlip;

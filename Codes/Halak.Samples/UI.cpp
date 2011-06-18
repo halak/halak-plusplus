@@ -14,7 +14,7 @@
 #include <Halak/UIAlignedFrame.h>
 #include <Halak/UIButton.h>
 #include <Halak/UICheckBox.h>
-#include <Halak/UIDrawingContext.h>
+#include <Halak/UIHandledDrawingContext.h>
 #include <Halak/UIFixedFrame.h>
 #include <Halak/UIFittedFrame.h>
 #include <Halak/UIImage.h>
@@ -26,6 +26,7 @@
 #include <Halak/UIRenderer.h>
 #include <Halak/UISimpleDomain.h>
 #include <Halak/UISprite.h>
+#include <Halak/UITransform3D.h>
 #include <Halak/UIWindow.h>
 using namespace Halak;
 
@@ -51,8 +52,8 @@ class UISampleApp : public GameFramework
         GetStructure()->GetRoot()->AttachChild(spriteRenderer);
         FreeType* freeType = new FreeType(GetGraphicsDevice());
         GetStructure()->GetRoot()->AttachChild(freeType);
-        //uiRenderer = new UIRenderer(spriteRenderer);
-        //GetStructure()->GetRoot()->AttachChild(uiRenderer);
+        uiRenderer = new UIRenderer(GetGraphicsDevice());
+        GetStructure()->GetRoot()->AttachChild(uiRenderer);
 
         //UIMarkupText t1 = "My name is shin";
         //UIMarkupText t2 = "My name \n is shin";
@@ -69,11 +70,15 @@ class UISampleApp : public GameFramework
         UIMouseEventDispatcher* uiMouse = new UIMouseEventDispatcher();
         uiMouse->SetDomain(uiDomain);
         uiMouse->SetDevice(mouse);
+        uiMouse->SetRenderer(uiRenderer);
         GetStructure()->GetRoot()->AttachChild(uiMouse);
 
         root = new UIWindow();
         const Point window = GetGraphicsDevice()->GetWindow()->GetSize();
         root->SetFrame(new UIFixedFrame(RectangleF(100, 100, window.X - 200, window.Y - 200)));
+        UITransform3D* transform = new UITransform3D();
+        transform->SetRotation(Vector3(0.0f, 0.0f, 0.2f));
+        root->SetTransform(transform);
 
         {
         UIButtonPtr button = new UIButton();
@@ -156,16 +161,43 @@ class UISampleApp : public GameFramework
     {
         GameFramework::Update(dt, timestamp);
         ForceUpdateAllComponents(dt, timestamp);
+
+        UIDomain* domain = static_cast<UIDomain*>(GetStructure()->GetRoot()->FindChildByClassID(UISimpleDomain::ClassID, true));
+        Keyboard* keyboard = static_cast<Keyboard*>(GetStructure()->GetRoot()->FindChildByClassID(Keyboard::ClassID, true));
+        UITransform3D* transform = static_cast<UITransform3D*>(domain->GetRoot()->GetTransform());
+        Vector3 rotation = transform->GetRotation();
+        
+        KeyboardState state = keyboard->GetState();
+
+        if (state.IsPressed(Key::Up))
+            rotation.X += 1.0f * dt;
+        if (state.IsPressed(Key::Down))
+            rotation.X -= 1.0f * dt;
+        if (state.IsPressed(Key::Left))
+            rotation.X += 1.0f * dt;
+        if (state.IsPressed(Key::Right))
+            rotation.X -= 1.0f * dt;
+
+        transform->SetRotation(rotation);
     }
 
     virtual void Draw()
     {
         GetGraphicsDevice()->Clear();
 
-        spriteRenderer->Begin();
-        UIDrawingContext context(spriteRenderer);
+        struct Handler : UIHandledDrawingContext::IHandler
+        {
+            protected:
+                virtual void OnEnded(UIHandledDrawingContext& context)
+                {
+                }
+        };
+
+        Handler handler;
+
+        UIHandledDrawingContext context(uiRenderer);
+        context.SetHandler(&handler);
         context.Draw(root);
-        spriteRenderer->End();
     }
 };
 

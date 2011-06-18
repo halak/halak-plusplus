@@ -25,12 +25,16 @@
                 inline Mouse* GetDevice() const;
                 void SetDevice(Mouse* value);
 
+                inline UIRenderer* GetRenderer() const;
+                inline void SetRenderer(UIRenderer* value);
+
                 virtual IUpdateable* QueryUpdateableInterface();
 
             private:
                 uint lastTimestamp;
                 UIDomain* domain;
                 Mouse* device;
+                UIRenderer* renderer;
                 UIVisualPtr capturedVisual;
                 UIVisualPtr lastTargetVisual;
                 MouseState  lastMouseState;

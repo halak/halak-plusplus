@@ -19,9 +19,12 @@ namespace Halak
     {
     }
 
-    RectangleF UIFixedFrame::ComputeBounds(UIVisual* /*owner*/, UIVisualVisitor& /*visitor*/)
+    RectangleF UIFixedFrame::ComputeBounds(UIVisualVisitor& /*visitor*/, Vector2 desiredSize)
     {
-        return rectangle;
+        if (desiredSize == Vector2::Zero)
+            return rectangle;
+        else
+            return RectangleF(rectangle.X, rectangle.Y, desiredSize.X, desiredSize.Y);
     }
 
     void UIFixedFrame::Move(Vector2 displacement)

@@ -20,53 +20,37 @@ namespace Halak
     {
     }
 
-    void UISprite::SetImage(UIImage* value)
+    RectangleF UISprite::ComputeBounds(UIVisualVisitor& visitor)
     {
-        if (GetImage() != value)
-        {
-            image = value;
+        Vector2 desiredSize = Vector2::Zero;
 
-            if (GetAutoResize() && GetImage() && GetFrame() && GetFrame()->IsResizable())
-                ResizeToImageSize();
+        if (GetAutoResize() && GetImage())
+        {
+            const Rectangle clippingRectangle = GetImage()->GetClippingRectangle();
+            if (clippingRectangle.IsEmpty() == false)
+                desiredSize = Vector2(clippingRectangle.Width, clippingRectangle.Height);
+            else
+            {
+                const Rectangle realClippingRectangle = GetImage()->GetRealClippingRectangle();
+                desiredSize = Vector2(realClippingRectangle.Width, realClippingRectangle.Width);
+            }
         }
+
+        return GetFrame()->ComputeBounds(visitor, desiredSize);
     }
 
-    void UISprite::SetAutoResize(bool value)
+    void UISprite::SetImage(UIImage* value)
     {
-        if (GetAutoResize() != value)
-        {
-            autoResize = value;
-
-            if (GetAutoResize() && GetImage() && GetFrame() && GetFrame()->IsResizable())
-                ResizeToImageSize();
-        }
+        image = value;
     }
 
     void UISprite::OnDraw(UIDrawingContext& context)
     {
         UIVisual::OnDraw(context);
 
-        context.DrawRectangle(context.GetCurrentBounds(), Colors::White);
-        context.DrawRectangle(context.GetCurrentClippedBounds(), Colors::Yellow);
-
         if (GetImage() == nullptr || GetImage()->GetRealTexture() == nullptr)
             return;
 
         context.Draw(GetImage(), GetHorizontalFlip(), GetVerticalFlip());
-    }
-
-    void UISprite::ResizeToImageSize()
-    {
-        HKAssertDebug(GetAutoResize() && GetImage() && GetFrame() && GetFrame()->IsResizable());
-
-        const Rectangle& clippingRectangle = GetImage()->GetClippingRectangle();
-        if (clippingRectangle.IsEmpty() == false)
-            GetFrame()->ResizeTo(Vector2(clippingRectangle.Width, clippingRectangle.Height));
-        else
-        {
-            const Rectangle& realClippingRectangle = GetImage()->GetRealClippingRectangle();
-            if (realClippingRectangle.IsEmpty() == false)
-                GetFrame()->ResizeTo(Vector2(realClippingRectangle.Width, realClippingRectangle.Height));
-        }
     }
 }

@@ -4,6 +4,7 @@
 
 #   include <Halak/FWD.h>
 #   include <Halak/Matrix4.h>
+#   include <Halak/Rectangle.h>
 #   include <Halak/RectangleF.h>
 
     namespace Halak
@@ -12,16 +13,18 @@
         {
             HKThisIsNoncopyableClass(UIVisualVisitor);
             public:
-                UIVisualVisitor();
-                UIVisualVisitor(float fieldOfView, bool visibleOnly);
+                UIVisualVisitor(const Matrix4& viewTransform, const Matrix4& projectionTransform, bool visibleOnly);
+                UIVisualVisitor(const Matrix4& viewTransform, const Matrix4& viewTransformInv, const Matrix4& projectionTransform, bool visibleOnly);
                 virtual ~UIVisualVisitor();
 
                 Vector2 Project(Vector2 point) const;
                 Vector2 Unproject(Vector2 point) const;
                 Vector2 UnprojectByParent(Vector2 point) const;
 
+                void Project(Vector2& inOutPoint0, Vector2& inOutPoint1, Vector2& inOutPoint2, Vector2& inOutPoint3) const;
                 void Project(Vector2* inOutPoints, int count) const;
 
+                inline const RectangleF& GetViewport() const;
                 inline float GetFieldOfView() const;
                 inline bool GetVisibleOnly() const;
 
@@ -31,14 +34,19 @@
                 inline const RectangleF& GetCurrentClippedBounds() const;
                 inline const Matrix4& GetCurrentTransform() const;
 
+                inline const Matrix4& GetViewTransform() const;
+                inline const Matrix4& GetProjectionTransform() const;
+
             protected:
                 void Visit(UIVisual* target);
 
                 virtual void OnVisit(UIVisual* target) = 0;
 
             private:
-                float fieldOfView;
-                bool visibleOnly;
+                Vector2 UnprojectPoint(Vector2 point, const Matrix4& inversedTransform) const;
+
+            private:
+                 bool visibleOnly;
 
                 UIVisualPtr currentVisual;
                 float currentOpacity;
@@ -48,9 +56,9 @@
                 Matrix4 currentTransformInv;
                 Matrix4 parentTransform;
                 Matrix4 parentTransformInv;
-                Matrix4 projectionTransform;
                 Matrix4 viewTransform;
                 Matrix4 viewTransformInv;
+                Matrix4 projectionTransform;
         };
     }
 

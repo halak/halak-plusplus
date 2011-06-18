@@ -9,10 +9,6 @@
     {
         namespace wxWidgets
         {
-#           define HKForwardDeclareSmartPointerClass(name) class name; \
-                                                           typedef SharedPointer<name> name##Ptr; \
-                                                           typedef WeakPointer<name>   name##WeakPtr;
-
             ////////////////////////////////////////////////////////////////////////////////////////////////////
             // Foundation
                 class AppFramework;
@@ -41,8 +37,6 @@
                     class wxPropertiesWindow;
                     class wxRenderPanel;
                         class wxUILayoutRenderPanel;
-
-#           undef HKForwardDeclareSmartPointerClass
         }
     }
 

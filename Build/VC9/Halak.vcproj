@@ -2483,6 +2483,38 @@
 						</File>
 					</Filter>
 				</Filter>
+				<Filter
+					Name="Transforms"
+					>
+					<File
+						RelativePath="..\..\Codes\Halak\UITransform.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UITransform.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UITransform.inl"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UITransform3D.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UITransform3D.h"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UITransform3D.inl"
+						>
+					</File>
+					<File
+						RelativePath="..\..\Codes\Halak\UITransform3D.Windows.cpp"
+						>
+					</File>
+				</Filter>
 			</Filter>
 			<Filter
 				Name="Collision2D"

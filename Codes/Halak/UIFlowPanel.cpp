@@ -37,7 +37,7 @@ namespace Halak
     {
     }
 
-    RectangleF UIFlowPanel::ArrangedFrame::ComputeBounds(UIVisual* owner, UIVisualVisitor& context)
+    RectangleF UIFlowPanel::ArrangedFrame::ComputeBounds(UIVisualVisitor& visitor, Vector2 /*desiredSize*/)
     {
         //const RectangleF bounds = context.GetCurrentBounds();
         //const RectangleF previousBounds = context.GetPreviousBounds();
@@ -58,6 +58,6 @@ namespace Halak
         //    result.Height = Size.Y;
         //}
         //return result;
-        return context.GetCurrentBounds();
+        return visitor.GetCurrentBounds();
     }
 }

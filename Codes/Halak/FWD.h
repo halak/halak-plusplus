@@ -356,6 +356,10 @@
                             HKForwardDeclareSmartPointerClass(UIFunctionEventHandler);
                             HKForwardDeclareSmartPointerClass(UISequentialEventHandler);
                 ////////////////////////////////////////////////////////////////////////////////////////////////////
+                // Transforms
+                    HKForwardDeclareSmartPointerClass(UITransform);
+                        HKForwardDeclareSmartPointerClass(UITransform3D);
+                ////////////////////////////////////////////////////////////////////////////////////////////////////
                 // Visuals
                     HKForwardDeclareSmartPointerClass(UIVisual);
                         HKForwardDeclareSmartPointerClass(UILabel);
