@@ -19,7 +19,12 @@
                 explicit UIPanel(int childrenCapacity);
                 virtual ~UIPanel();
 
+                virtual RectangleF ComputeBounds(UIVisualVisitor& visitor);
+
                 UIVisual* FindChild(const String& name, bool searchAllChildren) const;
+
+                inline Vector2 GetDesiredSize() const;
+                void SetDesiredSize(Vector2 value);
 
                 inline const VisualCollection& GetChildren() const;
 
@@ -48,6 +53,7 @@
                 void SendChildToBack(UIVisual* child);
 
             private:
+                Vector2 desiredSize;
                 VisualCollection children;
 
                 friend class UIVisual;

@@ -2,16 +2,18 @@
 #include <Halak/UIDrawingContext.h>
 #include <Halak/Font.h>
 #include <Halak/FontString.h>
-#include <Halak/SpriteRenderer.h>
 #include <Halak/UIImage.h>
+#include <Halak/UIRenderer.h>
 #include <Halak/UIVisual.h>
 
 #include <Halak/Texture2D.h>
 
 namespace Halak
 {
-    UIDrawingContext::UIDrawingContext(SpriteRenderer* renderer)
-        : renderer(renderer)
+    UIDrawingContext::UIDrawingContext(UIRenderer* renderer)
+        : UIVisualVisitor(renderer->GetViewTransform(), renderer->GetInversedViewTransform(), renderer->GetProjectionTransform(), true),
+          renderer(renderer),
+          depth(0)
     {
     }
     
@@ -19,9 +21,30 @@ namespace Halak
     {
     }
 
+    void UIDrawingContext::Draw(UIVisual* target)
+    {
+        if (depth == 0)
+        {
+            renderer->Begin();
+            OnBegan();
+        }
+
+        depth++;
+
+        Visit(target);
+
+        depth--;
+        
+        if (depth == 0)
+        {
+            OnEnded();
+            renderer->End();
+        }
+    }
+
     void UIDrawingContext::Draw(const RectangleF& bounds, const RectangleF& clippedBounds, UIImage* image, bool horizontalFlip, bool verticalFlip)
     {
-        HKAssertDebug(image && image->GetRealTexture());
+        HKAssertDebug(image && image->GetRealTexture() && renderer);
 
         const float boundsClippedLeft   = (clippedBounds.GetLeft() - bounds.GetLeft()) / bounds.Width;
         const float boundsClippedTop    = (clippedBounds.GetTop() - bounds.GetTop()) / bounds.Height;
@@ -39,36 +62,45 @@ namespace Halak
         clippingRectangle.Width  = (horizontalFlip == false) ? clippingRight - clippingLeft : clippingLeft - clippingRight;
         clippingRectangle.Height = (verticalFlip   == false) ? clippingBottom - clippingTop : clippingTop - clippingBottom;
 
-        const float w = static_cast<float>(image->GetRealTexture()->GetSurfaceWidth());
-        const float h = static_cast<float>(image->GetRealTexture()->GetSurfaceHeight());
-        Rectangle pixelClippingRectangle = Rectangle::Empty;
-        pixelClippingRectangle.X = static_cast<int>(clippingRectangle.X * w);
-        pixelClippingRectangle.Y = static_cast<int>(clippingRectangle.Y * h);
-        pixelClippingRectangle.Width = static_cast<int>(clippingRectangle.Width * w);
-        pixelClippingRectangle.Height = static_cast<int>(clippingRectangle.Height * h);
+        Vector2 points[] =
+        {
+            Vector2(clippedBounds.GetLeft(),  clippedBounds.GetTop()),
+            Vector2(clippedBounds.GetRight(), clippedBounds.GetTop()),
+            Vector2(clippedBounds.GetLeft(),  clippedBounds.GetBottom()),
+            Vector2(clippedBounds.GetRight(), clippedBounds.GetBottom()),
+        };
+        Project(points[0], points[1], points[2], points[3]);
 
-        Vector2 scale = Vector2::One;
-        scale.X = clippedBounds.Width / static_cast<float>(pixelClippingRectangle.Width);
-        scale.Y = clippedBounds.Height / static_cast<float>(pixelClippingRectangle.Height);
-        renderer->Draw(Vector3(clippedBounds.X, clippedBounds.Y, 0.0f), Vector3::Zero, scale,
-                       image->GetRealTexture(), pixelClippingRectangle,
-                       Color(Vector4(1.0f, 1.0f, 1.0f, GetCurrentOpacity())));
+        renderer->Draw(points[0], points[1], points[2], points[3], clippingRectangle, image->GetRealTexture(), Color(Vector4(1.0f, 1.0f, 1.0f, GetCurrentOpacity())));
     }
 
     void UIDrawingContext::DrawString(const RectangleF& bounds, const RectangleF& clippedBounds, Font* font, const String& text)
     {
-        renderer->DrawString(Vector2(clippedBounds.X, clippedBounds.Y), FontString(font, text), static_cast<float>(text.GetLength()), bounds.Width);
+        //renderer->DrawString(Vector2(clippedBounds.X, clippedBounds.Y), FontString(font, text), static_cast<float>(text.GetLength()), bounds.Width);
     }
 
     void UIDrawingContext::DrawString(const RectangleF& bounds, const RectangleF& clippedBounds, const FontString& fontString)
     {
-        renderer->DrawString(Vector2(clippedBounds.X, clippedBounds.Y), fontString, static_cast<float>(fontString.GetOriginal().GetLength()), bounds.Width);
+        //renderer->DrawString(Vector2(clippedBounds.X, clippedBounds.Y), fontString, static_cast<float>(fontString.GetOriginal().GetLength()), bounds.Width);
     }
 
-    void UIDrawingContext::DrawRectangle(const RectangleF& bounds, Color color)
+    void UIDrawingContext::DrawRectangle(const RectangleF& bounds, float width, Color color)
     {
         color.A = static_cast<byte>(static_cast<float>(color.A) * GetCurrentOpacity());
-        renderer->DrawRectangle(bounds, color);
+        //renderer->DrawRectangle(bounds, color);
+    }
+
+    void UIDrawingContext::FillRectangle(const RectangleF& bounds, float width, Color color)
+    {
+        color.A = static_cast<byte>(static_cast<float>(color.A) * GetCurrentOpacity());
+    }
+
+    void UIDrawingContext::OnBegan()
+    {
+    }
+
+    void UIDrawingContext::OnEnded()
+    {
     }
 
     void UIDrawingContext::OnVisit(UIVisual* target)

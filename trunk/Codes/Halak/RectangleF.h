@@ -32,6 +32,7 @@
             inline void SetBottom(float value);
 
             inline bool Contains(Vector2 p) const;
+            bool Intersects(const RectangleF& other) const;
 
             inline bool IsEmpty() const;
 

@@ -12,11 +12,11 @@ namespace Halak
           checkedHoveringWindow(new UIWindow()),
           checked(false)
     {
-        checkedNormalWindow->SetFrame(new UIFittedFrame());
+        checkedNormalWindow->SetFrame(UIFittedFrame::Instance);
         checkedNormalWindow->Hide();
-        checkedPushedWindow->SetFrame(new UIFittedFrame());
+        checkedPushedWindow->SetFrame(UIFittedFrame::Instance);
         checkedPushedWindow->Hide();
-        checkedHoveringWindow->SetFrame(new UIFittedFrame());
+        checkedHoveringWindow->SetFrame(UIFittedFrame::Instance);
         checkedHoveringWindow->Hide();
         Add(checkedHoveringWindow);
         Add(checkedPushedWindow);

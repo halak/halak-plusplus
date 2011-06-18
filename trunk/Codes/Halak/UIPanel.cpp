@@ -11,16 +11,23 @@
 namespace Halak
 {
     UIPanel::UIPanel()
+        : desiredSize(Vector2::Zero)
     {
     }
 
     UIPanel::UIPanel(int childrenCapacity)
+        : desiredSize(Vector2::Zero)
     {
         children.reserve(childrenCapacity);
     }
 
     UIPanel::~UIPanel()
     {
+    }
+
+    RectangleF UIPanel::ComputeBounds(UIVisualVisitor& visitor)
+    {
+        return GetFrame()->ComputeBounds(visitor, desiredSize);
     }
 
     UIVisual* UIPanel::FindChild(const String& name, bool searchAllChildren) const
@@ -50,6 +57,12 @@ namespace Halak
 
         return nullptr;
     }
+
+     void UIPanel::SetDesiredSize(Vector2 value)
+     {
+         desiredSize.X = Math::Max(value.X,  0.0f);
+         desiredSize.Y = Math::Max(value.Y,  0.0f);
+     }
 
     bool UIPanel::IsPanel() const
     {
@@ -140,7 +153,7 @@ namespace Halak
 
     void UIPanel::OnPick(UIPickingContext& context)
     {
-        if (context.GetCurrentClippedBounds().Contains(context.GetPoint()))
+        if (context.Contains(context.GetCurrentClippedBounds()))
         {
             for (VisualCollection::const_reverse_iterator it = children.rbegin(); it != children.rend(); it++)
             {

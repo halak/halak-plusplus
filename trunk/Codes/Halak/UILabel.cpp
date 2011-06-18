@@ -48,9 +48,6 @@ namespace Halak
     {
         UIVisual::OnDraw(context);
 
-        context.DrawRectangle(context.GetCurrentBounds(), Colors::White);
-        context.DrawRectangle(context.GetCurrentClippedBounds(), Colors::Yellow);
-
         if (GetFont() == nullptr || GetText().IsEmpty())
             return;
 

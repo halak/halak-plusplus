@@ -10,10 +10,10 @@
         class UIDrawingContext : public UIVisualVisitor
         {
             public:
-                UIDrawingContext(SpriteRenderer* renderer);
+                UIDrawingContext(UIRenderer* renderer);
                 virtual ~UIDrawingContext();
 
-                inline void Draw(UIVisual* target);
+                void Draw(UIVisual* target);
 
                 inline void Draw(UIImage* image);
                 inline void Draw(UIImage* image, bool horizontalFlip, bool verticalFlip);
@@ -22,13 +22,18 @@
                 void DrawString(const RectangleF& bounds, const RectangleF& clippedBounds, Font* font, const String& text);
                 inline void DrawString(const FontString& fontString);
                 void DrawString(const RectangleF& bounds, const RectangleF& clippedBounds, const FontString& fontString);
-                void DrawRectangle(const RectangleF& bounds, Color color);
+                void DrawRectangle(const RectangleF& bounds, float width, Color color);
+
+                void FillRectangle(const RectangleF& bounds, float width, Color color);
 
             protected:
+                virtual void OnBegan();
+                virtual void OnEnded();
                 virtual void OnVisit(UIVisual* target);
 
             private:
-                SpriteRenderer* renderer;
+                UIRenderer* renderer;
+                int depth;
         };
     }
 

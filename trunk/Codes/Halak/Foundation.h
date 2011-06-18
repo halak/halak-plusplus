@@ -41,6 +41,11 @@
                                          (static_cast<uint32>(d) << 0))
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Macro Functions
+#       define HKStackAlloc(type, count) reinterpret_cast<type*>(_malloca(sizeof(type) * count))
+#       define HKStackFree(pointer) (_freea(pointer))
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
         // ClassIdioms
 
         // Static class : static methods로만 이루어져 있고 인스턴스화(Instantiate) 될 수 없는 class를 말합니다.

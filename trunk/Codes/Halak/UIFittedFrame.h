@@ -10,10 +10,13 @@
         class UIFittedFrame : public UIFrame
         {
             public:
+                static UIFittedFramePtr Instance;
+
+            public:
                 UIFittedFrame();
                 virtual ~UIFittedFrame();
 
-                virtual RectangleF ComputeBounds(UIVisual* owner, UIVisualVisitor& visitor);
+                virtual RectangleF ComputeBounds(UIVisualVisitor& visitor, Vector2 desiredSize);
         };
     }
 

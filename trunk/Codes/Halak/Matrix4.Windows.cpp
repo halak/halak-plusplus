@@ -7,7 +7,7 @@
 
     namespace Halak
     {
-        Matrix4 Inversion(const Matrix4& value)
+        Matrix4 Matrix4::Inversion(const Matrix4& value)
         {
             D3DXMATRIX result;
             D3DXMatrixInverse(&result, NULL, reinterpret_cast<const D3DXMATRIX*>(&value.M00));

@@ -1,18 +1,20 @@
 #include <Halak/PCH.h>
 #include <Halak/UIPickingContext.h>
+#include <Halak/UIRenderer.h>
 #include <Halak/UIVisual.h>
 
 namespace Halak
 {
-    UIPickingContext::UIPickingContext(Vector2 point)
-        : point(point),
+    UIPickingContext::UIPickingContext(UIRenderer* renderer, Vector2 point)
+        : UIVisualVisitor(renderer->GetViewTransform(), renderer->GetInversedViewTransform(), renderer->GetProjectionTransform(), true),
+          point(point),
           currentPoint(point),
           result(nullptr)
     {
     }
 
-    UIPickingContext::UIPickingContext(float fieldOfView, bool visibleOnly, Vector2 point)
-        : UIVisualVisitor(fieldOfView, visibleOnly),
+    UIPickingContext::UIPickingContext(UIRenderer* renderer, Vector2 point, bool visibleOnly)
+        : UIVisualVisitor(renderer->GetViewTransform(), renderer->GetInversedViewTransform(), renderer->GetProjectionTransform(), visibleOnly),
           point(point),
           currentPoint(point),
           result(nullptr)

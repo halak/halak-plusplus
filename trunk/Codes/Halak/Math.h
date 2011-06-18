@@ -60,6 +60,50 @@
                 static inline float  Max(float a, float b);
                 static inline double Max(double a, double b);
 
+                static inline char   Min(char a, char b, char c);
+                static inline uchar  Min(uchar a, uchar b, uchar c);
+                static inline short  Min(short a, short b, short c);
+                static inline ushort Min(ushort a, ushort b, ushort c);
+                static inline int    Min(int a, int b, int c);
+                static inline uint   Min(uint a, uint b, uint c);
+                static inline long   Min(long a, long b, long c);
+                static inline ulong  Min(ulong a, ulong b, ulong c);
+                static inline float  Min(float a, float b, float c);
+                static inline double Min(double a, double b, double c);
+
+                static inline char   Max(char a, char b, char c);
+                static inline uchar  Max(uchar a, uchar b, uchar c);
+                static inline short  Max(short a, short b, short c);
+                static inline ushort Max(ushort a, ushort b, ushort c);
+                static inline int    Max(int a, int b, int c);
+                static inline uint   Max(uint a, uint b, uint c);
+                static inline long   Max(long a, long b, long c);
+                static inline ulong  Max(ulong a, ulong b, ulong c);
+                static inline float  Max(float a, float b, float c);
+                static inline double Max(double a, double b, double c);
+
+                static inline char   Min(char a, char b, char c, char d);
+                static inline uchar  Min(uchar a, uchar b, uchar c, uchar d);
+                static inline short  Min(short a, short b, short c, short d);
+                static inline ushort Min(ushort a, ushort b, ushort c, ushort d);
+                static inline int    Min(int a, int b, int c, int d);
+                static inline uint   Min(uint a, uint b, uint c, uint d);
+                static inline long   Min(long a, long b, long c, long d);
+                static inline ulong  Min(ulong a, ulong b, ulong c, ulong d);
+                static inline float  Min(float a, float b, float c, float d);
+                static inline double Min(double a, double b, double c, double d);
+
+                static inline char   Max(char a, char b, char c, char d);
+                static inline uchar  Max(uchar a, uchar b, uchar c, uchar d);
+                static inline short  Max(short a, short b, short c, short d);
+                static inline ushort Max(ushort a, ushort b, ushort c, ushort d);
+                static inline int    Max(int a, int b, int c, int d);
+                static inline uint   Max(uint a, uint b, uint c, uint d);
+                static inline long   Max(long a, long b, long c, long d);
+                static inline ulong  Max(ulong a, ulong b, ulong c, ulong d);
+                static inline float  Max(float a, float b, float c, float d);
+                static inline double Max(double a, double b, double c, double d);
+
                 static inline char   Clamp(char value, char min, char max);
                 static inline uchar  Clamp(uchar value, uchar min, uchar max);
                 static inline short  Clamp(short value, short min, short max);

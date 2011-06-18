@@ -4,6 +4,7 @@
 
 #   include <Halak/FWD.h>
 #   include <Halak/UIElement.h>
+#   include <Halak/Vector2.h>
 
     namespace Halak
     {
@@ -23,7 +24,7 @@
                 void BringToFront();
                 void SendToBack();
 
-                virtual RectangleF ComputeBounds(UIVisualVisitor& context);
+                virtual RectangleF ComputeBounds(UIVisualVisitor& visitor);
 
                 inline float GetOpacity() const;
                 void SetOpacity(float value);
@@ -33,6 +34,9 @@
 
                 inline UIFrame* GetFrame() const;
                 void SetFrame(UIFrame* value);
+
+                inline UITransform* GetTransform() const;
+                void SetTransform(UITransform* value);
 
                 inline UIEventMap* GetEventMap() const;
                 void SetEventMap(UIEventMap* value);
@@ -87,8 +91,10 @@
 
             private:
                 float opacity;
+                Vector2 size;
                 bool shown;
                 UIFramePtr frame;
+                UITransformPtr transform;
                 UIEventMapPtr eventMap;
                 UIPanel* parent;
 

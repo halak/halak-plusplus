@@ -33,6 +33,7 @@ namespace Halak
           size(size),
           lastBounds(RectangleF::Empty),
           lastReferenceBounds(RectangleF::Empty),
+          lastDesiredSize(Vector2::Zero),
           boundsChanged(true)
     {
     }
@@ -41,12 +42,12 @@ namespace Halak
     {
     }
 
-    RectangleF UIAlignedFrame::ComputeBounds(UIVisual* /*owner*/, UIVisualVisitor& visitor)
+    RectangleF UIAlignedFrame::ComputeBounds(UIVisualVisitor& visitor, Vector2 desiredSize)
     {
         const RectangleF referenceBounds = visitor.GetCurrentBounds();
-        if (boundsChanged || lastReferenceBounds != referenceBounds)
+        if (boundsChanged || lastReferenceBounds != referenceBounds || lastDesiredSize != desiredSize)
         {
-            RectangleF bounds = RectangleF(0.0f, 0.0f, size.X, size.Y);
+            RectangleF bounds = (desiredSize != Vector2::Zero) ? RectangleF(0.0f, 0.0f, desiredSize.X, desiredSize.Y) : RectangleF(0.0f, 0.0f, size.X, size.Y);
 
             switch (align)
             {
@@ -88,6 +89,7 @@ namespace Halak
 
             lastBounds = bounds;
             lastReferenceBounds = referenceBounds;
+            lastDesiredSize = desiredSize;
             boundsChanged = false;
         }
 

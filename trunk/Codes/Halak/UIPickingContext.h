@@ -10,8 +10,8 @@
         class UIPickingContext : public UIVisualVisitor
         {
             public:
-                UIPickingContext(Vector2 point);
-                UIPickingContext(float fieldOfView, bool visibleOnly, Vector2 point);
+                UIPickingContext(UIRenderer* renderer, Vector2 point);
+                UIPickingContext(UIRenderer* renderer, Vector2 point, bool visibleOnly);
                 virtual ~UIPickingContext();
 
                 bool Pick(UIVisual* target);

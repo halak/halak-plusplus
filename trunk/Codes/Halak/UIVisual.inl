@@ -30,6 +30,11 @@ namespace Halak
         return frame;
     }
 
+    UITransform* UIVisual::GetTransform() const
+    {
+        return transform;
+    }
+
     UIEventMap* UIVisual::GetEventMap() const
     {
         return eventMap;

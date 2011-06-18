@@ -14,11 +14,11 @@ namespace Halak
           currentWindow(normalWindow),
           hideInactives(true)
     {
-        normalWindow->SetFrame(new UIFittedFrame());
+        normalWindow->SetFrame(UIFittedFrame::Instance);
         normalWindow->Show();
-        pushedWindow->SetFrame(new UIFittedFrame());
+        pushedWindow->SetFrame(UIFittedFrame::Instance);
         pushedWindow->Hide();
-        hoveringWindow->SetFrame(new UIFittedFrame());
+        hoveringWindow->SetFrame(UIFittedFrame::Instance);
         hoveringWindow->Hide();
         Add(hoveringWindow);
         Add(pushedWindow);

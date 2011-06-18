@@ -37,8 +37,8 @@
             bool operator == (const Matrix4& right) const;
             bool operator != (const Matrix4& right) const;
 
-            operator float* ();
-            operator const float* () const;
+            inline operator float* ();
+            inline operator const float* () const;
 
             static Matrix4 Translation(Vector3 value);
             static Matrix4 RotationX(float value);

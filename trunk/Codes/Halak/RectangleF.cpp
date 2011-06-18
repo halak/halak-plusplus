@@ -4,6 +4,11 @@
 
 namespace Halak
 {
+    bool RectangleF::Intersects(const RectangleF& other) const
+    {
+        return GetRight() >= other.GetLeft() && GetLeft() <= GetRight() && GetBottom() >= other.GetTop() && GetTop() <= GetBottom();
+    }
+
     RectangleF RectangleF::Intersect(const RectangleF& a, const RectangleF& b)
     {
         const float maximumLeft   = Math::Max(a.GetLeft(),   b.GetLeft());

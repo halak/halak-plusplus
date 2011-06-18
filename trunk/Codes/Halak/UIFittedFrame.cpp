@@ -4,6 +4,8 @@
 
 namespace Halak
 {
+    UIFittedFramePtr UIFittedFrame::Instance = new UIFittedFrame();
+
     UIFittedFrame::UIFittedFrame()
     {
     }
@@ -12,7 +14,7 @@ namespace Halak
     {
     }
 
-    RectangleF UIFittedFrame::ComputeBounds(UIVisual* /*owner*/, UIVisualVisitor& visitor)
+    RectangleF UIFittedFrame::ComputeBounds(UIVisualVisitor& visitor, Vector2 /*desiredSize*/)
     {
         return visitor.GetCurrentBounds();
     }

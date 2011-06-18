@@ -9,4 +9,14 @@ namespace Halak
     {
         return device;
     }
+
+    UIRenderer* UIMouseEventDispatcher::GetRenderer() const
+    {
+        return renderer;
+    }
+
+    void UIMouseEventDispatcher::SetRenderer(UIRenderer* value)
+    {
+        renderer = value;
+    }
 }

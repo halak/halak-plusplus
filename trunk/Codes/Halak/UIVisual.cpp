@@ -10,6 +10,7 @@
 #include <Halak/UIMouseWheelEventArgs.h>
 #include <Halak/UIPickingContext.h>
 #include <Halak/UIPanel.h>
+#include <Halak/UITransform.h>
 
 namespace Halak
 {
@@ -20,6 +21,7 @@ namespace Halak
         : opacity(1.0f),
           shown(true),
           frame(nullptr),
+          transform(nullptr),
           eventMap(nullptr),
           parent(nullptr)
     {
@@ -41,9 +43,9 @@ namespace Halak
             parent->SendChildToBack(this);
     }
 
-    RectangleF UIVisual::ComputeBounds(UIVisualVisitor& context)
+    RectangleF UIVisual::ComputeBounds(UIVisualVisitor& visitor)
     {
-        return GetFrame()->ComputeBounds(this, context);
+        return GetFrame()->ComputeBounds(visitor, Vector2::Zero);
     }
 
     void UIVisual::SetOpacity(float value)
@@ -54,6 +56,11 @@ namespace Halak
     void UIVisual::SetFrame(UIFrame* value)
     {
         frame = value;
+    }
+
+    void UIVisual::SetTransform(UITransform* value)
+    {
+        transform = value;
     }
 
     void UIVisual::SetEventMap(UIEventMap* value)
@@ -84,14 +91,13 @@ namespace Halak
 
     void UIVisual::OnPick(UIPickingContext& context)
     {
-        if (context.GetCurrentClippedBounds().Contains(context.GetPoint()))
+        if (context.Contains(context.GetCurrentClippedBounds()))
             context.SetResult(this);
     }
 
     void UIVisual::OnParentChanged(UIPanel* /*old*/)
     {
     }
-
 
     bool UIVisual::OnKeyDown(const UIKeyboardEventArgs& /*args*/)
     {

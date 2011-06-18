@@ -9,4 +9,12 @@ namespace Halak
     {
         handler = value;
     }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    UIHandledDrawingContext::BoundsVisualizer* UIHandledDrawingContext::BoundsVisualizer::GetInstance()
+    {
+        static BoundsVisualizer Instance;
+        return &Instance;
+    }
 }
