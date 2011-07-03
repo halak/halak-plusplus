@@ -9,8 +9,8 @@
 #include <Halak/NumericLimits.h>
 #include <Halak/Sprite.h>
 #include <Halak/Texture2D.h>
-#include <Halak/Internal/Glyph.h>
-#include <Halak/Internal/TypingContext.h>
+#include <Halak/Glyph.h>
+#include <Halak/TypingContext.h>
 
 namespace Halak
 {

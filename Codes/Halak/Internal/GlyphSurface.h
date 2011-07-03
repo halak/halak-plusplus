@@ -9,13 +9,12 @@
     {
         class GlyphSurface
         {
-            friend class GlyphTable;
             public:
                 Rectangle Allocate(const void* buffer, int width, int height, int pitch);
                 void Deallocate(const Rectangle& rectangle);
 
                 const RectangleStorage& GetStorage() const;
-                DynamicTexture2DPtr GetTexture() const;
+                Texture2D* GetTexture() const;
 
             private:
                 GlyphSurface(GraphicsDevice* graphicsDevice, int width, int height);
@@ -24,6 +23,8 @@
             private:
                 RectangleStorage* storage;
                 DynamicTexture2DPtr texture;
+
+                friend class GlyphTable;
         };
     }
 

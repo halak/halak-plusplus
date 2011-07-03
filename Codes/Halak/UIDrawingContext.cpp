@@ -1,5 +1,6 @@
 #include <Halak/PCH.h>
 #include <Halak/UIDrawingContext.h>
+#include <Halak/Assert.h>
 #include <Halak/Font.h>
 #include <Halak/FontString.h>
 #include <Halak/UIImage.h>
@@ -13,7 +14,7 @@ namespace Halak
     UIDrawingContext::UIDrawingContext(UIRenderer* renderer)
         : UIVisualVisitor(renderer->GetViewTransform(), renderer->GetInversedViewTransform(), renderer->GetProjectionTransform(), true),
           renderer(renderer),
-          depth(0)
+          isDrawing(false)
     {
     }
     
@@ -23,23 +24,17 @@ namespace Halak
 
     void UIDrawingContext::Draw(UIVisual* target)
     {
-        if (depth == 0)
-        {
-            renderer->Begin();
-            OnBegan();
-        }
+        HKAssert(isDrawing == false);
 
-        depth++;
+        isDrawing = true;
+        renderer->Begin();
+        OnBegan();
 
         Visit(target);
 
-        depth--;
-        
-        if (depth == 0)
-        {
-            OnEnded();
-            renderer->End();
-        }
+        OnEnded();
+        renderer->End();
+        isDrawing = false;
     }
 
     void UIDrawingContext::Draw(const RectangleF& bounds, const RectangleF& clippedBounds, UIImage* image, bool horizontalFlip, bool verticalFlip)
@@ -103,8 +98,8 @@ namespace Halak
     {
     }
 
-    void UIDrawingContext::OnVisit(UIVisual* target)
+    void UIDrawingContext::OnVisit()
     {
-        target->OnDraw(*this);
+        GetCurrentVisual()->OnDraw(*this);
     }
 }

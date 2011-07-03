@@ -11,6 +11,13 @@
         class Texture2D : public Asset
         {
             public:
+                enum PixelFormat
+                {
+                    ARGB32Pixels,
+                    A8Pixels,
+                };
+
+            public:
                 Texture2D(GraphicsDevice* graphicsDevice);
                 virtual ~Texture2D();
 

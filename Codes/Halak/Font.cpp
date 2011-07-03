@@ -1,44 +1,55 @@
 #include <Halak/PCH.h>
 #include <Halak/Font.h>
 #include <Halak/Assert.h>
+#include <Halak/FontLibrary.h>
 #include <Halak/FontString.h>
-#include <Halak/FreeType.h>
 #include <Halak/Math.h>
 #include <Halak/NumericLimits.h>
 #include <Halak/String.h>
-#include <Halak/Internal/FreeTypeFontRenderer.h>
-#include <Halak/Internal/Glyph.h>
+#include <Halak/Internal/FontCache.h>
 #include <Halak/Internal/GlyphTable.h>
-#include <Halak/Internal/TypingContext.h>
+#include <Halak/Glyph.h>
+#include <Halak/TypingContext.h>
 
 namespace Halak
 {
-    Font::Font(FreeType* freeType)
-        : freeType(freeType),
+    Font::Font()
+        : library(nullptr),
           revision(0),
           color(Color(0, 0, 0, 255)),
           strokeColor(Color(0, 0, 0, 255)),
+          glowColor(Color(0, 0, 255)),
           spacing(1.0f),
-          parametersPointer(new FreeTypeFontRendererParameters()),
+          parametersPointer(new FontCacheParameters()),
           parameters(*parametersPointer),
-          renderer(nullptr),
-          freeTypeFontRendererChanged(true)
+          cache(nullptr)
     {
-        HKAssert(freeType);
+    }
+
+    Font::Font(FontLibrary* library)
+        : library(library),
+          revision(0),
+          color(Color(0, 0, 0, 255)),
+          strokeColor(Color(0, 0, 0, 255)),
+          glowColor(Color(0, 0, 255)),
+          spacing(1.0f),
+          parametersPointer(new FontCacheParameters()),
+          parameters(*parametersPointer),
+          cache(nullptr)
+    {
     }
 
     Font::Font(const Font& original)
-        : freeType(original.freeType),
+        : library(original.library),
           revision(original.revision),
           color(original.color),
           strokeColor(original.strokeColor),
+          glowColor(original.glowColor),
           spacing(original.spacing),
-          parametersPointer(new FreeTypeFontRendererParameters(original.parameters)),
+          parametersPointer(new FontCacheParameters(original.parameters)),
           parameters(*parametersPointer),
-          renderer(original.renderer),
-          freeTypeFontRendererChanged(original.freeTypeFontRendererChanged)
+          cache(original.cache)
     {
-        HKAssert(freeType);
     }
 
     Font::~Font()
@@ -78,6 +89,16 @@ namespace Halak
         return result;
     }
 
+    void Font::SetLibrary(FontLibrary* value)
+    {
+        if (library != value)
+        {
+            library = value;
+            cache.Reset();
+            revision++;
+        }
+    }
+
     const String& Font::GetFace() const
     {
         return parameters.Face;
@@ -88,7 +109,7 @@ namespace Halak
         if (parameters.Face != value)
         {
             parameters.Face = value;
-            freeTypeFontRendererChanged = true;
+            cache.Reset();
             revision++;
         }
     }
@@ -104,7 +125,7 @@ namespace Halak
         if (parameters.FontSize != value)
         {
             parameters.FontSize = value;
-            freeTypeFontRendererChanged = true;
+            cache.Reset();
             revision++;
         }
     }
@@ -120,7 +141,7 @@ namespace Halak
         if (parameters.StrokeSize != value)
         {
             parameters.StrokeSize = value;
-            freeTypeFontRendererChanged = true;
+            cache.Reset();
             revision++;
         }
     }
@@ -136,7 +157,7 @@ namespace Halak
         if (parameters.Weights != value)
         {
             parameters.Weights = value;
-            freeTypeFontRendererChanged = true;
+            cache.Reset();
             revision++;
         }
     }
@@ -151,7 +172,7 @@ namespace Halak
         if (GetBold() != value)
         {
             parameters.Weights = value ? 1.0f : 0.0f;
-            freeTypeFontRendererChanged = true;
+            cache.Reset();
             revision++;
         }
     }
@@ -167,7 +188,7 @@ namespace Halak
         if (parameters.Shear != value)
         {
             parameters.Shear = value;
-            freeTypeFontRendererChanged = true;
+            cache.Reset();
             revision++;
         }
     }
@@ -182,7 +203,55 @@ namespace Halak
         if (GetItalic() != value)
         {
             parameters.Shear = value ? 0.2f : 0.0f;
-            freeTypeFontRendererChanged = true;
+            cache.Reset();
+            revision++;
+        }
+    }
+    
+    int Font::GetGlowSize() const
+    {
+        return parameters.GlowSize;
+    }
+
+    void Font::SetGlowSize(int value)
+    {
+        value = Math::Max(value, 0);
+        if (parameters.GlowSize != value)
+        {
+            parameters.GlowSize = value;
+            cache.Reset();
+            revision++;
+        }
+    }
+
+    float Font::GetGlowSpread() const
+    {
+        return parameters.GlowSpread;
+    }
+
+    void Font::SetGlowSpread(float value)
+    {
+        value = Math::Max(value, 0.0001f);
+        if (parameters.GlowSpread != value)
+        {
+            parameters.GlowSpread = value;
+            cache.Reset();
+            revision++;
+        }
+    }
+
+    float Font::GetGlowThickness() const
+    {
+        return parameters.GlowThickness;
+    }
+
+    void Font::SetGlowThickness(float value)
+    {
+        value = Math::Clamp(value, 0.0001f, 0.9999f);
+        if (parameters.GlowThickness != value)
+        {
+            parameters.GlowThickness = value;
+            cache.Reset();
             revision++;
         }
     }
@@ -198,7 +267,7 @@ namespace Halak
         if (parameters.Scale != value)
         {
             parameters.Scale = value;
-            freeTypeFontRendererChanged = true;
+            cache.Reset();
             revision++;
         }
     }
@@ -213,7 +282,7 @@ namespace Halak
         if (parameters.Hinting != value)
         {
             parameters.Hinting = value;
-            freeTypeFontRendererChanged = true;
+            cache.Reset();
             revision++;
         }
     }
@@ -228,14 +297,9 @@ namespace Halak
         if (parameters.IgnoreBitmap != value)
         {
             parameters.IgnoreBitmap = value;
-            freeTypeFontRendererChanged = true;
+            cache.Reset();
             revision++;
         }
-    }
-
-    Color Font::GetColor() const
-    {
-        return color;
     }
 
     void Font::SetColor(Color value)
@@ -247,11 +311,6 @@ namespace Halak
         }
     }
 
-    Color Font::GetStrokeColor() const
-    {
-        return strokeColor;
-    }
-
     void Font::SetStrokeColor(Color value)
     {
         if (strokeColor != value)
@@ -261,9 +320,13 @@ namespace Halak
         }
     }
 
-    float Font::GetSpacing() const
+    void Font::SetGlowColor(Color value)
     {
-        return spacing;
+        if (glowColor != value)
+        {
+            glowColor = value;
+            revision++;
+        }
     }
 
     void Font::SetSpacing(float value)
@@ -276,25 +339,22 @@ namespace Halak
         }
     }
 
-    FreeTypeFontRendererPtr Font::GetRenderer() const
+    const Glyph* Font::GetRegularGlyph(uint32 code) const
     {
-        if (freeTypeFontRendererChanged)
-        {
-            freeTypeFontRendererChanged = false;
-            renderer = freeType->GetRenderer(parameters);
-        }
-
-        return renderer;
+        return GetCache()->GetGlyph(code);
     }
 
-    const Glyph* Font::GetRegularGlyph(wchar_t code) const
+    const Glyph* Font::GetStrokedGlyph(uint32 code) const
     {
-        return GetRenderer()->GetGlyph(code);
+        if (const GlyphTable* t = GetCache()->GetStrokedGlyphTable())
+            return t->Find(code);
+        else
+            return nullptr;
     }
 
-    const Glyph* Font::GetStrokedGlyph(wchar_t code) const
+    const Glyph* Font::GetGlowGlyph(uint32 code) const
     {
-        if (const GlyphTable* t = GetRenderer()->GetStrokedGlyphTable())
+        if (const GlyphTable* t = GetCache()->GetGlowGlyphTable())
             return t->Find(code);
         else
             return nullptr;
@@ -302,21 +362,24 @@ namespace Halak
 
     float Font::GetAscender() const
     {
-        return GetRenderer()->GetAscender();
+        return GetCache()->GetAscender();
     }
 
     float Font::GetDescender() const
     {
-        return GetRenderer()->GetDescender();
+        return GetCache()->GetDescender();
     }
 
     float Font::GetLineHeight() const
     {
-        return GetRenderer()->GetLineHeight();
+        return GetCache()->GetLineHeight();
     }
 
-    uint Font::GetRevision() const
+    FontCache* Font::GetCache() const
     {
-        return revision;
+        if (cache == nullptr && library)
+            cache = library->GetCache(parameters);
+
+        return cache;
     }
 }

@@ -27,13 +27,17 @@
                 void FillRectangle(const RectangleF& bounds, float width, Color color);
 
             protected:
+                inline void DrawChild(UIVisual* target);
+
                 virtual void OnBegan();
                 virtual void OnEnded();
-                virtual void OnVisit(UIVisual* target);
+                virtual void OnVisit();               
 
             private:
                 UIRenderer* renderer;
-                int depth;
+                bool isDrawing;
+
+                friend class UIPanel;
         };
     }
 

@@ -37,7 +37,7 @@ namespace Halak
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    DynamicTexture2D::DynamicTexture2D(GraphicsDevice* graphicsDevice, int width, int height, SurfaceFormat::E format)
+    DynamicTexture2D::DynamicTexture2D(GraphicsDevice* graphicsDevice, int width, int height, PixelFormat format)
         : Texture2D(graphicsDevice),
           width(width),
           height(height),
@@ -93,7 +93,7 @@ namespace Halak
         return isLocked;
     }
 
-    SurfaceFormat::E DynamicTexture2D::GetFormat() const
+    Texture2D::PixelFormat DynamicTexture2D::GetFormat() const
     {
         return format;
     }
@@ -103,11 +103,11 @@ namespace Halak
         D3DFORMAT d3dFormat = D3DFMT_UNKNOWN;
         switch (GetFormat())
         {
-            case SurfaceFormat::A8:
-                d3dFormat = D3DFMT_A8;
-                break;
-            case SurfaceFormat::ARGB32:
+            case Texture2D::ARGB32Pixels:
                 d3dFormat = D3DFMT_A8R8G8B8;
+                break;
+            case Texture2D::A8Pixels:
+                d3dFormat = D3DFMT_A8;
                 break;
         }
 

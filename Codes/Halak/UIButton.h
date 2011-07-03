@@ -21,6 +21,8 @@
                 UIButton();
                 virtual ~UIButton();
 
+                virtual Vector2 GetDesiredSize();
+
                 inline State GetCurrentState() const;
                 inline UIWindow* GetNormalWindow() const;
                 inline UIWindow* GetPushedWindow() const;
@@ -29,6 +31,9 @@
 
                 inline bool GetHideInactives() const;
                 void SetHideInactives(bool value);
+
+                inline bool GetStateSizeReferenced() const;
+                inline void SetStateSizeReferenced(bool value);
 
             protected:
                 void UpdateLayout();
@@ -49,6 +54,7 @@
                 UIWindowPtr hoveringWindow;
                 UIWindowPtr currentWindow;
                 bool hideInactives;
+                bool stateSizeReferenced;
         };
     }
 

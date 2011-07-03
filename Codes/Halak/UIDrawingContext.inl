@@ -19,4 +19,9 @@ namespace Halak
     {
         DrawString(GetCurrentBounds(), GetCurrentClippedBounds(), fontString);
     }
+
+    void UIDrawingContext::DrawChild(UIVisual* target)
+    {
+        Visit(target);
+    }
 }

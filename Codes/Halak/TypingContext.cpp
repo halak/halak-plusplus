@@ -1,10 +1,10 @@
 #include <Halak/PCH.h>
-#include <Halak/Internal/TypingContext.h>
+#include <Halak/TypingContext.h>
 #include <Halak/Internal/GlyphTable.h>
-#include <Halak/Internal/Glyph.h>
 #include <Halak/Assert.h>
 #include <Halak/Font.h>
 #include <Halak/FontString.h>
+#include <Halak/Glyph.h>
 #include <Halak/String.h>
 #include <windows.h>
 
@@ -49,6 +49,12 @@ namespace Halak
         currentIndexFromOriginalText = 0;
     }
 
+    int TypingContext::GetLength(uint32 code)
+    {
+        const wchar_t wideCharacter = static_cast<wchar_t>(code);
+        return WideCharToMultiByte(CP_ACP, 0, &wideCharacter, 1, NULL, 0, NULL, NULL);
+    }
+
     bool TypingContext::MoveNext()
     {
         const float spacing    = fontString->GetFont()->GetSpacing();
@@ -85,34 +91,5 @@ namespace Halak
         }
 
         return true;
-    }
-
-    wchar_t TypingContext::GetCode() const
-    {
-        return currentGlyph ? currentGlyph->GetCode() : L'\0';
-    }
-
-    Vector2 TypingContext::GetPosition() const
-    {
-        return currentPosition;
-    }
-    const Glyph* TypingContext::GetRegularGlyph() const
-    {
-        return currentGlyph;
-    }
-
-    const Glyph* TypingContext::GetStrokedGlyph() const
-    {
-        return currentStrokedGlyph;
-    }
-
-    int TypingContext::GetIndex() const
-    {
-        return currentIndexFromOriginalText;
-    }
-
-    int TypingContext::GetLength(wchar_t code)
-    {
-        return WideCharToMultiByte(CP_ACP, 0, &code, 1, NULL, 0, NULL, NULL);
     }
 }

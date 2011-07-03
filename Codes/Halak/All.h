@@ -137,7 +137,6 @@
 #           include <Halak/Window.h>
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         // Assets
-#           include <Halak/SurfaceFormat.h>
 #           include <Halak/Texture2D.h>
 #               include <Halak/DynamicTexture2D.h>
 #               include <Halak/MemoryTexture2D.h>
@@ -277,7 +276,9 @@
         // Typography
 #           include <Halak/Font.h>
 #           include <Halak/FontString.h>
-#           include <Halak/FreeType.h>
+#           include <Halak/FontLibrary.h>
+#           include <Halak/Glyph.h>
+#           include <Halak/TypingContext.h>
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         // UI
 #           include <Halak/UI.h>

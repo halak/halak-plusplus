@@ -40,6 +40,11 @@ namespace Halak
         return eventMap;
     }
 
+    Vector2 UIVisual::GetDesiredSize()
+    {
+        return Vector2(-1.0f, -1.0f);
+    }
+
     UIPanel* UIVisual::GetParent() const
     {
         return parent;

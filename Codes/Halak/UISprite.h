@@ -13,7 +13,7 @@
                 UISprite();
                 virtual ~UISprite();
 
-                virtual RectangleF ComputeBounds(UIVisualVisitor& visitor);
+                virtual Vector2 GetDesiredSize();
 
                 inline UIImage* GetImage() const;
                 void SetImage(UIImage* value);

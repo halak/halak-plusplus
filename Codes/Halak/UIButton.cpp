@@ -12,7 +12,8 @@ namespace Halak
           pushedWindow(new UIWindow()),
           hoveringWindow(new UIWindow()),
           currentWindow(normalWindow),
-          hideInactives(true)
+          hideInactives(true),
+          stateSizeReferenced(true)
     {
         normalWindow->SetFrame(UIFittedFrame::Instance);
         normalWindow->Show();
@@ -27,6 +28,18 @@ namespace Halak
 
     UIButton::~UIButton()
     {
+    }
+
+    Vector2 UIButton::GetDesiredSize()
+    {
+        if (GetStateSizeReferenced())
+        {
+            // 활성화된 상태의 첫번째 자식 객체는 배경일 확률이 높으므로 그 객체의 크기를 사용한다.
+            if (currentWindow && currentWindow->GetChildren().empty() == false)
+                return currentWindow->GetChildren().front()->GetDesiredSize();
+        }
+
+        return UIVisual::GetDesiredSize();
     }
 
     void UIButton::SetCurrentState(State value)

@@ -29,4 +29,14 @@ namespace Halak
     {
         return hideInactives;
     }
+
+    bool UIButton::GetStateSizeReferenced() const
+    {
+        return stateSizeReferenced;
+    }
+
+    void UIButton::SetStateSizeReferenced(bool value)
+    {
+        stateSizeReferenced = value;
+    }
 }

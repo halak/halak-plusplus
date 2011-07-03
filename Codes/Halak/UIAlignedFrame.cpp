@@ -47,7 +47,11 @@ namespace Halak
         const RectangleF referenceBounds = visitor.GetCurrentBounds();
         if (boundsChanged || lastReferenceBounds != referenceBounds || lastDesiredSize != desiredSize)
         {
-            RectangleF bounds = (desiredSize != Vector2::Zero) ? RectangleF(0.0f, 0.0f, desiredSize.X, desiredSize.Y) : RectangleF(0.0f, 0.0f, size.X, size.Y);
+            RectangleF bounds = RectangleF(0.0f, 0.0f, size.X, size.Y);
+            if (desiredSize.X >= 0.0f)
+                bounds.Width = desiredSize.X;
+            if (desiredSize.Y >= 0.0f)
+                bounds.Height = desiredSize.Y;
 
             switch (align)
             {

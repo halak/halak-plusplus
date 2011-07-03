@@ -8,7 +8,7 @@
 
     namespace Halak
     {
-        const Matrix4& UITransform3D::ComputeMatrix(UIVisual* /*owner*/, UIVisualVisitor& visitor)
+        const Matrix4& UITransform3D::ComputeMatrix(UIVisualVisitor& visitor)
         {
             const RectangleF bounds = visitor.GetCurrentBounds();
 

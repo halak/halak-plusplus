@@ -12,6 +12,7 @@
         {
             void AnySample(const std::vector<const char*>& args);
             void FileSystemSample(const std::vector<const char*>& args);
+            void FontSample(const std::vector<const char*>& args);
             void GameComponentSample(const std::vector<const char*>& args);
             void JSONSample(const std::vector<const char*>& args);
             void LuaSample(const std::vector<const char*>& args);

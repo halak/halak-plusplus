@@ -4,7 +4,6 @@
 
 #   include <Halak/FWD.h>
 #   include <Halak/Texture2D.h>
-#   include <Halak/SurfaceFormat.h>
 #   include <vector>
 
     namespace Halak
@@ -28,7 +27,7 @@
                 int height;
                 int pitch;
                 std::vector<byte> buffer;
-                SurfaceFormat::E format;
+                PixelFormat format;
         };
     }
 

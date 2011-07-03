@@ -516,10 +516,6 @@
 					>
 				</File>
 				<File
-					RelativePath="..\..\Codes\Halak\SurfaceFormat.h"
-					>
-				</File>
-				<File
 					RelativePath="..\..\Codes\Halak\Texture2D.cpp"
 					>
 				</File>
@@ -1680,6 +1676,22 @@
 					>
 				</File>
 				<File
+					RelativePath="..\..\Codes\Halak\Font.inl"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\FontLibrary.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\FontLibrary.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\FontLibrary.inl"
+					>
+				</File>
+				<File
 					RelativePath="..\..\Codes\Halak\FontString.cpp"
 					>
 				</File>
@@ -1688,34 +1700,42 @@
 					>
 				</File>
 				<File
-					RelativePath="..\..\Codes\Halak\FreeType.cpp"
+					RelativePath="..\..\Codes\Halak\Glyph.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\Codes\Halak\FreeType.h"
+					RelativePath="..\..\Codes\Halak\Glyph.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\Glyph.inl"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\TypingContext.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\TypingContext.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\TypingContext.inl"
 					>
 				</File>
 				<Filter
 					Name="(Internal)"
 					>
 					<File
-						RelativePath="..\..\Codes\Halak\Internal\FreeTypeFontRenderer.cpp"
+						RelativePath="..\..\Codes\Halak\Internal\FontCache.cpp"
 						>
 					</File>
 					<File
-						RelativePath="..\..\Codes\Halak\Internal\FreeTypeFontRenderer.h"
+						RelativePath="..\..\Codes\Halak\Internal\FontCache.h"
 						>
 					</File>
 					<File
-						RelativePath="..\..\Codes\Halak\Internal\Glyph.cpp"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\Internal\Glyph.h"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\Internal\Glyph.inl"
+						RelativePath="..\..\Codes\Halak\Internal\FontCache.inl"
 						>
 					</File>
 					<File
@@ -1735,11 +1755,7 @@
 						>
 					</File>
 					<File
-						RelativePath="..\..\Codes\Halak\Internal\TypingContext.cpp"
-						>
-					</File>
-					<File
-						RelativePath="..\..\Codes\Halak\Internal\TypingContext.h"
+						RelativePath="..\..\Codes\Halak\Internal\GlyphTable.inl"
 						>
 					</File>
 				</Filter>

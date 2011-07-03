@@ -24,7 +24,7 @@
                 void BringToFront();
                 void SendToBack();
 
-                virtual RectangleF ComputeBounds(UIVisualVisitor& visitor);
+                RectangleF ComputeBounds(UIVisualVisitor& visitor);
 
                 inline float GetOpacity() const;
                 void SetOpacity(float value);
@@ -40,6 +40,8 @@
 
                 inline UIEventMap* GetEventMap() const;
                 void SetEventMap(UIEventMap* value);
+
+                inline virtual Vector2 GetDesiredSize();
 
                 inline UIPanel* GetParent() const;
 

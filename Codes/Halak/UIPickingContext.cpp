@@ -36,13 +36,13 @@ namespace Halak
         result = value;
     }
 
-    void UIPickingContext::OnVisit(UIVisual* target)
+    void UIPickingContext::OnVisit()
     {
         const Vector2 oldPoint = currentPoint;
 
         currentPoint = Unproject(point);
 
-        target->OnPick(*this);
+        GetCurrentVisual()->OnPick(*this);
 
         currentPoint = oldPoint;
     }
