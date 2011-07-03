@@ -125,11 +125,11 @@ namespace Halak
         parentTransformInv = currentTransformInv;
         if (target->GetTransform())
         {
-            currentTransform *= target->GetTransform()->ComputeMatrix(target, *this);
+            currentTransform *= target->GetTransform()->ComputeMatrix(*this);
             currentTransformInv = Matrix4::Inversion(currentTransform);
         }
 
-        OnVisit(target);
+        OnVisit();
 
         currentVisual = oldVisual;
         currentOpacity = oldOpacity;

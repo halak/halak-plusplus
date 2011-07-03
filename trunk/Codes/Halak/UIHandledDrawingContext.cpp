@@ -32,16 +32,16 @@ namespace Halak
             handler->OnEnded(*this);
     }
 
-    void UIHandledDrawingContext::OnVisit(UIVisual* target)
+    void UIHandledDrawingContext::OnVisit()
     {
         if (handler)
         {
-            handler->OnDrawBegan(*this, target);
-            UIDrawingContext::OnVisit(target);
-            handler->OnDrawEnded(*this, target);
+            handler->OnVisualBegan(*this);
+            UIDrawingContext::OnVisit();
+            handler->OnVisualEnded(*this);
         }
         else
-            UIDrawingContext::OnVisit(target);
+            UIDrawingContext::OnVisit();
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -77,7 +77,7 @@ namespace Halak
         LineWidth = Math::Max(value, 0.0f);
     }
 
-    void UIHandledDrawingContext::BoundsVisualizer::OnDrawBegan(UIHandledDrawingContext& context, UIVisual* target)
+    void UIHandledDrawingContext::BoundsVisualizer::OnVisualBegan(UIHandledDrawingContext& context)
     {
         context.DrawRectangle(context.GetCurrentBounds(), LineWidth, LineColor);
     }

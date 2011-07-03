@@ -20,23 +20,18 @@ namespace Halak
     {
     }
 
-    RectangleF UISprite::ComputeBounds(UIVisualVisitor& visitor)
+    Vector2 UISprite::GetDesiredSize()
     {
-        Vector2 desiredSize = Vector2::Zero;
-
         if (GetAutoResize() && GetImage())
         {
-            const Rectangle clippingRectangle = GetImage()->GetClippingRectangle();
+            Rectangle clippingRectangle = GetImage()->GetClippingRectangle();
+            if (clippingRectangle.IsEmpty())
+                clippingRectangle = GetImage()->GetRealClippingRectangle();
             if (clippingRectangle.IsEmpty() == false)
-                desiredSize = Vector2(clippingRectangle.Width, clippingRectangle.Height);
-            else
-            {
-                const Rectangle realClippingRectangle = GetImage()->GetRealClippingRectangle();
-                desiredSize = Vector2(realClippingRectangle.Width, realClippingRectangle.Width);
-            }
+                return Vector2(clippingRectangle.Width, clippingRectangle.Height);
         }
 
-        return GetFrame()->ComputeBounds(visitor, desiredSize);
+        return UIVisual::GetDesiredSize();
     }
 
     void UISprite::SetImage(UIImage* value)

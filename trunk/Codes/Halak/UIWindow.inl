@@ -24,4 +24,24 @@ namespace Halak
     {
         RemoveAll();
     }
+
+    Vector2 UIWindow::GetFixedSize() const
+    {
+        return fixedSize;
+    }
+
+    void UIWindow::SetFixedSize(Vector2 value)
+    {
+        fixedSize = value;
+    }
+
+    bool UIWindow::GetFixedSizeUsed() const
+    {
+        return fixedSizeUsed;
+    }
+
+    void UIWindow::SetFixedSizeUsed(bool value)
+    {
+        fixedSizeUsed = value;
+    }
 }

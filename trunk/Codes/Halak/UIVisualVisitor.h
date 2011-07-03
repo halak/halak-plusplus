@@ -40,7 +40,7 @@
             protected:
                 void Visit(UIVisual* target);
 
-                virtual void OnVisit(UIVisual* target) = 0;
+                virtual void OnVisit() = 0;
 
             private:
                 Vector2 UnprojectPoint(Vector2 point, const Matrix4& inversedTransform) const;

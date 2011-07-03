@@ -21,10 +21,13 @@ namespace Halak
 
     RectangleF UIFixedFrame::ComputeBounds(UIVisualVisitor& /*visitor*/, Vector2 desiredSize)
     {
-        if (desiredSize == Vector2::Zero)
-            return rectangle;
-        else
-            return RectangleF(rectangle.X, rectangle.Y, desiredSize.X, desiredSize.Y);
+        RectangleF result = rectangle;
+        if (desiredSize.X >= 0.0f)
+            result.Width = desiredSize.X;
+        if (desiredSize.Y >= 0.0f)
+            result.Height = desiredSize.Y;
+
+        return result;
     }
 
     void UIFixedFrame::Move(Vector2 displacement)

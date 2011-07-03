@@ -7,7 +7,7 @@ namespace Halak
 {
     GlyphSurface::GlyphSurface(GraphicsDevice* graphicsDevice, int width, int height)
         : storage(new RectangleStorage(width, height)),
-          texture(new DynamicTexture2D(graphicsDevice, width, height, SurfaceFormat::A8))
+          texture(new DynamicTexture2D(graphicsDevice, width, height, Texture2D::A8Pixels))
     {
     }
 
@@ -89,7 +89,7 @@ namespace Halak
         return *storage;
     }
 
-    DynamicTexture2DPtr GlyphSurface::GetTexture() const
+    Texture2D* GlyphSurface::GetTexture() const
     {
         return texture;
     }

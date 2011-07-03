@@ -13,7 +13,7 @@
             public:
                 virtual ~UITransform();
 
-                virtual const Matrix4& ComputeMatrix(UIVisual* owner, UIVisualVisitor& visitor) = 0;
+                virtual const Matrix4& ComputeMatrix(UIVisualVisitor& visitor) = 0;
 
             protected:
                 UITransform();

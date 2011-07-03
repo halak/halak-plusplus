@@ -1,8 +1,8 @@
 #include <Halak/PCH.h>
 #include <Halak/Internal/GlyphTable.h>
 #include <Halak/Internal/GlyphSurface.h>
-#include <Halak/Internal/Glyph.h>
 #include <Halak/Assert.h>
+#include <Halak/Glyph.h>
 #include <Halak/Math.h>
 
 namespace Halak
@@ -10,9 +10,9 @@ namespace Halak
     GlyphTable::GlyphTable(GraphicsDevice* graphicsDevice)
         : graphicsDevice(graphicsDevice)
     {
-        glyphs.insert(GlyphDictionary::value_type(L'\0', new Glyph(L'\0', Vector2(1.0f, 0.0f))));
-        glyphs.insert(GlyphDictionary::value_type(L'\r', new Glyph(L'\r', Vector2(1.0f, 0.0f))));
-        glyphs.insert(GlyphDictionary::value_type(L'\n', new Glyph(L'\n', Vector2(1.0f, 0.0f))));
+        glyphs.insert(GlyphDictionary::value_type('\0', new Glyph('\0', Vector2(1.0f, 0.0f))));
+        glyphs.insert(GlyphDictionary::value_type('\r', new Glyph('\r', Vector2(1.0f, 0.0f))));
+        glyphs.insert(GlyphDictionary::value_type('\n', new Glyph('\n', Vector2(1.0f, 0.0f))));
     }
 
     GlyphTable::~GlyphTable()
@@ -20,7 +20,7 @@ namespace Halak
         Clear();
     }
 
-    const Glyph* GlyphTable::Add(wchar_t code, Vector2 advance, Vector2 bitmapOffset, Vector2 bitmapSize, const void* buffer, int width, int height, int pitch)
+    const Glyph* GlyphTable::Add(uint32 code, Vector2 advance, Vector2 bitmapOffset, Vector2 bitmapSize, const void* buffer, int width, int height, int pitch)
     {
         std::pair<GlyphSurface*, Rectangle> allocated = AllocateSurface(buffer, width, height, pitch);
         Glyph* newGlyph = nullptr;
@@ -48,7 +48,7 @@ namespace Halak
         return newGlyph;
     }
 
-    bool GlyphTable::Remove(wchar_t code)
+    bool GlyphTable::Remove(uint32 code)
     {
         GlyphDictionary::const_iterator it = glyphs.find(code);
         if (it != glyphs.end())
@@ -81,18 +81,13 @@ namespace Halak
         }
     }
 
-    const Glyph* GlyphTable::Find(wchar_t code) const
+    const Glyph* GlyphTable::Find(uint32 code) const
     {
         GlyphDictionary::const_iterator it = glyphs.find(code);
         if (it != glyphs.end())
             return (*it).second;
         else
             return nullptr;
-    }
-
-    const GlyphTable::SurfaceCollection& GlyphTable::GetSurfaces() const
-    {
-        return surfaces;
     }
 
     std::pair<GlyphSurface*, Rectangle> GlyphTable::AllocateSurface(const void* buffer, int width, int height, int pitch)

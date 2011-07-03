@@ -5,30 +5,31 @@
 #   include <Halak/FWD.h>
 #   include <Halak/Point.h>
 #   include <Halak/Vector2.h>
-#   include <list>
 #   include <map>
+#   include <vector>
 
     namespace Halak
     {
         class GlyphTable
         {
             public:
-                typedef std::map<wchar_t, const Glyph*> GlyphDictionary;
-                typedef std::list<GlyphSurface*> SurfaceCollection;
+                typedef std::map<uint32, const Glyph*> GlyphDictionary;
+                typedef std::vector<GlyphSurface*> SurfaceCollection;
 
             public:
                 GlyphTable(GraphicsDevice* graphicsDevice);
                 ~GlyphTable();
 
-                const Glyph* Add(wchar_t code, Vector2 advance, Vector2 bitmapOffset, Vector2 bitmapSize, const void* buffer, int width, int height, int pitch);
+                const Glyph* Add(uint32 code, Vector2 advance, Vector2 bitmapOffset, Vector2 bitmapSize, const void* buffer, int width, int height, int pitch);
 
-                bool Remove(wchar_t code);
+                bool Remove(uint32 code);
 
                 void Clear();
 
-                const Glyph* Find(wchar_t code) const;
+                const Glyph* Find(uint32 code) const;
 
-                const SurfaceCollection& GetSurfaces() const;
+                inline const GlyphDictionary& GetGlyphs() const;
+                inline const SurfaceCollection& GetSurfaces() const;
 
             private:
                 std::pair<GlyphSurface*, Rectangle> AllocateSurface(const void* buffer, int width, int height, int pitch);
@@ -44,5 +45,7 @@
                 GlyphTable& operator = (const GlyphTable&);
         };
     }
+
+#   include <Halak/Internal/GlyphTable.inl>
 
 #endif

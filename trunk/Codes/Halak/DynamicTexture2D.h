@@ -4,7 +4,6 @@
 
 #   include <Halak/FWD.h>
 #   include <Halak/Texture2D.h>
-#   include <Halak/SurfaceFormat.h>
 #   include <Halak/Rectangle.h>
 
     namespace Halak
@@ -14,8 +13,6 @@
             public:
                 class Locker
                 {
-                    friend class DynamicTexture2D;
-
                     public:
                         Locker();
                         ~Locker();
@@ -34,10 +31,12 @@
                     private:
                         Locker(const Locker&);
                         Locker& operator = (const Locker&);
+
+                        friend class DynamicTexture2D;
                 };
 
             public:
-                DynamicTexture2D(GraphicsDevice* graphicsDevice, int width, int height, SurfaceFormat::E format);
+                DynamicTexture2D(GraphicsDevice* graphicsDevice, int width, int height, PixelFormat format);
                 virtual ~DynamicTexture2D();
 
                 bool Lock(Locker& outLocker);
@@ -46,7 +45,7 @@
 
                 bool IsLocked() const;
 
-                SurfaceFormat::E GetFormat() const;
+                PixelFormat GetFormat() const;
 
             protected:
                 virtual D3DTextureInfo CreateD3DTexture();
@@ -54,7 +53,7 @@
             private:
                 int width;
                 int height;
-                SurfaceFormat::E format;
+                PixelFormat format;
                 bool isLocked;
         };
     }

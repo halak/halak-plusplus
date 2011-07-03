@@ -15,10 +15,10 @@
                     protected:
                         virtual ~IHandler() { }
 
-                        virtual void OnBegan(UIHandledDrawingContext& context) { }
-                        virtual void OnEnded(UIHandledDrawingContext& context) { }
-                        virtual void OnDrawBegan(UIHandledDrawingContext& context, UIVisual* target) { }
-                        virtual void OnDrawEnded(UIHandledDrawingContext& context, UIVisual* target) { }
+                        virtual void OnBegan(UIHandledDrawingContext& /*context*/) { }
+                        virtual void OnEnded(UIHandledDrawingContext& /*context*/) { }
+                        virtual void OnVisualBegan(UIHandledDrawingContext& /*context*/) { }
+                        virtual void OnVisualEnded(UIHandledDrawingContext& /*context*/) { }
 
                         friend class UIHandledDrawingContext;
                 };
@@ -37,7 +37,7 @@
                     protected:
                         virtual ~BoundsVisualizer();
 
-                        virtual void OnDrawBegan(UIHandledDrawingContext& context, UIVisual* target);
+                        virtual void OnVisualBegan(UIHandledDrawingContext& context);
 
                     private:
                         BoundsVisualizer();
@@ -58,7 +58,7 @@
             protected:
                 virtual void OnBegan();
                 virtual void OnEnded();
-                virtual void OnVisit(UIVisual* target);
+                virtual void OnVisit();
 
             private:
                 IHandler* handler;

@@ -82,6 +82,7 @@ class UISampleApp : public GameFramework
 
         {
         UIButtonPtr button = new UIButton();
+        button->SetStateSizeReferenced(false);
         button->SetFrame(new UIAlignedFrame(UIAlignedFrame::Center, Vector2(-300.0f, 0.0f), Vector2(100.0f, 100.0f)));
         UISpritePtr sprite1 = new UISprite();
         sprite1->SetFrame(new UIFittedFrame());
@@ -102,6 +103,7 @@ class UISampleApp : public GameFramework
         }
         {
         UICheckBoxPtr button = new UICheckBox();
+        button->SetStateSizeReferenced(false);
         button->SetFrame(new UIAlignedFrame(UIAlignedFrame::Center, Vector2(50.0f, 50.0f), Vector2(100.0f, 100.0f)));
         UISpritePtr sprite1 = new UISprite();
         sprite1->SetFrame(new UIFittedFrame());

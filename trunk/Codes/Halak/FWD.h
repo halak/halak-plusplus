@@ -299,11 +299,12 @@
             // Typography
                 HKForwardDeclareSmartPointerClass(Font);
                 class FontString;
-                class FreeType;
+                class FontLibrary;
+                class Glyph;
+                class TypingContext;
                 // (Internal)
-                    HKForwardDeclareSmartPointerClass(FreeTypeFontRenderer);
-                    struct FreeTypeFontRendererParameters;
-                    class Glyph;
+                    HKForwardDeclareSmartPointerClass(FontCache);
+                    struct FontCacheParameters;
                     class GlyphSurface;
                     class GlyphTable;
             ////////////////////////////////////////////////////////////////////////////////////////////////////

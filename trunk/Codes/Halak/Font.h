@@ -5,15 +5,15 @@
 #   include <Halak/FWD.h>
 #   include <Halak/Asset.h>
 #   include <Halak/Color.h>
-#   include <Halak/IRevisable.h>
 #   include <vector>
 
     namespace Halak
     {
-        class Font : public Asset, public IRevisable
+        class Font : public Asset
         {
             public:
-                Font(FreeType* freeType);
+                Font();
+                Font(FontLibrary* library);
                 Font(const Font& original);
                 virtual ~Font();
 
@@ -21,6 +21,9 @@
                 Vector2 Measure(const String& text, float boundary);
                 Vector2 Measure(const FontString& fontString);
                 Vector2 Measure(const FontString& fontString, float boundary);
+                
+                inline FontLibrary* GetLibrary() const;
+                void SetLibrary(FontLibrary* value);
 
                 const String& GetFace() const;
                 void SetFace(const String& value);
@@ -43,6 +46,15 @@
                 bool GetItalic() const;
                 void SetItalic(bool value);
 
+                int GetGlowSize() const;
+                void SetGlowSize(int value);
+
+                float GetGlowSpread() const;
+                void  SetGlowSpread(float value);
+
+                float GetGlowThickness() const;
+                void  SetGlowThickness(float value);
+
                 float GetScale() const;
                 void  SetScale(float value);
 
@@ -52,41 +64,48 @@
                 bool GetIgnoreBitmap() const;
                 void SetIgnoreBitmap(bool value);
 
-                Color GetColor() const;
-                void  SetColor(Color value);
+                inline Color GetColor() const;
+                void SetColor(Color value);
 
-                Color GetStrokeColor() const;
-                void  SetStrokeColor(Color value);
+                inline Color GetStrokeColor() const;
+                void SetStrokeColor(Color value);
 
-                float GetSpacing() const;
-                void  SetSpacing(float value);
+                inline Color GetGlowColor() const;
+                void SetGlowColor(Color value);
 
-                FreeTypeFontRendererPtr GetRenderer() const;
+                inline float GetSpacing() const;
+                void SetSpacing(float value);
 
-                const Glyph* GetRegularGlyph(wchar_t code) const;
-                const Glyph* GetStrokedGlyph(wchar_t code) const;
+                const Glyph* GetRegularGlyph(uint32 code) const;
+                const Glyph* GetStrokedGlyph(uint32 code) const;
+                const Glyph* GetGlowGlyph(uint32 code) const;
 
                 float GetAscender() const;
                 float GetDescender() const;
                 float GetLineHeight() const;
 
-                virtual uint GetRevision() const;
+                inline uint GetRevision() const;
 
             private:
-                FreeType* freeType;
+                FontCache* GetCache() const;
+
+            private:
+                FontLibrary* library;
                 unsigned int revision;
 
                 float spacing;
                 Color color;
                 Color strokeColor;
-                FreeTypeFontRendererParameters* parametersPointer;
-                FreeTypeFontRendererParameters& parameters;
-                mutable FreeTypeFontRendererPtr renderer;
-                mutable bool freeTypeFontRendererChanged;
+                Color glowColor;
+                FontCacheParameters* parametersPointer;
+                FontCacheParameters& parameters;
+                mutable FontCachePtr cache;
 
             private:
                 Font& operator = (const Font&);
         };
     }
+
+#   include <Halak/Font.inl>
 
 #endif

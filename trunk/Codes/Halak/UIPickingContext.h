@@ -25,7 +25,7 @@
                 void SetResult(UIVisual* value);
 
             protected:
-                virtual void OnVisit(UIVisual* target);
+                virtual void OnVisit();
 
             private:
                 Vector2 point;

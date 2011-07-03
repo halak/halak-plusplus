@@ -45,7 +45,7 @@ namespace Halak
 
     RectangleF UIVisual::ComputeBounds(UIVisualVisitor& visitor)
     {
-        return GetFrame()->ComputeBounds(visitor, Vector2::Zero);
+        return GetFrame()->ComputeBounds(visitor, GetDesiredSize());
     }
 
     void UIVisual::SetOpacity(float value)

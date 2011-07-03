@@ -186,6 +186,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\..\Codes\Halak.Samples\Font.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\..\Codes\Halak.Samples\GameComponent.cpp"
 				>
 			</File>

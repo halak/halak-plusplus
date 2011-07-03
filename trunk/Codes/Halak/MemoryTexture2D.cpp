@@ -33,7 +33,7 @@ namespace Halak
         if (red && green && blue)
         {
             this->pitch  = width * sizeof(Color);
-            this->format = SurfaceFormat::ARGB32;
+            this->format = Texture2D::ARGB32Pixels;
             this->buffer.resize(this->pitch * this->height);
 
             if (alpha)
@@ -62,7 +62,7 @@ namespace Halak
             if (alpha)
             {
                 this->pitch  = width;
-                this->format = SurfaceFormat::A8;
+                this->format = Texture2D::A8Pixels;
                 this->buffer.resize(width * height);
 
                 for (std::vector<byte>::size_type i = 0; i < this->buffer.size(); i++)
@@ -76,11 +76,11 @@ namespace Halak
         D3DFORMAT d3dFormat = D3DFMT_UNKNOWN;
         switch (format)
         {
-            case SurfaceFormat::A8:
-                d3dFormat = D3DFMT_A8;
-                break;
-            case SurfaceFormat::ARGB32:
+            case Texture2D::ARGB32Pixels:
                 d3dFormat = D3DFMT_A8R8G8B8;
+                break;
+            case Texture2D::A8Pixels:
+                d3dFormat = D3DFMT_A8;
                 break;
         }
 
@@ -96,9 +96,7 @@ namespace Halak
             {
                 switch (format)
                 {
-                    case SurfaceFormat::A8:
-                        throw std::exception("Not Implemented.");
-                    case SurfaceFormat::ARGB32:
+                    case Texture2D::ARGB32Pixels:
                         {
                             const Color* source = reinterpret_cast<const Color*>(&buffer[0]);
                             const int sourcePitch = this->pitch / sizeof(Color);
@@ -117,6 +115,8 @@ namespace Halak
                             }
                         }
                         break;
+                    case Texture2D::A8Pixels:
+                        throw std::exception("Not Implemented.");
                 }
 
                 newD3DTexture->UnlockRect(0);

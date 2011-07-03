@@ -15,7 +15,7 @@
                 UITransform3D();
                 virtual ~UITransform3D();
 
-                virtual const Matrix4& ComputeMatrix(UIVisual* owner, UIVisualVisitor& visitor);
+                virtual const Matrix4& ComputeMatrix(UIVisualVisitor& visitor);
 
                 void Reset();
 
