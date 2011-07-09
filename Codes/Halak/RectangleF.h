@@ -24,7 +24,9 @@
             inline float GetTop() const;
             inline float GetRight() const;
             inline float GetBottom() const;
-            inline Vector2 GetCenter() const;
+            inline float GetCenter() const;
+            inline float GetMiddle() const;
+            inline Vector2 GetCenterPoint() const;
 
             inline void SetLeft(float value);
             inline void SetTop(float value);

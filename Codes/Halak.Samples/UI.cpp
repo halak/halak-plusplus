@@ -1,6 +1,6 @@
 #include <Halak.Samples/Samples.h>
 #include <Halak/Font.h>
-#include <Halak/FreeType.h>
+#include <Halak/FontLibrary.h>
 #include <Halak/GameFramework.h>
 #include <Halak/GameNode.h>
 #include <Halak/GameStructure.h>
@@ -50,8 +50,8 @@ class UISampleApp : public GameFramework
 
         spriteRenderer = new SpriteRenderer(GetGraphicsDevice());
         GetStructure()->GetRoot()->AttachChild(spriteRenderer);
-        FreeType* freeType = new FreeType(GetGraphicsDevice());
-        GetStructure()->GetRoot()->AttachChild(freeType);
+        FontLibrary* fontLibrary = new FontLibrary(GetGraphicsDevice());
+        GetStructure()->GetRoot()->AttachChild(fontLibrary);
         uiRenderer = new UIRenderer(GetGraphicsDevice());
         GetStructure()->GetRoot()->AttachChild(uiRenderer);
 
@@ -143,7 +143,7 @@ class UISampleApp : public GameFramework
 
         uiDomain->SetRoot(root);
 
-        FontPtr font = new Font(freeType);
+        FontPtr font = new Font(fontLibrary);
         font->SetFace("malgun.ttf");
         font->SetSize(20.0f);
         UIMarkupTextBoxPtr label = new UIMarkupTextBox();

@@ -9,7 +9,7 @@ namespace Halak
 
     FontLibrary* FontCache::GetLibrary() const
     {
-        return freeType;
+        return library;
     }
 
     const FontCacheParameters& FontCache::GetParameters() const

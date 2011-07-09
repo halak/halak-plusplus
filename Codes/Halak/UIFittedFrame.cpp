@@ -14,6 +14,11 @@ namespace Halak
     {
     }
 
+    bool UIFittedFrame::Setup(const RectangleF& /*bounds*/, const RectangleF& /*referenceBounds*/)
+    {
+        return false;
+    }
+
     RectangleF UIFittedFrame::ComputeBounds(UIVisualVisitor& visitor, Vector2 /*desiredSize*/)
     {
         return visitor.GetCurrentBounds();

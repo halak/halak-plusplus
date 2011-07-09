@@ -23,4 +23,9 @@ namespace Halak
     {
         return currentIndexFromOriginalText;
     }
+
+    int TypingContext::GetGlyphIndex() const
+    {
+        return currentIndex - 1;
+    }
 }

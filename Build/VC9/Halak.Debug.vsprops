@@ -6,7 +6,7 @@
 	>
 	<Tool
 		Name="VCCLCompilerTool"
-		AdditionalIncludeDirectories="$(DXSDK_DIR)Include"
+		AdditionalIncludeDirectories="&quot;$(DXSDK_DIR)Include&quot;"
 		PreprocessorDefinitions="NOMINMAX"
 		WarningLevel="4"
 	/>

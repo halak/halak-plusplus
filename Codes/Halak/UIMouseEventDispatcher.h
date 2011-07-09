@@ -3,14 +3,13 @@
 #define __HALAK_UIMOUSEEVENTDISPATCHER_H__
 
 #   include <Halak/FWD.h>
-#   include <Halak/GameComponent.h>
-#   include <Halak/IUpdateable.h>
+#   include <Halak/UpdateableGameComponent.h>
 #   include <Halak/MouseState.h>
 #   include <vector>
 
     namespace Halak
     {
-        class UIMouseEventDispatcher : public GameComponent, public IUpdateable
+        class UIMouseEventDispatcher : public UpdateableGameComponent
         {
             HKClassFOURCC('U', 'I', 'M', 'S');
             public:
@@ -28,10 +27,7 @@
                 inline UIRenderer* GetRenderer() const;
                 inline void SetRenderer(UIRenderer* value);
 
-                virtual IUpdateable* QueryUpdateableInterface();
-
             private:
-                uint lastTimestamp;
                 UIDomain* domain;
                 Mouse* device;
                 UIRenderer* renderer;

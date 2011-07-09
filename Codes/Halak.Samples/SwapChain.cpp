@@ -2,7 +2,7 @@
 #include <Halak/Colors.h>
 #include <Halak/DisplaySwapChain.h>
 #include <Halak/Font.h>
-#include <Halak/FreeType.h>
+#include <Halak/FontLibrary.h>
 #include <Halak/GameFramework.h>
 #include <Halak/GameNode.h>
 #include <Halak/GameStructure.h>
@@ -16,7 +16,7 @@ class SwapChainSampleApp : public GameFramework
 {
     GameWindow* otherWindow;
     DisplaySwapChain* otherSwapChain;
-    FreeType* freeType;
+    FontLibrary* fontLibrary;
     SpriteRenderer* spriteRenderer;
 
     FontPtr font;
@@ -41,12 +41,12 @@ class SwapChainSampleApp : public GameFramework
         otherSwapChain = new DisplaySwapChain(GetGraphicsDevice(), otherWindow);
         GetStructure()->GetRoot()->AttachChild(otherSwapChain);
 
-        freeType = new FreeType(GetGraphicsDevice());
+        fontLibrary = new FontLibrary(GetGraphicsDevice());
         spriteRenderer = new SpriteRenderer(GetGraphicsDevice());
-        GetStructure()->GetRoot()->AttachChild(freeType);
+        GetStructure()->GetRoot()->AttachChild(fontLibrary);
         GetStructure()->GetRoot()->AttachChild(spriteRenderer);
 
-        font = new Font(freeType);
+        font = new Font(fontLibrary);
         font->SetFace("malgun.ttf");
         font->SetSize(20.0f);
         font->SetColor(Colors::Blue);

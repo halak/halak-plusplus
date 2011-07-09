@@ -32,23 +32,4 @@ namespace Halak
     {
         items.push_back(EventHandlerArgsPair(item, args.Clone()));
     }
-
-    Timeline* UIAsyncEventQueue::GetTimeline() const
-    {
-        return timeline;
-    }
-
-    void UIAsyncEventQueue::SetTimeline(Timeline* value)
-    {
-        if (timeline != value)
-        {
-            if (timeline)
-                timeline->Remove(this);
-
-            timeline = value;
-
-            if (timeline)
-                timeline->Add(this);
-        }
-    }
 }

@@ -25,10 +25,11 @@
                 /// 예) "가나다"의 '나'부분은 Glyphs Index는 1이지만 Original Text로부터의 Index는 2입니다.
                 int ConvertToOriginalIndex(int index) const;
 
-                const String& GetOriginal() const;
-                Font* GetFont() const;
-                const GlyphCollection& GetRegularGlyphs() const;
-                const GlyphCollection& GetStrokedGlyphs() const;
+                inline const String& GetText() const;
+                inline Font* GetFont() const;
+                inline const GlyphCollection& GetRegularGlyphs() const;
+                inline const GlyphCollection& GetStrokedGlyphs() const;
+                inline const GlyphCollection& GetGlowGlyphs() const;
 
                 FontString& operator = (const char* text);
                 FontString& operator = (const String& text);
@@ -45,7 +46,10 @@
                 FontPtr font;
                 GlyphCollection regularGlyphs;
                 GlyphCollection strokedGlyphs;
+                GlyphCollection glowGlyphs;
         };
     }
+
+#    include <Halak/FontString.inl>
 
 #endif

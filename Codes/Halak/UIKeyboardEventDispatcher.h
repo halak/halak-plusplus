@@ -3,13 +3,12 @@
 #define __HALAK_UIKEYBOARDEVENTDISPATCHER_H__
 
 #   include <Halak/FWD.h>
-#   include <Halak/GameComponent.h>
-#   include <Halak/IUpdateable.h>
+#   include <Halak/UpdateableGameComponent.h>
 #   include <Halak/KeyboardState.h>
 
     namespace Halak
     {
-        class UIKeyboardEventDispatcher : public GameComponent, public IUpdateable
+        class UIKeyboardEventDispatcher : public UpdateableGameComponent
         {
             HKClassFOURCC('U', 'I', 'K', 'B');
             public:
@@ -24,10 +23,7 @@
                 inline Keyboard* GetDevice() const;
                 void SetDevice(Keyboard* value);
 
-                virtual IUpdateable* QueryUpdateableInterface();
-
             private:
-                uint lastTimestamp;
                 UIDomain* domain;
                 Keyboard* device;
                 KeyboardState lastState;

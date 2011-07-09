@@ -19,6 +19,11 @@ namespace Halak
     {
     }
 
+    bool UIFixedFrame::Setup(const RectangleF& bounds, const RectangleF& referenceBounds)
+    {
+        return true;
+    }
+
     RectangleF UIFixedFrame::ComputeBounds(UIVisualVisitor& /*visitor*/, Vector2 desiredSize)
     {
         RectangleF result = rectangle;

@@ -43,9 +43,19 @@ namespace Halak
         return Y + Height;
     }
 
-    Point Rectangle::GetCenter() const
+    int Rectangle::GetCenter() const
     {
-        return Point(X + Width / 2, Y + Height / 2);
+        return X + Width / 2;
+    }
+
+    int Rectangle::GetMiddle() const
+    {
+        return Y + Height / 2;
+    }
+
+    Point Rectangle::GetCenterPoint() const
+    {
+        return Point(GetCenter(), GetMiddle());
     }
 
     void Rectangle::SetLeft(int value)

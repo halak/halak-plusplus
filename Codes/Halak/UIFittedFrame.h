@@ -16,6 +16,7 @@
                 UIFittedFrame();
                 virtual ~UIFittedFrame();
 
+                virtual bool Setup(const RectangleF& bounds, const RectangleF& referenceBounds);
                 virtual RectangleF ComputeBounds(UIVisualVisitor& visitor, Vector2 desiredSize);
         };
     }

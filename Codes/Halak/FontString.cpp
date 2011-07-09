@@ -33,7 +33,8 @@ namespace Halak
         : text(original.text),
           font(original.font),
           regularGlyphs(original.regularGlyphs),
-          strokedGlyphs(original.strokedGlyphs)
+          strokedGlyphs(original.strokedGlyphs),
+          glowGlyphs(original.glowGlyphs)
     {
     }
 
@@ -46,58 +47,64 @@ namespace Halak
         int result = 0;
         for (int i = 0; i < index; i++)
         {
-            wchar_t code = regularGlyphs[i]->GetCode();
-            result += WideCharToMultiByte(CP_ACP, 0, &code, 1, nullptr, 0, nullptr, nullptr);
+            const uint32 code = regularGlyphs[i]->GetCode();
+            const wchar_t wideCharacter = static_cast<wchar_t>(code);
+            result += WideCharToMultiByte(CP_ACP, 0, &wideCharacter, 1, nullptr, 0, nullptr, nullptr);
         }
 
         return result;
-    }
-
-    const String& FontString::GetOriginal() const
-    {
-        return text;
-    }
-
-    Font* FontString::GetFont() const
-    {
-        return font;
-    }
-
-    const FontString::GlyphCollection& FontString::GetRegularGlyphs() const
-    {
-        return regularGlyphs;
-    }
-
-    const FontString::GlyphCollection& FontString::GetStrokedGlyphs() const
-    {
-        return strokedGlyphs;
     }
 
     void FontString::FillGlyphs()
     {
         regularGlyphs.clear();
         strokedGlyphs.clear();
+        glowGlyphs.clear();
 
         std::vector<wchar_t> wideCharacters;
         wideCharacters.resize(MultiByteToWideChar(CP_ACP, 0, text.CStr(), text.GetLength(), NULL, 0), L'\0');
         MultiByteToWideChar(CP_ACP, 0, text.CStr(), text.GetLength(), &wideCharacters[0], wideCharacters.size());
 
+        regularGlyphs.reserve(wideCharacters.size());
         if (font->GetStrokeSize() > 0.0f)
         {
-            regularGlyphs.reserve(wideCharacters.size());
             strokedGlyphs.reserve(wideCharacters.size());
-            for (std::vector<wchar_t>::const_iterator it = wideCharacters.begin(); it != wideCharacters.end(); it++)
+            if (font->GetGlowSize() > 0)
             {
-                regularGlyphs.push_back(font->GetRegularGlyph(*it));
-                strokedGlyphs.push_back(font->GetStrokedGlyph(*it));
+                glowGlyphs.reserve(wideCharacters.size());
+                for (std::vector<wchar_t>::const_iterator it = wideCharacters.begin(); it != wideCharacters.end(); it++)
+                {
+                    regularGlyphs.push_back(font->GetRegularGlyph(*it));
+                    strokedGlyphs.push_back(font->GetStrokedGlyph(*it));
+                    glowGlyphs.push_back(font->GetGlowGlyph(*it));
+                }
+            }
+            else
+            {
+                for (std::vector<wchar_t>::const_iterator it = wideCharacters.begin(); it != wideCharacters.end(); it++)
+                {
+                    regularGlyphs.push_back(font->GetRegularGlyph(*it));
+                    strokedGlyphs.push_back(font->GetStrokedGlyph(*it));
+                }
             }
         }
         else
         {
-            regularGlyphs.reserve(wideCharacters.size());
-            for (std::vector<wchar_t>::const_iterator it = wideCharacters.begin(); it != wideCharacters.end(); it++)
+            if (font->GetGlowSize() > 0)
             {
-                regularGlyphs.push_back(font->GetRegularGlyph(*it));
+                glowGlyphs.reserve(wideCharacters.size());
+                for (std::vector<wchar_t>::const_iterator it = wideCharacters.begin(); it != wideCharacters.end(); it++)
+                {
+                    regularGlyphs.push_back(font->GetRegularGlyph(*it));
+                    glowGlyphs.push_back(font->GetGlowGlyph(*it));
+                }
+            }
+            else
+            {
+                for (std::vector<wchar_t>::const_iterator it = wideCharacters.begin(); it != wideCharacters.end(); it++)
+                {
+                    regularGlyphs.push_back(font->GetRegularGlyph(*it));
+                }
             }
         }
     }
@@ -122,6 +129,7 @@ namespace Halak
         font = original.font;
         regularGlyphs = original.regularGlyphs;
         strokedGlyphs = original.strokedGlyphs;
+        glowGlyphs = original.glowGlyphs;
         return *this;
     }
 }

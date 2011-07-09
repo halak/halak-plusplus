@@ -141,10 +141,10 @@ namespace Halak
 
             GetSwapChain()->GetGraphicsDevice()->Clear(clearColor);
 
-            renderer->Begin();
-            UIDrawingContext context(renderer);
-            context.Draw(domain->GetRoot());
-            renderer->End();
+            //renderer->Begin();
+            //UIDrawingContext context(renderer);
+            //context.Draw(domain->GetRoot());
+            //renderer->End();
 
             //if (spriteRenderer == nullptr || target == nullptr)
             //    return;

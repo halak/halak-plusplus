@@ -12,7 +12,7 @@
         class TypingContext
         {
             public:
-                TypingContext(FontPtr font, const String& text, float boundary);
+                TypingContext(Font* font, const String& text, float boundary);
                 TypingContext(const FontString& string, float boundary);
                 ~TypingContext();
 
@@ -24,6 +24,7 @@
                 inline const Glyph* GetRegularGlyph() const;
                 inline const Glyph* GetStrokedGlyph() const;
                 inline int GetIndex() const;
+                inline int GetGlyphIndex() const;
 
             private:
                 static inline int GetLength(uint32 code);

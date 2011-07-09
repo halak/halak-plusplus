@@ -26,4 +26,6 @@
         };
     }
 
+#    include <Halak/UpdateableObject.inl>
+
 #endif

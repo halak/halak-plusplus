@@ -37,6 +37,11 @@ namespace Halak
     {
     }
 
+    bool UIFlowPanel::ArrangedFrame::Setup(const RectangleF& /*bounds*/, const RectangleF& /*referenceBounds*/)
+    {
+        return false;
+    }
+
     RectangleF UIFlowPanel::ArrangedFrame::ComputeBounds(UIVisualVisitor& visitor, Vector2 /*desiredSize*/)
     {
         //const RectangleF bounds = context.GetCurrentBounds();

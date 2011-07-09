@@ -225,6 +225,41 @@
             oldRenderStates.clear();
         }
 
+        void UIRenderer::EnterStringRenderMode()
+        {
+            FlushAndLock();
+
+            IDirect3DDevice9* d3dDevice = graphicsDevice->GetD3DDevice();
+            d3dDevice->SetTextureStageState(0, D3DTSS_ALPHAARG1, D3DTA_TEXTURE);
+            d3dDevice->SetTextureStageState(0, D3DTSS_ALPHAARG2, D3DTA_DIFFUSE);
+            d3dDevice->SetTextureStageState(0, D3DTSS_ALPHAOP, D3DTOP_MODULATE);
+            d3dDevice->SetTextureStageState(0, D3DTSS_COLORARG1, D3DTA_DIFFUSE);
+            d3dDevice->SetTextureStageState(0, D3DTSS_COLOROP, D3DTOP_SELECTARG1);
+            d3dDevice->SetTextureStageState(0, D3DTSS_TEXCOORDINDEX, 0);
+
+            d3dDevice->SetSamplerState(0, D3DSAMP_MAGFILTER, D3DTEXF_LINEAR);
+            d3dDevice->SetSamplerState(0, D3DSAMP_MINFILTER, D3DTEXF_LINEAR);
+            d3dDevice->SetSamplerState(0, D3DSAMP_MIPFILTER, D3DTEXF_LINEAR);
+        }
+
+        void UIRenderer::LeaveStringRenderMode()
+        {
+            IDirect3DDevice9* d3dDevice = graphicsDevice->GetD3DDevice();
+            d3dDevice->SetSamplerState(0, D3DSAMP_MAGFILTER, D3DTEXF_LINEAR);
+            d3dDevice->SetSamplerState(0, D3DSAMP_MINFILTER, D3DTEXF_LINEAR);
+            d3dDevice->SetSamplerState(0, D3DSAMP_MIPFILTER, D3DTEXF_LINEAR);
+
+            d3dDevice->SetTextureStageState(0, D3DTSS_ALPHAARG1, D3DTA_TEXTURE);
+            d3dDevice->SetTextureStageState(0, D3DTSS_ALPHAARG2, D3DTA_DIFFUSE);
+            d3dDevice->SetTextureStageState(0, D3DTSS_ALPHAOP, D3DTOP_MODULATE);
+            d3dDevice->SetTextureStageState(0, D3DTSS_COLORARG1, D3DTA_TEXTURE);
+            d3dDevice->SetTextureStageState(0, D3DTSS_COLORARG2, D3DTA_DIFFUSE);
+            d3dDevice->SetTextureStageState(0, D3DTSS_COLOROP, D3DTOP_MODULATE);
+            d3dDevice->SetTextureStageState(0, D3DTSS_TEXCOORDINDEX, 0);
+
+            FlushAndLock();
+        }
+
         void UIRenderer::Draw(Vector2 p0, Vector2 p1, Vector2 p2, Vector2 p3, const RectangleF& clippingRectangle, Texture2D* texture, Color color)
         {
             const RectangleF bounds = RectangleF(Vector2(Math::Min(p0.X, p1.X, p2.X, p3.X), Math::Min(p0.Y, p1.Y, p2.Y, p3.Y)),

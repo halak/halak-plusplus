@@ -139,6 +139,7 @@
                 class Timeline;
                     class ParallelTimeline;
                     class SubTimeline;
+                class UpdateableGameComponent;
                 HKForwardDeclareSmartPointerClass(UpdateableObject);
                     HKForwardDeclareSmartPointerClass(Timer);
         ////////////////////////////////////////////////////////////////////////////////////////////////////
