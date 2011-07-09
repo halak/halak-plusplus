@@ -9,8 +9,7 @@
 namespace Halak
 {
     UIKeyboardEventDispatcher::UIKeyboardEventDispatcher()
-        : lastTimestamp(0xFFFFFFFF),
-          domain(nullptr),
+        : domain(nullptr),
           device(nullptr),
           lastState(KeyboardState::Empty)
     {
@@ -22,13 +21,11 @@ namespace Halak
 
     void UIKeyboardEventDispatcher::Update(float /*dt*/, uint timestamp)
     {
-        if (lastTimestamp == timestamp ||
-            domain == nullptr ||
+        if (domain == nullptr ||
             device == nullptr ||
-            GetStatus() != ActiveStatus)
+            GetStatus() != ActiveStatus ||
+            Seal(timestamp))
             return;
-
-        lastTimestamp = timestamp;
 
         UIVisual* target = domain->GetFocus();
         if (target == nullptr)
@@ -82,10 +79,5 @@ namespace Halak
             device = value;
             lastState = KeyboardState::Empty;
         }
-    }
-
-    IUpdateable* UIKeyboardEventDispatcher::QueryUpdateableInterface()
-    {
-        return this;
     }
 }

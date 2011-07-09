@@ -21,7 +21,7 @@
 			OutputDirectory="..\..\Libraries"
 			IntermediateDirectory="Intermediate\$(ProjectName).$(ConfigurationName)"
 			ConfigurationType="4"
-			InheritedPropertySheets=".\Halak.Toolkit.Debug.vsprops"
+			InheritedPropertySheets=".\Halak.Toolkit.Debug.vsprops;.\Halak.wxWidgets.Debug.vsprops"
 			CharacterSet="2"
 			>
 			<Tool
@@ -86,7 +86,7 @@
 			OutputDirectory="..\..\Libraries"
 			IntermediateDirectory="Intermediate\$(ProjectName).$(ConfigurationName)"
 			ConfigurationType="4"
-			InheritedPropertySheets=".\Halak.Toolkit.Release.vsprops"
+			InheritedPropertySheets=".\Halak.Toolkit.Release.vsprops;.\Halak.wxWidgets.Release.vsprops"
 			CharacterSet="2"
 			WholeProgramOptimization="1"
 			>

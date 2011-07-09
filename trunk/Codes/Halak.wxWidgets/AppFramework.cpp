@@ -3,7 +3,7 @@
 #include <Halak.wxWidgets/Window.h>
 #include <Halak.wxWidgets/wxMainWindow.h>
 #include <Halak/Clock.h>
-#include <Halak/FreeType.h>
+#include <Halak/FontLibrary.h>
 #include <Halak/GameStructure.h>
 #include <Halak/GameNode.h>
 #include <Halak/GraphicsDevice.h>
@@ -42,8 +42,8 @@ namespace Halak
             graphicsDevice->SetWindow(adaptedMainWindow);
             structure->GetRoot()->AttachChild(graphicsDevice);
 
-            freeType = new FreeType(graphicsDevice);
-            structure->GetRoot()->AttachChild(freeType);
+            fontLibrary = new FontLibrary(graphicsDevice);
+            structure->GetRoot()->AttachChild(fontLibrary);
 
             spriteRenderer = new SpriteRenderer(graphicsDevice);
             structure->GetRoot()->AttachChild(spriteRenderer);
@@ -77,9 +77,9 @@ namespace Halak
             return graphicsDevice;
         }
 
-        FreeType* AppFramework::GetFreeType() const
+        FontLibrary* AppFramework::GetFontLibrary() const
         {
-            return freeType;
+            return fontLibrary;
         }
 
         SpriteRenderer* AppFramework::GetSpriteRenderer() const

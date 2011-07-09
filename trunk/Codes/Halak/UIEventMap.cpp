@@ -251,12 +251,12 @@ namespace Halak
 
             if (eventDispatcher)
             {
-			    for( HandlerDictionary::const_iterator it = appEventHandlers.begin(); it != appEventHandlers.end(); ++it )
-				    eventDispatcher->Subscribe(this, (*it).first);
-			    for( HandlerDictionary::const_iterator it = delayedAppEventHandlers.begin(); it != delayedAppEventHandlers.end(); ++it )
+                for( HandlerDictionary::const_iterator it = appEventHandlers.begin(); it != appEventHandlers.end(); ++it )
+                    eventDispatcher->Subscribe(this, (*it).first);
+                for( HandlerDictionary::const_iterator it = delayedAppEventHandlers.begin(); it != delayedAppEventHandlers.end(); ++it )
                 {
                     if (appEventHandlers.find((*it).first) == appEventHandlers.end())
-				        eventDispatcher->Subscribe(this, (*it).first);
+                        eventDispatcher->Subscribe(this, (*it).first);
                 }
             }
         }

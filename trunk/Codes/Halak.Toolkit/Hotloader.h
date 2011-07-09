@@ -3,8 +3,7 @@
 #define __HALAK_TOOLKIT_HOTLOADER_H__
 
 #   include <Halak.Toolkit/FWD.h>
-#   include <Halak/GameComponent.h>
-#   include <Halak/IUpdateable.h>
+#   include <Halak/UpdateableGameComponent.h>
 #   include <Halak/String.h>
 #   include <set>
 
@@ -15,7 +14,7 @@
             /// Summary :
             ///   Filesystem을 감시하여 특정 File이 바뀌면,
             ///   해당 File을 원본으로 하는 Asset에게 Reload를 통지하는 Component입니다.
-            class Hotloader : public GameComponent, public IUpdateable
+            class Hotloader : public UpdateableGameComponent
             {
                 HKClassFOURCC('H', 'L', 'D', 'R');
                 public:

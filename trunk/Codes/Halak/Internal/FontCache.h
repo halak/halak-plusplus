@@ -78,4 +78,6 @@
         };
     }
 
+#    include <Halak/Internal/FontCache.inl>
+
 #endif

@@ -3,13 +3,12 @@
 #define __HALAK_UIASYNCEVENTQUEUE_H__
 
 #   include <Halak/FWD.h>
-#   include <Halak/GameComponent.h>
-#   include <Halak/IUpdateable.h>
+#   include <Halak/UpdateableGameComponent.h>
 #   include <vector>
 
     namespace Halak
     {
-        class UIAsyncEventQueue : public GameComponent, public IUpdateable
+        class UIAsyncEventQueue : public UpdateableGameComponent
         {
             HKClassFOURCC('U', 'A', 'E', 'Q');
             public:
@@ -25,9 +24,6 @@
                 void NotifyAll();
    
                 void Enqueue(UIEventHandler* item, const UIEventArgs& args);
-
-                inline Timeline* GetTimeline() const;
-                void SetTimeline(Timeline* value);
 
             private:
                 Timeline* timeline;

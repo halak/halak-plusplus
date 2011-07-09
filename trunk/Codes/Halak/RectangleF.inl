@@ -48,9 +48,19 @@ namespace Halak
         return Y + Height;
     }
 
-    Vector2 RectangleF::GetCenter() const
+    float RectangleF::GetCenter() const
     {
-        return Vector2(X + Width / 2.0f, Y + Height / 2.0f);
+        return X + Width * 0.5f;
+    }
+
+    float RectangleF::GetMiddle() const
+    {
+        return Y + Height * 0.5f;
+    }
+
+    Vector2 RectangleF::GetCenterPoint() const
+    {
+        return Vector2(GetCenter(), GetMiddle());
     }
 
     void RectangleF::SetLeft(float value)

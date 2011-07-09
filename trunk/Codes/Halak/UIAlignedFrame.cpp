@@ -42,6 +42,54 @@ namespace Halak
     {
     }
 
+    bool UIAlignedFrame::Setup(const RectangleF& bounds, const RectangleF& referenceBounds)
+    {
+        Vector2 offset = Vector2::Zero;
+
+        switch (GetAlign())
+        {
+            case LeftTop:
+            case LeftBottom:
+            case LeftMiddle:
+                offset.X = bounds.GetLeft() - referenceBounds.GetLeft();
+                break;
+            case RightTop:
+            case RightBottom:
+            case RightMiddle:
+                offset.X = referenceBounds.GetRight() - bounds.GetRight();
+                break;
+            case CenterTop:
+            case CenterBottom:
+            case Center:
+                offset.X = bounds.GetCenter() - referenceBounds.GetCenter();
+                break;
+        }
+
+        switch (GetAlign())
+        {
+            case LeftTop:
+            case RightTop:
+            case CenterTop:
+                offset.Y = bounds.GetTop() - referenceBounds.GetTop();
+                break;
+            case LeftBottom:
+            case RightBottom:
+            case CenterBottom:
+                offset.Y = referenceBounds.GetBottom() - bounds.GetBottom();
+                break;
+            case LeftMiddle:
+            case RightMiddle:
+            case Center:
+                offset.Y = bounds.GetMiddle() - referenceBounds.GetMiddle();
+                break;
+        }
+
+        SetOffset(offset);
+        SetSize(Vector2(bounds.Width, bounds.Height));
+
+        return true;
+    }
+
     RectangleF UIAlignedFrame::ComputeBounds(UIVisualVisitor& visitor, Vector2 desiredSize)
     {
         const RectangleF referenceBounds = visitor.GetCurrentBounds();
@@ -53,7 +101,7 @@ namespace Halak
             if (desiredSize.Y >= 0.0f)
                 bounds.Height = desiredSize.Y;
 
-            switch (align)
+            switch (GetAlign())
             {
                 case LeftTop:
                 case LeftBottom:
@@ -72,7 +120,7 @@ namespace Halak
                     break;
             }
 
-            switch (align)
+            switch (GetAlign())
             {
                 case LeftTop:
                 case RightTop:

@@ -122,6 +122,7 @@
 #           include <Halak/ParallelTimeline.h>
 #           include <Halak/SubTimeline.h>
 #           include <Halak/Timeline.h>
+#           include <Halak/UpdateableGameComponent.h>
 #           include <Halak/UpdateableObject.h>
 #               include <Halak/Timer.h>
     ////////////////////////////////////////////////////////////////////////////////////////////////////

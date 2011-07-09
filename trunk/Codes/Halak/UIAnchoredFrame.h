@@ -13,6 +13,7 @@
                 UIAnchoredFrame();
                 virtual ~UIAnchoredFrame();
 
+                virtual bool Setup(const RectangleF& bounds, const RectangleF& referenceBounds);
                 virtual RectangleF ComputeBounds(UIVisualVisitor& visitor, Vector2 desiredSize);
 
             private:

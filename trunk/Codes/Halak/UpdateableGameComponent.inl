@@ -1,11 +1,11 @@
 namespace Halak
 {
-    Timeline* UpdateableObject::GetTimeline() const
+    Timeline* UpdateableGameComponent::GetTimeline() const
     {
         return timeline;
     }
 
-    bool UpdateableObject::Seal(uint timestamp)
+    bool UpdateableGameComponent::Seal(uint timestamp)
     {
         if (lastTimestamp != timestamp)
         {

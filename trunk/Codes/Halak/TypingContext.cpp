@@ -10,7 +10,7 @@
 
 namespace Halak
 {
-    TypingContext::TypingContext(FontPtr font, const String& text, float boundary)
+    TypingContext::TypingContext(Font* font, const String& text, float boundary)
         : fontString(new FontString(font, text)),
           fontStringLocalAllocated(true),
           boundary(boundary),

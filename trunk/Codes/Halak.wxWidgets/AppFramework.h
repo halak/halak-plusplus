@@ -18,7 +18,7 @@
 
                     GameStructure*  GetStructure() const;
                     GraphicsDevice* GetGraphicsDevice() const;
-                    FreeType*       GetFreeType() const;
+                    FontLibrary*    GetFontLibrary() const;
                     SpriteRenderer* GetSpriteRenderer() const;
                     Timeline*       GetMainTimeline() const;
 
@@ -39,7 +39,7 @@
 
                     GameStructure*  structure;
                     GraphicsDevice* graphicsDevice;
-                    FreeType*       freeType;
+                    FontLibrary*    fontLibrary;
                     SpriteRenderer* spriteRenderer;
                     Timeline*       mainTimeline;
 

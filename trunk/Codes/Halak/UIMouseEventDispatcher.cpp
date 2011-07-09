@@ -11,8 +11,7 @@
 namespace Halak
 {
     UIMouseEventDispatcher::UIMouseEventDispatcher()
-        : lastTimestamp(0xFFFFFFFF),
-          domain(nullptr),
+        : domain(nullptr),
           device(nullptr),
           renderer(nullptr),
           capturedVisual(nullptr),
@@ -27,14 +26,12 @@ namespace Halak
 
     void UIMouseEventDispatcher::Update(float /*dt*/, uint timestamp)
     {
-        if (lastTimestamp == timestamp ||
-            domain == nullptr ||
+        if (domain == nullptr ||
             device == nullptr ||
             renderer == nullptr ||
-            GetStatus() != ActiveStatus)
+            GetStatus() != ActiveStatus ||
+            Seal(timestamp))
             return;
-
-        lastTimestamp = timestamp;
 
         UIWindow* rootWindow = domain->GetRoot();
         if (rootWindow == nullptr)
@@ -186,10 +183,5 @@ namespace Halak
             lastTargetVisual.Reset();
             lastMouseState = MouseState::Empty;
         }
-    }
-
-    IUpdateable* UIMouseEventDispatcher::QueryUpdateableInterface()
-    {
-        return this;
     }
 }

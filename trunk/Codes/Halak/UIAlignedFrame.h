@@ -30,6 +30,7 @@
                 UIAlignedFrame(Alignment align, Vector2 offset, Vector2 size);
                 virtual ~UIAlignedFrame();
 
+                virtual bool Setup(const RectangleF& bounds, const RectangleF& referenceBounds);
                 virtual RectangleF ComputeBounds(UIVisualVisitor& visitor, Vector2 desiredSize);
 
                 virtual void Move(Vector2 displacement);

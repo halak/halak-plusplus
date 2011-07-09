@@ -308,6 +308,18 @@
 					>
 				</File>
 				<File
+					RelativePath="..\..\Codes\Halak\UpdateableGameComponent.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\UpdateableGameComponent.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\UpdateableGameComponent.inl"
+					>
+				</File>
+				<File
 					RelativePath="..\..\Codes\Halak\UpdateableObject.cpp"
 					>
 				</File>
@@ -1108,6 +1120,42 @@
 					>
 				</File>
 				<File
+					RelativePath="..\..\Codes\Halak\PipeClientStream.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\PipeClientStream.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\PipeClientStream.inl"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\PipeServerStream.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\PipeServerStream.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\PipeServerStream.inl"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\PipeStream.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\PipeStream.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\PipeStream.inl"
+					>
+				</File>
+				<File
 					RelativePath="..\..\Codes\Halak\Stream.cpp"
 					>
 				</File>
@@ -1697,6 +1745,10 @@
 				</File>
 				<File
 					RelativePath="..\..\Codes\Halak\FontString.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\Codes\Halak\FontString.inl"
 					>
 				</File>
 				<File

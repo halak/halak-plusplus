@@ -14,6 +14,7 @@
                 UIFrame();
                 virtual ~UIFrame();
 
+                virtual bool Setup(const RectangleF& bounds, const RectangleF& referenceBounds) = 0;
                 virtual RectangleF ComputeBounds(UIVisualVisitor& visitor, Vector2 desiredSize) = 0;
 
                 virtual void Move(Vector2 displacement);

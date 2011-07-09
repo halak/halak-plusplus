@@ -23,7 +23,9 @@
             inline int GetTop() const;
             inline int GetRight() const;
             inline int GetBottom() const;
-            inline Point GetCenter() const;
+            inline int GetCenter() const;
+            inline int GetMiddle() const;
+            inline Point GetCenterPoint() const;
 
             inline void SetLeft(int value);
             inline void SetTop(int value);

@@ -5,12 +5,16 @@
 #   include <Halak/FWD.h>
 #   include <Halak/Asset.h>
 #   include <Halak/Color.h>
+#   include <map>
 #   include <vector>
 
     namespace Halak
     {
         class Font : public Asset
         {
+            public:
+                typedef std::map<uint32, const Glyph*> GlyphDictionary;
+
             public:
                 Font();
                 Font(FontLibrary* library);
@@ -86,6 +90,10 @@
 
                 inline uint GetRevision() const;
 
+                const GlyphDictionary& GetCachedRegularGlyphs() const;
+                const GlyphDictionary& GetCachedStrokedGlyphs() const;
+                const GlyphDictionary& GetCachedGlowGlyphs() const;
+
             private:
                 FontCache* GetCache() const;
 
@@ -100,6 +108,8 @@
                 FontCacheParameters* parametersPointer;
                 FontCacheParameters& parameters;
                 mutable FontCachePtr cache;
+
+                static const GlyphDictionary EmptyGlyphs;
 
             private:
                 Font& operator = (const Font&);

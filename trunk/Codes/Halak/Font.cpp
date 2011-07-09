@@ -13,6 +13,8 @@
 
 namespace Halak
 {
+    const Font::GlyphDictionary Font::EmptyGlyphs;
+
     Font::Font()
         : library(nullptr),
           revision(0),
@@ -373,6 +375,33 @@ namespace Halak
     float Font::GetLineHeight() const
     {
         return GetCache()->GetLineHeight();
+    }
+
+    const Font::GlyphDictionary& Font::GetCachedRegularGlyphs() const
+    {
+        FontCache* c = GetCache();
+        if (c && c->GetRegularGlyphTable())
+            return c->GetRegularGlyphTable()->GetGlyphs();
+        else
+            return EmptyGlyphs;
+    }
+
+    const Font::GlyphDictionary& Font::GetCachedStrokedGlyphs() const
+    {
+        FontCache* c = GetCache();
+        if (c && c->GetStrokedGlyphTable())
+            return c->GetStrokedGlyphTable()->GetGlyphs();
+        else
+            return EmptyGlyphs;
+    }
+
+    const Font::GlyphDictionary& Font::GetCachedGlowGlyphs() const
+    {
+        FontCache* c = GetCache();
+        if (c && c->GetGlowGlyphTable())
+            return c->GetGlowGlyphTable()->GetGlyphs();
+        else
+            return EmptyGlyphs;
     }
 
     FontCache* Font::GetCache() const

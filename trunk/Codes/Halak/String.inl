@@ -47,32 +47,32 @@ namespace Halak
 
     int String::ReverseFind(char c) const
     {
-        return ReverseFind(c, buffer->length - 1);
+        return buffer->length > 0 ? ReverseFind(c, buffer->length - 1) : -1;
     }
 
     int String::ReverseFind(const char* s) const
     {
-        return ReverseFind(s, buffer->length - 1);
+        return buffer->length > 0 ? ReverseFind(s, buffer->length - 1) : -1;
     }
 
     int String::ReverseFind(const String& s) const
     {
-        return ReverseFind(s, buffer->length - 1);
+        return buffer->length > 0 ? ReverseFind(s, buffer->length - 1) : -1;
     }
 
     int String::ReverseFindIgnoreCase(char c) const
     {
-        return ReverseFindIgnoreCase(c, buffer->length - 1);
+        return buffer->length > 0 ? ReverseFindIgnoreCase(c, buffer->length - 1) : -1;
     }
 
     int String::ReverseFindIgnoreCase(const char* s) const
     {
-        return ReverseFindIgnoreCase(s, buffer->length - 1);
+        return buffer->length > 0 ? ReverseFindIgnoreCase(s, buffer->length - 1) : -1;
     }
 
     int String::ReverseFindIgnoreCase(const String& s) const
     {
-        return ReverseFindIgnoreCase(s, buffer->length - 1);
+        return buffer->length > 0 ? ReverseFindIgnoreCase(s, buffer->length - 1) : -1;
     }
 
     const char* String::CStr() const

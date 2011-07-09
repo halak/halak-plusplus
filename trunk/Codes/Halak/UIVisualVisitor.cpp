@@ -49,6 +49,12 @@ namespace Halak
 
     Vector2 UIVisualVisitor::Project(Vector2 point) const
     {
+        //D3DXVECTOR3 d3dPoint = D3DXVECTOR3(point.X, point.Y, 0.0f);
+
+        //D3DXVec3Project(d3dPoints, sizeof(D3DXVECTOR3), nullptr, (D3DXMATRIX*)&projectionTransform, (D3DXMATRIX*)&viewTransform, (D3DXMATRIX*)&currentTransform, 4);
+
+        //inOutPoint0 = Vector2(d3dPoints[0].x, d3dPoints[0].y);
+
         return point;
     }
 

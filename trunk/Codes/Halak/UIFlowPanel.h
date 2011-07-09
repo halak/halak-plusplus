@@ -41,6 +41,7 @@
                         ArrangedFrame(Vector2 offset, Vector2 size, bool isNewLine);
                         virtual ~ArrangedFrame();
 
+                        virtual bool Setup(const RectangleF& bounds, const RectangleF& referenceBounds);
                         virtual RectangleF ComputeBounds(UIVisualVisitor& visitor, Vector2 desiredSize);
                 };
 
